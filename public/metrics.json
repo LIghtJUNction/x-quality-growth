@@ -175,6 +175,16 @@
       "edit_verified_at": "2026-10-07T23:42:00.225Z",
       "edit_display_time": "7:41 AM · Oct 8, 2026 (Asia/Taipei)",
       "note": "Latest version reopened and full body verified. Exact edit timestamp not retained. View count unavailable on this initial AX capture. Versions are one original action."
+    },
+    {
+      "kind": "workflow_cost_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2107980634279096332",
+      "observed_at": "2026-10-07T23:45:44.536Z",
+      "views": null,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -382,7 +392,7 @@
       "baseline_observed_at": "2026-10-07T23:23:55.529Z",
       "confirmed_actions": {
         "original_posts": 1,
-        "substantive_replies": 2
+        "substantive_replies": 3
       },
       "planned_age_minutes": 60,
       "next_observation_due_at": "2026-10-08T00:26:10.000Z",
@@ -405,5 +415,17 @@
     "eta": null,
     "status": "active",
     "meaning": "Aspirational actual-follower target; quality acquisition measured separately, not a growth guarantee"
-  }
+  },
+  "external_feedback_observations": [
+    {
+      "url": "https://x.com/mydream2025/status/2107977259516858663",
+      "kind": "substantive_topic_reply",
+      "source": "X notification visibly replying to measured account",
+      "observed_at": null,
+      "recorded_at": "2026-10-07T23:52:33.644469+00:00",
+      "observed_before": "2026-10-07T23:48:15Z",
+      "parent_url": null,
+      "note": "The author described a specific video-labeling issue. Exact collection timestamp and parent chain were not retained. Parent verification and follow-up remain pending after browser attachment failures; not evidence of new follower acquisition."
+    }
+  ]
 }
