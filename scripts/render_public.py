@@ -112,6 +112,10 @@ def block(data, en=False):
         lines += [f'| GitHub stars / forks | {stats["stars"]} / {stats["forks"]} · {stats["observed_at"]} |']
     launch = data.get('launch_post')
     lines += ['', f'[RISE launch post]({launch})' if launch else ('Launch post will be linked after publication.' if en else '技能介绍帖发布后补入永久链接。')]
+    updates = data.get('progress_updates', [])
+    if updates:
+        label = 'Latest progress in the pinned thread' if en else '置顶帖下的最新进展'
+        lines += ['', f'[{label}]({updates[-1]["url"]})']
     return '\n'.join(lines)
 
 

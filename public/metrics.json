@@ -92,9 +92,23 @@
   "confounders": [
     "Other account activity was visible during the session",
     "First measurements predate the completed skill",
-    "No control group or per-post follower attribution"
+    "No control group or per-post follower attribution",
+    "Public engagement counters can include activity by the account owner; they are not independent audience endorsements."
   ],
   "attribution": "Observed account changes, not demonstrated causal effects of RISE",
   "x_update_mode": "Authorized browser observations; no unattended X scheduler has been configured",
-  "github_update_mode": "GitHub Actions every six hours and workflow_dispatch; verify first successful run"
+  "github_update_mode": "GitHub Actions every six hours and workflow_dispatch; verify first successful run",
+  "progress_updates": [
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107944820950143470",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "kind": "measured-progress",
+      "reported_profile_observation": "2026-10-07T21:20:36.728Z",
+      "changes": [
+        "Latest total follower observation 221",
+        "Redesigned animated SVG",
+        "Verified first GitHub metrics workflow"
+      ]
+    }
+  ]
 }

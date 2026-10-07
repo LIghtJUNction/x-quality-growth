@@ -29,6 +29,8 @@ The X launch post links this repository. This README links that post and display
 | GitHub stars / forks | 1 / 0 · 2026-10-07T21:22:27.159136+00:00 |
 
 [RISE launch post](https://x.com/LIghtJUNction_x/status/2107943767382847844)
+
+[Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2107944820950143470)
 <!-- RISE:METRICS:END -->
 
 Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. Quality classification remains incomplete. We keep those limitations visible.
@@ -93,3 +95,5 @@ See [contribution workflow](references/contributing.md). The default cadence is 
 Maintain the code in the source checkout. Private account lists stay in ignored `runs/`; only reviewed aggregate observations enter this public repository. Re-render both language tables and SVGs after a real X measurement. Re-read changed upstream code before updating algorithm conclusions.
 
 MIT for original code and documentation. The referenced X algorithm is Apache-2.0; it is not bundled here. No controlled growth experiment or proven growth rate is claimed.
+
+Public engagement counters may include the account owner’s likes or progress replies; self-engagement is not independent audience endorsement.
