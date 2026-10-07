@@ -105,6 +105,83 @@ class MeasurementTests(unittest.TestCase):
         del r['quality']
         self.assertEqual(compare(snap([]), snap([r], 1))['unknown_quality_arrivals'], 1)
 
+    def test_unknown_quality_is_labelled_as_lower_bound(self):
+        r = compare(snap([]), snap([row('1', 'new')], 1))
+        self.assertEqual(r['quality_share'], 0)
+        self.assertEqual(r['quality_share_status'], 'lower_bound')
+        self.assertFalse(r['quality_classification_complete'])
+        self.assertEqual(r['quality_possible_range'], [0, 1])
+
+    def test_unknown_badge_is_not_upgrade_or_downgrade(self):
+        a = snap([row('1', 'one', 'unknown'), row('2', 'two')])
+        b = snap([row('1', 'one'), row('2', 'two', 'unknown')], 1)
+        r = compare(a, b)
+        self.assertEqual(r['existing_became_blue'], 0)
+        self.assertEqual(r['existing_no_longer_blue'], 0)
+        self.assertEqual(r['unresolved_existing_badge_transitions'], 2)
+        self.assertIsNone(r['blue_membership_net'])
+
+    def test_permalink_aliases_measure_same_post(self):
+        a, b = snap([]), snap([], 1)
+        a['posts']['https://twitter.com/owner/status/123?s=20'] = {'likes': 2}
+        url = 'https://x.com/i/web/status/123'
+        b['posts'][url] = {'likes': 5}
+        r = compare(a, b)['post_feedback']
+        self.assertEqual(len(r), 1)
+        self.assertEqual(r[url]['likes']['delta'], 3)
+
+    def test_duplicate_aliases_and_nonpost_urls_are_rejected(self):
+        for url in ('https://x.com/owner', 'https://x.com/owner/status/abc',
+                    'https://x.com.evil.test/owner/status/123'):
+            b = snap([], 1)
+            b['posts'][url] = {'likes': 2}
+            with self.assertRaisesRegex(ValueError, 'status URL'):
+                compare(snap([]), b)
+        b = snap([], 1)
+        b['posts'] = {'https://x.com/owner/status/123': {'likes': 2},
+                      'https://twitter.com/renamed/status/123': {'likes': 3}}
+        with self.assertRaisesRegex(ValueError, 'duplicate post'):
+            compare(snap([]), b)
+
+    def test_stale_post_observation_does_not_invent_feedback(self):
+        a, b = snap([]), snap([], 1)
+        url = 'https://x.com/owner/status/123'
+        a['posts'][url] = {'likes': 1}
+        b['posts'][url] = {'likes': 3, 'observed_at': a['observed_at']}
+        r = compare(a, b)['post_feedback'][url]
+        self.assertIsNone(r['likes']['delta'])
+        self.assertIn('time did not advance', r['likes']['reason'])
+        self.assertEqual(r['observation_window']['to'], a['observed_at'])
+
+    def test_post_time_window_is_preserved_and_future_time_rejected(self):
+        a, b = snap([]), snap([], 2)
+        url = 'https://x.com/owner/status/123'
+        a['posts'][url] = {'likes': 1}
+        b['posts'][url] = {'likes': 3, 'observed_at': '2026-10-08T01:00:00+08:00'}
+        p = compare(a, b)['post_feedback'][url]
+        self.assertEqual(p['likes']['delta'], 2)
+        self.assertEqual(p['observation_window']['to'], b['posts'][url]['observed_at'])
+        b['posts'][url]['observed_at'] = '2026-10-08T03:00:00+08:00'
+        with self.assertRaisesRegex(ValueError, 'later than snapshot'):
+            compare(a, b)
+
+    def test_overlapping_collection_windows_are_unconfirmed(self):
+        a, b = snap([]), snap([row('1', 'new')], 2)
+        a['observed_at'] = '2026-10-08T01:00:00+08:00'
+        b['collection_started_at'] = '2026-10-08T00:30:00+08:00'
+        r = compare(a, b)
+        self.assertIsNone(r['confirmed_new_blue'])
+        self.assertEqual(r['observed_blue_arrivals'], 1)
+        self.assertTrue(any('windows overlap' in warning for warning in r['warnings']))
+        b['collection_started_at'] = '2026-10-08T03:00:00+08:00'
+        with self.assertRaisesRegex(ValueError, 'collection_started_at'):
+            compare(a, b)
+
+    def test_noncanonical_ids_are_rejected(self):
+        for uid in ('0', '01', '١٢٣'):
+            with self.assertRaisesRegex(ValueError, 'canonical positive'):
+                compare(snap([]), snap([row(uid, 'new')], 1))
+
     def test_rubric_changes_are_not_comparable(self):
         a, b = snap([]), snap([], 1)
         b['quality_rubric'] = 'changed-after-results'

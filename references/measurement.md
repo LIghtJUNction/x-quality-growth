@@ -45,15 +45,22 @@ scope 可为 `all_followers` 或 `verified_followers`。complete=true 必须有�
 
 时区明确、账号一致、after 时间较晚。每个 id/handle 唯一，不能把同一账号多次加载计成多个粉丝。只看蓝 V 列表与全粉丝列表不可混比。
 
+分页采集记录 `collection_started_at`（开始时间）和 `observed_at`（结束时间），均须带时区；开始不能晚于结束。如果后轮采集开始早于前轮结束，两轮窗口重叠，工具只报告观察变化，不输出确认新增。没有开始时间时沿用单时点快照约定，不代表工具已核实采集全过程。ID 须为无前导零的正整数 ASCII 字符串，避免 `123` 和 `0123` 被当成不同身份。
+
+每个帖子的计数可单独附 `observed_at`，不能晚于快照结束时间；省略时按快照结束时间计算。采集复用旧计数必须保留其真实采集时间。X、Twitter 域名、用户名变更和查询参数不改变 status ID；工具按 status ID 对齐帖子。同一快照中重复放入同一帖子的不同链接会被拒绝，不能重复累加。
+
 ## 输出解释
 
 - confirmed_new_blue：在两次完整全粉丝、全稳定 ID 快照中，新增身份且 after 为 blue 的人数。
 - observed_blue_arrivals：新观察到的蓝 V 身份数。部分列表、认证列表或 handle 匹配时只用这项，不声称确认新增。
 - existing_became_blue：同一已存在粉丝从非 blue 变 blue，单列而不算新增粉丝。
+- badge=unknown 不是明确非蓝 V；unknown→blue 或 blue→unknown 记为 unresolved_existing_badge_transitions，不当作新认证或取消认证。只要任一快照有未知认证状态，blue_membership_net 为 null，避免把漏读徽章当作蓝 V 总量变化。
 - observed_blue_departures：前轮 blue 后轮名单没出现；部分列表不证明实际取关。
 - quality_share：新增/观察到的新 blue 中 high/N；unknown 留分母，另输出可能区间 high/N 至 (high+unknown)/N。N=0 为 null。未知者不能伪装成“已确认低质”。
+- quality_share_status 为 lower_bound 表示仍有未知者，quality_share 只是已知高质占总数的下界；全部判定后为 complete，没有新增时为 undefined。quality_classification_complete 单独记录是否已判定完毕，不用一个 0% 隐藏待判定情况。
 - quality_share_wilson95：对已确认新增、且全部已完成质量判定的样本给 Wilson 区间，反映小样本不确定性；不是因果置信度。
 - 同一帖子两次公开计数相减；计数不可见、之前没采集、计数下降或帖子缺失时增量为 null，保留原因。新帖从发布时确认的 0 计数开始测，不假造之前的基线。
+- post_feedback 中的 observation_window 保留该帖子计数的实际起止时间。后次计数采集时间没有推进时，即使数值变大也不输出增量，需要先核对记录；各帖子窗口可能不同，不能直接说所有增量来自同一轮行动。
 - 实验期存在其他人/自动任务运营时记录混杂因素。仅看粉丝先后变化不能给单帖因果归因。
 
 实际日志包括时间、action type、target URL、策略版本、变量、attempted/confirmed/failed、证据与固定窗口。发布需记录 permalink；关注需重新打开检查；转贴/点赞需检查持久状态。初始界面按钮不等于保存。

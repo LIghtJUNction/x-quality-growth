@@ -10,6 +10,21 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def github_observation(observed, repository, observed_at):
+    """Validate the API identity before publishing its counters."""
+    if not isinstance(observed, dict):
+        raise ValueError('GitHub response must be an object')
+    expected_url = 'https://github.com/' + repository
+    if (str(observed.get('full_name', '')).lower() != repository.lower()
+            or str(observed.get('html_url', '')).lower() != expected_url.lower()):
+        raise ValueError('GitHub response does not match requested repository')
+    for key in ('stargazers_count', 'forks_count'):
+        if type(observed.get(key)) is not int or observed[key] < 0:
+            raise ValueError('GitHub counters must be nonnegative integers')
+    return {'stars': observed['stargazers_count'], 'forks': observed['forks_count'],
+            'observed_at': observed_at, 'url': observed['html_url']}
+
+
 def main():
     repository = os.getenv('GITHUB_REPOSITORY', 'LIghtJUNction/x-quality-growth')
     if not re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', repository):
@@ -22,8 +37,7 @@ def main():
         observed = json.load(response)
     path = ROOT/'public/metrics.json'
     data = json.loads(path.read_text())
-    data['github'] = {'stars': observed['stargazers_count'], 'forks': observed['forks_count'],
-                      'observed_at': datetime.now(timezone.utc).isoformat(), 'url': observed['html_url']}
+    data['github'] = github_observation(observed, repository, datetime.now(timezone.utc).isoformat())
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n')
     print('Updated public GitHub counters; X observations and timestamps were preserved.')
 

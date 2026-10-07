@@ -21,12 +21,17 @@ The X launch post links this repository. This README links that post and display
 <!-- RISE:METRICS:START -->
 | Actual observation | Value |
 | --- | --- |
-| Total followers | 175 → 221 (+46) |
+| Total followers | 175 → 227 (+52) |
 | Newly observed blue accounts | 12; confirmed new followers: unknown |
 | Quality classification | 0 high / 2 not matched / 10 unclassified |
 | High-quality share | Pending classification; unknown is not zero |
-| Latest profile observation | 2026-10-07T21:20:36.728Z |
+| Latest profile observation | 2026-10-07T21:44:37.232Z |
+| Observed-cohort quality lower / possible upper bound | 0.0%–83.3% |
+| First profile observation | Timestamp unavailable |
+| Latest blue-list observation (separate window) | 2026-10-07T21:04:50.311Z |
 | GitHub stars / forks | 1 / 0 · 2026-10-07T21:22:27.159136+00:00 |
+
+Bounds describe the observed blue cohort, not confirmed new followers. Badge upgrades and handle changes remain possible. Public post counters may include self-interactions.
 
 [RISE launch post](https://x.com/LIghtJUNction_x/status/2107943767382847844)
 
@@ -44,6 +49,7 @@ Actual published examples:
 - [Initial Codex prompt experiment](https://x.com/LIghtJUNction_x/status/2107934424151335154)
 - [Technical reply: what git diff does not show](https://x.com/LIghtJUNction_x/status/2107936031907737758)
 - [Creator discussion: measuring follower quality](https://x.com/LIghtJUNction_x/status/2107936390185193718)
+- [Responding to an AI video creator: voice consistency tests](https://x.com/LIghtJUNction_x/status/2107947524829127073)
 
 The pinned launch post is the stable entry point: edit it when new evidence or improvements exist, or append a timestamped progress reply when editing is unavailable.
 
@@ -78,6 +84,9 @@ python3 scripts/measure.py examples/before.json examples/after.json
 python3 -m unittest discover -s tests -v
 python3 scripts/audit_source.py --source /path/to/x-algorithm --output references/upstream.json
 python3 scripts/render_public.py
+python3 scripts/diagnose_growth.py
+python3 scripts/plan_update.py plan --language en --change 'An actual completed improvement'
+python3 scripts/contribute.py --sync  # inspect; authorized iteration uses --apply --sync
 ```
 
 [Skill entry point](SKILL.md) · [Pinned algorithm evidence](references/algorithm.md) · [Measurement rules](references/measurement.md) · [Source manifest](references/upstream.json)
@@ -88,12 +97,22 @@ Weights multiply predicted values, not counts. No "one reply equals ten likes" a
 
 With accessible GitHub MCP or authenticated `gh`, the skill checks and creates a personal fork, iterates there and syncs upstream. At the review cadence, submit or update a PR only for actual improvements. Reuse forks, branches and existing PRs; preserve unrelated changes. The upstream author works directly on the source repository.
 
+Run `python3 scripts/contribute.py --apply --sync` for verified fork creation/reuse and conservative local synchronization. The upstream maintainer skips a self-fork; unrelated remotes and uncommitted work remain preserved.
+
 See [contribution workflow](references/contributing.md). The default cadence is a weekly review; configure it only when a scheduler is available. No empty PRs or fictional background schedules.
 
 ## Keep the evidence current
+
+The official algorithm is reviewed every Monday at 03:43 UTC. Unchanged revisions create no empty PR; new revisions generate a pending report and attempt a draft PR in the current repository. Semantic review precedes updating approved evidence. [Weekly source review and limitations](references/upstream-review.md). This does not schedule cross-fork contributions or X browser operations.
 
 Maintain the code in the source checkout. Private account lists stay in ignored `runs/`; only reviewed aggregate observations enter this public repository. Re-render both language tables and SVGs after a real X measurement. Re-read changed upstream code before updating algorithm conclusions.
 
 MIT for original code and documentation. The referenced X algorithm is Apache-2.0; it is not bundled here. No controlled growth experiment or proven growth rate is claimed.
 
 Public engagement counters may include the account owner’s likes or progress replies; self-engagement is not independent audience endorsement.
+
+## Diagnosing slower growth
+
+Check confirmed actions, exposure, substantive replies, followers and quality in that order. Rates use exactly timed observations and describe net total-follower change. They do not establish new-blue-follower growth or causality. Unmatched windows and concurrent activity prevent declaring a strategy winner or platform throttling.
+
+[Growth diagnostics](references/growth-diagnostics.md) · [Pinned-thread update planning](references/pinned-updates.md)

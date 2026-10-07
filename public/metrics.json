@@ -19,6 +19,16 @@
     {
       "total": 221,
       "observed_at": "2026-10-07T21:20:36.728Z"
+    },
+    {
+      "total": 225,
+      "observed_at": "2026-10-07T21:28:45.242Z",
+      "note": "Observed on X profile; short intervals are not matched-window causal experiments"
+    },
+    {
+      "total": 227,
+      "observed_at": "2026-10-07T21:44:37.232Z",
+      "note": "Profile observed during reach diagnosis; concurrent account activity remains a confounder"
     }
   ],
   "blue_observations": [
@@ -74,12 +84,22 @@
     {
       "kind": "launch",
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
-      "views": 6,
-      "replies": 1,
+      "views": 161,
+      "replies": 2,
       "likes": 1,
-      "reposts": 0,
-      "bookmarks": 0,
-      "observed_at": "2026-10-07T21:21:10.765Z"
+      "reposts": 1,
+      "bookmarks": null,
+      "observed_at": "2026-10-07T21:44:37.232Z"
+    },
+    {
+      "kind": "voice_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2107947524829127073",
+      "observed_at": null,
+      "views": null,
+      "replies": null,
+      "likes": null,
+      "reposts": null,
+      "bookmarks": null
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -109,6 +129,40 @@
         "Redesigned animated SVG",
         "Verified first GitHub metrics workflow"
       ]
+    }
+  ],
+  "post_observations": [
+    {
+      "kind": "launch",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "views": 6,
+      "replies": 1,
+      "likes": 1,
+      "reposts": 0,
+      "bookmarks": 0,
+      "observed_at": "2026-10-07T21:21:10.765Z"
+    },
+    {
+      "kind": "launch",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "views": 17,
+      "replies": 2,
+      "likes": 1,
+      "reposts": null,
+      "bookmarks": null,
+      "observed_at": "2026-10-07T21:28:16.100Z"
+    }
+  ],
+  "analytics_observations": [
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "observed_at": "2026-10-07T21:44:37.232Z",
+      "impressions": 153,
+      "engagements": 6,
+      "detail_expands": 2,
+      "profile_visits": 0,
+      "link_clicks": 1,
+      "note": "X owner analytics at collection time; public views showed 161. Different UI surfaces can update asynchronously; do not silently equate metrics."
     }
   ]
 }

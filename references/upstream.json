@@ -75,6 +75,16 @@
       "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/scoring/value_model.rs"
     },
     {
+      "path": "vm-ranker/scoring/mod.rs",
+      "sha256": "1442663a32ebf044bceaaf52a192dc6db2ce82130da7abbecf80cf95751987b6",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/scoring/mod.rs"
+    },
+    {
+      "path": "home-mixer/scorers/vm_ranker_request.rs",
+      "sha256": "d99909d4fa513e7fe03c3b16f8302d66d6961846f2d6ba65299a596d11343d89",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/scorers/vm_ranker_request.rs"
+    },
+    {
       "path": "docs/BIDIRECTIONAL_BOOST_CHANGE.md",
       "sha256": "b7e0a74cb4c3149c4c9b5bea9bc4435abb8faec5bf2a63d5be965f63bc65c131",
       "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/docs/BIDIRECTIONAL_BOOST_CHANGE.md"
@@ -314,10 +324,30 @@
         "feature_switch": "rust_home_mixer_oon_weight_factor",
         "line": 205
       },
+      "NewUserAgeThresholdSecs": {
+        "default": 0,
+        "feature_switch": "rust_home_mixer_new_user_age_threshold_secs",
+        "line": 211
+      },
+      "NewUserOonWeightFactor": {
+        "default": 1e-05,
+        "feature_switch": "rust_home_mixer_new_user_oon_weight_factor",
+        "line": 217
+      },
       "ComputeValueModel": {
         "default": false,
         "feature_switch": "rust_home_mixer_vm_ranker_compute_value_model",
         "line": 223
+      }
+    }
+  },
+  "constants": {
+    "home-mixer/params/config.rs": {
+      "MAX_POST_AGE": {
+        "value": 172800,
+        "unit": "seconds",
+        "expression": "48 * 60 * 60",
+        "line": 36
       }
     }
   }

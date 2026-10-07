@@ -6,6 +6,7 @@ import math
 import re
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlsplit
 
 BADGES = {'blue', 'gold', 'gray', 'none', 'unknown'}
 COUNTERS = ('replies', 'likes', 'reposts', 'bookmarks', 'views')
@@ -24,12 +25,29 @@ def identity(row):
     return 'id:' + row['id'] if row.get('id') else 'handle:' + row['handle'].lower()
 
 
+def post_identity(url):
+    """A permalink alias is not a different post; never match by display text."""
+    if not isinstance(url, str):
+        raise ValueError('post key must be an X status URL')
+    parsed = urlsplit(url)
+    match = re.fullmatch(r'/(?:[A-Za-z0-9_]{1,15}|i/web)/status/([1-9][0-9]*)/?', parsed.path)
+    if parsed.scheme != 'https' or parsed.netloc not in ('x.com', 'twitter.com') or not match:
+        raise ValueError('post key must be an X status URL')
+    return match.group(1)
+
+
+def post_observations(snapshot):
+    return {post_identity(url): (url, metrics) for url, metrics in snapshot.get('posts', {}).items()}
+
+
 def validate(snapshot):
     if not isinstance(snapshot, dict):
         raise ValueError('snapshot must be an object')
     if not isinstance(snapshot.get('account'), str) or not snapshot['account']:
         raise ValueError('account required')
     timestamp(snapshot['observed_at'])
+    if 'collection_started_at' in snapshot and timestamp(snapshot['collection_started_at']) > timestamp(snapshot['observed_at']):
+        raise ValueError('collection_started_at cannot be later than observed_at')
     if snapshot.get('scope') not in ('all_followers', 'verified_followers'):
         raise ValueError('invalid scope')
     if type(snapshot.get('complete')) is not bool:
@@ -51,8 +69,8 @@ def validate(snapshot):
             raise ValueError('duplicate handle')
         handles.add(handle)
         if row.get('id') is not None:
-            if not isinstance(row['id'], str) or not re.fullmatch(r'\d+', row['id']):
-                raise ValueError('id must be a numeric string')
+            if not isinstance(row['id'], str) or not re.fullmatch(r'[1-9][0-9]*', row['id']):
+                raise ValueError('id must be a canonical positive numeric string')
             if row['id'] in ids:
                 raise ValueError('duplicate id')
             ids.add(row['id'])
@@ -79,11 +97,16 @@ def validate(snapshot):
         raise ValueError('complete all_followers must match total_followers')
     if not isinstance(snapshot.get('posts', {}), dict):
         raise ValueError('posts must be an object')
+    post_ids = set()
     for url, metrics in snapshot.get('posts', {}).items():
-        if not isinstance(url, str) or not url.startswith(('https://x.com/', 'https://twitter.com/')):
-            raise ValueError('post key must be an X URL')
+        post_id = post_identity(url)
+        if post_id in post_ids:
+            raise ValueError('duplicate post identity through permalink aliases')
+        post_ids.add(post_id)
         if not isinstance(metrics, dict):
             raise ValueError('post metrics must be an object')
+        if 'observed_at' in metrics and timestamp(metrics['observed_at']) > timestamp(snapshot['observed_at']):
+            raise ValueError('post observed_at cannot be later than snapshot observed_at')
         for key in COUNTERS:
             v = metrics.get(key)
             if v is not None and (type(v) is not int or v < 0):
@@ -121,28 +144,47 @@ def compare(before, after):
     new_blue = {k for k, r in new.items() if r['badge'] == 'blue'}
     arrivals = sorted(new_blue - old.keys())
     departures = sorted(old_blue - new.keys())
-    upgrades = sorted(k for k in new_blue & old.keys() if old[k]['badge'] != 'blue')
-    downgraded = sorted(k for k in old_blue & new.keys() if new[k]['badge'] != 'blue')
+    upgrades = sorted(k for k in new_blue & old.keys() if old[k]['badge'] not in ('blue', 'unknown'))
+    downgraded = sorted(k for k in old_blue & new.keys() if new[k]['badge'] not in ('blue', 'unknown'))
+    unresolved_badges = sorted(k for k in old.keys() & new.keys()
+                              if (old[k]['badge'] == 'unknown' and new[k]['badge'] == 'blue')
+                              or (old[k]['badge'] == 'blue' and new[k]['badge'] == 'unknown'))
     n = len(arrivals)
     high = sum(new[k].get('quality', {}).get('status', 'unknown') == 'high' for k in arrivals)
     unknown = sum(new[k].get('quality', {}).get('status', 'unknown') == 'unknown' for k in arrivals)
-    exact = (before['complete'] and after['complete']
+    overlapping = timestamp(after.get('collection_started_at', after['observed_at'])) < timestamp(before['observed_at'])
+    exact = (before['complete'] and after['complete'] and not overlapping
              and before['scope'] == 'all_followers' and modes <= {'id'})
+    known_badges = all(r['badge'] != 'unknown' for r in before['followers'] + after['followers'])
     warnings = []
     if not before['complete'] or not after['complete']:
         warnings.append('partial lists: absence does not establish a new follower or churn')
+    if overlapping:
+        warnings.append('collection windows overlap: snapshot changes cannot establish distinct follower arrivals')
     if before['scope'] == 'verified_followers':
         warnings.append('verified-only lists: old followers gaining a badge may look new')
     if 'handle' in modes:
         warnings.append('handle-only identity: renames cannot be ruled out')
+    if unknown:
+        warnings.append('quality classification incomplete: quality_share is a lower bound, not a final ratio')
+    if unresolved_badges:
+        warnings.append('unknown badges: some existing follower badge transitions cannot be established')
     posts = {}
-    for url in sorted(before.get('posts', {}).keys() | after.get('posts', {}).keys()):
-        post = {}
+    old_posts, new_posts = post_observations(before), post_observations(after)
+    for post_id in sorted(old_posts.keys() | new_posts.keys()):
+        old_url, old_metrics = old_posts.get(post_id, (None, {}))
+        new_url, new_metrics = new_posts.get(post_id, (None, {}))
+        url = new_url or old_url
+        start = old_metrics.get('observed_at', before['observed_at']) if old_url else None
+        end = new_metrics.get('observed_at', after['observed_at']) if new_url else None
+        post = {'observation_window': {'from': start, 'to': end}}
         for key in COUNTERS:
-            b = before.get('posts', {}).get(url, {}).get(key)
-            a = after.get('posts', {}).get(url, {}).get(key)
+            b = old_metrics.get(key)
+            a = new_metrics.get(key)
             if a is None or b is None:
                 post[key] = {'delta': None, 'reason': 'unavailable or missing baseline'}
+            elif timestamp(end) <= timestamp(start):
+                post[key] = {'delta': None, 'reason': 'post observation time did not advance'}
             elif a < b:
                 post[key] = {'delta': None, 'reason': 'counter decreased; reconcile observations'}
             else:
@@ -156,9 +198,12 @@ def compare(before, after):
         'confirmed_blue_follower_departures': len(departures) if exact else None,
         'observed_blue_departures': len(departures), 'departure_identities': departures,
         'existing_became_blue': len(upgrades), 'existing_no_longer_blue': len(downgraded),
-        'blue_membership_net': len(new_blue) - len(old_blue) if exact else None,
+        'unresolved_existing_badge_transitions': len(unresolved_badges),
+        'blue_membership_net': len(new_blue) - len(old_blue) if exact and known_badges else None,
         'confirmed_high_quality_new_blue': high if exact else None,
         'observed_high_quality_arrivals': high, 'unknown_quality_arrivals': unknown,
+        'quality_classification_complete': unknown == 0,
+        'quality_share_status': 'undefined' if not n else 'lower_bound' if unknown else 'complete',
         'quality_share': high / n if n else None,
         'quality_share_kind': 'confirmed_new_blue' if exact else 'observed_arrivals_only',
         'quality_possible_range': [high / n, (high + unknown) / n] if n else None,

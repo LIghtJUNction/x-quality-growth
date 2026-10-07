@@ -14,6 +14,8 @@ class PublicEvidenceTests(unittest.TestCase):
         self.assertIn('PENDING', render_public.metric_art(self.data))
         self.assertIn('Pending classification', render_public.block(self.data, True))
         self.assertIn('分类尚未完成', render_public.block(self.data))
+        self.assertIn('50.0%–100.0%', render_public.block(self.data, True))
+        self.assertEqual(render_public.quality_bounds(self.data['blue_cohort']), (0.5, 1.0))
 
     def test_complete_quality_appears_in_both_languages(self):
         self.data['blue_cohort'].update(observed_arrivals=2, high=1, not_high=1, unknown=0)
@@ -40,6 +42,48 @@ class PublicEvidenceTests(unittest.TestCase):
         self.data['posts'][0]['likes'] = -1
         with self.assertRaises(ValueError):
             render_public.validate(self.data)
+
+    def test_invalid_inputs_are_rejected_before_rendering(self):
+        mutations = [
+            lambda d: d['blue_cohort'].update(high=True),
+            lambda d: d['blue_observations'][0].update(count=-1),
+            lambda d: d['blue_observations'][0].update(count='88'),
+            lambda d: d['blue_cohort'].update(confirmed_new_followers=13),
+            lambda d: d['posts'][0].update(url='https://x.com/someone_else/status/123'),
+            lambda d: d['posts'][0].update(url='https://x.com/LIghtJUNction_x/status/123?x=1'),
+            lambda d: d['posts'][0].update(observed_at='2026-10-08T00:00:00'),
+            lambda d: d['progress_updates'][0].update(url='javascript:alert(1)'),
+            lambda d: d['github'].update(stars=True),
+            lambda d: d.update(account='not/a/handle'),
+        ]
+        for mutation in mutations:
+            with self.subTest(mutation=mutation):
+                data = copy.deepcopy(self.data)
+                mutation(data)
+                with self.assertRaises(ValueError):
+                    render_public.validate(data)
+
+    def test_empty_observation_lists_remain_renderable(self):
+        self.data.update(follower_observations=[], blue_observations=[], posts=[])
+        self.assertIn('no follower observations', render_public.metric_art(self.data))
+        self.assertIn('no observed post counters', render_public.feedback_art(self.data))
+        self.assertIn('N/A; no observations', render_public.block(self.data, True))
+
+    def test_different_observation_windows_are_visible(self):
+        output = render_public.block(self.data, True)
+        self.assertIn(self.data['follower_observations'][-1]['observed_at'], output)
+        self.assertIn(self.data['blue_observations'][-1]['observed_at'], output)
+        self.assertIn('separate window', output)
+        self.assertIn('self-interactions', output)
+
+    def test_controlled_replacement_preserves_everything_outside_block(self):
+        content = 'unrelated\n' + render_public.START + '\nold\n' + render_public.END + '\ntail'
+        expected = 'unrelated\n' + render_public.START + '\nnew\n' + render_public.END + '\ntail'
+        self.assertEqual(render_public.replace_block(content, 'new'), expected)
+        for invalid in ('missing', content + render_public.START,
+                        render_public.END + render_public.START):
+            with self.assertRaises(ValueError):
+                render_public.replace_block(invalid, 'new')
 
 
 if __name__ == '__main__':

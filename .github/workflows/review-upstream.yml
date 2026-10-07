@@ -1,0 +1,80 @@
+name: Review upstream algorithm
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '43 3 * * 1'
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: rise-upstream-review
+  cancel-in-progress: false
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect official source and generate pending review
+        id: inspect
+        run: |
+          git clone --depth 1 https://github.com/xai-org/x-algorithm.git "$RUNNER_TEMP/x-algorithm"
+          python3 scripts/review_upstream.py --source "$RUNNER_TEMP/x-algorithm" > "$RUNNER_TEMP/upstream-result.json"
+          cat "$RUNNER_TEMP/upstream-result.json"
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          result = json.loads((Path(os.environ['RUNNER_TEMP']) / 'upstream-result.json').read_text())
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f"changed={str(result['upstream_changed'] and result['report_changed']).lower()}\n")
+          PY
+      - name: Run review boundary tests
+        run: python3 -m unittest discover -s tests -p test_review_upstream.py -v
+      - name: Publish or update a draft review PR in this repository
+        if: steps.inspect.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE_BRANCH: ${{ github.event.repository.default_branch }}
+          CURRENT_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          branch=automation/upstream-review
+          report=references/pending-upstream-review.md
+          bot_email='41898282+github-actions[bot]@users.noreply.github.com'
+          message='docs: report unreviewed upstream algorithm'
+          git config user.name 'github-actions[bot]'
+          git config user.email "$bot_email"
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
+            git fetch origin "$branch"
+            tip=FETCH_HEAD
+            commits=$(git rev-list "origin/$BASE_BRANCH..$tip")
+            # A merged report branch can have no unique commits. Validate its
+            # last report commit before reusing it for a later upstream revision.
+            for revision in ${commits:-$tip}; do
+              [ "$(git show -s --format=%ae "$revision")" = "$bot_email" ]
+              [ "$(git show -s --format=%s "$revision")" = "$message" ]
+              [ "$(git diff-tree --no-commit-id --name-only -r "$revision")" = "$report" ]
+            done
+            git worktree add --detach "$RUNNER_TEMP/review-branch" "$tip"
+          else
+            git worktree add --detach "$RUNNER_TEMP/review-branch" "origin/$BASE_BRANCH"
+          fi
+          cp "$report" "$RUNNER_TEMP/review-branch/$report"
+          cd "$RUNNER_TEMP/review-branch"
+          git add "$report"
+          if ! git diff --cached --quiet; then
+            git commit -m "$message"
+            git push origin "HEAD:refs/heads/$branch"
+          fi
+          # Reuse an existing draft or reviewed PR. Never force-push, reset or auto-merge.
+          existing=$(gh pr list --repo "$CURRENT_REPOSITORY" --head "$branch" --state open --json number --jq 'length')
+          if [ "$existing" = 0 ] && ! git diff --quiet "origin/$BASE_BRANCH...HEAD"; then
+            cp "$report" "$RUNNER_TEMP/upstream-pr-body.md"
+            gh pr create --repo "$CURRENT_REPOSITORY" --base "$BASE_BRANCH" --head "$branch" --draft \
+              --title 'Review new upstream X algorithm revision' --body-file "$RUNNER_TEMP/upstream-pr-body.md"
+          fi
