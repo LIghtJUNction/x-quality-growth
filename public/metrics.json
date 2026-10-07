@@ -4,12 +4,28 @@
   "account": "LIghtJUNction_x",
   "quality_rubric": "AI tools, independent development and product building; original and substantive public content",
   "follower_observations": [
-    {"label": "First check", "observed_at": null, "total": 175, "note": "Observed on X in the current session; exact collection timestamp was not retained"},
-    {"label": "Latest check", "observed_at": "2026-10-07T21:04:03.227Z", "total": 204, "note": "Observed on the public X profile"}
+    {
+      "label": "First check",
+      "observed_at": null,
+      "total": 175,
+      "note": "Observed on X in the current session; exact collection timestamp was not retained"
+    },
+    {
+      "label": "Latest check",
+      "observed_at": "2026-10-07T21:04:03.227Z",
+      "total": 204,
+      "note": "Observed on the public X profile"
+    }
   ],
   "blue_observations": [
-    {"observed_at": "2026-10-07T20:51:37.335Z", "count": 88},
-    {"observed_at": "2026-10-07T21:04:50.311Z", "count": 100}
+    {
+      "observed_at": "2026-10-07T20:51:37.335Z",
+      "count": 88
+    },
+    {
+      "observed_at": "2026-10-07T21:04:50.311Z",
+      "count": 100
+    }
   ],
   "blue_cohort": {
     "observed_arrivals": 12,
@@ -24,14 +40,45 @@
       "kind": "initial_prompt",
       "url": "https://x.com/LIghtJUNction_x/status/2107934424151335154",
       "observed_at": "2026-10-07T21:03:15.192Z",
-      "views": 117, "replies": 1, "likes": 2, "reposts": 0, "bookmarks": 0
+      "views": 117,
+      "replies": 1,
+      "likes": 2,
+      "reposts": 0,
+      "bookmarks": 0
     },
-    {"kind": "technical_reply", "url": "https://x.com/LIghtJUNction_x/status/2107936031907737758", "observed_at": null, "views": null, "replies": null, "likes": null, "reposts": null, "bookmarks": null},
-    {"kind": "measurement_reply", "url": "https://x.com/LIghtJUNction_x/status/2107936390185193718", "observed_at": null, "views": null, "replies": null, "likes": null, "reposts": null, "bookmarks": null}
+    {
+      "kind": "technical_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2107936031907737758",
+      "observed_at": null,
+      "views": null,
+      "replies": null,
+      "likes": null,
+      "reposts": null,
+      "bookmarks": null
+    },
+    {
+      "kind": "measurement_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2107936390185193718",
+      "observed_at": null,
+      "views": null,
+      "replies": null,
+      "likes": null,
+      "reposts": null,
+      "bookmarks": null
+    }
   ],
   "launch_post": null,
-  "github": {"stars": null, "forks": null, "observed_at": null},
-  "confounders": ["Other account activity was visible during the session", "First measurements predate the completed skill", "No control group or per-post follower attribution"],
+  "github": {
+    "stars": 0,
+    "forks": 0,
+    "observed_at": "2026-10-07T21:15:48.241516+00:00",
+    "url": "https://github.com/LIghtJUNction/x-quality-growth"
+  },
+  "confounders": [
+    "Other account activity was visible during the session",
+    "First measurements predate the completed skill",
+    "No control group or per-post follower attribution"
+  ],
   "attribution": "Observed account changes, not demonstrated causal effects of RISE",
   "x_update_mode": "Authorized browser observations; no unattended X scheduler has been configured",
   "github_update_mode": "GitHub Actions every six hours and workflow_dispatch; verify first successful run"
