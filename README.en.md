@@ -21,14 +21,14 @@ The X launch post links this repository. This README links that post and display
 <!-- RISE:METRICS:START -->
 | Actual observation | Value |
 | --- | --- |
-| Total followers | 175 → 204 (+29) |
+| Total followers | 175 → 221 (+46) |
 | Newly observed blue accounts | 12; confirmed new followers: unknown |
 | Quality classification | 0 high / 2 not matched / 10 unclassified |
 | High-quality share | Pending classification; unknown is not zero |
-| Latest profile observation | 2026-10-07T21:04:03.227Z |
-| GitHub stars / forks | 0 / 0 · 2026-10-07T21:15:48.241516+00:00 |
+| Latest profile observation | 2026-10-07T21:20:36.728Z |
+| GitHub stars / forks | 1 / 0 · 2026-10-07T21:21:51.187743+00:00 |
 
-Launch post will be linked after publication.
+[RISE launch post](https://x.com/LIghtJUNction_x/status/2107943767382847844)
 <!-- RISE:METRICS:END -->
 
 Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. Quality classification remains incomplete. We keep those limitations visible.
@@ -42,6 +42,8 @@ Actual published examples:
 - [Initial Codex prompt experiment](https://x.com/LIghtJUNction_x/status/2107934424151335154)
 - [Technical reply: what git diff does not show](https://x.com/LIghtJUNction_x/status/2107936031907737758)
 - [Creator discussion: measuring follower quality](https://x.com/LIghtJUNction_x/status/2107936390185193718)
+
+The pinned launch post is the stable entry point: edit it when new evidence or improvements exist, or append a timestamped progress reply when editing is unavailable.
 
 GitHub stars and forks refresh every six hours through GitHub Actions. X feedback refreshes only after an authorized browser observation. A GitHub refresh never changes the timestamp of old X data. No unattended X scheduler has been configured.
 

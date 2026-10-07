@@ -15,6 +15,10 @@
       "observed_at": "2026-10-07T21:04:03.227Z",
       "total": 204,
       "note": "Observed on the public X profile"
+    },
+    {
+      "total": 221,
+      "observed_at": "2026-10-07T21:20:36.728Z"
     }
   ],
   "blue_observations": [
@@ -33,7 +37,8 @@
     "high": 0,
     "not_high": 2,
     "unknown": 10,
-    "note": "Verified-only, handle-based observations; old followers gaining verification and handle renames cannot be excluded. Quality classification is incomplete."
+    "note": "Verified-only, handle-based observations; old followers gaining verification and handle renames cannot be excluded. Quality classification is incomplete.",
+    "window_ended_at": "2026-10-07T21:04:50Z"
   },
   "posts": [
     {
@@ -65,13 +70,23 @@
       "likes": null,
       "reposts": null,
       "bookmarks": null
+    },
+    {
+      "kind": "launch",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "views": 6,
+      "replies": 1,
+      "likes": 1,
+      "reposts": 0,
+      "bookmarks": 0,
+      "observed_at": "2026-10-07T21:21:10.765Z"
     }
   ],
-  "launch_post": null,
+  "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
   "github": {
-    "stars": 0,
+    "stars": 1,
     "forks": 0,
-    "observed_at": "2026-10-07T21:15:48.241516+00:00",
+    "observed_at": "2026-10-07T21:21:51.187743+00:00",
     "url": "https://github.com/LIghtJUNction/x-quality-growth"
   },
   "confounders": [

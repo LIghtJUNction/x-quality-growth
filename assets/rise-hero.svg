@@ -1,29 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img">
-  <title>RISE · Recursive Iterative Social Expansion · 递归自我涨粉</title>
-  <desc>A conceptual animated loop: publish useful work on X, open-source it on GitHub, observe actual results, improve, repeat. Animation is not a growth forecast.</desc>
-  <defs>
-    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101820"/><stop offset="1" stop-color="#1f343b"/></linearGradient>
-    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="none" stroke="#65d9c7"/></marker>
-  </defs>
-  <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
-  <g fill="none" stroke="#65d9c7" opacity=".09"><path d="M0 70H1200M0 140H1200M0 210H1200M0 280H1200M0 350H1200M70 0V420M140 0V420M210 0V420M280 0V420M350 0V420M420 0V420M490 0V420M560 0V420M630 0V420M700 0V420M770 0V420M840 0V420M910 0V420M980 0V420M1050 0V420M1120 0V420"/></g>
-  <g font-family="Arial, 'Noto Sans CJK SC', sans-serif">
-    <text x="52" y="64" fill="#65d9c7" font-size="15" letter-spacing="3">OPEN CODE. REAL OBSERVATIONS. BETTER CONNECTIONS.</text>
-    <text x="45" y="195" fill="#f4f7fa" font-size="128" font-weight="800" letter-spacing="-5">RISE<tspan fill="#65d9c7">↗</tspan></text>
-    <text x="53" y="245" fill="#f4f7fa" font-size="33" font-weight="700">递归自我涨粉</text>
-    <text x="53" y="281" fill="#c4ced9" font-size="19">Recursive Iterative Social Expansion</text>
-    <rect x="52" y="324" width="426" height="46" rx="23" fill="#65d9c7"/>
-    <text x="76" y="354" fill="#101820" font-size="17" font-weight="700">X OPEN ALGORITHM × MEASURED ITERATION</text>
-    <path id="loop" d="M750 126C750 53 1105 53 1105 126L1105 288C1105 361 750 361 750 288Z" fill="none" stroke="#65d9c7" stroke-width="2" stroke-dasharray="7 8" opacity=".65"/>
-    <circle r="5" fill="#efc67e"><animateMotion dur="10s" repeatCount="indefinite" path="M750 126C750 53 1105 53 1105 126L1105 288C1105 361 750 361 750 288Z"/></circle>
-    <rect x="660" y="123" width="185" height="93" rx="14" fill="#263b43" stroke="#53717a"/>
-    <text x="692" y="160" fill="#f4f7fa" font-size="25" font-weight="700">X</text>
-    <text x="692" y="190" fill="#c4ced9" font-size="14">Value → discovery</text>
-    <rect x="995" y="222" width="166" height="93" rx="14" fill="#263b43" stroke="#53717a"/>
-    <text x="1017" y="260" fill="#f4f7fa" font-size="24" font-weight="700">GitHub</text>
-    <text x="1017" y="287" fill="#c4ced9" font-size="14">Use → improve</text>
-    <text x="849" y="202" fill="#efc67e" font-size="14" text-anchor="middle">OBSERVE</text>
-    <text x="884" y="232" fill="#efc67e" font-size="14" text-anchor="middle">ITERATE</text>
-    <text x="912" y="389" fill="#8fa6ae" font-size="12" text-anchor="middle">Conceptual loop · not a forecast or a growth guarantee</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="580" viewBox="0 0 1200 580" role="img" aria-labelledby="title desc">
+  <title id="title">RISE — 递归自我涨粉</title>
+  <desc id="desc">Recursive Iterative Social Expansion. An animated feedback circuit connects X publishing, GitHub collaboration, real measurements and iteration. This illustrates the process, not predicted growth.</desc>
+  <style>
+    .cjk{font-family:'Noto Sans CJK SC','Microsoft YaHei',sans-serif}
+    .latin{font-family:'Noto Sans','Helvetica Neue',sans-serif}
+    .flow{animation:circulate 14s linear infinite}
+    @keyframes circulate{to{stroke-dashoffset:-1114.655}}
+    @media(prefers-reduced-motion:reduce){.flow{animation:none}}
+  </style>
+  <rect width="1200" height="580" rx="24" fill="#f5f1e9"/>
+  <path d="M680 52V486" stroke="#d8d1c6"/>
+  <!-- Custom vector wordmark: deliberate lettering, independent of installed fonts. -->
+  <g transform="translate(54 76)" fill="#191b1b">
+    <path fill-rule="evenodd" d="M0 0H83C128 0 151 25 151 64C151 94 133 113 107 121L159 184H103L59 125H43V184H0ZM43 39V88H79C98 88 108 79 108 64C108 48 98 39 79 39Z"/>
+    <path d="M178 0H223V184H178Z"/>
+    <path d="M383 17L363 54C347 43 330 36 313 36C297 36 287 43 287 53C287 63 299 68 324 75C365 86 385 101 385 130C385 166 355 188 315 188C284 188 257 178 238 162L260 128C277 142 296 151 316 151C334 151 343 144 343 134C343 123 332 118 307 111C268 100 245 87 245 56C245 21 273 -4 314 -4C341 -4 365 4 383 17Z"/>
+    <path d="M405 0H541V39H449V70H530V108H449V145H541V184H405Z"/>
+    <path d="M558 2H588V32H580V16H564V8H558Z" fill="#d8462f"/>
+    <path d="M558 30L581 7" fill="none" stroke="#d8462f" stroke-width="8"/>
   </g>
+  <g class="cjk">
+    <text x="54" y="341" font-size="60" font-weight="800" fill="#191b1b">递归自我涨粉</text>
+    <text x="55" y="450" font-size="22" font-weight="500" fill="#454a48">有价值的内容，带来下一轮真实反馈。</text>
+  </g>
+  <text class="latin" x="56" y="382" font-size="20" fill="#636660">Recursive Iterative Social Expansion</text>
+  <path d="M55 406H124" stroke="#d8462f" stroke-width="4"/>
+  <!-- A closed circuit. The accent travels along the feedback path. -->
+  <g fill="none">
+    <path d="M832 130H1008A80 80 0 0 1 1088 210V340A80 80 0 0 1 1008 420H832A80 80 0 0 1 752 340V210A80 80 0 0 1 832 130Z" stroke="#dbd4c9" stroke-width="3"/>
+    <path class="flow" d="M832 130H1008A80 80 0 0 1 1088 210V340A80 80 0 0 1 1008 420H832A80 80 0 0 1 752 340V210A80 80 0 0 1 832 130Z" stroke="#d8462f" stroke-width="4" stroke-linecap="round" stroke-dasharray="90 1024.655"/>
+  </g>
+  <g stroke="#191b1b" stroke-width="2" fill="#f5f1e9">
+    <circle cx="920" cy="130" r="28"/>
+    <circle cx="1088" cy="275" r="28"/>
+    <circle cx="920" cy="420" r="28"/>
+    <circle cx="752" cy="275" r="28"/>
+  </g>
+  <g fill="none" stroke="#191b1b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M909 116L931 144M931 116L909 144M905 116H913L935 144H927Z"/>
+    <path d="M1080 264V286M1080 275H1092V265"/>
+    <circle cx="1080" cy="262" r="3" fill="#f5f1e9"/>
+    <circle cx="1080" cy="288" r="3" fill="#f5f1e9"/>
+    <circle cx="1092" cy="262" r="3" fill="#f5f1e9"/>
+    <path d="M909 431V418M920 431V408M931 431V413"/>
+    <path d="M742 277A11 11 0 1 0 745 267M743 262L745 268L751 266"/>
+  </g>
+  <g class="cjk" fill="#191b1b" font-weight="700" font-size="19" text-anchor="middle">
+    <text x="920" y="80">X 发布</text>
+    <text x="1088" y="329">开源共创</text>
+    <text x="920" y="479">实测反馈</text>
+    <text x="752" y="329">迭代改进</text>
+  </g>
+  <g class="latin" text-anchor="middle">
+    <text x="920" y="259" font-size="26" font-weight="700" fill="#191b1b">X × GitHub</text>
+    <text x="920" y="291" font-size="15" fill="#636660">Publish. Measure. Improve.</text>
+  </g>
+  <path d="M54 512H1146" stroke="#d8d1c6"/>
+  <text class="cjk" x="55" y="548" font-size="15" fill="#454a48">基于 X 开源推荐算法 · 用真实数据迭代</text>
+  <text class="latin" x="1145" y="548" text-anchor="end" font-size="13" fill="#636660">A feedback loop, not a growth forecast.</text>
 </svg>

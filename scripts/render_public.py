@@ -8,13 +8,13 @@ ROOT = Path(__file__).resolve().parents[1]
 START, END = '<!-- RISE:METRICS:START -->', '<!-- RISE:METRICS:END -->'
 
 
-def text(x, y, content, size=16, fill='#c4ced9', extra=''):
+def text(x, y, content, size=16, fill='#454a48', extra=''):
     return f'<text x="{x}" y="{y}" font-size="{size}" fill="{fill}" {extra}>{escape(str(content))}</text>'
 
 
 def svg(body, width=1100, height=620, title='RISE observed metrics'):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img">'
-            f'<title>{escape(title)}</title><rect width="{width}" height="{height}" rx="24" fill="#101820"/>'
+            f'<title>{escape(title)}</title><rect width="{width}" height="{height}" rx="24" fill="#f5f1e9"/>'
             f'<g font-family="Arial, sans-serif">{body}</g></svg>\n')
 
 
@@ -43,45 +43,45 @@ def metric_art(data):
     delta = last['total'] - first['total']
     share = c['high'] / c['observed_arrivals'] if c['observed_arrivals'] else None
     date = last['observed_at'] or 'Timestamp unavailable'
-    body = text(38, 43, 'THE EVIDENCE / REAL ACCOUNT OBSERVATIONS', 16, '#65d9c7')
-    body += text(38, 87, 'Growth is measured. Causality is not assumed.', 29, '#f4f7fa')
-    cards = [(38, f'{delta:+d}', 'Total follower change', '#f4f7fa'),
-             (390, f'+{c["observed_arrivals"]}', 'Newly observed blue accounts', '#65d9c7'),
-             (742, 'PENDING' if c['unknown'] else f'{share:.0%}' if share is not None else 'N/A', 'High-quality share', '#efc67e')]
+    body = ''
+    body += text(38, 72, 'Growth is measured. Causality is not assumed.', 29, '#191b1b')
+    cards = [(38, f'{delta:+d}', 'Total follower change', '#191b1b'),
+             (390, f'+{c["observed_arrivals"]}', 'Newly observed blue accounts', '#b73825'),
+             (742, 'PENDING' if c['unknown'] else f'{share:.0%}' if share is not None else 'N/A', 'High-quality share', '#8b5520')]
     for x, value, label, color in cards:
-        body += f'<rect x="{x}" y="113" width="320" height="117" rx="12" fill="#1b2733"/>'
+        body += f'<rect x="{x}" y="113" width="320" height="117" rx="12" fill="#eae4da"/>'
         body += text(x+20, 168, value, 42 if value != 'PENDING' else 31, color, 'font-weight="700"')
         body += text(x+20, 204, label, 15)
-    body += text(38, 271, 'Total followers / absolute scale starts at zero', 17, '#f4f7fa')
+    body += text(38, 271, 'Total followers / absolute scale starts at zero', 17, '#191b1b')
     maxv = max(first['total'], last['total'], 1) * 1.2
     for y, label, value in [(301, 'First check', first['total']), (352, 'Latest check', last['total'])]:
         body += text(38, y+22, label, 15)
-        body += f'<rect x="180" y="{y}" width="{value/maxv*430:.1f}" height="30" fill="#65d9c7"/>'
-        body += text(180+value/maxv*430+12, y+22, value, 18, '#f4f7fa')
+        body += f'<rect x="180" y="{y}" width="{value/maxv*430:.1f}" height="30" fill="#b73825"/>'
+        body += text(180+value/maxv*430+12, y+22, value, 18, '#191b1b')
     body += text(180, 411, '0', 13)
-    body += text(38, 448, f'Blue list: {b1["count"]} → {b2["count"]}  |  Exact new-blue followers: unconfirmed', 17, '#f4f7fa')
+    body += text(38, 448, f'Blue list: {b1["count"]} → {b2["count"]}  |  Cohort ended: {b2["observed_at"]}', 17, '#191b1b')
     body += text(38, 484, f'Quality: {c["high"]} high / {c["not_high"]} not matched / {c["unknown"]} unclassified, n={c["observed_arrivals"]}', 17)
-    body += text(38, 518, 'Verified-only lists cannot rule out old followers gaining a badge.', 15, '#efc67e')
+    body += text(38, 518, 'Verified-only lists cannot rule out old followers gaining a badge.', 15, '#8b5520')
     body += text(38, 550, 'Observed changes include concurrent activity; no causal growth claim.', 15)
-    body += text(38, 588, f'Latest profile observation: {date}', 13, '#8c9bab')
+    body += text(38, 588, f'Latest profile observation: {date}', 13, '#636660')
     return svg(body)
 
 
 def feedback_art(data):
     rows = [r for r in data['posts'] if r.get('observed_at')]
-    body = text(38, 43, 'THE RECURSIVE LOOP / PUBLIC POST FEEDBACK', 16, '#65d9c7')
-    body += text(38, 83, 'Visibility is evidence to inspect, not a proof of lift.', 27, '#f4f7fa')
+    body = ''
+    body += text(38, 70, 'Visibility is evidence to inspect, not a proof of lift.', 27, '#191b1b')
     columns = [('views', 'Views'), ('replies', 'Replies'), ('likes', 'Likes'), ('reposts', 'Reposts'), ('bookmarks', 'Bookmarks')]
     for i, (key, label) in enumerate(columns):
         body += text(300+i*146, 133, label, 15)
     for j, row in enumerate(rows):
         y = 185+j*68
-        label = {'launch': 'Launch post', 'prompt': 'Prompt experiment', 'reply': 'Contextual reply'}.get(row['kind'], row['kind'])
-        body += text(38, y, label, 16, '#f4f7fa')
+        label = {'launch': 'Launch post', 'prompt': 'Prompt experiment', 'initial_prompt': 'Prompt experiment', 'reply': 'Contextual reply'}.get(row['kind'], row['kind'])
+        body += text(38, y, label, 16, '#191b1b')
         for i, (key, _) in enumerate(columns):
-            body += text(300+i*146, y, row.get(key) if row.get(key) is not None else 'N/A', 24, '#65d9c7')
-        body += text(38, y+24, row['observed_at'], 11, '#8c9bab')
-    body += text(38, 185+len(rows)*68+30, 'X values refresh only after a real authorized browser observation.', 15, '#efc67e')
+            body += text(300+i*146, y, row.get(key) if row.get(key) is not None else 'N/A', 24, '#b73825')
+        body += text(38, y+24, row['observed_at'], 11, '#636660')
+    body += text(38, 185+len(rows)*68+30, 'X values refresh only after a real authorized browser observation.', 15, '#8b5520')
     return svg(body, height=260+len(rows)*68, title='RISE public post feedback')
 
 
