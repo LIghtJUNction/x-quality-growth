@@ -100,6 +100,16 @@
       "likes": null,
       "reposts": null,
       "bookmarks": null
+    },
+    {
+      "kind": "reach_recovery_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+      "observed_at": "2026-10-07T21:47:52.819Z",
+      "views": 1,
+      "replies": null,
+      "likes": null,
+      "reposts": null,
+      "bookmarks": null
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -128,6 +138,18 @@
         "Latest total follower observation 221",
         "Redesigned animated SVG",
         "Verified first GitHub metrics workflow"
+      ]
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107951226923163722",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "kind": "measured-progress",
+      "reported_profile_observation": "2026-10-07T21:44:37.232Z",
+      "verified_at": "2026-10-07T21:49:00.884Z",
+      "changes": [
+        "Matched-age reach recovery experiment",
+        "100 tests and CI passed",
+        "Weekly source review dispatched successfully; official revision unchanged"
       ]
     }
   ],
