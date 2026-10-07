@@ -16,17 +16,19 @@ The X launch post links this repository. This README links that post and display
 
 ## Real observations
 
+**Current challenge: exceed 100,000 actual followers.** Review checkpoints are 250, 1,000, 10,000 and 100,001; high-quality blue-check acquisition needs separate evidence. Arrival date is unknown. [Iteration checkpoints](references/road-to-100k.en.md).
+
 <img src="assets/metrics.svg" width="100%" alt="Actual follower observations, blue-list changes and incomplete quality classification" />
 
 <!-- RISE:METRICS:START -->
 | Actual observation | Value |
 | --- | --- |
-| Total followers | 175 → 243 (+68) |
+| Total followers | 175 → 246 (+71) |
 | Newly observed blue accounts | 12; confirmed new followers: unknown |
-| Quality classification | 0 high / 4 not matched / 8 unclassified |
+| Quality classification | 0 high / 11 not matched / 1 unclassified |
 | High-quality share | Pending classification; unknown is not zero |
-| Latest profile observation | 2026-10-07T22:54:52.489Z |
-| Observed-cohort quality lower / possible upper bound | 0.0%–66.7% |
+| Latest profile observation | 2026-10-07T23:39:44.338Z |
+| Observed-cohort quality lower / possible upper bound | 0.0%–8.3% |
 | First profile observation | Timestamp unavailable |
 | Latest blue-list observation (separate window) | 2026-10-07T21:04:50.311Z |
 | GitHub stars / forks | 1 / 0 · 2026-10-07T21:22:27.159136+00:00 |
@@ -46,6 +48,9 @@ Source: [public aggregate records](public/metrics.json). The exact time of the f
 
 Actual published examples:
 
+- [Reproduced AI code-review case](https://x.com/LIghtJUNction_x/status/2107979675960299994)
+- [Concrete dataset-validation reply](https://x.com/LIghtJUNction_x/status/2107976452662817134)
+- [Debugging handoff reply](https://x.com/LIghtJUNction_x/status/2107977004314431778)
 - [Initial Codex prompt experiment](https://x.com/LIghtJUNction_x/status/2107934424151335154)
 - [Technical reply: what git diff does not show](https://x.com/LIghtJUNction_x/status/2107936031907737758)
 - [Creator discussion: measuring follower quality](https://x.com/LIghtJUNction_x/status/2107936390185193718)

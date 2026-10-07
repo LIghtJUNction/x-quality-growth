@@ -34,6 +34,16 @@
       "total": 243,
       "observed_at": "2026-10-07T22:54:52.489Z",
       "note": "First reach recovery recheck; concurrent operations prevent attribution to a single post"
+    },
+    {
+      "total": 246,
+      "observed_at": "2026-10-07T23:23:55.529Z",
+      "note": "New 100k-goal iteration baseline, before new actions; concurrent operation persists"
+    },
+    {
+      "total": 246,
+      "observed_at": "2026-10-07T23:39:44.338Z",
+      "note": "After one original and two substantive replies; no total-follower change from pre-action baseline yet. Concurrent operations persist."
     }
   ],
   "blue_observations": [
@@ -50,11 +60,11 @@
     "observed_arrivals": 12,
     "confirmed_new_followers": null,
     "high": 0,
-    "not_high": 4,
-    "unknown": 8,
-    "note": "Verified-only, handle-based observations; old followers gaining verification and handle renames cannot be excluded. Quality classification is incomplete.",
+    "not_high": 11,
+    "unknown": 1,
+    "note": "Early verified-only, handle-based observed cohort, not this round's confirmed new followers. Badge upgrades and handle renames remain possible. One account has fewer than three recent independent originals and remains unknown.",
     "window_ended_at": "2026-10-07T21:04:50Z",
-    "classified_at": "2026-10-07T22:59:49.158Z"
+    "classified_at": "2026-10-07T23:35:15.108Z"
   },
   "posts": [
     {
@@ -90,12 +100,12 @@
     {
       "kind": "launch",
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
-      "views": 471,
-      "replies": 3,
+      "views": 544,
+      "replies": 4,
       "likes": 1,
       "reposts": 1,
       "bookmarks": null,
-      "observed_at": "2026-10-07T22:54:52.489Z"
+      "observed_at": "2026-10-07T23:39:44.338Z"
     },
     {
       "kind": "voice_reply",
@@ -110,13 +120,61 @@
     {
       "kind": "reach_recovery_original",
       "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
-      "observed_at": "2026-10-07T22:54:52.489Z",
-      "views": 35,
+      "observed_at": "2026-10-07T23:39:44.338Z",
+      "views": 42,
       "replies": 1,
       "likes": 0,
       "reposts": 0,
-      "bookmarks": 0,
+      "bookmarks": null,
       "published_at": "2026-10-07T21:47:02.000Z"
+    },
+    {
+      "kind": "technical_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2107975802449203435",
+      "observed_at": "2026-10-07T23:39:44.338Z",
+      "views": 4,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": null,
+      "published_at": "2026-10-07T23:26:10.000Z",
+      "latest_version_url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "note": "Initial version, observed before editing an automatically linked local filename. Do not count versions as separate originals or merge their counters."
+    },
+    {
+      "kind": "annotation_method_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2107976452662817134",
+      "observed_at": "2026-10-07T23:29:38.361Z",
+      "views": 1,
+      "replies": null,
+      "likes": null,
+      "reposts": null,
+      "bookmarks": null
+    },
+    {
+      "kind": "context_handoff_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2107977004314431778",
+      "observed_at": "2026-10-07T23:39:11.946Z",
+      "views": 4,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0
+    },
+    {
+      "kind": "technical_original_edited_version",
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "observed_at": "2026-10-07T23:42:00.225Z",
+      "views": null,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0,
+      "original_version_url": "https://x.com/LIghtJUNction_x/status/2107975802449203435",
+      "original_published_at": "2026-10-07T23:26:10.000Z",
+      "edit_verified_at": "2026-10-07T23:42:00.225Z",
+      "edit_display_time": "7:41 AM · Oct 8, 2026 (Asia/Taipei)",
+      "note": "Latest version reopened and full body verified. Exact edit timestamp not retained. View count unavailable on this initial AX capture. Versions are one original action."
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -222,6 +280,48 @@
       "likes": 0,
       "bookmarks": 0,
       "observed_at": "2026-10-07T22:54:11.288Z"
+    },
+    {
+      "kind": "launch",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "views": 471,
+      "replies": 3,
+      "likes": 1,
+      "reposts": 1,
+      "bookmarks": null,
+      "observed_at": "2026-10-07T22:54:52.489Z"
+    },
+    {
+      "kind": "reach_recovery_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+      "observed_at": "2026-10-07T22:54:52.489Z",
+      "views": 35,
+      "replies": 1,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0,
+      "published_at": "2026-10-07T21:47:02.000Z"
+    },
+    {
+      "kind": "launch",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "views": 521,
+      "replies": 4,
+      "likes": 1,
+      "reposts": 1,
+      "bookmarks": null,
+      "observed_at": "2026-10-07T23:23:55.529Z"
+    },
+    {
+      "kind": "reach_recovery_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+      "observed_at": "2026-10-07T23:23:55.529Z",
+      "views": 40,
+      "replies": 1,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0,
+      "published_at": "2026-10-07T21:47:02.000Z"
     }
   ],
   "analytics_observations": [
@@ -272,6 +372,38 @@
       "result": "Reach recovery and high-quality acquisition not demonstrated",
       "next_observation_due_at": "2026-10-08T21:47:02.000Z",
       "scheduler_configured": false
+    },
+    {
+      "id": "technical-case-02",
+      "post_url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "published_at": "2026-10-07T23:26:10.000Z",
+      "primary_variable": "Concrete reproducible AI-development case instead of growth-method content",
+      "baseline_total_followers": 246,
+      "baseline_observed_at": "2026-10-07T23:23:55.529Z",
+      "confirmed_actions": {
+        "original_posts": 1,
+        "substantive_replies": 2
+      },
+      "planned_age_minutes": 60,
+      "next_observation_due_at": "2026-10-08T00:26:10.000Z",
+      "24h_observation_due_at": "2026-10-08T23:26:10.000Z",
+      "result": "Observation windows pending; high-quality acquisition and causal lift not demonstrated",
+      "scheduler_configured": false,
+      "original_version_url": "https://x.com/LIghtJUNction_x/status/2107975802449203435",
+      "edit_verified_at": "2026-10-07T23:42:00.225Z",
+      "note": "Edited to remove an unintended auto-link to a local filename; platform exposed a new latest-version URL. Preserve original publication-age windows and record version-specific counters separately; do not reset the clock to improve results."
     }
-  ]
+  ],
+  "growth_target": {
+    "total_followers": 100001,
+    "milestones": [
+      250,
+      1000,
+      10000,
+      100001
+    ],
+    "eta": null,
+    "status": "active",
+    "meaning": "Aspirational actual-follower target; quality acquisition measured separately, not a growth guarantee"
+  }
 }
