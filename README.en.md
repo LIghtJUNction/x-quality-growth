@@ -35,7 +35,7 @@ Bounds describe the observed blue cohort, not confirmed new followers. Badge upg
 
 [RISE launch post](https://x.com/LIghtJUNction_x/status/2107943767382847844)
 
-[Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2107951226923163722)
+[Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2107969836794171834)
 <!-- RISE:METRICS:END -->
 
 Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. Quality classification remains incomplete. We keep those limitations visible.
