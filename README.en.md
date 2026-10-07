@@ -21,12 +21,12 @@ The X launch post links this repository. This README links that post and display
 <!-- RISE:METRICS:START -->
 | Actual observation | Value |
 | --- | --- |
-| Total followers | 175 → 227 (+52) |
+| Total followers | 175 → 243 (+68) |
 | Newly observed blue accounts | 12; confirmed new followers: unknown |
-| Quality classification | 0 high / 2 not matched / 10 unclassified |
+| Quality classification | 0 high / 4 not matched / 8 unclassified |
 | High-quality share | Pending classification; unknown is not zero |
-| Latest profile observation | 2026-10-07T21:44:37.232Z |
-| Observed-cohort quality lower / possible upper bound | 0.0%–83.3% |
+| Latest profile observation | 2026-10-07T22:54:52.489Z |
+| Observed-cohort quality lower / possible upper bound | 0.0%–66.7% |
 | First profile observation | Timestamp unavailable |
 | Latest blue-list observation (separate window) | 2026-10-07T21:04:50.311Z |
 | GitHub stars / forks | 1 / 0 · 2026-10-07T21:22:27.159136+00:00 |
@@ -54,6 +54,8 @@ Actual published examples:
 The pinned launch post is the stable entry point: edit it when new evidence or improvements exist, or append a timestamped progress reply when editing is unavailable.
 
 GitHub stars and forks refresh every six hours through GitHub Actions. X feedback refreshes only after an authorized browser observation. A GitHub refresh never changes the timestamp of old X data. No unattended X scheduler has been configured.
+
+Latest recheck: [the first observation at an actual age of 67 minutes](public/backtests/2026-10-08.en.md). The methods post had 34 views, one external response and zero profile visits. The account gained 16 net followers concurrently; acquisition is not attributable to that post. Earlier low-view conclusions were revised.
 
 ## Install and run
 

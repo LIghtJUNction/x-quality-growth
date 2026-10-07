@@ -29,6 +29,11 @@
       "total": 227,
       "observed_at": "2026-10-07T21:44:37.232Z",
       "note": "Profile observed during reach diagnosis; concurrent account activity remains a confounder"
+    },
+    {
+      "total": 243,
+      "observed_at": "2026-10-07T22:54:52.489Z",
+      "note": "First reach recovery recheck; concurrent operations prevent attribution to a single post"
     }
   ],
   "blue_observations": [
@@ -45,10 +50,11 @@
     "observed_arrivals": 12,
     "confirmed_new_followers": null,
     "high": 0,
-    "not_high": 2,
-    "unknown": 10,
+    "not_high": 4,
+    "unknown": 8,
     "note": "Verified-only, handle-based observations; old followers gaining verification and handle renames cannot be excluded. Quality classification is incomplete.",
-    "window_ended_at": "2026-10-07T21:04:50Z"
+    "window_ended_at": "2026-10-07T21:04:50Z",
+    "classified_at": "2026-10-07T22:59:49.158Z"
   },
   "posts": [
     {
@@ -84,12 +90,12 @@
     {
       "kind": "launch",
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
-      "views": 161,
-      "replies": 2,
+      "views": 471,
+      "replies": 3,
       "likes": 1,
       "reposts": 1,
       "bookmarks": null,
-      "observed_at": "2026-10-07T21:44:37.232Z"
+      "observed_at": "2026-10-07T22:54:52.489Z"
     },
     {
       "kind": "voice_reply",
@@ -104,12 +110,13 @@
     {
       "kind": "reach_recovery_original",
       "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
-      "observed_at": "2026-10-07T21:47:52.819Z",
-      "views": 1,
-      "replies": null,
-      "likes": null,
-      "reposts": null,
-      "bookmarks": null
+      "observed_at": "2026-10-07T22:54:52.489Z",
+      "views": 35,
+      "replies": 1,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0,
+      "published_at": "2026-10-07T21:47:02.000Z"
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -173,6 +180,36 @@
       "reposts": null,
       "bookmarks": null,
       "observed_at": "2026-10-07T21:28:16.100Z"
+    },
+    {
+      "kind": "launch",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "views": 161,
+      "replies": 2,
+      "likes": 1,
+      "reposts": 1,
+      "bookmarks": null,
+      "observed_at": "2026-10-07T21:44:37.232Z"
+    },
+    {
+      "kind": "reach_recovery_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+      "observed_at": "2026-10-07T21:47:52.819Z",
+      "views": 1,
+      "replies": null,
+      "likes": null,
+      "reposts": null,
+      "bookmarks": null
+    },
+    {
+      "kind": "reach_recovery_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+      "views": 34,
+      "replies": 1,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "observed_at": "2026-10-07T22:54:11.288Z"
     }
   ],
   "analytics_observations": [
@@ -185,6 +222,44 @@
       "profile_visits": 0,
       "link_clicks": 1,
       "note": "X owner analytics at collection time; public views showed 161. Different UI surfaces can update asynchronously; do not silently equate metrics."
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+      "observed_at": "2026-10-07T22:54:32.142Z",
+      "impressions": 34,
+      "engagements": 2,
+      "detail_expands": 1,
+      "profile_visits": 0,
+      "link_clicks": null
+    }
+  ],
+  "verified_list_observations": [
+    {
+      "count": 137,
+      "collection_started_at": "2026-10-07T22:55:36.154Z",
+      "observed_at": "2026-10-07T22:58:02.912Z",
+      "source": "X Verified Followers tab",
+      "reached_visible_end": true,
+      "note": "Handle-based verified-list count, not a count of confirmed newly acquired blue followers. Per-row badge color not retained; historical completeness and identity matching differ."
+    }
+  ],
+  "reach_experiments": [
+    {
+      "id": "reach-recovery-01",
+      "post_url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+      "published_at": "2026-10-07T21:47:02.000Z",
+      "first_recheck_observed_at": "2026-10-07T22:54:11.288Z",
+      "actual_age_minutes": 67.1548,
+      "planned_age_minutes": 60,
+      "late_by_minutes": 7.1548,
+      "views": 34,
+      "views_change_from_initial": 33,
+      "external_positive_replies": 1,
+      "external_method_or_question_replies": 0,
+      "matched_age_control_available": false,
+      "result": "Reach recovery and high-quality acquisition not demonstrated",
+      "next_observation_due_at": "2026-10-08T21:47:02.000Z",
+      "scheduler_configured": false
     }
   ]
 }

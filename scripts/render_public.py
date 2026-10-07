@@ -8,6 +8,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 START, END = '<!-- RISE:METRICS:START -->', '<!-- RISE:METRICS:END -->'
+POST_COUNTERS = ('views', 'replies', 'likes', 'reposts', 'bookmarks')
+ANALYTICS_COUNTERS = ('impressions', 'engagements', 'detail_expands', 'profile_visits', 'link_clicks')
 
 
 def text(x, y, content, size=16, fill='#454a48', extra=''):
@@ -43,7 +45,7 @@ def timestamp(value, label, nullable=True):
 
 def post_url(value, account):
     if not isinstance(value, str) or not re.fullmatch(
-            r'https://x\.com/' + re.escape(account) + r'/status/[0-9]+', value, re.I):
+            r'https://x\.com/' + re.escape(account) + r'/status/[1-9][0-9]*', value, re.I):
         raise ValueError('post URL must be a permanent X status URL for the measured account')
 
 
@@ -51,6 +53,37 @@ def github_url(value):
     if not isinstance(value, str) or not re.fullmatch(
             r'https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', value):
         raise ValueError('invalid GitHub repository URL')
+
+
+def validate_history(data, collection, counters, account):
+    """Validate each surface's snapshots without joining times or inferring attribution."""
+    rows = data.get(collection, [])
+    if not isinstance(rows, list):
+        raise ValueError(collection + ' must be a list')
+    previous_by_url = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError(collection + ' rows must be objects')
+        post_url(row.get('url'), account)
+        if 'kind' in row and not isinstance(row['kind'], str):
+            raise ValueError(collection + ' kind must be a string')
+        # A history entry is an actual timed snapshot, unlike an unmeasured post
+        # in posts. Unknown counters remain null even when its time is known.
+        observed = timestamp(row.get('observed_at'), collection + ' timestamp', nullable=False)
+        for key in counters:
+            count(row.get(key), collection + ' ' + key, nullable=True)
+        url = row['url'].lower()
+        signature = tuple(row.get(key) for key in counters)
+        previous = previous_by_url.get(url)
+        if previous:
+            previous_time, previous_signature = previous
+            if observed < previous_time:
+                raise ValueError(collection + ' timestamps must be chronological per post')
+            if observed == previous_time and signature != previous_signature:
+                raise ValueError(collection + ' has conflicting counters at the same post timestamp')
+        # Repeated identical captures are harmless; corrected counts at a later
+        # time may decrease. Other posts and other surfaces have separate clocks.
+        previous_by_url[url] = (observed, signature)
 
 
 def validate(data):
@@ -92,8 +125,10 @@ def validate(data):
             raise ValueError('post rows need an object and kind')
         post_url(row.get('url'), account)
         timestamp(row.get('observed_at'), 'post observation')
-        for key in ('views', 'replies', 'likes', 'reposts', 'bookmarks'):
+        for key in POST_COUNTERS:
             count(row.get(key), 'post ' + key, nullable=True)
+    validate_history(data, 'post_observations', POST_COUNTERS, account)
+    validate_history(data, 'analytics_observations', ANALYTICS_COUNTERS, account)
     launch = data.get('launch_post')
     if launch is not None:
         post_url(launch, account)

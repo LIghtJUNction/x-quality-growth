@@ -76,6 +76,112 @@ class PublicEvidenceTests(unittest.TestCase):
         self.assertIn('separate window', output)
         self.assertIn('self-interactions', output)
 
+    def test_optional_histories_remain_backwards_compatible(self):
+        self.data.pop('post_observations', None)
+        self.data.pop('analytics_observations', None)
+        render_public.validate(self.data)
+
+    def test_history_collections_and_rows_have_valid_shapes(self):
+        for collection in ('post_observations', 'analytics_observations'):
+            for rows in (None, {}, 'history', [None], [123]):
+                with self.subTest(collection=collection, rows=rows):
+                    data = copy.deepcopy(self.data)
+                    data[collection] = rows
+                    with self.assertRaises(ValueError):
+                        render_public.validate(data)
+
+    def test_histories_require_account_status_links_and_timed_snapshots(self):
+        mutations = [
+            {'url': 'https://x.com/someone_else/status/123'},
+            {'url': 'https://x.com/LIghtJUNction_x/status/123?x=1'},
+            {'url': 'https://x.com/LIghtJUNction_x/status/0'},
+            {'url': 'https://x.com/LIghtJUNction_x/status/0123'},
+            {'url': 'https://x.com/LIghtJUNction_x/status/１２３'},
+            {'observed_at': None},
+            {'observed_at': '2026-10-08T00:00:00'},
+            {'observed_at': 'not-a-date'},
+            {'kind': True},
+        ]
+        for collection in ('post_observations', 'analytics_observations'):
+            for mutation in mutations:
+                with self.subTest(collection=collection, mutation=mutation):
+                    data = copy.deepcopy(self.data)
+                    data[collection][0].update(mutation)
+                    with self.assertRaises(ValueError):
+                        render_public.validate(data)
+
+    def test_all_known_history_counters_reject_invalid_values(self):
+        for collection, counters in (
+                ('post_observations', render_public.POST_COUNTERS),
+                ('analytics_observations', render_public.ANALYTICS_COUNTERS)):
+            for key in counters:
+                for value in (True, False, -1, 1.5, '1'):
+                    with self.subTest(collection=collection, key=key, value=value):
+                        data = copy.deepcopy(self.data)
+                        data[collection][0][key] = value
+                        with self.assertRaises(ValueError):
+                            render_public.validate(data)
+
+    def test_history_unknown_counters_stay_unknown(self):
+        for collection, counters in (
+                ('post_observations', render_public.POST_COUNTERS),
+                ('analytics_observations', render_public.ANALYTICS_COUNTERS)):
+            for row in self.data[collection]:
+                row.update({key: None for key in counters})
+        before = copy.deepcopy(self.data)
+        render_public.validate(self.data)
+        self.assertEqual(self.data, before)
+
+    def test_history_order_is_checked_per_post_not_globally(self):
+        for collection in ('post_observations', 'analytics_observations'):
+            with self.subTest(collection=collection):
+                data = copy.deepcopy(self.data)
+                first = copy.deepcopy(data[collection][0])
+                first['observed_at'] = '2026-10-08T02:00:00Z'
+                different_post = copy.deepcopy(first)
+                different_post.update(url='https://x.com/LIghtJUNction_x/status/123',
+                                      observed_at='2026-10-08T01:00:00Z')
+                later = copy.deepcopy(first)
+                later['observed_at'] = '2026-10-08T03:00:00Z'
+                data[collection] = [first, different_post, later]
+                render_public.validate(data)
+                earlier = copy.deepcopy(first)
+                earlier['observed_at'] = '2026-10-08T00:00:00Z'
+                data[collection].append(earlier)
+                with self.assertRaises(ValueError):
+                    render_public.validate(data)
+
+    def test_equal_time_history_captures_must_agree(self):
+        for collection, counter in (('post_observations', 'views'),
+                                    ('analytics_observations', 'impressions')):
+            with self.subTest(collection=collection):
+                data = copy.deepcopy(self.data)
+                row = copy.deepcopy(data[collection][0])
+                row['observed_at'] = '2026-10-08T00:00:00Z'
+                repeated = copy.deepcopy(row)
+                repeated['url'] = repeated['url'].replace('LIghtJUNction_x', 'lightjunction_x')
+                repeated['observed_at'] = '2026-10-08T08:00:00+08:00'
+                data[collection] = [row, repeated]
+                render_public.validate(data)
+                repeated[counter] = row[counter] + 1
+                with self.assertRaises(ValueError):
+                    render_public.validate(data)
+
+    def test_histories_keep_surface_times_and_counter_corrections_separate(self):
+        # Neither a later history than posts nor a different owner-analytics
+        # timestamp implies a shared window or a causal conversion calculation.
+        post = self.data['post_observations'][0]
+        first = copy.deepcopy(post)
+        first.update(observed_at='2026-10-08T02:00:00Z', views=10)
+        correction = copy.deepcopy(first)
+        correction.update(observed_at='2026-10-08T03:00:00Z', views=8)
+        self.data['post_observations'] = [first, correction]
+        self.data['analytics_observations'][0].update(
+            observed_at='2026-10-08T01:00:00Z', impressions=150, profile_visits=None)
+        before = copy.deepcopy(self.data)
+        render_public.validate(self.data)
+        self.assertEqual(self.data, before)
+
     def test_controlled_replacement_preserves_everything_outside_block(self):
         content = 'unrelated\n' + render_public.START + '\nold\n' + render_public.END + '\ntail'
         expected = 'unrelated\n' + render_public.START + '\nnew\n' + render_public.END + '\ntail'
