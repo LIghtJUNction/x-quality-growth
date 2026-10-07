@@ -1,0 +1,125 @@
+import copy
+import sys
+import unittest
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+from measure import compare
+
+
+def row(uid, handle, badge='blue', quality='unknown'):
+    q = {'status': quality}
+    if quality == 'high':
+        q.update(relevant=True, original=True, substantive=True,
+                 evidence=[f'https://x.com/{handle}/status/123'])
+    return {'id': uid, 'handle': handle, 'badge': badge, 'quality': q}
+
+
+def snap(rows, hour=0, **kwargs):
+    return dict(account='owner', observed_at=f'2026-10-08T{hour:02}:00:00+08:00',
+                scope='all_followers', complete=True, evidence='synthetic fixture',
+                total_followers=len(rows), followers=rows, posts={}, **kwargs)
+
+
+class MeasurementTests(unittest.TestCase):
+    def test_growth_upgrade_churn_and_unknown_denominator(self):
+        before = snap([row('1', 'old'), row('2', 'upgrade', 'none')])
+        after = snap([row('2', 'upgrade'), row('3', 'high', quality='high'),
+                      row('4', 'unknown'), row('5', 'gold', 'gold')], 1)
+        r = compare(before, after)
+        self.assertEqual(r['confirmed_new_blue'], 2)
+        self.assertEqual(r['quality_share'], .5)
+        self.assertEqual(r['quality_possible_range'], [.5, 1])
+        self.assertEqual(r['existing_became_blue'], 1)
+        self.assertEqual(r['confirmed_blue_follower_departures'], 1)
+        self.assertIsNone(r['quality_share_wilson95'])
+
+    def test_zero_growth_not_zero_quality(self):
+        r = compare(snap([]), snap([], 1))
+        self.assertEqual(r['confirmed_new_blue'], 0)
+        self.assertIsNone(r['quality_share'])
+
+    def test_partial_list_never_claims_exact_growth(self):
+        a, b = snap([]), snap([row('1', 'new')], 1)
+        a['complete'] = False
+        r = compare(a, b)
+        self.assertIsNone(r['confirmed_new_blue'])
+        self.assertEqual(r['observed_blue_arrivals'], 1)
+
+    def test_verified_only_upgrade_ambiguity(self):
+        a, b = snap([]), snap([row('1', 'new')], 1)
+        a['scope'] = b['scope'] = 'verified_followers'
+        self.assertIsNone(compare(a, b)['confirmed_new_blue'])
+
+    def test_stable_id_rename_is_not_growth(self):
+        self.assertEqual(compare(snap([row('1', 'before')]),
+                                 snap([row('1', 'after')], 1))['confirmed_new_blue'], 0)
+
+    def test_handle_only_is_unconfirmed(self):
+        r1, r2 = row('1', 'before'), row('2', 'after')
+        del r1['id'], r2['id']
+        self.assertIsNone(compare(snap([r1]), snap([r2], 1))['confirmed_new_blue'])
+
+    def test_mixed_identity_rejected(self):
+        r = row('2', 'new')
+        del r['id']
+        with self.assertRaisesRegex(ValueError, 'mixed identity'):
+            compare(snap([row('1', 'old')]), snap([r], 1))
+
+    def test_wrong_account_time_scope_and_total_rejected(self):
+        a, b = snap([]), snap([], 1)
+        for field, value in [('account', 'other'), ('observed_at', a['observed_at']),
+                             ('scope', 'verified_followers'), ('total_followers', 1)]:
+            bad = copy.deepcopy(b)
+            bad[field] = value
+            with self.assertRaises(ValueError):
+                compare(a, bad)
+
+    def test_quality_requires_evidence(self):
+        r = row('1', 'high', quality='high')
+        r['quality']['evidence'] = []
+        with self.assertRaisesRegex(ValueError, 'evidence'):
+            compare(snap([]), snap([r], 1))
+
+    def test_duplicates_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'duplicate'):
+            compare(snap([]), snap([row('1', 'one'), row('1', 'two')], 1))
+
+    def test_feedback_unavailable_and_decreased(self):
+        a, b = snap([]), snap([], 1)
+        url = 'https://x.com/owner/status/123'
+        a['posts'][url] = dict(likes=2, replies=0, views=10, bookmarks=None)
+        b['posts'][url] = dict(likes=4, replies=1, views=9, bookmarks=2)
+        p = compare(a, b)['post_feedback'][url]
+        self.assertEqual(p['likes']['delta'], 2)
+        self.assertIsNone(p['views']['delta'])
+        self.assertIsNone(p['bookmarks']['delta'])
+
+    def test_complete_quality_has_uncertainty_interval(self):
+        r = compare(snap([]), snap([row('1', 'high', quality='high')], 1))
+        self.assertEqual(r['quality_share'], 1)
+        self.assertLess(r['quality_share_wilson95'][0], .5)
+
+    def test_no_quality_defaults_to_unknown(self):
+        r = row('1', 'new')
+        del r['quality']
+        self.assertEqual(compare(snap([]), snap([r], 1))['unknown_quality_arrivals'], 1)
+
+    def test_rubric_changes_are_not_comparable(self):
+        a, b = snap([]), snap([], 1)
+        b['quality_rubric'] = 'changed-after-results'
+        with self.assertRaisesRegex(ValueError, 'rubrics'):
+            compare(a, b)
+
+    def test_malformed_objects_rejected_cleanly(self):
+        for invalid in ([], None, 'bad'):
+            with self.assertRaises(ValueError):
+                compare(invalid, snap([], 1))
+        r = row('1', 'new')
+        r['quality'] = 'high'
+        with self.assertRaises(ValueError):
+            compare(snap([]), snap([r], 1))
+
+
+if __name__ == '__main__':
+    unittest.main()

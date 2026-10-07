@@ -1,0 +1,10 @@
+{
+  "account": "demo_owner",
+  "observed_at": "2026-10-08T04:00:00+08:00",
+  "scope": "all_followers",
+  "complete": true,
+  "evidence": "Synthetic example, not a real account measurement",
+  "total_followers": 1,
+  "followers": [{"id": "1", "handle": "demo_old", "badge": "blue", "quality": {"status": "unknown"}}],
+  "posts": {"https://x.com/demo_owner/status/123": {"replies": 0, "likes": 0, "reposts": 0, "bookmarks": null, "views": 0}}
+}

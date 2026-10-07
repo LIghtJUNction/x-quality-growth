@@ -1,0 +1,14 @@
+{
+  "account": "demo_owner",
+  "observed_at": "2026-10-09T04:00:00+08:00",
+  "scope": "all_followers",
+  "complete": true,
+  "evidence": "Synthetic example, not a real account measurement",
+  "total_followers": 3,
+  "followers": [
+    {"id": "1", "handle": "demo_old", "badge": "blue", "quality": {"status": "unknown"}},
+    {"id": "2", "handle": "demo_builder", "badge": "blue", "quality": {"status": "high", "relevant": true, "original": true, "substantive": true, "evidence": ["https://x.com/demo_builder/status/234"]}},
+    {"id": "3", "handle": "demo_unknown", "badge": "blue", "quality": {"status": "unknown"}}
+  ],
+  "posts": {"https://x.com/demo_owner/status/123": {"replies": 2, "likes": 5, "reposts": 1, "bookmarks": null, "views": 120}}
+}

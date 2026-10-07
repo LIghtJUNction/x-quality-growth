@@ -1,0 +1,324 @@
+{
+  "repository": "https://github.com/xai-org/x-algorithm",
+  "commit": "78460ca8b65c57ddd3a05f9217c8aaeba214b628",
+  "upstream_commit_time": "2026-10-07T03:05:56Z",
+  "interpretation": "Public defaults, not per-request production guarantees. Weights multiply predictions, not raw counts.",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "7f0eb9f09f489a087afe66986eed13875b31dd99c7cf343b46209837bbf06eaa",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/README.md"
+    },
+    {
+      "path": "home-mixer/params/param.rs",
+      "sha256": "38113af7463cd320d6db8f59cf67d92b594dbb51feaa44d94ad87876c18c8a06",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/params/param.rs"
+    },
+    {
+      "path": "home-mixer/params/config.rs",
+      "sha256": "029567d6d5ff100ebc43160feda15225fc2910862a790dc89648f90bc97153ca",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/params/config.rs"
+    },
+    {
+      "path": "home-mixer/scorers/value_model.rs",
+      "sha256": "4a1b826844b2e837ac359837702c12574b3b963497f4082f84c12057d36ff584",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/scorers/value_model.rs"
+    },
+    {
+      "path": "home-mixer/scorers/vm_ranker.rs",
+      "sha256": "eebd41c03fa9ca32292fd327114c5f7b9cbeb3104f79bef67ffcf96ae4e946c5",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/scorers/vm_ranker.rs"
+    },
+    {
+      "path": "home-mixer/candidate_pipeline/phoenix_candidate_pipeline.rs",
+      "sha256": "7ab9652c1add678a336ee98ff7f7113c2d60e33af0ba84ea28d85c1ca4accbe5",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/candidate_pipeline/phoenix_candidate_pipeline.rs"
+    },
+    {
+      "path": "home-mixer/filters/age_filter.rs",
+      "sha256": "8b071a27cfcadbcc2cdeee6b9b2c58a4eafc55d5eedae37f02abd028f106739e",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/filters/age_filter.rs"
+    },
+    {
+      "path": "home-mixer/filters/oon_retweet_reply_filter.rs",
+      "sha256": "108bd930241e11a480484e2020fd7742b679ee90142470cb64cbe0f9edf86fc6",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/filters/oon_retweet_reply_filter.rs"
+    },
+    {
+      "path": "home-mixer/sources/simclusters_source.rs",
+      "sha256": "794128cae2c0a970affb3599b1f48e7b30c35887f8246c46323fa2c32e4ef605",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/sources/simclusters_source.rs"
+    },
+    {
+      "path": "xai-value-model/scoring.rs",
+      "sha256": "687bee754d5b5f077a21089a88109e52a360decf76dc76a083610fa729ae067b",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/xai-value-model/scoring.rs"
+    },
+    {
+      "path": "xai-value-model/inputs.rs",
+      "sha256": "58cd9b864933dff0f071b744304bcbcbffab3585f6fe000bb4d7e197255b1570",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/xai-value-model/inputs.rs"
+    },
+    {
+      "path": "xai-value-model/weights.rs",
+      "sha256": "c43bfd52aee3b103c9dee538fcfa7128ecb352490cbbfce55901f15d98795ca6",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/xai-value-model/weights.rs"
+    },
+    {
+      "path": "vm-ranker/params.rs",
+      "sha256": "ce8ed65c81487ab2b9a15f0464e50f178b45543895aefb4ac8382ccebc6b810a",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/params.rs"
+    },
+    {
+      "path": "vm-ranker/scoring/value_model.rs",
+      "sha256": "980f6dd4fea24806a33ad35f69e401a321795d8aea5f91cbf0ecce2dffc368ea",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/scoring/value_model.rs"
+    },
+    {
+      "path": "docs/BIDIRECTIONAL_BOOST_CHANGE.md",
+      "sha256": "b7e0a74cb4c3149c4c9b5bea9bc4435abb8faec5bf2a63d5be965f63bc65c131",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/docs/BIDIRECTIONAL_BOOST_CHANGE.md"
+    }
+  ],
+  "parameters": {
+    "home-mixer/params/param.rs": {
+      "EnablePhoenixOonReplies": {
+        "default": false,
+        "feature_switch": "rust_home_mixer_enable_phoenix_oon_replies",
+        "line": 73
+      },
+      "EnableRanking": {
+        "default": true,
+        "feature_switch": "rust_home_mixer_enable_ranking",
+        "line": 270
+      },
+      "FavoriteWeight": {
+        "default": 0.5,
+        "feature_switch": "rust_home_mixer_favorite_weight",
+        "line": 314
+      },
+      "ReplyWeight": {
+        "default": 5.0,
+        "feature_switch": "rust_home_mixer_reply_weight",
+        "line": 315
+      },
+      "BidirectionalFollowReplyWeightBoost": {
+        "default": 15.0,
+        "feature_switch": "rust_home_mixer_bidirectional_follow_reply_weight_boost",
+        "line": 316
+      },
+      "BidirectionalFollowDwellWeightBoost": {
+        "default": 0.0,
+        "feature_switch": "rust_home_mixer_bidirectional_follow_dwell_weight_boost",
+        "line": 322
+      },
+      "RetweetWeight": {
+        "default": 1.0,
+        "feature_switch": "rust_home_mixer_retweet_weight",
+        "line": 328
+      },
+      "ProfileClickWeight": {
+        "default": 0.0,
+        "feature_switch": "rust_home_mixer_profile_click_weight",
+        "line": 343
+      },
+      "ShareWeight": {
+        "default": 2.0,
+        "feature_switch": "rust_home_mixer_share_weight",
+        "line": 350
+      },
+      "ShareViaDmWeight": {
+        "default": 5.0,
+        "feature_switch": "rust_home_mixer_share_via_dm_weight",
+        "line": 351
+      },
+      "ShareViaCopyLinkWeight": {
+        "default": 20.0,
+        "feature_switch": "rust_home_mixer_share_via_copy_link_weight",
+        "line": 357
+      },
+      "DwellWeight": {
+        "default": 0.05,
+        "feature_switch": "rust_home_mixer_dwell_weight",
+        "line": 363
+      },
+      "QuoteWeight": {
+        "default": 5.0,
+        "feature_switch": "rust_home_mixer_quote_weight",
+        "line": 364
+      },
+      "FollowAuthorWeight": {
+        "default": 4.0,
+        "feature_switch": "rust_home_mixer_follow_author_weight",
+        "line": 377
+      },
+      "ContDwellTimeWeight": {
+        "default": 0.004,
+        "feature_switch": "rust_home_mixer_cont_dwell_time_weight",
+        "line": 389
+      },
+      "ContClickDwellTimeWeight": {
+        "default": 0.4,
+        "feature_switch": "rust_home_mixer_cont_click_dwell_time_weight",
+        "line": 395
+      },
+      "NotInterestedWeight": {
+        "default": -47.52,
+        "feature_switch": "rust_home_mixer_not_interested_weight",
+        "line": 402
+      },
+      "BlockAuthorWeight": {
+        "default": -31.2,
+        "feature_switch": "rust_home_mixer_block_author_weight",
+        "line": 408
+      },
+      "MuteAuthorWeight": {
+        "default": -58.8,
+        "feature_switch": "rust_home_mixer_mute_author_weight",
+        "line": 414
+      },
+      "ReportWeight": {
+        "default": -234.0,
+        "feature_switch": "rust_home_mixer_report_weight",
+        "line": 420
+      },
+      "NotDwelledWeight": {
+        "default": -0.02,
+        "feature_switch": "rust_home_mixer_not_dwelled_weight",
+        "line": 421
+      }
+    },
+    "vm-ranker/params.rs": {
+      "FavoriteWeight": {
+        "default": 0.5,
+        "feature_switch": "rust_home_mixer_favorite_weight",
+        "line": 3
+      },
+      "ReplyWeight": {
+        "default": 5.0,
+        "feature_switch": "rust_home_mixer_reply_weight",
+        "line": 4
+      },
+      "RetweetWeight": {
+        "default": 1.0,
+        "feature_switch": "rust_home_mixer_retweet_weight",
+        "line": 5
+      },
+      "ProfileClickWeight": {
+        "default": 0.0,
+        "feature_switch": "rust_home_mixer_profile_click_weight",
+        "line": 20
+      },
+      "ShareWeight": {
+        "default": 2.0,
+        "feature_switch": "rust_home_mixer_share_weight",
+        "line": 27
+      },
+      "ShareViaDmWeight": {
+        "default": 5.0,
+        "feature_switch": "rust_home_mixer_share_via_dm_weight",
+        "line": 28
+      },
+      "ShareViaCopyLinkWeight": {
+        "default": 20.0,
+        "feature_switch": "rust_home_mixer_share_via_copy_link_weight",
+        "line": 34
+      },
+      "DwellWeight": {
+        "default": 0.05,
+        "feature_switch": "rust_home_mixer_dwell_weight",
+        "line": 40
+      },
+      "QuoteWeight": {
+        "default": 5.0,
+        "feature_switch": "rust_home_mixer_quote_weight",
+        "line": 41
+      },
+      "ContDwellTimeWeight": {
+        "default": 0.004,
+        "feature_switch": "rust_home_mixer_cont_dwell_time_weight",
+        "line": 54
+      },
+      "ContClickDwellTimeWeight": {
+        "default": 0.4,
+        "feature_switch": "rust_home_mixer_cont_click_dwell_time_weight",
+        "line": 60
+      },
+      "FollowAuthorWeight": {
+        "default": 4.0,
+        "feature_switch": "rust_home_mixer_follow_author_weight",
+        "line": 84
+      },
+      "NotInterestedWeight": {
+        "default": -47.52,
+        "feature_switch": "rust_home_mixer_not_interested_weight",
+        "line": 102
+      },
+      "BlockAuthorWeight": {
+        "default": -31.2,
+        "feature_switch": "rust_home_mixer_block_author_weight",
+        "line": 108
+      },
+      "MuteAuthorWeight": {
+        "default": -58.8,
+        "feature_switch": "rust_home_mixer_mute_author_weight",
+        "line": 114
+      },
+      "ReportWeight": {
+        "default": -234.0,
+        "feature_switch": "rust_home_mixer_report_weight",
+        "line": 120
+      },
+      "NotDwelledWeight": {
+        "default": -0.02,
+        "feature_switch": "rust_home_mixer_not_dwelled_weight",
+        "line": 121
+      },
+      "BidirectionalFollowReplyWeightBoost": {
+        "default": 15.0,
+        "feature_switch": "rust_home_mixer_bidirectional_follow_reply_weight_boost",
+        "line": 139
+      },
+      "BidirectionalFollowDwellWeightBoost": {
+        "default": 0.0,
+        "feature_switch": "rust_home_mixer_bidirectional_follow_dwell_weight_boost",
+        "line": 145
+      },
+      "EnableAuthorDiversity": {
+        "default": true,
+        "feature_switch": "rust_home_mixer_enable_author_diversity",
+        "line": 163
+      },
+      "AuthorDiversityDecay": {
+        "default": 0.5,
+        "feature_switch": "rust_home_mixer_author_diversity_decay",
+        "line": 169
+      },
+      "AuthorDiversityFloor": {
+        "default": 0.25,
+        "feature_switch": "rust_home_mixer_author_diversity_floor",
+        "line": 175
+      },
+      "EnableOonRescoreForInNetworkRepliesRetweets": {
+        "default": true,
+        "feature_switch": "rust_home_mixer_enable_oon_rescore_for_in_network_replies_retweets",
+        "line": 181
+      },
+      "TopicOonWeightFactor": {
+        "default": 0.5,
+        "feature_switch": "rust_home_mixer_topic_oon_weight_factor",
+        "line": 199
+      },
+      "OonWeightFactor": {
+        "default": 0.75,
+        "feature_switch": "rust_home_mixer_oon_weight_factor",
+        "line": 205
+      },
+      "ComputeValueModel": {
+        "default": false,
+        "feature_switch": "rust_home_mixer_vm_ranker_compute_value_model",
+        "line": 223
+      }
+    }
+  }
+}

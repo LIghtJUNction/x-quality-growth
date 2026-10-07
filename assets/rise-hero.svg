@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img">
+  <title>RISE · Recursive Iterative Social Expansion · 递归自我涨粉</title>
+  <desc>A conceptual animated loop: publish useful work on X, open-source it on GitHub, observe actual results, improve, repeat. Animation is not a growth forecast.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101820"/><stop offset="1" stop-color="#1f343b"/></linearGradient>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="none" stroke="#65d9c7"/></marker>
+  </defs>
+  <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
+  <g fill="none" stroke="#65d9c7" opacity=".09"><path d="M0 70H1200M0 140H1200M0 210H1200M0 280H1200M0 350H1200M70 0V420M140 0V420M210 0V420M280 0V420M350 0V420M420 0V420M490 0V420M560 0V420M630 0V420M700 0V420M770 0V420M840 0V420M910 0V420M980 0V420M1050 0V420M1120 0V420"/></g>
+  <g font-family="Arial, 'Noto Sans CJK SC', sans-serif">
+    <text x="52" y="64" fill="#65d9c7" font-size="15" letter-spacing="3">OPEN CODE. REAL OBSERVATIONS. BETTER CONNECTIONS.</text>
+    <text x="45" y="195" fill="#f4f7fa" font-size="128" font-weight="800" letter-spacing="-5">RISE<tspan fill="#65d9c7">↗</tspan></text>
+    <text x="53" y="245" fill="#f4f7fa" font-size="33" font-weight="700">递归自我涨粉</text>
+    <text x="53" y="281" fill="#c4ced9" font-size="19">Recursive Iterative Social Expansion</text>
+    <rect x="52" y="324" width="426" height="46" rx="23" fill="#65d9c7"/>
+    <text x="76" y="354" fill="#101820" font-size="17" font-weight="700">X OPEN ALGORITHM × MEASURED ITERATION</text>
+    <path id="loop" d="M750 126C750 53 1105 53 1105 126L1105 288C1105 361 750 361 750 288Z" fill="none" stroke="#65d9c7" stroke-width="2" stroke-dasharray="7 8" opacity=".65"/>
+    <circle r="5" fill="#efc67e"><animateMotion dur="10s" repeatCount="indefinite" path="M750 126C750 53 1105 53 1105 126L1105 288C1105 361 750 361 750 288Z"/></circle>
+    <rect x="660" y="123" width="185" height="93" rx="14" fill="#263b43" stroke="#53717a"/>
+    <text x="692" y="160" fill="#f4f7fa" font-size="25" font-weight="700">X</text>
+    <text x="692" y="190" fill="#c4ced9" font-size="14">Value → discovery</text>
+    <rect x="995" y="222" width="166" height="93" rx="14" fill="#263b43" stroke="#53717a"/>
+    <text x="1017" y="260" fill="#f4f7fa" font-size="24" font-weight="700">GitHub</text>
+    <text x="1017" y="287" fill="#c4ced9" font-size="14">Use → improve</text>
+    <text x="849" y="202" fill="#efc67e" font-size="14" text-anchor="middle">OBSERVE</text>
+    <text x="884" y="232" fill="#efc67e" font-size="14" text-anchor="middle">ITERATE</text>
+    <text x="912" y="389" fill="#8fa6ae" font-size="12" text-anchor="middle">Conceptual loop · not a forecast or a growth guarantee</text>
+  </g>
+</svg>
