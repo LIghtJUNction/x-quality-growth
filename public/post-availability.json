@@ -1,7 +1,7 @@
 {
   "schema": "rise-public-post-availability-v1",
-  "captured_at": "2026-10-08T16:38:37.020Z",
-  "scope": "28 unique post permalinks displayed in both READMEs; authenticated browser visible page checks",
+  "captured_at": "2026-10-08T17:04:59.264Z",
+  "scope": "28 unique original README post permalinks checked in the authenticated browser, followed by visible permalink verification of two newly published posts; individual verification clocks are preserved",
   "checks": [
     {
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -142,7 +142,18 @@
       "url": "https://x.com/LIghtJUNction_x/status/2108116127117398457",
       "verified_at": "2026-10-08T16:38:37.013Z",
       "status": "unavailable_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108240460431134796",
+      "verified_at": "2026-10-08T17:00:35.518Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108241779099340888",
+      "verified_at": "2026-10-08T17:04:59.264Z",
+      "status": "available_confirmed"
     }
   ],
-  "historical_measurements_preserved": true
+  "historical_measurements_preserved": true,
+  "initial_readme_audit_captured_at": "2026-10-08T16:38:37.020Z"
 }
