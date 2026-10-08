@@ -45,12 +45,12 @@ The additional model target is future 1-hour/24-hour per-post verified Home Time
 <!-- RISE:METRICS:START -->
 | Actual observation | Value |
 | --- | --- |
-| Total followers | 175 → 288 (+113) |
+| Total followers | 175 → 290 (+115) |
 | Newly observed blue accounts | 24; confirmed new followers: unknown |
 | Quality classification | 2 high / 2 not matched / 20 unclassified |
 | High-quality share | Pending classification; unknown is not zero |
 | Current observed-cohort window | 2026-10-08T00:23:58.426Z → 2026-10-08T05:14:58.325Z |
-| Latest profile observation | 2026-10-08T11:51:16.673Z |
+| Latest profile observation | 2026-10-08T12:39:30.068Z |
 | Follower-list coverage at collection | 273/276 captured; list incomplete |
 | Full-window high-quality share | Unknown; incomplete follower list |
 | Previous independent cohort | 2 high / 3 not matched / 0 unclassified (n=5) |
@@ -81,6 +81,8 @@ Reusable material: [three Git states in AI code review](references/ai-code-revie
 <img src="assets/git-review-matrix.png" width="100%" alt="Reproduced Git states: untracked files appear in neither diff; unstaged changes appear in plain diff; staged changes appear in diff --cached. Check status, both diffs and each new file." />
 
 A four-file synthetic experiment: [panel ordering after a retry](examples/panel_order_demo.py). Run `python examples/panel_order_demo.py`: modification-time ordering changes from `1→2→3→4` to `1→3→4→2`, while fixed panel indexes preserve `1→2→3→4`. It uses placeholder `.txt` files and explicitly assigned times to demonstrate sorting logic, without claiming actual comic generation or a product defect.
+
+The [illustrated original post](https://x.com/LIghtJUNction_x/status/2108170130702344695), published at **2026-10-08 12:18:21 UTC**, links this repository's runnable script. Counters retain their individual observation times in the [public records](public/metrics.json); publication alone does not establish follower growth.
 
 <img src="assets/panel-order-demo.png" width="100%" alt="Synthetic placeholder ordering: retrying file 2 changes modification-time order to 1,3,4,2; fixed panel indexes preserve 1,2,3,4." />
 
@@ -186,7 +188,7 @@ Each column is mean absolute error on **94,171 later test cascades at that cutof
 
 The new model is separately published at [Hugging Face / RISE-retweet-baseline](https://huggingface.co/LIghtJUNction/RISE-retweet-baseline), pinned to `1282fc5e88e64073bf680b0dda21663f19b73c69`. At **2026-10-08 10:55:16.800135 UTC**, anonymous downloads of all seven files matched their SHA values and standard-library synthetic inference ran successfully. Both models' weights and normalizers equal the frozen training state; raw sources and row predictions were not uploaded. [Release verification](public/hf-retweet-release.json) · [Reproduce preparation and training](references/data-reuse.en.md#reproduce-preparation-and-training).
 
-The [new model-result sharing reply](https://x.com/LIghtJUNction_x/status/2108155423509696529) is in the fixed pinned conversation, with the actual chart, HF/GitHub links and Codex disclosure. It was first published at **2026-10-08 11:19:55 UTC**; the independent reopen at **11:22:55.423 UTC** showed **1 public view and zero replies/reposts/likes/bookmarks**. This verifies publication, not independent audience, adoption or growth. Its 60-minute and 24-hour follow-ups remain pending, with no unattended scheduler.
+The [new model-result sharing reply](https://x.com/LIghtJUNction_x/status/2108155423509696529) is in the fixed pinned conversation, with the actual chart, HF/GitHub links and Codex disclosure. It was first published at **2026-10-08 11:19:55 UTC**; the independent reopen at **11:22:55.423 UTC** showed **1 public view and zero replies/reposts/likes/bookmarks**. This verifies publication, not independent audience, adoption or growth. A delayed 60-minute observation at **12:21:06.334 UTC** showed **25 public views and zero replies/reposts/likes/bookmarks**, at actual post age **61 minutes 11.334 seconds**; the exact 60-minute count remains unknown. An independent owner capture at **12:21:37.577 UTC** showed **24 ordinary impressions, 1 engagement, 1 detail expand and 0 profile visits**, with unknown link clicks; these counters are kept separate. The 24-hour follow-up remains pending, with no unattended scheduler.
 
 The existing view curves and new retweet models use only times, counts and derived features; measured platform coverage remains X / historical Twitter. A unified contract for text, images, video and comments is designed, but text and media semantics are not training inputs, and other platform adapters are unvalidated. The official popular-pool reference score is not a future-exposure forecast. [Statistical methods](references/growth-statistics.en.md) · [Input contract](references/model-inputs.en.md) · [Official time parameters](references/algorithm-time.md) · [Recommendation formulas and limits](references/recommendation-formulas.md)
 

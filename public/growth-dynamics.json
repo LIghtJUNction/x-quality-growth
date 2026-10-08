@@ -355,6 +355,28 @@
         "net_delta": 1,
         "net_rate_per_second": 0.00027531773731769493,
         "net_rate_per_hour": 0.9911438543437018
+      },
+      {
+        "started_at": "2026-10-08T11:51:16.673Z",
+        "ended_at": "2026-10-08T12:12:59.754Z",
+        "interval_seconds": 1303.081,
+        "midpoint_at": "2026-10-08T12:02:08.213500Z",
+        "count_before": 288,
+        "count_after": 289,
+        "net_delta": 1,
+        "net_rate_per_second": 0.0007674120027841708,
+        "net_rate_per_hour": 2.762683210023015
+      },
+      {
+        "started_at": "2026-10-08T12:12:59.754Z",
+        "ended_at": "2026-10-08T12:39:30.068Z",
+        "interval_seconds": 1590.314,
+        "midpoint_at": "2026-10-08T12:26:14.911000Z",
+        "count_before": 289,
+        "count_after": 290,
+        "net_delta": 1,
+        "net_rate_per_second": 0.0006288066381859179,
+        "net_rate_per_hour": 2.2637038974693047
       }
     ],
     "accelerations": [
@@ -574,15 +596,29 @@
         "midpoint_interval_seconds": 2965.9945,
         "acceleration_per_second_squared": -5.3775730998640256e-08,
         "acceleration_per_hour_squared": -0.6969334737423777
+      },
+      {
+        "from_interval_midpoint_at": "2026-10-08T11:21:00.589500Z",
+        "to_interval_midpoint_at": "2026-10-08T12:02:08.213500Z",
+        "midpoint_interval_seconds": 2467.624,
+        "acceleration_per_second_squared": 1.994202785620807e-07,
+        "acceleration_per_hour_squared": 2.584486810164566
+      },
+      {
+        "from_interval_midpoint_at": "2026-10-08T12:02:08.213500Z",
+        "to_interval_midpoint_at": "2026-10-08T12:26:14.911000Z",
+        "midpoint_interval_seconds": 1446.6975,
+        "acceleration_per_second_squared": -9.580811786724787e-08,
+        "acceleration_per_hour_squared": -1.2416732075595325
       }
     ],
     "duration_weighted_average": {
       "started_at": "2026-10-07T21:04:03.227Z",
-      "ended_at": "2026-10-08T11:51:16.673Z",
-      "interval_seconds": 53233.446,
-      "net_delta": 84,
-      "net_rate_per_second": 0.0015779553328183937,
-      "net_rate_per_hour": 5.680639198146218,
+      "ended_at": "2026-10-08T12:39:30.068Z",
+      "interval_seconds": 56126.841,
+      "net_delta": 86,
+      "net_rate_per_second": 0.0015322437263126923,
+      "net_rate_per_hour": 5.516077414725692,
       "method": "duration_weighted; first-to-last timed count difference / elapsed seconds"
     },
     "skipped_observations": [
@@ -928,6 +964,24 @@
       "following": 282,
       "total_followers": 288,
       "following_to_total_ratio": 0.9791666666666666,
+      "reason": null,
+      "meaning": "same-snapshot following / total followers; not a quality score"
+    },
+    {
+      "index": 34,
+      "observed_at": "2026-10-08T12:12:59.754Z",
+      "following": 282,
+      "total_followers": 289,
+      "following_to_total_ratio": 0.9757785467128027,
+      "reason": null,
+      "meaning": "same-snapshot following / total followers; not a quality score"
+    },
+    {
+      "index": 35,
+      "observed_at": "2026-10-08T12:39:30.068Z",
+      "following": 286,
+      "total_followers": 290,
+      "following_to_total_ratio": 0.9862068965517241,
       "reason": null,
       "meaning": "same-snapshot following / total followers; not a quality score"
     }
@@ -1314,6 +1368,32 @@
             "counter_rate_per_hour": 19.044819985304922,
             "status": "observed_counter_change",
             "observed_view_rate_per_second": 0.005290227773695812,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T11:51:16.673Z",
+            "ended_at": "2026-10-08T12:21:06.334Z",
+            "interval_seconds": 1789.661,
+            "views_before": 797,
+            "views_after": 805,
+            "counter_delta": 8,
+            "counter_rate_per_second": 0.0044701203188760325,
+            "counter_rate_per_hour": 16.092433147953717,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.0044701203188760325,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T12:21:06.334Z",
+            "ended_at": "2026-10-08T12:39:30.068Z",
+            "interval_seconds": 1103.734,
+            "views_before": 805,
+            "views_after": 807,
+            "counter_delta": 2,
+            "counter_rate_per_second": 0.0018120307972754306,
+            "counter_rate_per_hour": 6.52331087019155,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.0018120307972754306,
             "meaning": "public counter change; operator views and repeated views may contribute"
           }
         ],
@@ -1781,6 +1861,19 @@
             "status": "observed_counter_change",
             "observed_view_rate_per_second": 0.0011834599635494332,
             "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T08:02:53.338Z",
+            "ended_at": "2026-10-08T12:06:16.865Z",
+            "interval_seconds": 14603.527,
+            "views_before": 15,
+            "views_after": 18,
+            "counter_delta": 3,
+            "counter_rate_per_second": 0.00020542982527440117,
+            "counter_rate_per_hour": 0.7395473709878442,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.00020542982527440117,
+            "meaning": "public counter change; operator views and repeated views may contribute"
           }
         ],
         "skipped_observations": []
@@ -1912,6 +2005,19 @@
             "status": "observed_counter_change",
             "observed_view_rate_per_second": 0.003389653557068546,
             "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T10:16:56.795Z",
+            "ended_at": "2026-10-08T12:07:54.576Z",
+            "interval_seconds": 6657.781,
+            "views_before": 19,
+            "views_after": 26,
+            "counter_delta": 7,
+            "counter_rate_per_second": 0.0010514013603030799,
+            "counter_rate_per_hour": 3.7850448970910877,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.0010514013603030799,
+            "meaning": "public counter change; operator views and repeated views may contribute"
           }
         ],
         "skipped_observations": []
@@ -1945,7 +2051,21 @@
       {
         "status_id": "2108155423509696529",
         "url": "https://x.com/LIghtJUNction_x/status/2108155423509696529",
-        "intervals": [],
+        "intervals": [
+          {
+            "started_at": "2026-10-08T11:22:55.423Z",
+            "ended_at": "2026-10-08T12:21:06.334Z",
+            "interval_seconds": 3490.911,
+            "views_before": 1,
+            "views_after": 25,
+            "counter_delta": 24,
+            "counter_rate_per_second": 0.006874996240236431,
+            "counter_rate_per_hour": 24.74998646485115,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.006874996240236431,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          }
+        ],
         "skipped_observations": []
       },
       {
@@ -1953,6 +2073,58 @@
         "url": "https://x.com/LIghtJUNction_x/status/2108163640289546465",
         "intervals": [],
         "skipped_observations": []
+      },
+      {
+        "status_id": "2108170130702344695",
+        "url": "https://x.com/LIghtJUNction_x/status/2108170130702344695",
+        "intervals": [
+          {
+            "started_at": "2026-10-08T12:24:03.437Z",
+            "ended_at": "2026-10-08T12:38:04.053Z",
+            "interval_seconds": 840.616,
+            "views_before": 8,
+            "views_after": 13,
+            "counter_delta": 5,
+            "counter_rate_per_second": 0.005948019071728351,
+            "counter_rate_per_hour": 21.412868658222063,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.005948019071728351,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T12:38:04.053Z",
+            "ended_at": "2026-10-08T12:39:30.068Z",
+            "interval_seconds": 86.015,
+            "views_before": 13,
+            "views_after": 15,
+            "counter_delta": 2,
+            "counter_rate_per_second": 0.023251758414230075,
+            "counter_rate_per_hour": 83.70633029122827,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.023251758414230075,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T12:39:30.068Z",
+            "ended_at": "2026-10-08T13:05:09.557Z",
+            "interval_seconds": 1539.489,
+            "views_before": 15,
+            "views_after": 76,
+            "counter_delta": 61,
+            "counter_rate_per_second": 0.0396235374205337,
+            "counter_rate_per_hour": 142.6447347139213,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.0396235374205337,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          }
+        ],
+        "skipped_observations": [
+          {
+            "index": 101,
+            "observed_at": "2026-10-08T12:18:58.848Z",
+            "reason": "missing_view_count"
+          }
+        ]
       }
     ],
     "independent_audience_exposure": null,
