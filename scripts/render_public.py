@@ -217,21 +217,89 @@ def metric_art(data):
 def feedback_art(data):
     validate(data)
     rows = [r for r in data['posts'] if r.get('observed_at')]
+    labels = {
+        'launch': 'Launch post', 'prompt': 'Prompt experiment',
+        'initial_prompt': 'Prompt experiment', 'reply': 'Contextual reply',
+        'technical_reply': 'Technical reply', 'measurement_reply': 'Measurement reply',
+        'voice_reply': 'Voice reply', 'reach_recovery_original': 'Reach experiment',
+        'technical_original': 'Technical original',
+        'technical_original_edited_version': 'Technical original (edited)',
+        'annotation_method_reply': 'Annotation-method reply',
+        'context_handoff_reply': 'Context-handoff reply',
+        'workflow_cost_reply': 'Workflow-cost reply',
+        'labeling_feedback_followup': 'Labeling follow-up',
+        'git_feedback_followup': 'Git follow-up',
+        'cohort_progress_reply': 'Cohort progress reply',
+        'git_matrix_original': 'Git matrix original',
+        'annotation_temporal_feedback_followup': 'Temporal-label follow-up',
+        'fact_grounding_reply': 'Fact-grounding reply',
+        'matrix_progress_reply': 'Matrix progress reply',
+        'occlusion_research_reply': 'Occlusion-method reply',
+        'scoped_review_reply': 'Scoped-review reply',
+        'harness_feedback_reply': 'Agent-harness reply',
+        'sample_source_request_reply': 'Sample-source request',
+        'luna_decisions_advice_reply': 'Luna decisions reply',
+        'annotated_keyframes_delivery': 'Keyframe delivery',
+        'annotated_video_delivery': 'Video delivery',
+        'algorithm_source_original': 'Algorithm-source original',
+        'algorithm_source_original_60m': 'Algorithm original · 60 min',
+    }
+    label_width = 244
+
+    def estimated_width(value):
+        # Conservative advances for the 16px label font. The SVG viewport is
+        # the final boundary even when another machine substitutes a font.
+        def advance(char):
+            if char.isspace():
+                return 5
+            if char in "ilI.,:;'!|":
+                return 5
+            if char in 'MWmw@#%&' or not char.isascii():
+                return 16
+            return 12.5 if char.isupper() else 10.5
+        return sum(advance(char) for char in value)
+
+    def label_lines(value):
+        remaining = value.strip()
+        lines = []
+        while remaining and len(lines) < 2:
+            cut = 0
+            while cut < len(remaining) and estimated_width(remaining[:cut+1]) <= label_width:
+                cut += 1
+            if cut < len(remaining):
+                space = remaining.rfind(' ', 0, cut+1)
+                if space > 0:
+                    cut = space
+            line, remaining = remaining[:cut].rstrip(), remaining[cut:].lstrip()
+            if len(lines) == 1 and remaining:
+                while estimated_width(line + '…') > label_width:
+                    line = line[:-1].rstrip()
+                line += '…'
+            lines.append(line)
+        return lines or ['Unspecified post']
+
     body = ''
     body += text(38, 70, 'Visibility is evidence to inspect, not a proof of lift.', 27, '#191b1b')
     columns = [('views', 'Views'), ('replies', 'Replies'), ('likes', 'Likes'), ('reposts', 'Reposts'), ('bookmarks', 'Bookmarks')]
     for i, (key, label) in enumerate(columns):
         body += text(300+i*146, 133, label, 15)
-    for j, row in enumerate(rows):
-        y = 185+j*68
-        label = {'launch': 'Launch post', 'prompt': 'Prompt experiment', 'initial_prompt': 'Prompt experiment', 'reply': 'Contextual reply', 'technical_reply': 'Technical reply', 'measurement_reply': 'Measurement reply'}.get(row['kind'], row['kind'])
-        body += text(38, y, label, 16, '#191b1b')
+    y = 185
+    for row in rows:
+        label = labels.get(row['kind'], row['kind'].replace('_', ' '))
+        lines = label_lines(label)
+        body += (f'<svg x="38" y="{y-19}" width="{label_width}" height="43" '
+                 f'viewBox="0 0 {label_width} 43" overflow="hidden">'
+                 f'<title>{escape(label)} [{escape(row["kind"])}]</title>')
+        for index, line in enumerate(lines):
+            body += text(0, 19+index*20, line, 16, '#191b1b')
+        body += '</svg>'
         for i, (key, _) in enumerate(columns):
             body += text(300+i*146, y, row.get(key) if row.get(key) is not None else 'N/A', 24, '#b73825')
-        body += text(38, y+24, row['observed_at'], 11, '#636660')
+        body += text(38, y+24+(len(lines)-1)*20, row['observed_at'], 11, '#636660')
+        y += 68+(len(lines)-1)*20
     if not rows:
         body += text(38, 185, 'N/A — no observed post counters recorded', 18, '#8b5520')
-    footer = 185+max(len(rows), 1)*68
+    footer = y if rows else 253
     body += text(38, footer+20, 'Public counters can include the account owner; independent endorsements are unknown.', 14, '#8b5520')
     body += text(38, footer+48, 'Each row retains its own X observation time; GitHub refreshes do not update it.', 14)
     return svg(body, height=footer+80, title='RISE public post feedback')

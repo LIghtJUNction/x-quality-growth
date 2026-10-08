@@ -90,6 +90,12 @@
       "following": 262,
       "observed_at": "2026-10-08T02:49:34.238Z",
       "note": "Current algorithm-focused-round baseline: +14 net from256. Other video publications and follow operations continued in parallel; neither this increase nor following count262 is attributed to the measured replies."
+    },
+    {
+      "observed_at": "2026-10-08T03:23:30.786Z",
+      "total": 270,
+      "following": 264,
+      "note": "Current recheck; total unchanged since270, operator actions and own views remain confounders."
     }
   ],
   "blue_observations": [
@@ -150,13 +156,15 @@
     {
       "kind": "launch",
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
-      "observed_at": "2026-10-08T02:49:34.238Z",
-      "views": 647,
-      "replies": 5,
+      "observed_at": "2026-10-08T03:23:30.786Z",
+      "views": 661,
+      "replies": 7,
       "reposts": 1,
       "likes": 2,
       "bookmarks": null,
-      "note": "Public profile counters; own progress replies and likes may contribute. No independent reach or acquisition claim."
+      "note": "Public profile counters; own progress replies and likes may contribute. No independent reach or acquisition claim.",
+      "published_at": "2026-10-07T21:18:52.000Z",
+      "published_at_source": "Browser-visible time element, retained from the reopened permanent thread"
     },
     {
       "kind": "voice_reply",
@@ -267,7 +275,9 @@
       "likes": 0,
       "reposts": 0,
       "bookmarks": 0,
-      "note": "Own progress reply, not independent audience endorsement"
+      "note": "Own progress reply, not independent audience endorsement",
+      "published_at": "2026-10-08T00:17:09.000Z",
+      "published_at_source": "Browser-visible time element, retained from the reopened permanent thread"
     },
     {
       "kind": "git_matrix_original",
@@ -312,7 +322,9 @@
       "likes": 0,
       "reposts": 0,
       "bookmarks": 0,
-      "note": "Own progress reply under the fixed launch thread; not independent audience feedback."
+      "note": "Own progress reply under the fixed launch thread; not independent audience feedback.",
+      "published_at": "2026-10-08T01:19:07.000Z",
+      "published_at_source": "Browser-visible time element, retained from the reopened permanent thread"
     },
     {
       "kind": "occlusion_research_reply",
@@ -366,14 +378,14 @@
       "url": "https://x.com/LIghtJUNction_x/status/2108016718492909780",
       "published_at": "2026-10-08T02:08:45.000Z",
       "publication_verified_at": "2026-10-08T02:09:45.202Z",
-      "observed_at": null,
-      "views": null,
-      "replies": null,
-      "reposts": null,
-      "likes": null,
-      "bookmarks": null,
+      "observed_at": "2026-10-08T03:09:22.675Z",
+      "views": 22,
+      "replies": 1,
+      "reposts": 0,
+      "likes": 1,
+      "bookmarks": 0,
       "api_execution": false,
-      "note": "Published advice with exact publication time verified through DOM time. No Decisions API execution or tested accuracy, throughput or cost savings; counters not collected.",
+      "note": "Actual 60-minute observation at60.627917minutes,37.675s late. One existing-requester comparison question; no adoption or acquisition verified. Liker independence unknown.",
       "publication_time_verified_at": "2026-10-08T02:55:48.522Z"
     },
     {
@@ -422,6 +434,20 @@
       "skill_source_commit": "caa61f83c5f9b6802c8c1b84ae4fc49156a75d66",
       "algorithm_source_commit": "78460ca8b65c57ddd3a05f9217c8aaeba214b628",
       "note": "Initial public verification with image and ALT. Two early views are not a60-minute result; different topic, new graphic and concurrent operations prevent a fair A/B comparison."
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108031214066294941",
+      "published_at": "2026-10-08T03:06:21.000Z",
+      "views": 1,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0,
+      "kind": "algorithm_progress_reply",
+      "observed_at": "2026-10-08T03:08:12.506Z",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "note": "Own measured progress reply; the quote and own reply are not independent endorsements.",
+      "published_at_source": "Browser-visible time element, retained from the reopened permanent thread"
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -500,6 +526,19 @@
         "254 observed total; concurrent activity prevents attribution",
         "Two reviewed high-quality events in incomplete251/253 capture; full-window share unknown",
         "Edited-parent interactions checked on actual latest version"
+      ]
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108031214066294941",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "kind": "measured-progress",
+      "verified_at": "2026-10-08T03:08:12.506Z",
+      "reported_profile_observation": "2026-10-08T02:49:34.238Z",
+      "changes": [
+        "30 source files bound at official SHA; algorithm field guide and source diagram published",
+        "124 tests passed",
+        "270 total at its actual profile timestamp; +14 vs256 is confounded",
+        "Two persisted blue followbacks; quality and new acquisition unknown"
       ]
     }
   ],
@@ -758,6 +797,17 @@
       "note": "Later public profile capture; counts can include operator views. Not a fixed-age recheck; bookmarks not exposed here."
     },
     {
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "kind": "technical_original_edited_version",
+      "observed_at": "2026-10-08T00:26:32.579Z",
+      "views": 15,
+      "replies": null,
+      "likes": null,
+      "reposts": null,
+      "bookmarks": null,
+      "note": "Public views retained from the actual fixed-age experiment capture; other counters not independently preserved here."
+    },
+    {
       "kind": "technical_original_edited_version",
       "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
       "observed_at": "2026-10-08T01:15:14.382Z",
@@ -903,6 +953,85 @@
       "skill_source_commit": "caa61f83c5f9b6802c8c1b84ae4fc49156a75d66",
       "algorithm_source_commit": "78460ca8b65c57ddd3a05f9217c8aaeba214b628",
       "note": "Initial public verification with image and ALT. Two early views are not a60-minute result; different topic, new graphic and concurrent operations prevent a fair A/B comparison."
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108031214066294941",
+      "published_at": "2026-10-08T03:06:21.000Z",
+      "views": 1,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0,
+      "kind": "algorithm_progress_reply",
+      "observed_at": "2026-10-08T03:08:12.506Z",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "note": "Own measured progress reply; the quote and own reply are not independent endorsements."
+    },
+    {
+      "kind": "launch",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "observed_at": "2026-10-08T02:49:34.238Z",
+      "views": 647,
+      "replies": 5,
+      "likes": 2,
+      "reposts": 1,
+      "bookmarks": null,
+      "note": "Retained actual profile capture; own interactions may contribute."
+    },
+    {
+      "kind": "launch",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "observed_at": "2026-10-08T03:08:12.506Z",
+      "views": 659,
+      "replies": 6,
+      "reposts": 1,
+      "likes": 2,
+      "bookmarks": null,
+      "note": "Public profile counters; own progress replies and likes may contribute. No independent reach or acquisition claim."
+    },
+    {
+      "kind": "luna_decisions_advice_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108016718492909780",
+      "published_at": "2026-10-08T02:08:45.000Z",
+      "publication_verified_at": "2026-10-08T02:09:45.202Z",
+      "observed_at": "2026-10-08T03:09:22.675Z",
+      "views": 22,
+      "replies": 1,
+      "reposts": 0,
+      "likes": 1,
+      "bookmarks": 0,
+      "api_execution": false,
+      "note": "Actual 60-minute observation at60.627917minutes,37.675s late. One existing-requester comparison question; no adoption or acquisition verified. Liker independence unknown.",
+      "publication_time_verified_at": "2026-10-08T02:55:48.522Z"
+    },
+    {
+      "kind": "launch",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "observed_at": "2026-10-08T03:23:30.786Z",
+      "views": 661,
+      "replies": 7,
+      "reposts": 1,
+      "likes": 2,
+      "bookmarks": null,
+      "note": "Public profile counters; own progress replies and likes may contribute. No independent reach or acquisition claim.",
+      "published_at": "2026-10-07T21:18:52.000Z",
+      "published_at_source": "Browser-visible time element, retained from the reopened permanent thread"
+    },
+    {
+      "kind": "algorithm_source_original_60m",
+      "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+      "published_at": "2026-10-08T02:57:15.000Z",
+      "observed_at": "2026-10-08T03:57:42.584Z",
+      "views": 33,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 1,
+      "bookmarks": 0,
+      "age_minutes": 60.45973333333334,
+      "window_lateness_seconds": 27.584,
+      "self_like_visible": true,
+      "independent_likes": 0,
+      "note": "Actual 60-minute observation, 27.584 seconds late. Like state is Liked for the signed-in account; the one visible like is self-interaction, not an independent endorsement. Public views are separate from owner impressions."
     }
   ],
   "analytics_observations": [
@@ -966,6 +1095,45 @@
       "profile_visits": 0,
       "link_clicks": 0,
       "kind": "harness_feedback_reply"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108016718492909780",
+      "observed_at": "2026-10-08T03:14:36.992Z",
+      "impressions": 23,
+      "engagements": 7,
+      "detail_expands": 4,
+      "profile_visits": 1,
+      "link_clicks": 0,
+      "source": "X Post Analytics",
+      "attributed_follows": null,
+      "independent_engagements": null
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+      "observed_at": "2026-10-08T03:19:35.301Z",
+      "impressions": 9,
+      "engagements": 1,
+      "detail_expands": 1,
+      "profile_visits": 0,
+      "link_clicks": null,
+      "source": "X Post Analytics",
+      "attributed_follows": null,
+      "independent_engagements": null,
+      "note": "Link clicks not shown in this capture; do not infer zero."
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+      "observed_at": "2026-10-08T03:58:29.647Z",
+      "published_at": "2026-10-08T02:57:15.000Z",
+      "impressions": 24,
+      "engagements": 2,
+      "detail_expands": 1,
+      "profile_visits": 0,
+      "link_clicks": null,
+      "source": "X Post Analytics",
+      "attributed_follows": null,
+      "independent_engagements": null,
+      "note": "Captured at age61.244 minutes. Link clicks are not displayed. One public like is the signed-in account self-like; independent engagement cannot be inferred from the total. Owner impressions and public views have different captures and are not merged."
     }
   ],
   "verified_list_observations": [

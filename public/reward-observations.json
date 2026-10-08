@@ -1,0 +1,21 @@
+{
+  "metric": "verified_home_timeline_impressions_excluding_replies",
+  "window_days": 90,
+  "impression_target": 500000,
+  "verified_follower_target": 500,
+  "source": "X Creator Studio / Original Content Rewards",
+  "policy_url": "https://help.x.com/en/using-x/original-content-rewards",
+  "policy_checked_at": "2026-10-08T04:00:26Z",
+  "observations": [
+    {
+      "observed_at": "2026-10-08T04:02:12.455Z",
+      "verified_home_impressions_90d": 534,
+      "verified_followers": 167,
+      "replies_excluded": true,
+      "source": "X Creator Studio / Original Content Rewards",
+      "source_url": "https://x.com/i/jf/creators/original_content_rewards",
+      "payout_qualified_impressions": null,
+      "note": "Exact displayed eligibility counters. Verified followers are the backend category, not a blue-only or high-quality count. No per-post qualified data, daily expiry history, forecast or program admission is established."
+    }
+  ]
+}

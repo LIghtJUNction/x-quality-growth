@@ -30,6 +30,14 @@ The [30-file manifest](references/upstream.json) binds official commit `78460ca8
 
 **Current challenge: exceed 100,000 actual followers.** Review checkpoints are 250, 1,000, 10,000 and 100,001; high-quality blue-check acquisition needs separate evidence. Arrival date is unknown. [Iteration checkpoints](references/road-to-100k.en.md).
 
+**Additional operating target: increase original-content verified Home Timeline impressions toward 500,000 in 90 days.** New blue-check followers and their high-quality share remain targets. Reply impressions are excluded; eligibility counters and payout-qualified impressions remain separate. [Current X policy](https://help.x.com/en/using-x/original-content-rewards).
+
+<img src="assets/reward-reach.svg" width="100%" alt="Actual backend baseline at 04:02 UTC on October 8: 534/500000 verified Home Timeline impressions and 167/500 verified followers. The new forecast is untrained; payout-qualified impressions are unknown." />
+
+Actual capture **2026-10-08 04:02:12.455 UTC**: **534 / 500,000 impressions (0.1068%)**, a gap of **499,466**; **167 / 500 verified followers**, a gap of **333**. The backend verified category is neither a verified blue-only count nor a high-quality count. [Observed eligibility counters](public/reward-observations.json).
+
+The additional model target is future 1-hour/24-hour per-post verified Home Timeline impression increments. Per-post labels are missing, so predictions remain unknown rather than total views multiplied by a verified ratio. Rolling 90-day progress must also subtract expiring impressions. X excludes automatically created or posted content from payout eligibility; Codex-posted experiments are not payout evidence. Human original creation, manual publication and automated research/statistics remain separately recorded. [Target and strategy limits](references/reward-reach.en.md).
+
 <img src="assets/metrics.svg" width="100%" alt="Actual follower observations and the current observed blue cohort with separate observation windows" />
 
 <!-- RISE:METRICS:START -->
@@ -40,7 +48,7 @@ The [30-file manifest](references/upstream.json) binds official commit `78460ca8
 | Quality classification | 2 high / 3 not matched / 0 unclassified |
 | High-quality share | 40.0% |
 | Current observed-cohort window | 2026-10-07T22:58:02.912Z → 2026-10-08T00:10:06.403Z |
-| Latest profile observation | 2026-10-08T02:49:34.238Z |
+| Latest profile observation | 2026-10-08T03:23:30.786Z |
 | Previous independent cohort | 0 high / 11 not matched / 1 unclassified (n=12) |
 | Observed-cohort quality lower / possible upper bound | 40.0%–40.0% |
 | First profile observation | Timestamp unavailable |
@@ -51,7 +59,7 @@ Bounds describe the observed blue cohort, not confirmed new followers. Badge upg
 
 [RISE launch post](https://x.com/LIghtJUNction_x/status/2107943767382847844)
 
-[Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2108004228832866696)
+[Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2108031214066294941)
 <!-- RISE:METRICS:END -->
 
 Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. The current five-account observed cohort is fully classified; the earlier twelve-account cohort still has one unknown and is retained separately. We keep those limitations visible.
@@ -86,7 +94,7 @@ The pinned launch post is the stable entry point: edit it when new evidence or i
 
 GitHub stars and forks refresh every six hours through GitHub Actions. X feedback refreshes only after an authorized browser observation. A GitHub refresh never changes the timestamp of old X data. No unattended X scheduler has been configured.
 
-Latest observations: the [algorithm-focused round](public/backtests/2026-10-08-algorithm.en.md) records **270 followers** at 02:49:34 UTC, net +14 from the earlier 256. Other videos and follow operations continued, preventing per-post attribution. Targeted Git advice had 10 views at 73.89 minutes, harness advice 9 at 59.93 minutes, and the source request 20 at 63.66 minutes. Its one response provided a source entry point from the same author. Neither technical suggestion had a technical response or profile visit; new high-quality acquisition remains unproven.
+Earlier observations: the [algorithm-focused round](public/backtests/2026-10-08-algorithm.en.md) records **270 followers** at 02:49:34 UTC, net +14 from the earlier 256. Other videos and follow operations continued, preventing per-post attribution. Targeted Git advice had 10 views at 73.89 minutes, harness advice 9 at 59.93 minutes, and the source request 20 at 63.66 minutes. Its one response provided a source entry point from the same author. Neither technical suggestion had a technical response or profile visit; new high-quality acquisition remains unproven.
 
 Completed older windows remain available: [matrix, 12 views at 60.11 minutes](public/backtests/2026-10-08-matrix.en.md); [technical case, 15 views at 60.38 minutes and one specific responding author](public/backtests/2026-10-08-technical-case.en.md); and [method post, 34 views at 67.15 minutes](public/backtests/2026-10-08.en.md). Posting age, versions and concurrent operations differ. Each report retains its original timestamps and captured denominators.
 
@@ -95,6 +103,47 @@ Completed older windows remain available: [matrix, 12 views at 60.11 minutes](pu
 The [independent algorithm original](https://x.com/LIghtJUNction_x/status/2108028923200339985) was published at **02:57:15 UTC**, with image, ALT and source link reopened and verified. Initial counters were two views and zero interactions. Its **03:57:15 UTC** 60-minute point and next-day **02:57:15 UTC** 24-hour point remain pending; this is not a fair A/B comparison.
 
 The five-account observed cohort's 40% is unchanged. Two high-quality events in an incomplete older list, targeted reviews and this round's two blue followbacks remain separate. The two followback recipients' quality is still unknown; confirmed acquisition is not reported. No unattended X checks are configured. The previous coverage-boundary iteration passed 118 tests; this source-and-parameter review passed **124 tests**.
+
+## Statistics and prediction: test against actual error
+
+<img src="assets/statistics.svg" width="100%" alt="Follower net rates and midpoint-based acceleration from actual timestamps, retaining missing data and unequal windows" />
+
+The latest profile reading is **270 followers / 264 following** at **2026-10-08 03:23:30.786 UTC**. From the first precisely timed count of 204 to 270, the average net rate is **10.44 followers/hour** (0.002899/second); the latest 33.94-minute interval has zero net change. The initial 175 count has no exact timestamp and is excluded from rates. The five-account cohort's **40%** remains that observed cohort's quality share, not account-wide quality or confirmed acquisition.
+
+Rate is `follower change / elapsed time`. Acceleration divides the change between two interval rates by the gap between their **window midpoints**, in followers/hour². These describe net changes; they cannot separate arrivals and departures or establish a growth mechanism. Post impressions, engagements, detail expands, profile visits and clicks retain their own sources and collection times. Public views and owner impressions stay separate; unattributed per-post acquisition remains null.
+
+<img src="assets/prediction.svg" width="100%" alt="Matched-origin heat backtests comparing actual errors for last-value, recent-rate and three-parameter PyTorch predictions" />
+
+**Actual count fitting is complete; the curve has not outperformed the simple baseline.** PyTorch 2.14 trained two separate per-post curves on a single CPU thread, with only 3 parameters each. The final saved states use 19 correlated observation points, not 19 independent posts. The launch post has 7 evaluable rolling origins; each backtest uses only data available by that prediction origin.
+
+The latest historical holdout spans **03:08:12.506 → 03:23:30.786 UTC**, about 15.30 minutes, with **661 actual views**. This is a historical next-point backtest, not a forecast published in advance. That prediction trained on the preceding 12 points; the final archive was subsequently refitted using the available history, including the holdout.
+
+| Model | Latest holdout prediction | Absolute error, views | Matched-window MAE, views |
+| --- | ---: | ---: | ---: |
+| Keep the last value | 659 | 2 | **9.40** |
+| Continue the recent rate | 668.85395 | 7.85395 | 12.30 |
+| Three-parameter PyTorch curve | 673.22592 | 12.22592 | 28.30 |
+
+MAE means mean absolute error; lower is better. The last column compares **the same 5 origins and targets from one launch post, at 15–60-minute horizons**. These observations are correlated and do not establish cross-post generalization or statistical superiority. The 24-hour extrapolation has no actual result yet, and uncertainty intervals remain unknown. Exposure forecasts do not predict blue-check acquisition or a date for reaching 100,000 followers.
+
+The implementation currently uses publication times, observation times and counts; measured platform support covers X only. A unified contract for text, images, video and comments is designed, but text and media semantics are not training inputs, and other platform adapters are unvalidated. The official popular-pool reference score is not a future-exposure forecast. [Statistical methods](references/growth-statistics.en.md) · [Input contract](references/model-inputs.en.md) · [Official time parameters](references/algorithm-time.md) · [Recommendation formulas and limits](references/recommendation-formulas.md)
+
+**Second target: text origin.** The design supports separate probabilities for human-written, AI-generated and mixed text, with unknown when evidence is insufficient. Earlier out-of-fold predictions may also help heat forecasting. The [input and probability validator](scripts/authorship.py) is implemented, but no origin classifier has been trained or heat improvement measured. These probabilities measure neither quality nor the fraction of AI-written characters; see [labels and validation](references/model-inputs.en.md). Prefer [existing resources](references/data-reuse.en.md) over producing new posts just to accumulate samples.
+
+Reproduce the three aggregate outputs. The first two use the Python standard library; curve training additionally requires PyTorch:
+
+```sh
+python3 scripts/growth_dynamics.py --output public/growth-dynamics.json
+python3 scripts/post_statistics.py --output public/post-statistics.json
+python3 scripts/predict_heat.py --model torch --output public/heat-prediction.json --model-outputpath runs/heat-model-state.json
+python3 scripts/reward_progress.py --outputpath public/reward-progress.json
+```
+
+[Follower dynamics](public/growth-dynamics.json) · [Post statistics](public/post-statistics.json) · [Prediction backtests](public/heat-prediction.json). The model state, reproducible code and honest backtests are public on [Hugging Face / RISE-heat-baseline](https://huggingface.co/LIghtJUNction/RISE-heat-baseline), revision `ab23b84`; downloaded state and model card match local SHA-256 hashes.
+
+The statistics, prediction and eligibility-measurement iteration passed **224 tests** and skill validation.
+
+The next round fixes 60-minute, 24-hour and 72-hour windows, changes one primary factor at a time and records concurrent operations. Accumulate comparable post or date blocks; refreshing a page or receiving several replies from one author does not create independent samples. Evaluate high-quality acquisition, cohort retention, effort and prediction error separately, retaining simple baselines when the model does not improve them.
 
 ## Install and run
 
@@ -118,7 +167,7 @@ The skill drives Codex in an available, authenticated browser. Its scripts are o
 
 ## Reproducible measurement
 
-Python 3.10+, standard library only:
+Basic measurement uses Python 3.10+ and the standard library; optional curve training additionally requires PyTorch:
 
 ```sh
 python3 scripts/measure.py examples/before.json examples/after.json

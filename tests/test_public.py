@@ -1,6 +1,7 @@
 import copy
 import json
 import unittest
+import xml.etree.ElementTree as ET
 from pathlib import Path
 from scripts import render_public
 
@@ -37,6 +38,38 @@ class PublicEvidenceTests(unittest.TestCase):
         row.update(kind='launch', views=None, observed_at='2026-10-08T00:00:00Z')
         self.data['posts'] = [row]
         self.assertIn('N/A', render_public.feedback_art(self.data))
+
+    def test_feedback_label_regions_stay_before_counter_columns(self):
+        root = ET.fromstring(render_public.feedback_art(self.data))
+        ns = {'svg': 'http://www.w3.org/2000/svg'}
+        counters = [element for element in root.findall('.//svg:text', ns)
+                    if element.get('font-size') == '24']
+        first_counter = min(float(element.get('x')) for element in counters)
+        labels = root.findall('.//svg:svg', ns)
+        observed = [row for row in self.data['posts'] if row.get('observed_at')]
+        self.assertEqual(len(labels), len(observed))
+        for label, row in zip(labels, observed):
+            with self.subTest(kind=row['kind']):
+                self.assertLess(float(label.get('x')) + float(label.get('width')), first_counter)
+                self.assertEqual(label.get('overflow'), 'hidden')
+                self.assertIn(row['kind'], label.find('svg:title', ns).text)
+                visible = [element.text or '' for element in label.findall('svg:text', ns)]
+                self.assertTrue(visible)
+                self.assertTrue(all('_' not in line for line in visible))
+
+    def test_unknown_long_feedback_label_wraps_without_losing_full_identity(self):
+        row = copy.deepcopy(self.data['posts'][0])
+        row.update(kind='Future_annotation_方法_' + 'W' * 100,
+                   observed_at='2026-10-08T00:00:00Z')
+        self.data['posts'] = [row]
+        root = ET.fromstring(render_public.feedback_art(self.data))
+        ns = {'svg': 'http://www.w3.org/2000/svg'}
+        label = root.find('.//svg:svg', ns)
+        visible = [element.text or '' for element in label.findall('svg:text', ns)]
+        self.assertEqual(len(visible), 2)
+        self.assertTrue(visible[-1].endswith('…'))
+        self.assertIn(row['kind'], label.find('svg:title', ns).text)
+        self.assertLess(float(label.get('x')) + float(label.get('width')), 300)
 
     def test_invalid_counter_is_rejected(self):
         self.data['posts'][0]['likes'] = -1

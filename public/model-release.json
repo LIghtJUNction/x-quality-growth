@@ -1,0 +1,31 @@
+{
+  "url": "https://huggingface.co/LIghtJUNction/RISE-heat-baseline",
+  "revision": "ab23b84bfe1a46f8b9b8b604f200461d59ba6ca9",
+  "verified_at": "2026-10-08T03:37:46.564878+00:00",
+  "browser_file_list_verified": true,
+  "public_downloads_verified": {
+    "model-state.json": "a08a0c6ba10350ba016fe66121d22a2508fe21ff7bd504fc8b14de5c2cdf6cf4",
+    "README.md": "d7b63914f64f8f8926ff574f79d4eadf3a1c87e9512b3eab211115cce085ecc2"
+  },
+  "model_state_bytes": 2929,
+  "per_post_fits": 2,
+  "trainable_parameters_per_fit": 3,
+  "total_learned_parameters": 6,
+  "device": "cpu",
+  "threads": 1,
+  "text_media_comments_trained": false,
+  "text_origin_classifier_trained": false,
+  "verified_home_impression_forecaster_trained": false,
+  "cross_post_generalization": "unverified",
+  "model_beat_simple_baseline": false,
+  "files": [
+    "LICENSE",
+    "README.md",
+    "backtest.json",
+    "inference.py",
+    "model-state.json",
+    "provenance.json",
+    "train.py",
+    "training-aggregates.json"
+  ]
+}

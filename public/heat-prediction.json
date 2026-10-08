@@ -1,0 +1,3846 @@
+{
+  "schema_version": 1,
+  "requested_model": "torch",
+  "text_features_included": false,
+  "comment_features_included": false,
+  "model_trainable_parameter_count": 3,
+  "target": "cumulative exposure, not an algorithm ranking score",
+  "evaluation": "rolling_origin: first two observations predict the next; latest is held out",
+  "limitations": [
+    "Only real published_at values are used; no synthetic observation at age zero.",
+    "Public views and owner impressions are never pooled.",
+    "Same-post repeated predictions are correlated; cross-post generalization is untested.",
+    "Public counts can include operator opens; engagement and follower causality are unknown.",
+    "Text, media and comments are not model inputs; a future content model needs frozen-cutoff data and ablation.",
+    "A saturating curve is a hypothesis; recommendation can create multiple bursts.",
+    "Forecast and parameter uncertainty intervals are unknown, not zero.",
+    "No follower-target arrival forecast is produced."
+  ],
+  "series": [
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "source": "owner_impressions",
+      "published_at": "2026-10-07T21:18:52.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-07T21:44:37.232Z",
+          "age_seconds": 1545.232,
+          "value": 153
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": null
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "source": "public_views",
+      "published_at": "2026-10-07T21:18:52.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-07T21:21:10.765Z",
+          "age_seconds": 138.765,
+          "value": 6
+        },
+        {
+          "observed_at": "2026-10-07T21:28:16.100Z",
+          "age_seconds": 564.1,
+          "value": 17
+        },
+        {
+          "observed_at": "2026-10-07T21:44:37.232Z",
+          "age_seconds": 1545.232,
+          "value": 161
+        },
+        {
+          "observed_at": "2026-10-07T22:54:52.489Z",
+          "age_seconds": 5760.489,
+          "value": 471
+        },
+        {
+          "observed_at": "2026-10-07T23:23:55.529Z",
+          "age_seconds": 7503.529,
+          "value": 521
+        },
+        {
+          "observed_at": "2026-10-07T23:39:44.338Z",
+          "age_seconds": 8452.338,
+          "value": 544
+        },
+        {
+          "observed_at": "2026-10-08T00:07:55.062Z",
+          "age_seconds": 10143.062,
+          "value": 551
+        },
+        {
+          "observed_at": "2026-10-08T00:27:17.707Z",
+          "age_seconds": 11305.707,
+          "value": 562
+        },
+        {
+          "observed_at": "2026-10-08T01:15:14.382Z",
+          "age_seconds": 14182.382,
+          "value": 577
+        },
+        {
+          "observed_at": "2026-10-08T01:19:35.998Z",
+          "age_seconds": 14443.998,
+          "value": 583
+        },
+        {
+          "observed_at": "2026-10-08T02:49:34.238Z",
+          "age_seconds": 19842.238,
+          "value": 647
+        },
+        {
+          "observed_at": "2026-10-08T03:08:12.506Z",
+          "age_seconds": 20960.506,
+          "value": 659
+        },
+        {
+          "observed_at": "2026-10-08T03:23:30.786Z",
+          "age_seconds": 21878.786,
+          "value": 661
+        }
+      ],
+      "status": "usable",
+      "counter_revisions": [],
+      "predictions": [
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-07T21:28:16.100Z",
+          "target_at": "2026-10-07T21:44:37.232Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            }
+          ],
+          "training_points": 2,
+          "actual": 161,
+          "prediction": 17.0,
+          "origin_age_seconds": 564.1,
+          "target_age_seconds": 1545.232,
+          "forecast_horizon_seconds": 981.132,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": -144.0,
+          "absolute_error": 144.0,
+          "squared_error": 20736.0,
+          "smape_percent": 161.79775280898878
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-07T21:28:16.100Z",
+          "target_at": "2026-10-07T21:44:37.232Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            }
+          ],
+          "training_points": 2,
+          "actual": 161,
+          "prediction": 42.37400402036042,
+          "origin_age_seconds": 564.1,
+          "target_age_seconds": 1545.232,
+          "forecast_horizon_seconds": 981.132,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": -118.62599597963958,
+          "absolute_error": 118.62599597963958,
+          "squared_error": 14072.126922161466,
+          "smape_percent": 116.65797361964076
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-07T21:44:37.232Z",
+          "target_at": "2026-10-07T22:54:52.489Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            }
+          ],
+          "training_points": 3,
+          "actual": 471,
+          "prediction": 161.0,
+          "origin_age_seconds": 1545.232,
+          "target_age_seconds": 5760.489,
+          "forecast_horizon_seconds": 4215.257,
+          "horizon_bucket": "1_to_6_hours",
+          "latest_holdout": false,
+          "signed_error": -310.0,
+          "absolute_error": 310.0,
+          "squared_error": 96100.0,
+          "smape_percent": 98.10126582278481
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-07T21:44:37.232Z",
+          "target_at": "2026-10-07T22:54:52.489Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            }
+          ],
+          "training_points": 3,
+          "actual": 471,
+          "prediction": 779.6700749746211,
+          "origin_age_seconds": 1545.232,
+          "target_age_seconds": 5760.489,
+          "forecast_horizon_seconds": 4215.257,
+          "horizon_bucket": "1_to_6_hours",
+          "latest_holdout": false,
+          "signed_error": 308.6700749746211,
+          "absolute_error": 308.6700749746211,
+          "squared_error": 95277.21518483822,
+          "smape_percent": 49.360751672400056
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-07T22:54:52.489Z",
+          "target_at": "2026-10-07T23:23:55.529Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            }
+          ],
+          "training_points": 4,
+          "actual": 521,
+          "prediction": 471.0,
+          "origin_age_seconds": 5760.489,
+          "target_age_seconds": 7503.529,
+          "forecast_horizon_seconds": 1743.0400000000009,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": -50.0,
+          "absolute_error": 50.0,
+          "squared_error": 2500.0,
+          "smape_percent": 10.080645161290322
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-07T22:54:52.489Z",
+          "target_at": "2026-10-07T23:23:55.529Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            }
+          ],
+          "training_points": 4,
+          "actual": 521,
+          "prediction": 599.1872967650609,
+          "origin_age_seconds": 5760.489,
+          "target_age_seconds": 7503.529,
+          "forecast_horizon_seconds": 1743.0400000000009,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": 78.18729676506086,
+          "absolute_error": 78.18729676506086,
+          "squared_error": 6113.253375427697,
+          "smape_percent": 13.959682812125166
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-07T23:23:55.529Z",
+          "target_at": "2026-10-07T23:39:44.338Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            }
+          ],
+          "training_points": 5,
+          "actual": 544,
+          "prediction": 521.0,
+          "origin_age_seconds": 7503.529,
+          "target_age_seconds": 8452.338,
+          "forecast_horizon_seconds": 948.8089999999993,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": -23.0,
+          "absolute_error": 23.0,
+          "squared_error": 529.0,
+          "smape_percent": 4.31924882629108
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-07T23:23:55.529Z",
+          "target_at": "2026-10-07T23:39:44.338Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            }
+          ],
+          "training_points": 5,
+          "actual": 544,
+          "prediction": 548.2170747659262,
+          "origin_age_seconds": 7503.529,
+          "target_age_seconds": 8452.338,
+          "forecast_horizon_seconds": 948.8089999999993,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": 4.217074765926213,
+          "absolute_error": 4.217074765926213,
+          "squared_error": 17.783719581411628,
+          "smape_percent": 0.7722045119702927
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-07T23:39:44.338Z",
+          "target_at": "2026-10-08T00:07:55.062Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            }
+          ],
+          "training_points": 6,
+          "actual": 551,
+          "prediction": 544.0,
+          "origin_age_seconds": 8452.338,
+          "target_age_seconds": 10143.062,
+          "forecast_horizon_seconds": 1690.7240000000002,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": -7.0,
+          "absolute_error": 7.0,
+          "squared_error": 49.0,
+          "smape_percent": 1.278538812785388
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-07T23:39:44.338Z",
+          "target_at": "2026-10-08T00:07:55.062Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            }
+          ],
+          "training_points": 6,
+          "actual": 551,
+          "prediction": 584.9846997657063,
+          "origin_age_seconds": 8452.338,
+          "target_age_seconds": 10143.062,
+          "forecast_horizon_seconds": 1690.7240000000002,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": 33.984699765706296,
+          "absolute_error": 33.984699765706296,
+          "squared_error": 1154.9598181651975,
+          "smape_percent": 5.9833023759414266
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "torch_saturation",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-07T23:39:44.338Z",
+          "target_at": "2026-10-08T00:07:55.062Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            }
+          ],
+          "training_points": 6,
+          "actual": 551,
+          "prediction": 597.1721423430795,
+          "origin_age_seconds": 8452.338,
+          "target_age_seconds": 10143.062,
+          "forecast_horizon_seconds": 1690.7240000000002,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": 46.172142343079486,
+          "absolute_error": 46.172142343079486,
+          "squared_error": 2131.8667285495935,
+          "smape_percent": 8.04272123322132,
+          "fit": {
+            "status": "experimental_fit",
+            "device": "cpu",
+            "torch_version": "2.14.0",
+            "epochs": 400,
+            "parameters": {
+              "b": 0.07404609476800901,
+              "A": 813.4268594286531,
+              "tau_seconds": 11670.74673776845
+            },
+            "loss": "mean_squared_log1p_count",
+            "training_loss": 0.22049928360280693,
+            "n_training_points": 6,
+            "training_cutoff": "2026-10-07T23:39:44.338Z",
+            "parameter_intervals": null,
+            "trainable_parameter_count": 3,
+            "trainable_state": {
+              "name": "raw_positive_parameters",
+              "shape": [
+                3
+              ],
+              "dtype": "float64",
+              "values": [
+                -2.565815989477462,
+                813.4268594286531,
+                3.201709897262529
+              ]
+            },
+            "architecture": "softplus-constrained b, A, tau; tau floor is 1 second"
+          },
+          "forecast_anchor": "last_actual_counter_plus_fitted_future_increment"
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T00:07:55.062Z",
+          "target_at": "2026-10-08T00:27:17.707Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            }
+          ],
+          "training_points": 7,
+          "actual": 562,
+          "prediction": 551.0,
+          "origin_age_seconds": 10143.062,
+          "target_age_seconds": 11305.707,
+          "forecast_horizon_seconds": 1162.6450000000004,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": -11.0,
+          "absolute_error": 11.0,
+          "squared_error": 121.0,
+          "smape_percent": 1.9766397124887691
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T00:07:55.062Z",
+          "target_at": "2026-10-08T00:27:17.707Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            }
+          ],
+          "training_points": 7,
+          "actual": 562,
+          "prediction": 555.8136271798354,
+          "origin_age_seconds": 10143.062,
+          "target_age_seconds": 11305.707,
+          "forecast_horizon_seconds": 1162.6450000000004,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": -6.186372820164593,
+          "absolute_error": 6.186372820164593,
+          "squared_error": 38.27120867007122,
+          "smape_percent": 1.1068701740150322
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "torch_saturation",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T00:07:55.062Z",
+          "target_at": "2026-10-08T00:27:17.707Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            }
+          ],
+          "training_points": 7,
+          "actual": 562,
+          "prediction": 583.9156178702826,
+          "origin_age_seconds": 10143.062,
+          "target_age_seconds": 11305.707,
+          "forecast_horizon_seconds": 1162.6450000000004,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": 21.91561787028263,
+          "absolute_error": 21.91561787028263,
+          "squared_error": 480.2943066362514,
+          "smape_percent": 3.82499680229744,
+          "fit": {
+            "status": "experimental_fit",
+            "device": "cpu",
+            "torch_version": "2.14.0",
+            "epochs": 400,
+            "parameters": {
+              "b": 0.0695170011516471,
+              "A": 827.8549343216229,
+              "tau_seconds": 11671.41856241464
+            },
+            "loss": "mean_squared_log1p_count",
+            "training_loss": 0.19049335035250284,
+            "n_training_points": 7,
+            "training_cutoff": "2026-10-08T00:07:55.062Z",
+            "parameter_intervals": null,
+            "trainable_parameter_count": 3,
+            "trainable_state": {
+              "name": "raw_positive_parameters",
+              "shape": [
+                3
+              ],
+              "dtype": "float64",
+              "values": [
+                -2.6312240840781147,
+                827.8549343216229,
+                3.20190410844567
+              ]
+            },
+            "architecture": "softplus-constrained b, A, tau; tau floor is 1 second"
+          },
+          "forecast_anchor": "last_actual_counter_plus_fitted_future_increment"
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T00:27:17.707Z",
+          "target_at": "2026-10-08T01:15:14.382Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            }
+          ],
+          "training_points": 8,
+          "actual": 577,
+          "prediction": 562.0,
+          "origin_age_seconds": 11305.707,
+          "target_age_seconds": 14182.382,
+          "forecast_horizon_seconds": 2876.6749999999993,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": -15.0,
+          "absolute_error": 15.0,
+          "squared_error": 225.0,
+          "smape_percent": 2.633889376646181
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T00:27:17.707Z",
+          "target_at": "2026-10-08T01:15:14.382Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            }
+          ],
+          "training_points": 8,
+          "actual": 577,
+          "prediction": 589.2167557594967,
+          "origin_age_seconds": 11305.707,
+          "target_age_seconds": 14182.382,
+          "forecast_horizon_seconds": 2876.6749999999993,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": 12.216755759496664,
+          "absolute_error": 12.216755759496664,
+          "squared_error": 149.2491212871949,
+          "smape_percent": 2.0951089407972914
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "torch_saturation",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T00:27:17.707Z",
+          "target_at": "2026-10-08T01:15:14.382Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            }
+          ],
+          "training_points": 8,
+          "actual": 577,
+          "prediction": 632.1857666954327,
+          "origin_age_seconds": 11305.707,
+          "target_age_seconds": 14182.382,
+          "forecast_horizon_seconds": 2876.6749999999993,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": 55.185766695432676,
+          "absolute_error": 55.185766695432676,
+          "squared_error": 3045.4688457627262,
+          "smape_percent": 9.127756580570594,
+          "fit": {
+            "status": "experimental_fit",
+            "device": "cpu",
+            "torch_version": "2.14.0",
+            "epochs": 400,
+            "parameters": {
+              "b": 0.06810470729990759,
+              "A": 845.4652868760132,
+              "tau_seconds": 11840.604582265554
+            },
+            "loss": "mean_squared_log1p_count",
+            "training_loss": 0.16590905684154492,
+            "n_training_points": 8,
+            "training_cutoff": "2026-10-08T00:27:17.707Z",
+            "parameter_intervals": null,
+            "trainable_parameter_count": 3,
+            "trainable_state": {
+              "name": "raw_positive_parameters",
+              "shape": [
+                3
+              ],
+              "dtype": "float64",
+              "values": [
+                -2.6524633382234857,
+                845.4652868760132,
+                3.250766270902085
+              ]
+            },
+            "architecture": "softplus-constrained b, A, tau; tau floor is 1 second"
+          },
+          "forecast_anchor": "last_actual_counter_plus_fitted_future_increment"
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T01:15:14.382Z",
+          "target_at": "2026-10-08T01:19:35.998Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            }
+          ],
+          "training_points": 9,
+          "actual": 583,
+          "prediction": 577.0,
+          "origin_age_seconds": 14182.382,
+          "target_age_seconds": 14443.998,
+          "forecast_horizon_seconds": 261.616,
+          "horizon_bucket": "0_to_15_minutes",
+          "latest_holdout": false,
+          "signed_error": -6.0,
+          "absolute_error": 6.0,
+          "squared_error": 36.0,
+          "smape_percent": 1.0344827586206897
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T01:15:14.382Z",
+          "target_at": "2026-10-08T01:19:35.998Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            }
+          ],
+          "training_points": 9,
+          "actual": 583,
+          "prediction": 578.3641582730062,
+          "origin_age_seconds": 14182.382,
+          "target_age_seconds": 14443.998,
+          "forecast_horizon_seconds": 261.616,
+          "horizon_bucket": "0_to_15_minutes",
+          "latest_holdout": false,
+          "signed_error": -4.635841726993817,
+          "absolute_error": 4.635841726993817,
+          "squared_error": 21.491028517737018,
+          "smape_percent": 0.7983442047819859
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "torch_saturation",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T01:15:14.382Z",
+          "target_at": "2026-10-08T01:19:35.998Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            }
+          ],
+          "training_points": 9,
+          "actual": 583,
+          "prediction": 582.7482026003897,
+          "origin_age_seconds": 14182.382,
+          "target_age_seconds": 14443.998,
+          "forecast_horizon_seconds": 261.616,
+          "horizon_bucket": "0_to_15_minutes",
+          "latest_holdout": false,
+          "signed_error": -0.25179739961026826,
+          "absolute_error": 0.25179739961026826,
+          "squared_error": 0.06340193045049312,
+          "smape_percent": 0.04319927734798878,
+          "fit": {
+            "status": "experimental_fit",
+            "device": "cpu",
+            "torch_version": "2.14.0",
+            "epochs": 400,
+            "parameters": {
+              "b": 0.06680336518188734,
+              "A": 866.2308250267869,
+              "tau_seconds": 12217.169711860843
+            },
+            "loss": "mean_squared_log1p_count",
+            "training_loss": 0.14591400549619252,
+            "n_training_points": 9,
+            "training_cutoff": "2026-10-08T01:15:14.382Z",
+            "parameter_intervals": null,
+            "trainable_parameter_count": 3,
+            "trainable_state": {
+              "name": "raw_positive_parameters",
+              "shape": [
+                3
+              ],
+              "dtype": "float64",
+              "values": [
+                -2.6724142016577734,
+                866.2308250267869,
+                3.3592082824653073
+              ]
+            },
+            "architecture": "softplus-constrained b, A, tau; tau floor is 1 second"
+          },
+          "forecast_anchor": "last_actual_counter_plus_fitted_future_increment"
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T01:19:35.998Z",
+          "target_at": "2026-10-08T02:49:34.238Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            },
+            {
+              "observed_at": "2026-10-08T01:19:35.998Z",
+              "age_seconds": 14443.998,
+              "value": 583
+            }
+          ],
+          "training_points": 10,
+          "actual": 647,
+          "prediction": 583.0,
+          "origin_age_seconds": 14443.998,
+          "target_age_seconds": 19842.238,
+          "forecast_horizon_seconds": 5398.240000000002,
+          "horizon_bucket": "1_to_6_hours",
+          "latest_holdout": false,
+          "signed_error": -64.0,
+          "absolute_error": 64.0,
+          "squared_error": 4096.0,
+          "smape_percent": 10.40650406504065
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T01:19:35.998Z",
+          "target_at": "2026-10-08T02:49:34.238Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            },
+            {
+              "observed_at": "2026-10-08T01:19:35.998Z",
+              "age_seconds": 14443.998,
+              "value": 583
+            }
+          ],
+          "training_points": 10,
+          "actual": 647,
+          "prediction": 706.8052718488166,
+          "origin_age_seconds": 14443.998,
+          "target_age_seconds": 19842.238,
+          "forecast_horizon_seconds": 5398.240000000002,
+          "horizon_bucket": "1_to_6_hours",
+          "latest_holdout": false,
+          "signed_error": 59.805271848816574,
+          "absolute_error": 59.805271848816574,
+          "squared_error": 3576.670540910852,
+          "smape_percent": 8.835136498935897
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "torch_saturation",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T01:19:35.998Z",
+          "target_at": "2026-10-08T02:49:34.238Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            },
+            {
+              "observed_at": "2026-10-08T01:19:35.998Z",
+              "age_seconds": 14443.998,
+              "value": 583
+            }
+          ],
+          "training_points": 10,
+          "actual": 647,
+          "prediction": 679.3147701481208,
+          "origin_age_seconds": 14443.998,
+          "target_age_seconds": 19842.238,
+          "forecast_horizon_seconds": 5398.240000000002,
+          "horizon_bucket": "1_to_6_hours",
+          "latest_holdout": false,
+          "signed_error": 32.31477014812083,
+          "absolute_error": 32.31477014812083,
+          "squared_error": 1044.2443697258811,
+          "smape_percent": 4.872865910180879,
+          "fit": {
+            "status": "experimental_fit",
+            "device": "cpu",
+            "torch_version": "2.14.0",
+            "epochs": 400,
+            "parameters": {
+              "b": 0.06681301169422052,
+              "A": 874.7260296148208,
+              "tau_seconds": 12398.63543775376
+            },
+            "loss": "mean_squared_log1p_count",
+            "training_loss": 0.13087548168487914,
+            "n_training_points": 10,
+            "training_cutoff": "2026-10-08T01:19:35.998Z",
+            "parameter_intervals": null,
+            "trainable_parameter_count": 3,
+            "trainable_state": {
+              "name": "raw_positive_parameters",
+              "shape": [
+                3
+              ],
+              "dtype": "float64",
+              "values": [
+                -2.672264933532259,
+                874.7260296148208,
+                3.411322830930836
+              ]
+            },
+            "architecture": "softplus-constrained b, A, tau; tau floor is 1 second"
+          },
+          "forecast_anchor": "last_actual_counter_plus_fitted_future_increment"
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T02:49:34.238Z",
+          "target_at": "2026-10-08T03:08:12.506Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            },
+            {
+              "observed_at": "2026-10-08T01:19:35.998Z",
+              "age_seconds": 14443.998,
+              "value": 583
+            },
+            {
+              "observed_at": "2026-10-08T02:49:34.238Z",
+              "age_seconds": 19842.238,
+              "value": 647
+            }
+          ],
+          "training_points": 11,
+          "actual": 659,
+          "prediction": 647.0,
+          "origin_age_seconds": 19842.238,
+          "target_age_seconds": 20960.506,
+          "forecast_horizon_seconds": 1118.268,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": -12.0,
+          "absolute_error": 12.0,
+          "squared_error": 144.0,
+          "smape_percent": 1.8376722817764166
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T02:49:34.238Z",
+          "target_at": "2026-10-08T03:08:12.506Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            },
+            {
+              "observed_at": "2026-10-08T01:19:35.998Z",
+              "age_seconds": 14443.998,
+              "value": 583
+            },
+            {
+              "observed_at": "2026-10-08T02:49:34.238Z",
+              "age_seconds": 19842.238,
+              "value": 647
+            }
+          ],
+          "training_points": 11,
+          "actual": 659,
+          "prediction": 660.2578677494887,
+          "origin_age_seconds": 19842.238,
+          "target_age_seconds": 20960.506,
+          "forecast_horizon_seconds": 1118.268,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": 1.257867749488696,
+          "absolute_error": 1.257867749488696,
+          "squared_error": 1.582231275203757,
+          "smape_percent": 0.19069323446741804
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "torch_saturation",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T02:49:34.238Z",
+          "target_at": "2026-10-08T03:08:12.506Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            },
+            {
+              "observed_at": "2026-10-08T01:19:35.998Z",
+              "age_seconds": 14443.998,
+              "value": 583
+            },
+            {
+              "observed_at": "2026-10-08T02:49:34.238Z",
+              "age_seconds": 19842.238,
+              "value": 647
+            }
+          ],
+          "training_points": 11,
+          "actual": 659,
+          "prediction": 665.0191806177397,
+          "origin_age_seconds": 19842.238,
+          "target_age_seconds": 20960.506,
+          "forecast_horizon_seconds": 1118.268,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": 6.019180617739721,
+          "absolute_error": 6.019180617739721,
+          "squared_error": 36.23053530897353,
+          "smape_percent": 0.9092286132790596,
+          "fit": {
+            "status": "experimental_fit",
+            "device": "cpu",
+            "torch_version": "2.14.0",
+            "epochs": 400,
+            "parameters": {
+              "b": 0.05719181934111728,
+              "A": 964.9847423454889,
+              "tau_seconds": 14111.453427865754
+            },
+            "loss": "mean_squared_log1p_count",
+            "training_loss": 0.11608596499717931,
+            "n_training_points": 11,
+            "training_cutoff": "2026-10-08T02:49:34.238Z",
+            "parameter_intervals": null,
+            "trainable_parameter_count": 3,
+            "trainable_state": {
+              "name": "raw_positive_parameters",
+              "shape": [
+                3
+              ],
+              "dtype": "float64",
+              "values": [
+                -2.8326122157055766,
+                964.9847423454889,
+                3.8995211261349896
+              ]
+            },
+            "architecture": "softplus-constrained b, A, tau; tau floor is 1 second"
+          },
+          "forecast_anchor": "last_actual_counter_plus_fitted_future_increment"
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T03:08:12.506Z",
+          "target_at": "2026-10-08T03:23:30.786Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            },
+            {
+              "observed_at": "2026-10-08T01:19:35.998Z",
+              "age_seconds": 14443.998,
+              "value": 583
+            },
+            {
+              "observed_at": "2026-10-08T02:49:34.238Z",
+              "age_seconds": 19842.238,
+              "value": 647
+            },
+            {
+              "observed_at": "2026-10-08T03:08:12.506Z",
+              "age_seconds": 20960.506,
+              "value": 659
+            }
+          ],
+          "training_points": 12,
+          "actual": 661,
+          "prediction": 659.0,
+          "origin_age_seconds": 20960.506,
+          "target_age_seconds": 21878.786,
+          "forecast_horizon_seconds": 918.2799999999988,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": true,
+          "signed_error": -2.0,
+          "absolute_error": 2.0,
+          "squared_error": 4.0,
+          "smape_percent": 0.30303030303030304
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T03:08:12.506Z",
+          "target_at": "2026-10-08T03:23:30.786Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            },
+            {
+              "observed_at": "2026-10-08T01:19:35.998Z",
+              "age_seconds": 14443.998,
+              "value": 583
+            },
+            {
+              "observed_at": "2026-10-08T02:49:34.238Z",
+              "age_seconds": 19842.238,
+              "value": 647
+            },
+            {
+              "observed_at": "2026-10-08T03:08:12.506Z",
+              "age_seconds": 20960.506,
+              "value": 659
+            }
+          ],
+          "training_points": 12,
+          "actual": 661,
+          "prediction": 668.8539527197416,
+          "origin_age_seconds": 20960.506,
+          "target_age_seconds": 21878.786,
+          "forecast_horizon_seconds": 918.2799999999988,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": true,
+          "signed_error": 7.853952719741642,
+          "absolute_error": 7.853952719741642,
+          "squared_error": 61.68457332393714,
+          "smape_percent": 1.1811752265997606
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+          "source": "public_views",
+          "model": "torch_saturation",
+          "published_at": "2026-10-07T21:18:52.000Z",
+          "origin_at": "2026-10-08T03:08:12.506Z",
+          "target_at": "2026-10-08T03:23:30.786Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:21:10.765Z",
+              "age_seconds": 138.765,
+              "value": 6
+            },
+            {
+              "observed_at": "2026-10-07T21:28:16.100Z",
+              "age_seconds": 564.1,
+              "value": 17
+            },
+            {
+              "observed_at": "2026-10-07T21:44:37.232Z",
+              "age_seconds": 1545.232,
+              "value": 161
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 5760.489,
+              "value": 471
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 7503.529,
+              "value": 521
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 8452.338,
+              "value": 544
+            },
+            {
+              "observed_at": "2026-10-08T00:07:55.062Z",
+              "age_seconds": 10143.062,
+              "value": 551
+            },
+            {
+              "observed_at": "2026-10-08T00:27:17.707Z",
+              "age_seconds": 11305.707,
+              "value": 562
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 14182.382,
+              "value": 577
+            },
+            {
+              "observed_at": "2026-10-08T01:19:35.998Z",
+              "age_seconds": 14443.998,
+              "value": 583
+            },
+            {
+              "observed_at": "2026-10-08T02:49:34.238Z",
+              "age_seconds": 19842.238,
+              "value": 647
+            },
+            {
+              "observed_at": "2026-10-08T03:08:12.506Z",
+              "age_seconds": 20960.506,
+              "value": 659
+            }
+          ],
+          "training_points": 12,
+          "actual": 661,
+          "prediction": 673.2259178477698,
+          "origin_age_seconds": 20960.506,
+          "target_age_seconds": 21878.786,
+          "forecast_horizon_seconds": 918.2799999999988,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": true,
+          "signed_error": 12.225917847769779,
+          "absolute_error": 12.225917847769779,
+          "squared_error": 149.47306722041563,
+          "smape_percent": 1.8326608236619055,
+          "fit": {
+            "status": "experimental_fit",
+            "device": "cpu",
+            "torch_version": "2.14.0",
+            "epochs": 400,
+            "parameters": {
+              "b": 0.05473413692978223,
+              "A": 982.0675030120285,
+              "tau_seconds": 14556.915672482575
+            },
+            "loss": "mean_squared_log1p_count",
+            "training_loss": 0.10740640735592578,
+            "n_training_points": 12,
+            "training_cutoff": "2026-10-08T03:08:12.506Z",
+            "parameter_intervals": null,
+            "trainable_parameter_count": 3,
+            "trainable_state": {
+              "name": "raw_positive_parameters",
+              "shape": [
+                3
+              ],
+              "dtype": "float64",
+              "values": [
+                -2.877775797288116,
+                982.0675030120285,
+                4.025614949908296
+              ]
+            },
+            "architecture": "softplus-constrained b, A, tau; tau floor is 1 second"
+          },
+          "forecast_anchor": "last_actual_counter_plus_fitted_future_increment"
+        }
+      ],
+      "latest_holdout": {
+        "target_at": "2026-10-08T03:23:30.786Z",
+        "baseline_status": "evaluated",
+        "torch_status": "experimental_fit"
+      },
+      "future_forecasts": [
+        {
+          "model": "constant",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T03:23:30.786Z",
+          "target_at": "2026-10-08T21:18:52.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 64521.214,
+          "prediction": 661.0,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        },
+        {
+          "model": "recent_rate",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T03:23:30.786Z",
+          "target_at": "2026-10-08T21:18:52.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 64521.214,
+          "prediction": 801.5262316504771,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        },
+        {
+          "model": "torch_saturation",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T03:23:30.786Z",
+          "target_at": "2026-10-08T21:18:52.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 64521.214,
+          "prediction": 881.3375242315633,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        }
+      ],
+      "torch_fit": {
+        "status": "experimental_fit",
+        "device": "cpu",
+        "torch_version": "2.14.0",
+        "epochs": 400,
+        "parameters": {
+          "b": 0.05138399929362319,
+          "A": 984.478213005182,
+          "tau_seconds": 14740.016120703664
+        },
+        "loss": "mean_squared_log1p_count",
+        "training_loss": 0.10066834049722559,
+        "n_training_points": 13,
+        "training_cutoff": "2026-10-08T03:23:30.786Z",
+        "parameter_intervals": null,
+        "trainable_parameter_count": 3,
+        "trainable_state": {
+          "name": "raw_positive_parameters",
+          "shape": [
+            3
+          ],
+          "dtype": "float64",
+          "values": [
+            -2.9426264424063544,
+            984.478213005182,
+            4.077361086783275
+          ]
+        },
+        "architecture": "softplus-constrained b, A, tau; tau floor is 1 second"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 1412.8323413746512,
+        "observed_at": "2026-10-08T03:23:30.786Z",
+        "age_seconds": 21878.786,
+        "views": 661,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+      "source": "owner_impressions",
+      "published_at": "2026-10-07T21:47:02.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-07T22:54:32.142Z",
+          "age_seconds": 4050.142,
+          "value": 34
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": null
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+      "source": "public_views",
+      "published_at": "2026-10-07T21:47:02.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-07T21:47:52.819Z",
+          "age_seconds": 50.819,
+          "value": 1
+        },
+        {
+          "observed_at": "2026-10-07T22:54:11.288Z",
+          "age_seconds": 4029.288,
+          "value": 34
+        },
+        {
+          "observed_at": "2026-10-07T22:54:52.489Z",
+          "age_seconds": 4070.489,
+          "value": 35
+        },
+        {
+          "observed_at": "2026-10-07T23:23:55.529Z",
+          "age_seconds": 5813.529,
+          "value": 40
+        },
+        {
+          "observed_at": "2026-10-07T23:39:44.338Z",
+          "age_seconds": 6762.338,
+          "value": 42
+        },
+        {
+          "observed_at": "2026-10-08T01:15:14.382Z",
+          "age_seconds": 12492.382,
+          "value": 50
+        }
+      ],
+      "status": "usable",
+      "counter_revisions": [],
+      "predictions": [
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:47:02.000Z",
+          "origin_at": "2026-10-07T22:54:11.288Z",
+          "target_at": "2026-10-07T22:54:52.489Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:47:52.819Z",
+              "age_seconds": 50.819,
+              "value": 1
+            },
+            {
+              "observed_at": "2026-10-07T22:54:11.288Z",
+              "age_seconds": 4029.288,
+              "value": 34
+            }
+          ],
+          "training_points": 2,
+          "actual": 35,
+          "prediction": 34.0,
+          "origin_age_seconds": 4029.288,
+          "target_age_seconds": 4070.489,
+          "forecast_horizon_seconds": 41.20100000000002,
+          "horizon_bucket": "0_to_15_minutes",
+          "latest_holdout": false,
+          "signed_error": -1.0,
+          "absolute_error": 1.0,
+          "squared_error": 1.0,
+          "smape_percent": 2.898550724637681
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:47:02.000Z",
+          "origin_at": "2026-10-07T22:54:11.288Z",
+          "target_at": "2026-10-07T22:54:52.489Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:47:52.819Z",
+              "age_seconds": 50.819,
+              "value": 1
+            },
+            {
+              "observed_at": "2026-10-07T22:54:11.288Z",
+              "age_seconds": 4029.288,
+              "value": 34
+            }
+          ],
+          "training_points": 2,
+          "actual": 35,
+          "prediction": 34.34174779293241,
+          "origin_age_seconds": 4029.288,
+          "target_age_seconds": 4070.489,
+          "forecast_horizon_seconds": 41.20100000000002,
+          "horizon_bucket": "0_to_15_minutes",
+          "latest_holdout": false,
+          "signed_error": -0.6582522070675907,
+          "absolute_error": 0.6582522070675907,
+          "squared_error": 0.4332959681093543,
+          "smape_percent": 1.8985740279672685
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:47:02.000Z",
+          "origin_at": "2026-10-07T22:54:52.489Z",
+          "target_at": "2026-10-07T23:23:55.529Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:47:52.819Z",
+              "age_seconds": 50.819,
+              "value": 1
+            },
+            {
+              "observed_at": "2026-10-07T22:54:11.288Z",
+              "age_seconds": 4029.288,
+              "value": 34
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 4070.489,
+              "value": 35
+            }
+          ],
+          "training_points": 3,
+          "actual": 40,
+          "prediction": 35.0,
+          "origin_age_seconds": 4070.489,
+          "target_age_seconds": 5813.529,
+          "forecast_horizon_seconds": 1743.0400000000004,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": -5.0,
+          "absolute_error": 5.0,
+          "squared_error": 25.0,
+          "smape_percent": 13.333333333333334
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:47:02.000Z",
+          "origin_at": "2026-10-07T22:54:52.489Z",
+          "target_at": "2026-10-07T23:23:55.529Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:47:52.819Z",
+              "age_seconds": 50.819,
+              "value": 1
+            },
+            {
+              "observed_at": "2026-10-07T22:54:11.288Z",
+              "age_seconds": 4029.288,
+              "value": 34
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 4070.489,
+              "value": 35
+            }
+          ],
+          "training_points": 3,
+          "actual": 40,
+          "prediction": 77.30576927744471,
+          "origin_age_seconds": 4070.489,
+          "target_age_seconds": 5813.529,
+          "forecast_horizon_seconds": 1743.0400000000004,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": 37.30576927744471,
+          "absolute_error": 37.30576927744471,
+          "squared_error": 1391.7204213819377,
+          "smape_percent": 63.60432143658902
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:47:02.000Z",
+          "origin_at": "2026-10-07T23:23:55.529Z",
+          "target_at": "2026-10-07T23:39:44.338Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:47:52.819Z",
+              "age_seconds": 50.819,
+              "value": 1
+            },
+            {
+              "observed_at": "2026-10-07T22:54:11.288Z",
+              "age_seconds": 4029.288,
+              "value": 34
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 4070.489,
+              "value": 35
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 5813.529,
+              "value": 40
+            }
+          ],
+          "training_points": 4,
+          "actual": 42,
+          "prediction": 40.0,
+          "origin_age_seconds": 5813.529,
+          "target_age_seconds": 6762.338,
+          "forecast_horizon_seconds": 948.8089999999993,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": -2.0,
+          "absolute_error": 2.0,
+          "squared_error": 4.0,
+          "smape_percent": 4.878048780487805
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:47:02.000Z",
+          "origin_at": "2026-10-07T23:23:55.529Z",
+          "target_at": "2026-10-07T23:39:44.338Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:47:52.819Z",
+              "age_seconds": 50.819,
+              "value": 1
+            },
+            {
+              "observed_at": "2026-10-07T22:54:11.288Z",
+              "age_seconds": 4029.288,
+              "value": 34
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 4070.489,
+              "value": 35
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 5813.529,
+              "value": 40
+            }
+          ],
+          "training_points": 4,
+          "actual": 42,
+          "prediction": 42.72170747659262,
+          "origin_age_seconds": 5813.529,
+          "target_age_seconds": 6762.338,
+          "forecast_horizon_seconds": 948.8089999999993,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": false,
+          "signed_error": 0.7217074765926199,
+          "absolute_error": 0.7217074765926199,
+          "squared_error": 0.5208616817696871,
+          "smape_percent": 1.7037132467898317
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-07T21:47:02.000Z",
+          "origin_at": "2026-10-07T23:39:44.338Z",
+          "target_at": "2026-10-08T01:15:14.382Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:47:52.819Z",
+              "age_seconds": 50.819,
+              "value": 1
+            },
+            {
+              "observed_at": "2026-10-07T22:54:11.288Z",
+              "age_seconds": 4029.288,
+              "value": 34
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 4070.489,
+              "value": 35
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 5813.529,
+              "value": 40
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 6762.338,
+              "value": 42
+            }
+          ],
+          "training_points": 5,
+          "actual": 50,
+          "prediction": 42.0,
+          "origin_age_seconds": 6762.338,
+          "target_age_seconds": 12492.382,
+          "forecast_horizon_seconds": 5730.044,
+          "horizon_bucket": "1_to_6_hours",
+          "latest_holdout": true,
+          "signed_error": -8.0,
+          "absolute_error": 8.0,
+          "squared_error": 64.0,
+          "smape_percent": 17.391304347826086
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-07T21:47:02.000Z",
+          "origin_at": "2026-10-07T23:39:44.338Z",
+          "target_at": "2026-10-08T01:15:14.382Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-07T21:47:52.819Z",
+              "age_seconds": 50.819,
+              "value": 1
+            },
+            {
+              "observed_at": "2026-10-07T22:54:11.288Z",
+              "age_seconds": 4029.288,
+              "value": 34
+            },
+            {
+              "observed_at": "2026-10-07T22:54:52.489Z",
+              "age_seconds": 4070.489,
+              "value": 35
+            },
+            {
+              "observed_at": "2026-10-07T23:23:55.529Z",
+              "age_seconds": 5813.529,
+              "value": 40
+            },
+            {
+              "observed_at": "2026-10-07T23:39:44.338Z",
+              "age_seconds": 6762.338,
+              "value": 42
+            }
+          ],
+          "training_points": 5,
+          "actual": 50,
+          "prediction": 54.07839301692965,
+          "origin_age_seconds": 6762.338,
+          "target_age_seconds": 12492.382,
+          "forecast_horizon_seconds": 5730.044,
+          "horizon_bucket": "1_to_6_hours",
+          "latest_holdout": true,
+          "signed_error": 4.0783930169296525,
+          "absolute_error": 4.0783930169296525,
+          "squared_error": 16.633289600540554,
+          "smape_percent": 7.837156010405063
+        }
+      ],
+      "latest_holdout": {
+        "target_at": "2026-10-08T01:15:14.382Z",
+        "baseline_status": "evaluated",
+        "torch_status": "insufficient_data"
+      },
+      "future_forecasts": [
+        {
+          "model": "constant",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T01:15:14.382Z",
+          "target_at": "2026-10-08T21:47:02.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 73907.618,
+          "prediction": 50.0,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        },
+        {
+          "model": "recent_rate",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T01:15:14.382Z",
+          "target_at": "2026-10-08T21:47:02.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 73907.618,
+          "prediction": 153.1861088675759,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        },
+        {
+          "model": "torch_saturation",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T01:15:14.382Z",
+          "target_at": "2026-10-08T21:47:02.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 73907.618,
+          "prediction": 62.6748736750161,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        }
+      ],
+      "torch_fit": {
+        "status": "experimental_fit",
+        "device": "cpu",
+        "torch_version": "2.14.0",
+        "epochs": 400,
+        "parameters": {
+          "b": 0.4898159136221064,
+          "A": 72.39736379066782,
+          "tau_seconds": 7169.167657326137
+        },
+        "loss": "mean_squared_log1p_count",
+        "training_loss": 0.008441500413376971,
+        "n_training_points": 6,
+        "training_cutoff": "2026-10-08T01:15:14.382Z",
+        "parameter_intervals": null,
+        "trainable_parameter_count": 3,
+        "trainable_state": {
+          "name": "raw_positive_parameters",
+          "shape": [
+            3
+          ],
+          "dtype": "float64",
+          "values": [
+            -0.45884094775543316,
+            72.39736379066782,
+            1.8443531420733226
+          ]
+        },
+        "architecture": "softplus-constrained b, A, tau; tau floor is 1 second"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 168.48185595497273,
+        "observed_at": "2026-10-08T01:15:14.382Z",
+        "age_seconds": 12492.382,
+        "views": 50,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107975802449203435",
+      "source": "public_views",
+      "published_at": "2026-10-07T23:26:10.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-07T23:39:44.338Z",
+          "age_seconds": 814.338,
+          "value": 4
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 82.55355739004668,
+        "observed_at": "2026-10-07T23:39:44.338Z",
+        "age_seconds": 814.338,
+        "views": 4,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107988632359538695",
+      "source": "public_views",
+      "published_at": "2026-10-08T00:17:09.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T00:17:42.990Z",
+          "age_seconds": 33.99,
+          "value": 1
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 20.63838934751167,
+        "observed_at": "2026-10-08T00:17:42.990Z",
+        "age_seconds": 33.99,
+        "views": 1,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107994469098508741",
+      "source": "owner_impressions",
+      "published_at": "2026-10-08T00:40:20.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T01:40:38.646Z",
+          "age_seconds": 3618.646,
+          "value": 11
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": null
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107994469098508741",
+      "source": "public_views",
+      "published_at": "2026-10-08T00:40:20.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T00:56:25.914Z",
+          "age_seconds": 965.914,
+          "value": 4
+        },
+        {
+          "observed_at": "2026-10-08T01:15:14.382Z",
+          "age_seconds": 2094.382,
+          "value": 6
+        },
+        {
+          "observed_at": "2026-10-08T01:40:26.635Z",
+          "age_seconds": 3606.635,
+          "value": 12
+        }
+      ],
+      "status": "usable",
+      "counter_revisions": [],
+      "predictions": [
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107994469098508741",
+          "source": "public_views",
+          "model": "constant",
+          "published_at": "2026-10-08T00:40:20.000Z",
+          "origin_at": "2026-10-08T01:15:14.382Z",
+          "target_at": "2026-10-08T01:40:26.635Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-08T00:56:25.914Z",
+              "age_seconds": 965.914,
+              "value": 4
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 2094.382,
+              "value": 6
+            }
+          ],
+          "training_points": 2,
+          "actual": 12,
+          "prediction": 6.0,
+          "origin_age_seconds": 2094.382,
+          "target_age_seconds": 3606.635,
+          "forecast_horizon_seconds": 1512.2530000000002,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": true,
+          "signed_error": -6.0,
+          "absolute_error": 6.0,
+          "squared_error": 36.0,
+          "smape_percent": 66.66666666666667
+        },
+        {
+          "url": "https://x.com/LIghtJUNction_x/status/2107994469098508741",
+          "source": "public_views",
+          "model": "recent_rate",
+          "published_at": "2026-10-08T00:40:20.000Z",
+          "origin_at": "2026-10-08T01:15:14.382Z",
+          "target_at": "2026-10-08T01:40:26.635Z",
+          "training_observations": [
+            {
+              "observed_at": "2026-10-08T00:56:25.914Z",
+              "age_seconds": 965.914,
+              "value": 4
+            },
+            {
+              "observed_at": "2026-10-08T01:15:14.382Z",
+              "age_seconds": 2094.382,
+              "value": 6
+            }
+          ],
+          "training_points": 2,
+          "actual": 12,
+          "prediction": 8.680187652640571,
+          "origin_age_seconds": 2094.382,
+          "target_age_seconds": 3606.635,
+          "forecast_horizon_seconds": 1512.2530000000002,
+          "horizon_bucket": "15_to_60_minutes",
+          "latest_holdout": true,
+          "signed_error": -3.319812347359429,
+          "absolute_error": 3.319812347359429,
+          "squared_error": 11.021154021680122,
+          "smape_percent": 32.10621105689566
+        }
+      ],
+      "latest_holdout": {
+        "target_at": "2026-10-08T01:40:26.635Z",
+        "baseline_status": "evaluated",
+        "torch_status": "insufficient_data"
+      },
+      "future_forecasts": [
+        {
+          "model": "constant",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T01:40:26.635Z",
+          "target_at": "2026-10-09T00:40:20.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 82793.365,
+          "prediction": 12.0,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        },
+        {
+          "model": "recent_rate",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T01:40:26.635Z",
+          "target_at": "2026-10-09T00:40:20.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 82793.365,
+          "prediction": 340.49013359537065,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        }
+      ],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 126.28938425654414,
+        "observed_at": "2026-10-08T01:40:26.635Z",
+        "age_seconds": 3606.635,
+        "views": 12,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108004228832866696",
+      "source": "public_views",
+      "published_at": "2026-10-08T01:19:07.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T01:19:35.998Z",
+          "age_seconds": 28.998,
+          "value": 1
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 20.63838934751167,
+        "observed_at": "2026-10-08T01:19:35.998Z",
+        "age_seconds": 28.998,
+        "views": 1,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108007419154735157",
+      "source": "owner_impressions",
+      "published_at": "2026-10-08T01:31:48.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T02:46:40.117Z",
+          "age_seconds": 4492.117,
+          "value": 10
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": null
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108007419154735157",
+      "source": "public_views",
+      "published_at": "2026-10-08T01:31:48.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T01:32:34.259Z",
+          "age_seconds": 46.259,
+          "value": 3
+        },
+        {
+          "observed_at": "2026-10-08T02:45:41.366Z",
+          "age_seconds": 4433.366,
+          "value": 10
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [
+        {
+          "model": "constant",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T02:45:41.366Z",
+          "target_at": "2026-10-09T01:31:48.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 81966.634,
+          "prediction": 10.0,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        },
+        {
+          "model": "recent_rate",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T02:45:41.366Z",
+          "target_at": "2026-10-09T01:31:48.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 81966.634,
+          "prediction": 140.7846920533281,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        }
+      ],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 86.45800683557859,
+        "observed_at": "2026-10-08T02:45:41.366Z",
+        "age_seconds": 4433.366,
+        "views": 10,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108011337209270512",
+      "source": "owner_impressions",
+      "published_at": "2026-10-08T01:47:22.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T02:48:00.811Z",
+          "age_seconds": 3638.811,
+          "value": 9
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": null
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108011337209270512",
+      "source": "public_views",
+      "published_at": "2026-10-08T01:47:22.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T02:47:17.849Z",
+          "age_seconds": 3595.849,
+          "value": 9
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 94.98899661025484,
+        "observed_at": "2026-10-08T02:47:17.849Z",
+        "age_seconds": 3595.849,
+        "views": 9,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108012262770536611",
+      "source": "public_views",
+      "published_at": "2026-10-08T01:51:03.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T02:48:24.183Z",
+          "age_seconds": 3441.183,
+          "value": 19
+        },
+        {
+          "observed_at": "2026-10-08T02:54:42.422Z",
+          "age_seconds": 3819.422,
+          "value": 20
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [
+        {
+          "model": "constant",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T02:54:42.422Z",
+          "target_at": "2026-10-09T01:51:03.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 82580.578,
+          "prediction": 20.0,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        },
+        {
+          "model": "recent_rate",
+          "status": "experimental_extrapolation",
+          "origin_at": "2026-10-08T02:54:42.422Z",
+          "target_at": "2026-10-09T01:51:03.000Z",
+          "target_age_seconds": 86400,
+          "forecast_horizon_seconds": 82580.578,
+          "prediction": 238.3290935096592,
+          "actual": null,
+          "error": null,
+          "prediction_interval": null,
+          "warning": "Outside observed ages; 24-hour popularity is unconfirmed. No coverage guarantee."
+        }
+      ],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 199.25794762172347,
+        "observed_at": "2026-10-08T02:54:42.422Z",
+        "age_seconds": 3819.422,
+        "views": 20,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108016718492909780",
+      "source": "owner_impressions",
+      "published_at": "2026-10-08T02:08:45.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T03:14:36.992Z",
+          "age_seconds": 3951.992,
+          "value": 23
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": null
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108016718492909780",
+      "source": "public_views",
+      "published_at": "2026-10-08T02:08:45.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T03:09:22.675Z",
+          "age_seconds": 3637.675,
+          "value": 22
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 229.63942096018604,
+        "observed_at": "2026-10-08T03:09:22.675Z",
+        "age_seconds": 3637.675,
+        "views": 22,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+      "source": "owner_impressions",
+      "published_at": "2026-10-08T02:57:15.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T03:19:35.301Z",
+          "age_seconds": 1340.301,
+          "value": 9
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": null
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+      "source": "public_views",
+      "published_at": "2026-10-08T02:57:15.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T02:59:00.950Z",
+          "age_seconds": 105.95,
+          "value": 2
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 41.27677869502334,
+        "observed_at": "2026-10-08T02:59:00.950Z",
+        "age_seconds": 105.95,
+        "views": 2,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108031214066294941",
+      "source": "public_views",
+      "published_at": "2026-10-08T03:06:21.000Z",
+      "observations": [
+        {
+          "observed_at": "2026-10-08T03:08:12.506Z",
+          "age_seconds": 111.506,
+          "value": 1
+        }
+      ],
+      "status": "insufficient_data",
+      "counter_revisions": [],
+      "predictions": [],
+      "latest_holdout": {},
+      "future_forecasts": [],
+      "torch_fit": {
+        "status": "insufficient_data"
+      },
+      "official_popular_pool_score": {
+        "name": "popular_pool_24h_equivalent_score",
+        "score": 20.63838934751167,
+        "observed_at": "2026-10-08T03:08:12.506Z",
+        "age_seconds": 111.506,
+        "views": 1,
+        "half_life_hours": 8.0,
+        "age_floor_hours": 0.5,
+        "window_hours": 24.0,
+        "source": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/popular_posts.rs#L33-L52",
+        "status": "candidate_pool_score",
+        "meaning": "Age-normalized popular candidate quality; not a calibrated 24h prediction or full recommendation score."
+      }
+    }
+  ],
+  "skipped_observations": [
+    {
+      "collection": "posts",
+      "index": 1,
+      "url": "https://x.com/LIghtJUNction_x/status/2107936031907737758",
+      "source": "public_views",
+      "reason": "missing_observed_at"
+    },
+    {
+      "collection": "posts",
+      "index": 2,
+      "url": "https://x.com/LIghtJUNction_x/status/2107936390185193718",
+      "source": "public_views",
+      "reason": "missing_observed_at"
+    },
+    {
+      "collection": "posts",
+      "index": 4,
+      "url": "https://x.com/LIghtJUNction_x/status/2107947524829127073",
+      "source": "public_views",
+      "reason": "missing_observed_at"
+    },
+    {
+      "collection": "posts",
+      "index": 10,
+      "url": "https://x.com/LIghtJUNction_x/status/2107980634279096332",
+      "source": "public_views",
+      "reason": "missing_counter"
+    },
+    {
+      "collection": "posts",
+      "index": 15,
+      "url": "https://x.com/LIghtJUNction_x/status/2107995153403465983",
+      "source": "public_views",
+      "reason": "missing_counter"
+    },
+    {
+      "collection": "posts",
+      "index": 23,
+      "url": "https://x.com/LIghtJUNction_x/status/2108022019157873061",
+      "source": "public_views",
+      "reason": "missing_observed_at"
+    },
+    {
+      "collection": "posts",
+      "index": 24,
+      "url": "https://x.com/LIghtJUNction_x/status/2108025662980358354",
+      "source": "public_views",
+      "reason": "missing_observed_at"
+    },
+    {
+      "collection": "post_observations",
+      "index": 12,
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "source": "public_views",
+      "reason": "missing_counter"
+    },
+    {
+      "collection": "post_observations",
+      "index": 16,
+      "url": "https://x.com/LIghtJUNction_x/status/2107994469098508741",
+      "source": "public_views",
+      "reason": "missing_counter"
+    },
+    {
+      "collection": "post_observations",
+      "index": 17,
+      "url": "https://x.com/LIghtJUNction_x/status/2107995153403465983",
+      "source": "public_views",
+      "reason": "missing_counter"
+    },
+    {
+      "collection": "post_observations",
+      "index": 32,
+      "url": "https://x.com/LIghtJUNction_x/status/2108011337209270512",
+      "source": "public_views",
+      "reason": "missing_counter"
+    },
+    {
+      "collection": "post_observations",
+      "index": 33,
+      "url": "https://x.com/LIghtJUNction_x/status/2108012262770536611",
+      "source": "public_views",
+      "reason": "missing_counter"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107934424151335154",
+      "source": "public_views",
+      "observed_at": "2026-10-07T21:03:15.192Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107976452662817134",
+      "source": "public_views",
+      "observed_at": "2026-10-07T23:55:54.637Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107977004314431778",
+      "source": "public_views",
+      "observed_at": "2026-10-07T23:39:11.946Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "source": "public_views",
+      "observed_at": "2026-10-08T01:15:14.382Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107983282281627907",
+      "source": "public_views",
+      "observed_at": "2026-10-07T23:56:35.887Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107987971232375079",
+      "source": "public_views",
+      "observed_at": "2026-10-08T00:26:32.579Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108000829303378383",
+      "source": "public_views",
+      "observed_at": "2026-10-08T01:17:53.979Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108004713065230723",
+      "source": "public_views",
+      "observed_at": "2026-10-08T01:21:42.749Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107976452662817134",
+      "source": "public_views",
+      "observed_at": "2026-10-07T23:29:38.361Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "source": "public_views",
+      "observed_at": "2026-10-08T00:07:55.062Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107987971232375079",
+      "source": "public_views",
+      "observed_at": "2026-10-08T00:14:49.655Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108000829303378383",
+      "source": "public_views",
+      "observed_at": "2026-10-08T01:07:34.106Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "source": "public_views",
+      "observed_at": "2026-10-08T00:26:32.579Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "source": "public_views",
+      "observed_at": "2026-10-08T01:15:14.382Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108000829303378383",
+      "source": "public_views",
+      "observed_at": "2026-10-08T01:17:53.979Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108004713065230723",
+      "source": "public_views",
+      "observed_at": "2026-10-08T01:21:42.749Z",
+      "reason": "missing_published_at"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "source": "owner_impressions",
+      "observed_at": "2026-10-08T00:26:42.254Z",
+      "reason": "missing_published_at"
+    }
+  ],
+  "summaries": [
+    {
+      "source": "public_views",
+      "model": "constant",
+      "horizon_bucket": "0_to_15_minutes",
+      "status": "descriptive_within_post_only",
+      "n_predictions": 2,
+      "n_posts": 2,
+      "mae": 3.5,
+      "rmse": 4.301162633521313,
+      "bias_predicted_minus_actual": -3.5,
+      "smape_percent": 1.9665167416291855,
+      "confidence_interval": null,
+      "dependence": "Repeated origins from one post are correlated; not independent trials.",
+      "latest_holdout": {
+        "status": "insufficient_data",
+        "n_predictions": 0,
+        "n_posts": 0,
+        "mae": null,
+        "rmse": null,
+        "bias_predicted_minus_actual": null,
+        "smape_percent": null
+      }
+    },
+    {
+      "source": "public_views",
+      "model": "recent_rate",
+      "horizon_bucket": "0_to_15_minutes",
+      "status": "descriptive_within_post_only",
+      "n_predictions": 2,
+      "n_posts": 2,
+      "mae": 2.647046967030704,
+      "rmse": 3.310915620024646,
+      "bias_predicted_minus_actual": -2.647046967030704,
+      "smape_percent": 1.3484591163746271,
+      "confidence_interval": null,
+      "dependence": "Repeated origins from one post are correlated; not independent trials.",
+      "latest_holdout": {
+        "status": "insufficient_data",
+        "n_predictions": 0,
+        "n_posts": 0,
+        "mae": null,
+        "rmse": null,
+        "bias_predicted_minus_actual": null,
+        "smape_percent": null
+      }
+    },
+    {
+      "source": "public_views",
+      "model": "torch_saturation",
+      "horizon_bucket": "0_to_15_minutes",
+      "status": "descriptive_within_post_only",
+      "n_predictions": 1,
+      "n_posts": 1,
+      "mae": 0.25179739961026826,
+      "rmse": 0.25179739961026826,
+      "bias_predicted_minus_actual": -0.25179739961026826,
+      "smape_percent": 0.04319927734798878,
+      "confidence_interval": null,
+      "dependence": "Repeated origins from one post are correlated; not independent trials.",
+      "latest_holdout": {
+        "status": "insufficient_data",
+        "n_predictions": 0,
+        "n_posts": 0,
+        "mae": null,
+        "rmse": null,
+        "bias_predicted_minus_actual": null,
+        "smape_percent": null
+      }
+    },
+    {
+      "source": "public_views",
+      "model": "constant",
+      "horizon_bucket": "15_to_60_minutes",
+      "status": "descriptive_within_post_only",
+      "n_predictions": 11,
+      "n_posts": 3,
+      "mae": 25.181818181818183,
+      "rmse": 47.07151232674889,
+      "bias_predicted_minus_actual": -25.181818181818183,
+      "smape_percent": 24.464133278525914,
+      "confidence_interval": null,
+      "dependence": "Repeated origins from one post are correlated; not independent trials.",
+      "latest_holdout": {
+        "status": "descriptive_within_post_only",
+        "n_predictions": 2,
+        "n_posts": 2,
+        "mae": 4.0,
+        "rmse": 4.47213595499958,
+        "bias_predicted_minus_actual": -4.0,
+        "smape_percent": 33.484848484848484,
+        "confidence_interval": null,
+        "dependence": "Repeated origins from one post are correlated; not independent trials."
+      }
+    },
+    {
+      "source": "public_views",
+      "model": "recent_rate",
+      "horizon_bucket": "15_to_60_minutes",
+      "status": "descriptive_within_post_only",
+      "n_predictions": 11,
+      "n_posts": 3,
+      "mae": 27.625209584238302,
+      "rmse": 45.73855883464943,
+      "bias_predicted_minus_actual": 4.3284493756631,
+      "smape_percent": 21.76011423962106,
+      "confidence_interval": null,
+      "dependence": "Repeated origins from one post are correlated; not independent trials.",
+      "latest_holdout": {
+        "status": "descriptive_within_post_only",
+        "n_predictions": 2,
+        "n_posts": 2,
+        "mae": 5.586882533550535,
+        "rmse": 6.029333601054816,
+        "bias_predicted_minus_actual": 2.2670701861911065,
+        "smape_percent": 16.64369314174771,
+        "confidence_interval": null,
+        "dependence": "Repeated origins from one post are correlated; not independent trials."
+      }
+    },
+    {
+      "source": "public_views",
+      "model": "torch_saturation",
+      "horizon_bucket": "15_to_60_minutes",
+      "status": "descriptive_within_post_only",
+      "n_predictions": 5,
+      "n_posts": 1,
+      "mae": 28.303725074860857,
+      "rmse": 34.18576745804593,
+      "bias_predicted_minus_actual": 28.303725074860857,
+      "smape_percent": 4.747472810606064,
+      "confidence_interval": null,
+      "dependence": "Repeated origins from one post are correlated; not independent trials.",
+      "latest_holdout": {
+        "status": "descriptive_within_post_only",
+        "n_predictions": 1,
+        "n_posts": 1,
+        "mae": 12.225917847769779,
+        "rmse": 12.225917847769779,
+        "bias_predicted_minus_actual": 12.225917847769779,
+        "smape_percent": 1.8326608236619055,
+        "confidence_interval": null,
+        "dependence": "Repeated origins from one post are correlated; not independent trials."
+      }
+    },
+    {
+      "source": "public_views",
+      "model": "constant",
+      "horizon_bucket": "1_to_6_hours",
+      "status": "descriptive_within_post_only",
+      "n_predictions": 3,
+      "n_posts": 2,
+      "mae": 127.33333333333333,
+      "rmse": 182.81137820168635,
+      "bias_predicted_minus_actual": -127.33333333333333,
+      "smape_percent": 41.96635807855051,
+      "confidence_interval": null,
+      "dependence": "Repeated origins from one post are correlated; not independent trials.",
+      "latest_holdout": {
+        "status": "descriptive_within_post_only",
+        "n_predictions": 1,
+        "n_posts": 1,
+        "mae": 8.0,
+        "rmse": 8.0,
+        "bias_predicted_minus_actual": -8.0,
+        "smape_percent": 17.391304347826086,
+        "confidence_interval": null,
+        "dependence": "Repeated origins from one post are correlated; not independent trials."
+      }
+    },
+    {
+      "source": "public_views",
+      "model": "recent_rate",
+      "horizon_bucket": "1_to_6_hours",
+      "status": "descriptive_within_post_only",
+      "n_predictions": 3,
+      "n_posts": 2,
+      "mae": 124.18457994678913,
+      "rmse": 181.5401874841579,
+      "bias_predicted_minus_actual": 124.18457994678913,
+      "smape_percent": 22.011014727247005,
+      "confidence_interval": null,
+      "dependence": "Repeated origins from one post are correlated; not independent trials.",
+      "latest_holdout": {
+        "status": "descriptive_within_post_only",
+        "n_predictions": 1,
+        "n_posts": 1,
+        "mae": 4.0783930169296525,
+        "rmse": 4.0783930169296525,
+        "bias_predicted_minus_actual": 4.0783930169296525,
+        "smape_percent": 7.837156010405063,
+        "confidence_interval": null,
+        "dependence": "Repeated origins from one post are correlated; not independent trials."
+      }
+    },
+    {
+      "source": "public_views",
+      "model": "torch_saturation",
+      "horizon_bucket": "1_to_6_hours",
+      "status": "descriptive_within_post_only",
+      "n_predictions": 1,
+      "n_posts": 1,
+      "mae": 32.31477014812083,
+      "rmse": 32.31477014812083,
+      "bias_predicted_minus_actual": 32.31477014812083,
+      "smape_percent": 4.872865910180879,
+      "confidence_interval": null,
+      "dependence": "Repeated origins from one post are correlated; not independent trials.",
+      "latest_holdout": {
+        "status": "insufficient_data",
+        "n_predictions": 0,
+        "n_posts": 0,
+        "mae": null,
+        "rmse": null,
+        "bias_predicted_minus_actual": null,
+        "smape_percent": null
+      }
+    },
+    {
+      "source": "owner_impressions",
+      "model": "constant",
+      "horizon_bucket": "no_evaluable_horizon",
+      "status": "insufficient_data",
+      "n_predictions": 0,
+      "n_posts": 0,
+      "mae": null,
+      "rmse": null,
+      "bias_predicted_minus_actual": null,
+      "smape_percent": null,
+      "latest_holdout": {
+        "status": "insufficient_data",
+        "n_predictions": 0,
+        "n_posts": 0,
+        "mae": null,
+        "rmse": null,
+        "bias_predicted_minus_actual": null,
+        "smape_percent": null
+      }
+    },
+    {
+      "source": "owner_impressions",
+      "model": "recent_rate",
+      "horizon_bucket": "no_evaluable_horizon",
+      "status": "insufficient_data",
+      "n_predictions": 0,
+      "n_posts": 0,
+      "mae": null,
+      "rmse": null,
+      "bias_predicted_minus_actual": null,
+      "smape_percent": null,
+      "latest_holdout": {
+        "status": "insufficient_data",
+        "n_predictions": 0,
+        "n_posts": 0,
+        "mae": null,
+        "rmse": null,
+        "bias_predicted_minus_actual": null,
+        "smape_percent": null
+      }
+    },
+    {
+      "source": "owner_impressions",
+      "model": "torch_saturation",
+      "horizon_bucket": "no_evaluable_horizon",
+      "status": "insufficient_data",
+      "n_predictions": 0,
+      "n_posts": 0,
+      "mae": null,
+      "rmse": null,
+      "bias_predicted_minus_actual": null,
+      "smape_percent": null,
+      "latest_holdout": {
+        "status": "insufficient_data",
+        "n_predictions": 0,
+        "n_posts": 0,
+        "mae": null,
+        "rmse": null,
+        "bias_predicted_minus_actual": null,
+        "smape_percent": null
+      }
+    }
+  ],
+  "matched_origin_comparison": [
+    {
+      "source": "public_views",
+      "horizon_bucket": "0_to_15_minutes",
+      "models": {
+        "constant": {
+          "status": "descriptive_within_post_only",
+          "n_predictions": 1,
+          "n_posts": 1,
+          "mae": 6.0,
+          "rmse": 6.0,
+          "bias_predicted_minus_actual": -6.0,
+          "smape_percent": 1.0344827586206897,
+          "confidence_interval": null,
+          "dependence": "Repeated origins from one post are correlated; not independent trials."
+        },
+        "recent_rate": {
+          "status": "descriptive_within_post_only",
+          "n_predictions": 1,
+          "n_posts": 1,
+          "mae": 4.635841726993817,
+          "rmse": 4.635841726993817,
+          "bias_predicted_minus_actual": -4.635841726993817,
+          "smape_percent": 0.7983442047819859,
+          "confidence_interval": null,
+          "dependence": "Repeated origins from one post are correlated; not independent trials."
+        },
+        "torch_saturation": {
+          "status": "descriptive_within_post_only",
+          "n_predictions": 1,
+          "n_posts": 1,
+          "mae": 0.25179739961026826,
+          "rmse": 0.25179739961026826,
+          "bias_predicted_minus_actual": -0.25179739961026826,
+          "smape_percent": 0.04319927734798878,
+          "confidence_interval": null,
+          "dependence": "Repeated origins from one post are correlated; not independent trials."
+        }
+      },
+      "conclusion": "descriptive_only; no independent cross-post superiority claim"
+    },
+    {
+      "source": "public_views",
+      "horizon_bucket": "15_to_60_minutes",
+      "models": {
+        "constant": {
+          "status": "descriptive_within_post_only",
+          "n_predictions": 5,
+          "n_posts": 1,
+          "mae": 9.4,
+          "rmse": 10.421132376090421,
+          "bias_predicted_minus_actual": -9.4,
+          "smape_percent": 1.6059540973454116,
+          "confidence_interval": null,
+          "dependence": "Repeated origins from one post are correlated; not independent trials."
+        },
+        "recent_rate": {
+          "status": "descriptive_within_post_only",
+          "n_predictions": 5,
+          "n_posts": 1,
+          "mae": 12.299929762919579,
+          "rmse": 16.767509968517118,
+          "bias_predicted_minus_actual": 9.82538063485374,
+          "smape_percent": 2.1114299903641855,
+          "confidence_interval": null,
+          "dependence": "Repeated origins from one post are correlated; not independent trials."
+        },
+        "torch_saturation": {
+          "status": "descriptive_within_post_only",
+          "n_predictions": 5,
+          "n_posts": 1,
+          "mae": 28.303725074860857,
+          "rmse": 34.18576745804593,
+          "bias_predicted_minus_actual": 28.303725074860857,
+          "smape_percent": 4.747472810606064,
+          "confidence_interval": null,
+          "dependence": "Repeated origins from one post are correlated; not independent trials."
+        }
+      },
+      "conclusion": "descriptive_only; no independent cross-post superiority claim"
+    },
+    {
+      "source": "public_views",
+      "horizon_bucket": "1_to_6_hours",
+      "models": {
+        "constant": {
+          "status": "descriptive_within_post_only",
+          "n_predictions": 1,
+          "n_posts": 1,
+          "mae": 64.0,
+          "rmse": 64.0,
+          "bias_predicted_minus_actual": -64.0,
+          "smape_percent": 10.40650406504065,
+          "confidence_interval": null,
+          "dependence": "Repeated origins from one post are correlated; not independent trials."
+        },
+        "recent_rate": {
+          "status": "descriptive_within_post_only",
+          "n_predictions": 1,
+          "n_posts": 1,
+          "mae": 59.805271848816574,
+          "rmse": 59.805271848816574,
+          "bias_predicted_minus_actual": 59.805271848816574,
+          "smape_percent": 8.835136498935897,
+          "confidence_interval": null,
+          "dependence": "Repeated origins from one post are correlated; not independent trials."
+        },
+        "torch_saturation": {
+          "status": "descriptive_within_post_only",
+          "n_predictions": 1,
+          "n_posts": 1,
+          "mae": 32.31477014812083,
+          "rmse": 32.31477014812083,
+          "bias_predicted_minus_actual": 32.31477014812083,
+          "smape_percent": 4.872865910180879,
+          "confidence_interval": null,
+          "dependence": "Repeated origins from one post are correlated; not independent trials."
+        }
+      },
+      "conclusion": "descriptive_only; no independent cross-post superiority claim"
+    },
+    {
+      "source": "owner_impressions",
+      "horizon_bucket": "no_evaluable_horizon",
+      "models": {
+        "constant": {
+          "status": "insufficient_data",
+          "n_predictions": 0,
+          "n_posts": 0,
+          "mae": null,
+          "rmse": null,
+          "bias_predicted_minus_actual": null,
+          "smape_percent": null
+        },
+        "recent_rate": {
+          "status": "insufficient_data",
+          "n_predictions": 0,
+          "n_posts": 0,
+          "mae": null,
+          "rmse": null,
+          "bias_predicted_minus_actual": null,
+          "smape_percent": null
+        },
+        "torch_saturation": {
+          "status": "insufficient_data",
+          "n_predictions": 0,
+          "n_posts": 0,
+          "mae": null,
+          "rmse": null,
+          "bias_predicted_minus_actual": null,
+          "smape_percent": null
+        }
+      },
+      "conclusion": "descriptive_only; no independent cross-post superiority claim"
+    }
+  ],
+  "status": "evaluated_experimental"
+}

@@ -1,0 +1,53 @@
+{
+  "metric": "verified_home_timeline_impressions_excluding_replies",
+  "window_days": 90,
+  "source": "X Creator Studio / Original Content Rewards",
+  "policy_url": "https://help.x.com/en/using-x/original-content-rewards",
+  "policy_checked_at": "2026-10-08T04:00:26Z",
+  "targets": {
+    "impressions": 500000,
+    "verified_followers": 500
+  },
+  "observation_count": 1,
+  "status": "measured_baseline_only",
+  "latest": {
+    "observed_at": "2026-10-08T04:02:12.455Z",
+    "source": "X Creator Studio / Original Content Rewards",
+    "source_url": "https://x.com/i/jf/creators/original_content_rewards",
+    "verified_home_impressions_90d": 534,
+    "verified_followers": 167,
+    "replies_excluded": true,
+    "impression_deficit": 499466,
+    "verified_follower_deficit": 333,
+    "impression_progress_fraction": 0.001068,
+    "verified_follower_progress_fraction": 0.334,
+    "observed_impression_threshold_met": false,
+    "observed_verified_follower_threshold_met": false,
+    "both_observed_thresholds_met": false
+  },
+  "intervals": [],
+  "latest_net_rates": null,
+  "forecast": {
+    "status": "untrained_model",
+    "method": null,
+    "future_eligible_impressions_1h": null,
+    "future_eligible_impressions_24h": null,
+    "impression_target_eta": null,
+    "verified_follower_target_eta": null,
+    "both_thresholds_eta": null,
+    "threshold_probability": null
+  },
+  "program_admission": null,
+  "payout_qualification": null,
+  "gross_new_verified_home_impressions": null,
+  "daily_expiry": null,
+  "limitations": [
+    "Progress measures the supplied observed thresholds only; it does not establish program admission or payout qualification.",
+    "Verified followers are the backend category, not a blue-only count or a high-quality follower score.",
+    "A 90-day counter can decline as exposure expires or measurements change; no daily expiry history is inferred.",
+    "Rolling net change is not gross new eligible impressions and is never extrapolated here.",
+    "Total post views and blue-follower ratios are not substitutes for verified home-timeline impressions.",
+    "Payout-qualified impressions are a separate metric and are not merged into eligibility progress.",
+    "No trained model or matched predictive validation exists; future quantities, ETA and threshold probability remain unknown."
+  ]
+}

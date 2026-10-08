@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1344" height="756" viewBox="0 0 1344 756" role="img" aria-labelledby="title desc">
+  <title id="title">RISE — 收益门槛实测</title>
+  <desc id="desc">X Creator Studio Original Content Rewards 于 2026-10-08T04:02:12.455Z 显示：近90天、不含回复的认证用户Home时间线展示534，目标500000，缺口499466，进度0.1068%；认证粉丝167，目标500，缺口333，进度33.4%。进度条严格按比例，没有最小填充。后台认证粉丝分类不是蓝V专属，也不是高质量粉丝判定。收益合格展示计数未知，预测尚未训练；未确认项目准入。</desc>
+  <style>
+    text{font-family:'Noto Sans CJK SC','Noto Sans',sans-serif}
+    .ink{fill:#191b1b}.muted{fill:#636660}.teal{fill:#21796f}
+  </style>
+  <rect width="1344" height="756" fill="#f5f1e9"/>
+  <path d="M56 44H91" stroke="#21796f" stroke-width="4" stroke-linecap="round"/>
+  <text class="muted" x="109" y="52" font-size="18" font-weight="600" letter-spacing="1.5">RISE / MEASURED ELIGIBILITY</text>
+  <text class="ink" x="56" y="120" font-size="48" font-weight="800">收益门槛，先看真实进度</text>
+  <text class="muted" x="59" y="159" font-size="19">实测时间 · 2026-10-08 04:02:12.455 UTC</text>
+
+  <rect x="56" y="198" width="600" height="374" rx="18" fill="#eee8de" stroke="#d8d1c6"/>
+  <rect x="688" y="198" width="600" height="374" rx="18" fill="#eee8de" stroke="#d8d1c6"/>
+  <g class="ink" font-size="28" font-weight="700">
+    <text x="86" y="245">近 90 天认证 Home 时间线展示</text>
+    <text x="718" y="245">认证粉丝</text>
+  </g>
+  <g class="muted" font-size="20">
+    <text x="88" y="278">不含回复 · 后台资格计数</text>
+    <text x="720" y="278">后台认证分类 · 非蓝 V 专属</text>
+  </g>
+  <g class="ink" font-size="72" font-weight="800">
+    <text x="85" y="358">534</text>
+    <text x="717" y="358">167</text>
+  </g>
+  <g class="muted" font-size="27" text-anchor="end">
+    <text x="626" y="350">目标 500,000</text>
+    <text x="1258" y="350">目标 500</text>
+  </g>
+
+  <!-- Length is strictly proportional: 528 × 534/500000 and 528 × 167/500.
+       No minimum fill, dot, rounded cap, or enlarged marker is used. -->
+  <rect x="86" y="387" width="528" height="8" fill="#d1d5cb"/>
+  <rect id="impression-progress" x="86" y="387" width="0.563904" height="8" fill="#21796f"/>
+  <rect x="718" y="387" width="528" height="8" fill="#d1d5cb"/>
+  <rect id="follower-progress" x="718" y="387" width="176.352" height="8" fill="#21796f"/>
+  <g class="teal" font-size="31" font-weight="700">
+    <text x="87" y="440">0.1068%</text>
+    <text x="719" y="440">33.4%</text>
+  </g>
+  <g class="muted" font-size="22">
+    <text x="88" y="496">还差</text>
+    <text x="720" y="496">还差</text>
+  </g>
+  <g class="ink" font-size="49" font-weight="800">
+    <text x="163" y="503">499,466</text>
+    <text x="795" y="503">333</text>
+  </g>
+  <g class="muted" font-size="18">
+    <text x="88" y="544">资格展示不代表收益合格展示</text>
+    <text x="720" y="544">认证身份标记 ≠ 高质量判定</text>
+  </g>
+
+  <rect x="56" y="607" width="203" height="40" rx="10" fill="#deebe5" stroke="#bfd5cb"/>
+  <rect x="279" y="607" width="264" height="40" rx="10" fill="#deebe5" stroke="#bfd5cb"/>
+  <g class="teal" font-size="21" font-weight="600">
+    <text x="78" y="635">预测待训练</text>
+    <text x="301" y="635">合格收益计数未知</text>
+  </g>
+  <text class="muted" x="59" y="684" font-size="21">以上为资格计数；尚未确认项目准入，也没有收益预测。</text>
+  <path d="M56 711H1288" stroke="#d8d1c6"/>
+  <text class="muted" x="59" y="742" font-size="17">来源 · X Creator Studio / Original Content Rewards</text>
+  <text class="muted" x="1286" y="742" font-size="17" text-anchor="end">public/reward-observations.json</text>
+</svg>
