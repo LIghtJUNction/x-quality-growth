@@ -234,13 +234,13 @@
     {
       "kind": "launch",
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
-      "observed_at": "2026-10-08T06:31:22.023Z",
-      "views": 709,
-      "replies": 9,
+      "observed_at": "2026-10-08T06:41:37.720Z",
+      "views": 714,
+      "replies": 10,
       "reposts": 1,
       "likes": 2,
       "bookmarks": null,
-      "note": "Actual later profile counters; bookmark count is not visible. Existing self-like and operator opens may contribute; no new pinned update or independent approval inferred.",
+      "note": "Actual ancestor counters in reopened latest progress. The tenth reply includes our new update and self-like persists; own updates and operator views are not independent audience effects.",
       "published_at": "2026-10-07T21:18:52.000Z",
       "published_at_source": "Browser-visible time element, retained from the reopened permanent thread",
       "self_like_visible": true
@@ -656,6 +656,20 @@
       "likes": 0,
       "bookmarks": 0,
       "note": "Fourth substantive reply answers actual feedback on independent-post validation and reuse of history without invented fixed-window labels. Initial public view may include operator; no adoption, acquisition or original verified Home outcome inferred."
+    },
+    {
+      "kind": "measured_progress_update",
+      "url": "https://x.com/LIghtJUNction_x/status/2108085183497076795",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "published_at": "2026-10-08T06:40:48.000Z",
+      "observed_at": "2026-10-08T06:41:37.720Z",
+      "publication_verified_at": "2026-10-08T06:41:37.720Z",
+      "views": 1,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "Real progress reply under the fixed pinned launch after the operator interval, linking released source and actual separate-clock counters. This own update and initial public view are not independent endorsement, verified Home outcome or acquired follower."
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -772,6 +786,19 @@
         "Partial273/276 capture adds24 observed currently blue handles since the earlier249 baseline;1 high,2 not matched,21 unknown; exact acquisition and full-window share unknown",
         "Separate backend verified Home534 unchanged and171 verified followers; rolling change0/+4, not gross arrivals or payout proof",
         "Partial-list disclosure and feedback-based skill refinement;226 tests passed"
+      ]
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108085183497076795",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "kind": "measured-progress",
+      "verified_at": "2026-10-08T06:41:37.720Z",
+      "reported_profile_observation": "2026-10-08T06:31:22.023Z",
+      "changes": [
+        "281 total followers;4 substantive replies,1 like and1 related blue follow, confirmed acquisition unknown",
+        "Same partial24observedbluecohort:2high/2not_high/20unknown after review; not follower growth",
+        "176 backend verifiedfollowers and534verifiedHome@06:16:15.225Z;Home unchanged",
+        "Real frozen prospective target:26publicviews33.906seconds late, absolute errors12/1.79036,n1,oldPyTorchnotparticipating;242tests passed"
       ]
     }
   ],
@@ -1556,6 +1583,34 @@
       "bookmarks": null,
       "self_like_visible": true,
       "note": "Actual later profile counters; bookmark count is not visible. Existing self-like and operator opens may contribute; no new pinned update or independent approval inferred."
+    },
+    {
+      "kind": "measured_progress_update",
+      "url": "https://x.com/LIghtJUNction_x/status/2108085183497076795",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "published_at": "2026-10-08T06:40:48.000Z",
+      "observed_at": "2026-10-08T06:41:37.720Z",
+      "publication_verified_at": "2026-10-08T06:41:37.720Z",
+      "views": 1,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "Real progress reply under the fixed pinned launch after the operator interval, linking released source and actual separate-clock counters. This own update and initial public view are not independent endorsement, verified Home outcome or acquired follower.",
+      "observation_started_at": "2026-10-08T06:41:37.525Z"
+    },
+    {
+      "kind": "launch_after_new_progress",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "published_at": "2026-10-07T21:18:52.000Z",
+      "observed_at": "2026-10-08T06:41:37.720Z",
+      "views": 714,
+      "replies": 10,
+      "reposts": 1,
+      "likes": 2,
+      "bookmarks": null,
+      "self_like_visible": true,
+      "note": "Actual ancestor counters in reopened latest progress. The tenth reply includes our new update and self-like persists; own updates and operator views are not independent audience effects."
     }
   ],
   "analytics_observations": [
@@ -2092,6 +2147,18 @@
       "adoption_confirmed": null,
       "new_follower_confirmed": null,
       "note": "A real author suggests collecting independent posts rather than treating five points on one post as independent training samples. This is one methodological response, not adoption, follower acquisition or a payout-qualified view."
+    },
+    {
+      "kind": "same_author_temporal_topic_leakage_feedback",
+      "url": "https://x.com/lijd426/status/2108084104080322987",
+      "parent_own_post_url": "https://x.com/LIghtJUNction_x/status/2108081894017626333",
+      "published_at": "2026-10-08T06:36:31.000Z",
+      "observed_at": "2026-10-08T06:38:53.665Z",
+      "substantive_feedback_confirmed": true,
+      "additional_independent_author_count": 0,
+      "adoption_confirmed": null,
+      "new_follower_confirmed": null,
+      "note": "Same external author continues with train/test publication-time splits and shared-topic leakage concerns. Retained as one relationship, not a second independent author or confirmed acquisition; no extra reply sent."
     }
   ],
   "blue_cohort_history": [

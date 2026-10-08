@@ -63,7 +63,7 @@ Bounds describe the observed blue cohort, not confirmed new followers. Badge upg
 
 [RISE launch post](https://x.com/LIghtJUNction_x/status/2107943767382847844)
 
-[Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2108069404860887280)
+[Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2108085183497076795)
 <!-- RISE:METRICS:END -->
 
 Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. The current partial observed cohort has 24 identities: 2 high, 2 not matched and 20 unknown, with 4/24 assessed. The historical five-account cohort is fully classified; the earlier twelve-account cohort still has one unknown. All three remain independent. We keep those limitations visible.
