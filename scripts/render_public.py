@@ -176,9 +176,8 @@ def observed_date(row):
 
 def metric_art(data):
     validate(data)
-    followers, blues = data['follower_observations'], data['blue_observations']
+    followers = data['follower_observations']
     first, last = (followers[0], followers[-1]) if followers else (None, None)
-    b1, b2 = (blues[0], blues[-1]) if blues else (None, None)
     c = data['blue_cohort']
     delta = last['total'] - first['total'] if first and last else None
     share = c['high'] / c['observed_arrivals'] if c['observed_arrivals'] else None
@@ -202,8 +201,9 @@ def metric_art(data):
         body += f'<rect x="180" y="{y}" width="{value/maxv*430:.1f}" height="30" fill="#b73825"/>'
         body += text(180+value/maxv*430+12, y+22, value, 18, '#191b1b')
     body += text(180, 411, '0', 13)
-    blue_label = f'Blue list: {b1["count"]} → {b2["count"]} | latest {observed_date(b2)}' if b1 else 'Blue list: N/A — no observations recorded'
-    body += text(38, 448, blue_label, 16, '#191b1b')
+    cohort_window = (f'Observed blue-cohort window: {c.get("window_started_at") or "unknown"} '
+                     f'→ {c.get("window_ended_at") or "unknown"}')
+    body += text(38, 448, cohort_window, 16, '#191b1b')
     body += text(38, 484, f'Quality: {c["high"]} high / {c["not_high"]} not matched / {c["unknown"]} unclassified, n={c["observed_arrivals"]}', 17)
     low, high = quality_bounds(c)
     bound_label = f'Observed cohort quality: confirmed lower bound {low:.1%}; possible upper bound {high:.1%}.' if low is not None else 'Observed cohort quality: N/A — no observed arrivals.'

@@ -49,6 +49,16 @@
       "total": 247,
       "observed_at": "2026-10-08T00:07:55.062Z",
       "note": "Public profile observation after a substantive feedback follow-up and one followback. Another original video was visible on the account during the same window, so no per-action acquisition attribution."
+    },
+    {
+      "total": 249,
+      "observed_at": "2026-10-08T00:20:41.095Z",
+      "note": "Current public profile while preparing all-followers baseline; concurrent video publication and other account activity persist."
+    },
+    {
+      "total": 251,
+      "observed_at": "2026-10-08T00:27:17.707Z",
+      "note": "Public profile recheck during the technical case fixed-window review. Crossed the250-follower review checkpoint; +5 net from246 pre-action baseline. Other account activity prevents attribution."
     }
   ],
   "blue_observations": [
@@ -109,12 +119,13 @@
     {
       "kind": "launch",
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
-      "views": 551,
+      "views": 562,
       "replies": 4,
       "likes": 1,
       "reposts": 1,
       "bookmarks": null,
-      "observed_at": "2026-10-08T00:07:55.062Z"
+      "observed_at": "2026-10-08T00:27:17.707Z",
+      "note": "Same public-profile AX capture retained pinned status and counters. Public reply counts can update asynchronously; own progress replies are not independent engagement."
     },
     {
       "kind": "voice_reply",
@@ -173,12 +184,12 @@
     {
       "kind": "technical_original_edited_version",
       "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
-      "observed_at": "2026-10-08T00:07:55.062Z",
-      "views": 13,
-      "replies": 0,
+      "observed_at": "2026-10-08T00:26:32.579Z",
+      "views": 15,
+      "replies": 1,
       "likes": 0,
       "reposts": 0,
-      "bookmarks": null,
+      "bookmarks": 0,
       "original_version_url": "https://x.com/LIghtJUNction_x/status/2107975802449203435",
       "original_published_at": "2026-10-07T23:26:10.000Z",
       "edit_verified_at": "2026-10-07T23:42:00.225Z",
@@ -208,12 +219,23 @@
     {
       "kind": "git_feedback_followup",
       "url": "https://x.com/LIghtJUNction_x/status/2107987971232375079",
-      "observed_at": "2026-10-08T00:14:49.655Z",
+      "observed_at": "2026-10-08T00:26:32.579Z",
+      "views": 5,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": null
+    },
+    {
+      "kind": "cohort_progress_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2107988632359538695",
+      "observed_at": "2026-10-08T00:17:42.990Z",
       "views": 1,
       "replies": 0,
       "likes": 0,
       "reposts": 0,
-      "bookmarks": 0
+      "bookmarks": 0,
+      "note": "Own progress reply, not independent audience endorsement"
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -266,6 +288,19 @@
         "First real recheck at age 67.15 minutes",
         "Quality classification updated: 0 high, 4 unmatched, 8 unknown",
         "Historical metric validation added; 108 tests passed"
+      ]
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107988632359538695",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "kind": "measured-progress",
+      "reported_profile_observation": "2026-10-08T00:07:55.062Z",
+      "verified_at": "2026-10-08T00:17:42.990Z",
+      "changes": [
+        "Independent observed-blue cohort 5 accounts, 2 high / 3 not matched / 0 unknown; exact acquisition unconfirmed",
+        "Earlier 12-account cohort retained independently",
+        "Three persisted followbacks and two received-feedback follow-ups",
+        "Shared current/historical cohort validation and bilingual window display; 113 tests passed"
       ]
     }
   ],
@@ -407,6 +442,41 @@
       "edit_verified_at": "2026-10-07T23:42:00.225Z",
       "edit_display_time": "7:41 AM · Oct 8, 2026 (Asia/Taipei)",
       "note": "Latest version reopened and full body verified. Exact edit timestamp not retained. View count unavailable on this initial AX capture. Versions are one original action."
+    },
+    {
+      "kind": "technical_original_edited_version",
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "observed_at": "2026-10-08T00:07:55.062Z",
+      "views": 13,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": null,
+      "original_version_url": "https://x.com/LIghtJUNction_x/status/2107975802449203435",
+      "original_published_at": "2026-10-07T23:26:10.000Z",
+      "edit_verified_at": "2026-10-07T23:42:00.225Z",
+      "edit_display_time": "7:41 AM · Oct 8, 2026 (Asia/Taipei)",
+      "note": "Latest version reopened and full body verified. Exact edit timestamp not retained. View count unavailable on this initial AX capture. Versions are one original action."
+    },
+    {
+      "kind": "git_feedback_followup",
+      "url": "https://x.com/LIghtJUNction_x/status/2107987971232375079",
+      "observed_at": "2026-10-08T00:14:49.655Z",
+      "views": 1,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0
+    },
+    {
+      "kind": "launch",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "views": 551,
+      "replies": 4,
+      "likes": 1,
+      "reposts": 1,
+      "bookmarks": null,
+      "observed_at": "2026-10-08T00:07:55.062Z"
     }
   ],
   "analytics_observations": [
@@ -428,6 +498,16 @@
       "detail_expands": 1,
       "profile_visits": 0,
       "link_clicks": null
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "observed_at": "2026-10-08T00:26:42.254Z",
+      "impressions": 15,
+      "engagements": 6,
+      "detail_expands": 5,
+      "profile_visits": 0,
+      "link_clicks": 0,
+      "note": "Owner analytics for latest edited version; can include operator opens. Initial-version counters are separate and not added. Original publication age retained for planned checks."
     }
   ],
   "verified_list_observations": [
@@ -480,17 +560,29 @@
         "original_posts": 1,
         "substantive_replies": 3,
         "received_feedback_followups": 2,
-        "followbacks": 3,
+        "followbacks": 5,
         "likes_on_received_feedback": 1
       },
       "planned_age_minutes": 60,
-      "next_observation_due_at": "2026-10-08T00:26:10.000Z",
+      "next_observation_due_at": "2026-10-08T23:26:10.000Z",
       "24h_observation_due_at": "2026-10-08T23:26:10.000Z",
-      "result": "Observation windows pending; high-quality acquisition and causal lift not demonstrated",
+      "result": "One specific external technical response observed; reach recovery and causal follower acquisition not demonstrated",
       "scheduler_configured": false,
       "original_version_url": "https://x.com/LIghtJUNction_x/status/2107975802449203435",
       "edit_verified_at": "2026-10-07T23:42:00.225Z",
-      "note": "Edited to remove an unintended auto-link to a local filename; platform exposed a new latest-version URL. Preserve original publication-age windows and record version-specific counters separately; do not reset the clock to improve results. One topic-specific external reply to this original was verified before the 60-minute check. Concurrent video publication is an additional confounder."
+      "note": "Edited to remove an unintended auto-link to a local filename; platform exposed a new latest-version URL. Preserve original publication-age windows and record version-specific counters separately; do not reset the clock to improve results. One topic-specific external reply to this original was verified before the 60-minute check. Concurrent video publication is an additional confounder.",
+      "first_recheck_observed_at": "2026-10-08T00:26:32.579Z",
+      "actual_age_minutes": 60.376317,
+      "late_by_minutes": 0.376317,
+      "views": 15,
+      "views_change_from_initial": null,
+      "external_method_or_question_replies": 1,
+      "external_reply_authors": 1,
+      "profile_visits": 0,
+      "matched_age_control_available": false,
+      "recheck_total_followers": 251,
+      "recheck_total_followers_observed_at": "2026-10-08T00:27:17.707Z",
+      "recheck_net_change_from_baseline": 5
     }
   ],
   "growth_target": {
@@ -503,7 +595,9 @@
     ],
     "eta": null,
     "status": "active",
-    "meaning": "Aspirational actual-follower target; quality acquisition measured separately, not a growth guarantee"
+    "meaning": "Aspirational actual-follower target; quality acquisition measured separately, not a growth guarantee",
+    "latest_checkpoint_reached": 250,
+    "next_checkpoint": 1000
   },
   "external_feedback_observations": [
     {
@@ -540,6 +634,39 @@
       "note": "Early verified-only, handle-based observed cohort, not this round's confirmed new followers. Badge upgrades and handle renames remain possible. One account has fewer than three recent independent originals and remains unknown.",
       "window_ended_at": "2026-10-07T21:04:50Z",
       "classified_at": "2026-10-07T23:35:15.108Z"
+    }
+  ],
+  "pending_quality_rechecks": [
+    {
+      "source": "Later blue-follow notifications and all-followers top recheck, outside completed cohort capture",
+      "observed_at": "2026-10-08T00:25:20.068Z",
+      "observed_events": 2,
+      "quality_unknown": 2,
+      "included_in_current_cohort": false,
+      "confirmed_new_followers": null,
+      "note": "Both current blue badges visually verified and followbacks persisted. Three-content quality reviews not complete. Retained for next independent window; not added after the completed cohort cutoff."
+    }
+  ],
+  "all_follower_list_observations": [
+    {
+      "count": 249,
+      "collection_started_at": "2026-10-08T00:21:14.756Z",
+      "first_full_scroll_ended_at": "2026-10-08T00:23:27.073Z",
+      "observed_at": "2026-10-08T00:23:58.426Z",
+      "scope": "all_followers",
+      "reached_visible_end": true,
+      "top_recheck_added_rows": 1,
+      "stable_ids_available": false,
+      "note": "All-followers UI baseline; private handle list remains ignored. Non-atomic capture; initial248 rows reconciled by one reload/top check adding one currently visible follower. Full identity-proof acquisition still unavailable without stable IDs."
+    }
+  ],
+  "milestone_observations": [
+    {
+      "milestone": 250,
+      "observed_total": 251,
+      "observed_at": "2026-10-08T00:27:17.707Z",
+      "source": "Public X profile",
+      "meaning": "Review checkpoint exceeded;100001 goal remains active and arrival date unknown"
     }
   ]
 }

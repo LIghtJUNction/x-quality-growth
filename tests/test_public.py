@@ -76,6 +76,19 @@ class PublicEvidenceTests(unittest.TestCase):
         self.assertIn('separate window', output)
         self.assertIn('self-interactions', output)
 
+    def test_metric_svg_uses_current_cohort_window_instead_of_earlier_blue_counts(self):
+        self.data['blue_cohort'].update(
+            window_started_at='2026-10-08T00:03:02Z',
+            window_ended_at='2026-10-08T00:20:00Z')
+        art = render_public.metric_art(self.data)
+        self.assertIn('Observed blue-cohort window: 2026-10-08T00:03:02Z → 2026-10-08T00:20:00Z', art)
+        self.assertNotIn('Blue list:', art)
+        self.data['blue_observations'] = [{'count': 999, 'observed_at': '2000-01-01T00:00:00Z'}]
+        self.assertEqual(render_public.metric_art(self.data), art)
+        del self.data['blue_cohort']['window_started_at']
+        self.assertIn('Observed blue-cohort window: unknown → 2026-10-08T00:20:00Z',
+                      render_public.metric_art(self.data))
+
     def test_optional_histories_remain_backwards_compatible(self):
         self.data.pop('post_observations', None)
         self.data.pop('analytics_observations', None)

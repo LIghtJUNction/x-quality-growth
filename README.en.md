@@ -23,12 +23,12 @@ The X launch post links this repository. This README links that post and display
 <!-- RISE:METRICS:START -->
 | Actual observation | Value |
 | --- | --- |
-| Total followers | 175 → 247 (+72) |
+| Total followers | 175 → 251 (+76) |
 | Newly observed blue accounts | 5; confirmed new followers: unknown |
 | Quality classification | 2 high / 3 not matched / 0 unclassified |
 | High-quality share | 40.0% |
 | Current observed-cohort window | 2026-10-07T22:58:02.912Z → 2026-10-08T00:10:06.403Z |
-| Latest profile observation | 2026-10-08T00:07:55.062Z |
+| Latest profile observation | 2026-10-08T00:27:17.707Z |
 | Previous independent cohort | 0 high / 11 not matched / 1 unclassified (n=12) |
 | Observed-cohort quality lower / possible upper bound | 40.0%–40.0% |
 | First profile observation | Timestamp unavailable |
@@ -39,10 +39,12 @@ Bounds describe the observed blue cohort, not confirmed new followers. Badge upg
 
 [RISE launch post](https://x.com/LIghtJUNction_x/status/2107943767382847844)
 
-[Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2107969836794171834)
+[Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2107988632359538695)
 <!-- RISE:METRICS:END -->
 
 Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. The current five-account observed cohort is fully classified; the earlier twelve-account cohort still has one unknown and is retained separately. We keep those limitations visible.
+
+Reusable material: [three Git states in AI code review](references/ai-code-review-case.md), with bilingual explanations and reproduced command output.
 
 ## X × GitHub feedback
 
@@ -62,9 +64,9 @@ The pinned launch post is the stable entry point: edit it when new evidence or i
 
 GitHub stars and forks refresh every six hours through GitHub Actions. X feedback refreshes only after an authorized browser observation. A GitHub refresh never changes the timestamp of old X data. No unattended X scheduler has been configured.
 
-Latest recheck: [the first observation at an actual age of 67 minutes](public/backtests/2026-10-08.en.md). The methods post had 34 views, one external response and zero profile visits. The account gained 16 net followers concurrently; acquisition is not attributable to that post. Earlier low-view conclusions were revised.
+Latest recheck: [the technical case at about 60 minutes](public/backtests/2026-10-08-technical-case.en.md). Latest edited version: 15 views, one specific external response, zero profile visits. The account went 246→251 and passed the 250-follower checkpoint; acquisition is not attributable to this post. The [earlier 67-minute review](public/backtests/2026-10-08.en.md) is retained.
 
-This 100k-goal round verified one original technical post and three substantive replies; edited versions are not extra originals. Notifications showed [one external labeling-problem reply](https://x.com/mydream2025/status/2107977259516858663); its parent was verified and [a labeling and grouped-validation follow-up](https://x.com/LIghtJUNction_x/status/2107983282281627907) was published and reopened. A complete verified-list recheck went from 137 to 142 handles: five newly observed blue accounts, two high / three not matched / zero unknown (40% of that observed cohort). Confirmed new-follower acquisition remains unknown. Three blue-follower followbacks persisted after reloading. A [topic-specific Git response](https://x.com/taiyanghere/status/2107987106974806281) was verified and a [follow-up discussion](https://x.com/LIghtJUNction_x/status/2107987971232375079) reopened. Reviews measured from first publication are due at 2026-10-08 00:26 UTC and 2026-10-08 23:26 UTC. No unattended checks have been configured.
+This 100k-goal round verified one original technical post and three substantive replies; edited versions are not extra originals. Notifications showed [one external labeling-problem reply](https://x.com/mydream2025/status/2107977259516858663); its parent was verified and [a labeling and grouped-validation follow-up](https://x.com/LIghtJUNction_x/status/2107983282281627907) was published and reopened. A complete verified-list recheck went from 137 to 142 handles: five newly observed blue accounts, two high / three not matched / zero unknown (40% of that observed cohort). Confirmed new-follower acquisition remains unknown. By 00:25 UTC, five blue-follower followbacks persisted after reloading. Two later observed blue accounts remain pending quality review and are not mixed into the completed 40% cohort. A [topic-specific Git response](https://x.com/taiyanghere/status/2107987106974806281) was verified and a [follow-up discussion](https://x.com/LIghtJUNction_x/status/2107987971232375079) reopened. The first-publication 60-minute review is complete. The 24-hour check is due at 2026-10-08 23:26 UTC; no unattended checks configured.
 
 ## Install and run
 
