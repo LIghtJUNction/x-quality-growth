@@ -47,14 +47,14 @@ The additional model target is future 1-hour/24-hour per-post verified Home Time
 | --- | --- |
 | Total followers | 175 → 277 (+102) |
 | Newly observed blue accounts | 24; confirmed new followers: unknown |
-| Quality classification | 1 high / 2 not matched / 21 unclassified |
+| Quality classification | 2 high / 2 not matched / 20 unclassified |
 | High-quality share | Pending classification; unknown is not zero |
 | Current observed-cohort window | 2026-10-08T00:23:58.426Z → 2026-10-08T05:14:58.325Z |
 | Latest profile observation | 2026-10-08T05:33:06.588Z |
 | Follower-list coverage at collection | 273/276 captured; list incomplete |
 | Full-window high-quality share | Unknown; incomplete follower list |
 | Previous independent cohort | 2 high / 3 not matched / 0 unclassified (n=5) |
-| Observed-cohort quality lower / possible upper bound | 4.2%–91.7% |
+| Observed-cohort quality lower / possible upper bound | 8.3%–91.7% |
 | First profile observation | Timestamp unavailable |
 | Earlier blue-count observation (separate window) | 2026-10-07T21:04:50.311Z |
 | GitHub stars / forks | 1 / 0 · 2026-10-08T06:01:25.759337+00:00 |
@@ -66,7 +66,9 @@ Bounds describe the observed blue cohort, not confirmed new followers. Badge upg
 [Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2108069404860887280)
 <!-- RISE:METRICS:END -->
 
-Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. The current partial observed cohort has 24 identities: 1 high, 2 not matched and 21 unknown. The historical five-account cohort is fully classified; the earlier twelve-account cohort still has one unknown. All three remain independent. We keep those limitations visible.
+Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. The current partial observed cohort has 24 identities: 2 high, 2 not matched and 20 unknown, with 4/24 assessed. The historical five-account cohort is fully classified; the earlier twelve-account cohort still has one unknown. All three remain independent. We keep those limitations visible.
+
+The same 24-member cohort was **1 high / 2 not matched / 21 unknown** after its initial three assessments at `2026-10-08T05:31:52.616487+00:00`. A fourth assessment at `2026-10-08T05:56:28.390889+00:00` resolved one unknown as high, giving **2 / 2 / 20**. The captured-sample lower bound is **2/24 = 8.333%**, with a possible upper bound of **22/24 = 91.667%**. This reduces unknown classification; it is not new acquisition, follower growth or a causal improvement. Coverage remains **273/276 partial**, and 139 existing identities with unresolved badge history are excluded from arrivals. The original three reviews still lack complete evidence-capture clocks; the new follow-up's complete clock does not fill those gaps. Confirmed acquisition and the full-window quality share remain unknown.
 
 Reusable material: [three Git states in AI code review](references/ai-code-review-case.md), with bilingual explanations and reproduced command output.
 
@@ -132,6 +134,8 @@ The latest historical holdout spans **03:08:12.506 → 03:23:30.786 UTC**, about
 | Three-parameter PyTorch curve | 673.22592 | 12.22592 | 28.30 |
 
 MAE means mean absolute error; lower is better. The last column compares **the same 5 origins and targets from one launch post, at 15–60-minute horizons**. These observations are correlated and do not establish cross-post generalization or statistical superiority. The 24-hour extrapolation has no actual result yet, and uncertainty intervals remain unknown. Exposure forecasts do not predict blue-check acquisition or a date for reaching 100,000 followers.
+
+**First baseline frozen before its outcome:** the new case post had 14 public views at `05:49:55.484 UTC`. Predictions for post age 60 minutes (`06:18:55 UTC`) are **14** for the last-value baseline and **27.7904** for the recent-rate baseline. They were sealed at `05:52:29 UTC` and [committed to GitHub before the target](https://github.com/LIghtJUNction/x-quality-growth/commit/e792e3771668e3f4945a0b90f257eb84a5a44bfa). The [frozen file](public/forecasts/rise-2108064574675247167-60m.json) stays unchanged; outcomes are separate. This predicts from post age about 31 minutes to age 60, **not another hour into the future**. The outcome is pending. No new model was trained and verified Home impressions are not predicted. [Freeze and evaluation protocol](references/prospective-prediction.en.md).
 
 The implementation currently uses publication times, observation times and counts; measured platform support covers X only. A unified contract for text, images, video and comments is designed, but text and media semantics are not training inputs, and other platform adapters are unvalidated. The official popular-pool reference score is not a future-exposure forecast. [Statistical methods](references/growth-statistics.en.md) · [Input contract](references/model-inputs.en.md) · [Official time parameters](references/algorithm-time.md) · [Recommendation formulas and limits](references/recommendation-formulas.md)
 
