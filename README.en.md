@@ -80,6 +80,10 @@ Reusable material: [three Git states in AI code review](references/ai-code-revie
 
 <img src="assets/git-review-matrix.png" width="100%" alt="Reproduced Git states: untracked files appear in neither diff; unstaged changes appear in plain diff; staged changes appear in diff --cached. Check status, both diffs and each new file." />
 
+A four-file synthetic experiment: [panel ordering after a retry](examples/panel_order_demo.py). Run `python examples/panel_order_demo.py`: modification-time ordering changes from `1→2→3→4` to `1→3→4→2`, while fixed panel indexes preserve `1→2→3→4`. It uses placeholder `.txt` files and explicitly assigned times to demonstrate sorting logic, without claiming actual comic generation or a product defect.
+
+<img src="assets/panel-order-demo.png" width="100%" alt="Synthetic placeholder ordering: retrying file 2 changes modification-time order to 1,3,4,2; fixed panel indexes preserve 1,2,3,4." />
+
 ## X × GitHub feedback
 
 <img src="assets/feedback.svg" width="100%" alt="Observed public engagement for the experiment and launch posts" />

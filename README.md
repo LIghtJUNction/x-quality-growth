@@ -80,6 +80,10 @@
 
 <img src="assets/git-review-matrix.png" width="100%" alt="Git 三状态实测表：未跟踪文件在两种 diff 中均不可见；未暂存修改由普通 diff 展示；已暂存修改由 diff --cached 展示。先查 status，再读两种 diff 和新文件。" />
 
+四文件合成实验：[重试后的分镜排序](examples/panel_order_demo.py)。运行 `python examples/panel_order_demo.py`：修改时间排序从 `1→2→3→4` 变为 `1→3→4→2`，固定分镜编号仍为 `1→2→3→4`。使用占位 `.txt` 和显式模拟时间，只演示排序逻辑，不作为产品故障或真实漫画生成的证据。
+
+<img src="assets/panel-order-demo.png" width="100%" alt="合成占位文件排序：只重试第2个文件后，按修改时间排序为1、3、4、2；按固定分镜编号仍为1、2、3、4。" />
+
 ## X × GitHub：互相引用的反馈循环
 
 <img src="assets/feedback.svg" width="100%" alt="X 实测帖与技能介绍帖的公开反馈" />
