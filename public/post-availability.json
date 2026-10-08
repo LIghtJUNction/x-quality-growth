@@ -1,0 +1,148 @@
+{
+  "schema": "rise-public-post-availability-v1",
+  "captured_at": "2026-10-08T16:38:37.020Z",
+  "scope": "28 unique post permalinks displayed in both READMEs; authenticated browser visible page checks",
+  "checks": [
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "verified_at": "2026-10-08T16:32:02.490Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108155423509696529",
+      "verified_at": "2026-10-08T16:32:04.893Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108170130702344695",
+      "verified_at": "2026-10-08T16:32:07.181Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108095581906428165",
+      "verified_at": "2026-10-08T16:32:08.657Z",
+      "status": "unavailable_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108090442583851205",
+      "verified_at": "2026-10-08T16:32:11.128Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108064574675247167",
+      "verified_at": "2026-10-08T16:32:40.318Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108060803639500970",
+      "verified_at": "2026-10-08T16:32:42.226Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108067265497485702",
+      "verified_at": "2026-10-08T16:32:43.978Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+      "verified_at": "2026-10-08T16:32:45.964Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108025662980358354",
+      "verified_at": "2026-10-08T16:32:48.600Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108011337209270512",
+      "verified_at": "2026-10-08T16:37:22.766Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108007419154735157",
+      "verified_at": "2026-10-08T16:37:26.429Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108004713065230723",
+      "verified_at": "2026-10-08T16:37:28.113Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108000829303378383",
+      "verified_at": "2026-10-08T16:37:29.608Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107994469098508741",
+      "verified_at": "2026-10-08T16:37:31.354Z",
+      "status": "unavailable_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107995153403465983",
+      "verified_at": "2026-10-08T16:37:32.986Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "verified_at": "2026-10-08T16:37:48.680Z",
+      "status": "unavailable_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107976452662817134",
+      "verified_at": "2026-10-08T16:37:50.461Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107977004314431778",
+      "verified_at": "2026-10-08T16:37:52.505Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107934424151335154",
+      "verified_at": "2026-10-08T16:37:54.175Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107936031907737758",
+      "verified_at": "2026-10-08T16:37:56.175Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107936390185193718",
+      "verified_at": "2026-10-08T16:38:10.425Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107947524829127073",
+      "verified_at": "2026-10-08T16:38:12.589Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108022019157873061",
+      "verified_at": "2026-10-08T16:38:14.419Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108016718492909780",
+      "verified_at": "2026-10-08T16:38:16.295Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/clyve2022/status/2108083085367714123",
+      "verified_at": "2026-10-08T16:38:17.958Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108123887909376093",
+      "verified_at": "2026-10-08T16:38:34.591Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108116127117398457",
+      "verified_at": "2026-10-08T16:38:37.013Z",
+      "status": "unavailable_confirmed"
+    }
+  ],
+  "historical_measurements_preserved": true
+}

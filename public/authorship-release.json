@@ -1,0 +1,189 @@
+{
+  "schema": "rise-authorship-release-v1",
+  "repository": "LIghtJUNction/RISE-HC3-source-baseline",
+  "revision": "ae590ac0e4eb16ff810bf5b651480be2b938c348",
+  "verified_at": "2026-10-08T16:32:26.892800+00:00",
+  "verification_status": "passed",
+  "anonymous_http": true,
+  "authorization_header_sent": false,
+  "cookie_header_sent": false,
+  "repository_url": "https://huggingface.co/LIghtJUNction/RISE-HC3-source-baseline",
+  "revision_url": "https://huggingface.co/LIghtJUNction/RISE-HC3-source-baseline/tree/ae590ac0e4eb16ff810bf5b651480be2b938c348",
+  "tree_api_url": "https://huggingface.co/api/models/LIghtJUNction/RISE-HC3-source-baseline/tree/ae590ac0e4eb16ff810bf5b651480be2b938c348?recursive=true",
+  "public_tree_files": [
+    ".gitattributes",
+    "LICENSE",
+    "LICENSE-CODE-MIT",
+    "LICENSE-WEIGHTS-CC-BY-SA-4.0",
+    "README.md",
+    "authorship_benchmark.py",
+    "evaluation.json",
+    "model-card.json",
+    "model-state.json"
+  ],
+  "allowed_extra_files": [
+    ".gitattributes"
+  ],
+  "unknown_extra_files": [],
+  "files": [
+    {
+      "file": "LICENSE",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-HC3-source-baseline/resolve/ae590ac0e4eb16ff810bf5b651480be2b938c348/LICENSE",
+      "http_status": 200,
+      "sha256": "6c94f585c9710ba95672050aff729448297b1f967ca6b48425036a2223c384bd",
+      "bytes": 598,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "LICENSE-CODE-MIT",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-HC3-source-baseline/resolve/ae590ac0e4eb16ff810bf5b651480be2b938c348/LICENSE-CODE-MIT",
+      "http_status": 200,
+      "sha256": "97016fcf641f0ebb5c3fb6a0eda2e2bec82aecd443f3acd24a536499d5fa28a4",
+      "bytes": 1070,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "LICENSE-WEIGHTS-CC-BY-SA-4.0",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-HC3-source-baseline/resolve/ae590ac0e4eb16ff810bf5b651480be2b938c348/LICENSE-WEIGHTS-CC-BY-SA-4.0",
+      "http_status": 200,
+      "sha256": "9c1789c1277645b10a6a67ab6566a4895f2f52ae7ba1f3961dd2113ff332ddde",
+      "bytes": 1177,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "README.md",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-HC3-source-baseline/resolve/ae590ac0e4eb16ff810bf5b651480be2b938c348/README.md",
+      "http_status": 200,
+      "sha256": "112e2270edb75b48450c920c3e2eb8379f6948b99a787534c064f14f06a6e6e2",
+      "bytes": 7001,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "authorship_benchmark.py",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-HC3-source-baseline/resolve/ae590ac0e4eb16ff810bf5b651480be2b938c348/authorship_benchmark.py",
+      "http_status": 200,
+      "sha256": "2140354be03e9616ff1272171e38f988741843ec03c8c058c78241fb07533fbd",
+      "bytes": 37059,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "evaluation.json",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-HC3-source-baseline/resolve/ae590ac0e4eb16ff810bf5b651480be2b938c348/evaluation.json",
+      "http_status": 200,
+      "sha256": "aa541fd3f32e1e2ba46b0abc9b72a8ee99d6d759b76db5ce9cafcf2b01b9a1da",
+      "bytes": 81841,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "model-card.json",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-HC3-source-baseline/resolve/ae590ac0e4eb16ff810bf5b651480be2b938c348/model-card.json",
+      "http_status": 200,
+      "sha256": "d6e36b715b9676ef5e25430fb80ccf8d2c1afc88bbf728e099d73fdb5e54ef0b",
+      "bytes": 92522,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "model-state.json",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-HC3-source-baseline/resolve/ae590ac0e4eb16ff810bf5b651480be2b938c348/model-state.json",
+      "http_status": 200,
+      "sha256": "1d0b3e9b3897466746b3349283686a456cdf99cfaf43ae98c443a9d3dd29e9f3",
+      "bytes": 437951,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    }
+  ],
+  "provenance": {
+    "source_dataset": "Hello-SimpleAI/HC3-Chinese",
+    "source_subset": "open_qa",
+    "source_revision": "09a687b8dc164b89e7df95abf15df3b216bc31c2",
+    "source_url": "https://huggingface.co/datasets/Hello-SimpleAI/HC3-Chinese/tree/09a687b8dc164b89e7df95abf15df3b216bc31c2",
+    "input_sha256": "ccac1bec153b57646ace3dbd4fdb677e7d66a789127119ffeab9ac56aa01df83",
+    "input_sha256_origin": "Published attribution in downloaded model README; raw source was not downloaded in this verification",
+    "source_bytes": 6529129,
+    "code_sha256": "2140354be03e9616ff1272171e38f988741843ec03c8c058c78241fb07533fbd",
+    "model_state_sha256": "1d0b3e9b3897466746b3349283686a456cdf99cfaf43ae98c443a9d3dd29e9f3",
+    "feature_signature_sha256": "66d38fb3a14f0df2a52e7b5eca928b6541b1c90757cdac29177ae5eae1d70d6f"
+  },
+  "synthetic_validation": {
+    "probes": [
+      {
+        "case": "default_X",
+        "result": {
+          "decision": "unknown",
+          "binary_probabilities": null,
+          "origin_probabilities": {
+            "human_written": null,
+            "ai_generated": null,
+            "mixed": null
+          },
+          "mixed_trained": false,
+          "domain": "x_short_post",
+          "reason": "out_of_domain_X_or_unvalidated_content"
+        },
+        "checks_passed": true
+      },
+      {
+        "case": "explicit_HC3_binary",
+        "result": {
+          "decision": "human_written",
+          "binary_probabilities": {
+            "human_written": 0.5065722930071878,
+            "ai_generated": 0.49342770699281224
+          },
+          "origin_probabilities": {
+            "human_written": null,
+            "ai_generated": null,
+            "mixed": null
+          },
+          "mixed_trained": false,
+          "domain": "hc3_chinese_open_qa",
+          "reason": "conditional_binary_HC3_domain_estimate_only"
+        },
+        "checks_passed": true
+      },
+      {
+        "case": "three_class_request",
+        "result": {
+          "decision": "unknown",
+          "binary_probabilities": null,
+          "origin_probabilities": {
+            "human_written": null,
+            "ai_generated": null,
+            "mixed": null
+          },
+          "mixed_trained": false,
+          "domain": "hc3_chinese_open_qa",
+          "reason": "mixed_and_three_class_origin_not_trained"
+        },
+        "checks_passed": true
+      }
+    ],
+    "training_executed": false,
+    "source_or_test_answer_text_accessed": false,
+    "synthetic_only": true,
+    "real_account_prediction": false,
+    "bytecode_writing_disabled": true,
+    "process_exit_code": 0,
+    "inference_function": "infer"
+  },
+  "scope": {
+    "reported_benchmark": "Frozen forced-binary all-answer HC3 Chinese open_qa benchmark; aggregate metrics retained in evaluation.json",
+    "inference": "Conditional binary estimate only for declared HC3 Chinese open_qa long CJK text; runtime gates are stricter than the full-answer benchmark",
+    "default_X": "unknown with null probabilities",
+    "mixed_or_three_class": "not trained; origin probabilities all null",
+    "benchmark_reexecuted": false,
+    "new_accuracy_validation": false
+  },
+  "limitations": [
+    "Synthetic execution checks are not independent accuracy or real-post authorship validation.",
+    "HC3 QA source detection does not validate current X authorship, mixed writing, exposure recovery or follower quality.",
+    "Source and test answer bodies, private paths, tokens, signed redirect URLs and account snapshots are not included."
+  ]
+}

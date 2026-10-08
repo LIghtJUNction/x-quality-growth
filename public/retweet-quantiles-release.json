@@ -1,0 +1,188 @@
+{
+  "schema": "rise-retweet-quantiles-release-v1",
+  "repository": "LIghtJUNction/RISE-retweet-quantiles",
+  "revision": "2a72cfa931dafdd3c0a630aa71a5e333ec4c053c",
+  "verified_at": "2026-10-08T16:24:19.413543+00:00",
+  "verification_status": "passed",
+  "anonymous_http": true,
+  "authorization_header_sent": false,
+  "cookie_header_sent": false,
+  "repository_url": "https://huggingface.co/LIghtJUNction/RISE-retweet-quantiles",
+  "revision_url": "https://huggingface.co/LIghtJUNction/RISE-retweet-quantiles/tree/2a72cfa931dafdd3c0a630aa71a5e333ec4c053c",
+  "tree_api_url": "https://huggingface.co/api/models/LIghtJUNction/RISE-retweet-quantiles/tree/2a72cfa931dafdd3c0a630aa71a5e333ec4c053c?recursive=true",
+  "public_tree_files": [
+    ".gitattributes",
+    "LICENSE",
+    "README.md",
+    "evaluation.json",
+    "model-state.json",
+    "retweet_benchmark.py",
+    "retweet_validation.py"
+  ],
+  "allowed_extra_files": [
+    ".gitattributes"
+  ],
+  "unknown_extra_files": [],
+  "files": [
+    {
+      "file": "model-state.json",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-retweet-quantiles/resolve/2a72cfa931dafdd3c0a630aa71a5e333ec4c053c/model-state.json",
+      "http_status": 200,
+      "sha256": "26270a5b48ac34a95b46ebe418279dc6b19cba697e2423e96fad917411a4fc73",
+      "bytes": 24309,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "evaluation.json",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-retweet-quantiles/resolve/2a72cfa931dafdd3c0a630aa71a5e333ec4c053c/evaluation.json",
+      "http_status": 200,
+      "sha256": "6b9add187af413630d50454f653a89986de1363cac03545a0cce50edf7c53dd6",
+      "bytes": 35817,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "retweet_validation.py",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-retweet-quantiles/resolve/2a72cfa931dafdd3c0a630aa71a5e333ec4c053c/retweet_validation.py",
+      "http_status": 200,
+      "sha256": "d306d37c635b357af90eeae1e2f3d71d56c89dae66f35c151f5b4e366a8de51d",
+      "bytes": 27373,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "retweet_benchmark.py",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-retweet-quantiles/resolve/2a72cfa931dafdd3c0a630aa71a5e333ec4c053c/retweet_benchmark.py",
+      "http_status": 200,
+      "sha256": "53c6d05ac5fc01c7d85eabdf7d72321cc8a0212b849cdc1936b51c825b1c1f0f",
+      "bytes": 37215,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "LICENSE",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-retweet-quantiles/resolve/2a72cfa931dafdd3c0a630aa71a5e333ec4c053c/LICENSE",
+      "http_status": 200,
+      "sha256": "97016fcf641f0ebb5c3fb6a0eda2e2bec82aecd443f3acd24a536499d5fa28a4",
+      "bytes": 1070,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    },
+    {
+      "file": "README.md",
+      "source_url": "https://huggingface.co/LIghtJUNction/RISE-retweet-quantiles/resolve/2a72cfa931dafdd3c0a630aa71a5e333ec4c053c/README.md",
+      "http_status": 200,
+      "sha256": "e256d840b10aab9486bb6885eb982d35beb777a23e1cea30b2d41bce3a25c8e6",
+      "bytes": 3685,
+      "local_sha256_match": true,
+      "export_manifest_sha256_match": true
+    }
+  ],
+  "synthetic_validation": {
+    "probes": [
+      {
+        "cutoff_seconds": 900,
+        "input": {
+          "observed_retweet_count": 0,
+          "first_seconds": null,
+          "last_seconds": null
+        },
+        "predicted_additional_retweets": {
+          "lower": 18.00819171435646,
+          "median": 74.65999429810748,
+          "upper": 266.9164359006311
+        },
+        "finite_nonnegative": true,
+        "ordered_quantiles": true
+      },
+      {
+        "cutoff_seconds": 900,
+        "input": {
+          "observed_retweet_count": 12,
+          "first_seconds": 43.2,
+          "last_seconds": 840.0
+        },
+        "predicted_additional_retweets": {
+          "lower": 14.186149092963893,
+          "median": 57.512708683238294,
+          "upper": 163.65637000126034
+        },
+        "finite_nonnegative": true,
+        "ordered_quantiles": true
+      },
+      {
+        "cutoff_seconds": 900,
+        "input": {
+          "observed_retweet_count": 1,
+          "first_seconds": 0.0,
+          "last_seconds": 0.0
+        },
+        "predicted_additional_retweets": {
+          "lower": 26.214962307356277,
+          "median": 128.24415196313498,
+          "upper": 468.3054856844156
+        },
+        "finite_nonnegative": true,
+        "ordered_quantiles": true
+      },
+      {
+        "cutoff_seconds": 3600,
+        "input": {
+          "observed_retweet_count": 0,
+          "first_seconds": null,
+          "last_seconds": null
+        },
+        "predicted_additional_retweets": {
+          "lower": 0.0,
+          "median": 51.5493425202328,
+          "upper": 175.26491752117238
+        },
+        "finite_nonnegative": true,
+        "ordered_quantiles": true
+      },
+      {
+        "cutoff_seconds": 3600,
+        "input": {
+          "observed_retweet_count": 12,
+          "first_seconds": 43.2,
+          "last_seconds": 3540.0
+        },
+        "predicted_additional_retweets": {
+          "lower": 0.0,
+          "median": 63.02457278681236,
+          "upper": 192.48779568605866
+        },
+        "finite_nonnegative": true,
+        "ordered_quantiles": true
+      },
+      {
+        "cutoff_seconds": 3600,
+        "input": {
+          "observed_retweet_count": 1,
+          "first_seconds": 0.0,
+          "last_seconds": 0.0
+        },
+        "predicted_additional_retweets": {
+          "lower": 0.0,
+          "median": 129.45542966804993,
+          "upper": 391.9341733742043
+        },
+        "finite_nonnegative": true,
+        "ordered_quantiles": true
+      }
+    ],
+    "training_executed": false,
+    "source_data_accessed": false,
+    "real_account_prediction": false,
+    "process_exit_code": 0,
+    "inference_function": "predict_state_stdlib",
+    "candidate": "ordered_quantile_pinball",
+    "purpose": "Execution and finite ordered numeric outputs only; not predictive performance validation"
+  },
+  "limitations": [
+    "Synthetic inputs are not observed X posts and do not prove growth or reach recovery.",
+    "The model targets additional retweets on a selected 2011 SEISMIC corpus, not current X exposure or followers.",
+    "No source records, identities, tokens, signed redirect URLs or private paths are included."
+  ]
+}
