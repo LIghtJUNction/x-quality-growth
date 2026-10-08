@@ -1262,6 +1262,19 @@
             "status": "observed_counter_change",
             "observed_view_rate_per_second": 0.0017392650387725657,
             "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T10:50:44.506Z",
+            "ended_at": "2026-10-08T11:22:55.423Z",
+            "interval_seconds": 1930.917,
+            "views_before": 785,
+            "views_after": 788,
+            "counter_delta": 3,
+            "counter_rate_per_second": 0.0015536659524982173,
+            "counter_rate_per_hour": 5.593197428993582,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.0015536659524982173,
+            "meaning": "public counter change; operator views and repeated views may contribute"
           }
         ],
         "skipped_observations": []
@@ -1872,6 +1885,12 @@
       {
         "status_id": "2108144935522451671",
         "url": "https://x.com/LIghtJUNction_x/status/2108144935522451671",
+        "intervals": [],
+        "skipped_observations": []
+      },
+      {
+        "status_id": "2108155423509696529",
+        "url": "https://x.com/LIghtJUNction_x/status/2108155423509696529",
         "intervals": [],
         "skipped_observations": []
       }

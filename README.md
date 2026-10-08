@@ -63,7 +63,7 @@
 
 [RISE launch post](https://x.com/LIghtJUNction_x/status/2107943767382847844)
 
-[置顶帖下的最新进展](https://x.com/LIghtJUNction_x/status/2108127946754101756)
+[置顶帖下的最新进展](https://x.com/LIghtJUNction_x/status/2108155423509696529)
 <!-- RISE:METRICS:END -->
 
 完整原始聚合记录：[public/metrics.json](public/metrics.json)。首次总粉丝检查没有保留精确时间；同期有其他账号活动，且首轮数据早于技能完成。**总粉丝净变化不等于蓝 V 新增，认证名单新增不一定是新关注。此前部分名单的 24 人观察队列仍为 2 高质、2 未匹配、20 未知（4/24 已评审）。历史 5 人队列已完成质量复查；较早 12 人队列仍有 1 人未知，各队列独立保留。** 未知与名单缺口不转成增长效果。
@@ -183,6 +183,8 @@ MAE 是平均绝对误差，越低越好。最后一列只比较**同一置顶�
 
 
 新模型已另行发布到 [Hugging Face / RISE-retweet-baseline](https://huggingface.co/LIghtJUNction/RISE-retweet-baseline)，固定版本 `1282fc5e88e64073bf680b0dda21663f19b73c69`。**2026-10-08 10:55:16.800135 UTC** 已匿名下载核对全部 7 文件 SHA，并实跑标准库合成推理；两档权重与归一化器和训练冻结数值完全一致。原始来源与逐行预测没有上传。[发布核验](public/hf-retweet-release.json) · [准备及训练复现步骤](references/data-reuse.md#复现准备与训练)。
+
+[本次模型结果分享](https://x.com/LIghtJUNction_x/status/2108155423509696529)已接在固定置顶会话下，展示真实回测图、HF 与 GitHub 入口，并披露 Codex 代发。实际首发 **2026-10-08 11:19:55 UTC**，独立重开 **11:22:55.423 UTC** 时为 **1 次公开浏览、0 回复／转帖／点赞／收藏**；这是发布核验，不是独立受众、模型被采用或涨粉效果。60 分钟与 24 小时随访待观察，没有后台调度。
 
 现有浏览曲线与新转帖模型都只使用时间、计数及其派生特征，实测平台范围仍限于 X／历史 Twitter。统一的正文、图片、视频、评论输入契约已设计，正文与媒体语义尚未进入训练，其他平台适配尚未验证。官方热门池参考分也不是未来曝光预测。[统计方法](references/growth-statistics.md) · [输入契约](references/model-inputs.md) · [官方时间参数](references/algorithm-time.md) · [推荐公式与边界](references/recommendation-formulas.md)
 
