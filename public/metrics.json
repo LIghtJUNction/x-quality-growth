@@ -74,6 +74,22 @@
       "total": 254,
       "observed_at": "2026-10-08T01:15:14.382Z",
       "note": "Later public profile observation; +3 vs prior251, +2 vs pre-matrix252. Later than the partial-list window: do not rewrite its original253 header denominator. Concurrent operations prevent attribution."
+    },
+    {
+      "total": 256,
+      "observed_at": "2026-10-08T01:36:09.550Z",
+      "note": "Public profile: +2 vs previous254. Delayed response to an older follow request and concurrent activity prevent attribution to the current technical reply."
+    },
+    {
+      "total": 256,
+      "observed_at": "2026-10-08T01:40:57.634Z",
+      "note": "Profile near matrix60-minute check: +4 from252 pre-post baseline, +5 from preceding251, +2 from254. Not per-post acquisition."
+    },
+    {
+      "total": 270,
+      "following": 262,
+      "observed_at": "2026-10-08T02:49:34.238Z",
+      "note": "Current algorithm-focused-round baseline: +14 net from256. Other video publications and follow operations continued in parallel; neither this increase nor following count262 is attributed to the measured replies."
     }
   ],
   "blue_observations": [
@@ -134,13 +150,13 @@
     {
       "kind": "launch",
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
-      "views": 583,
+      "observed_at": "2026-10-08T02:49:34.238Z",
+      "views": 647,
       "replies": 5,
-      "likes": 1,
       "reposts": 1,
+      "likes": 2,
       "bookmarks": null,
-      "observed_at": "2026-10-08T01:19:35.998Z",
-      "note": "Launch parent reopened with our new progress reply. At least this reply is own engagement, not independent endorsement."
+      "note": "Public profile counters; own progress replies and likes may contribute. No independent reach or acquisition claim."
     },
     {
       "kind": "voice_reply",
@@ -257,13 +273,13 @@
       "kind": "git_matrix_original",
       "url": "https://x.com/LIghtJUNction_x/status/2107994469098508741",
       "published_at": "2026-10-08T00:40:20.000Z",
-      "observed_at": "2026-10-08T01:15:14.382Z",
-      "views": 6,
+      "observed_at": "2026-10-08T01:40:26.635Z",
+      "views": 12,
       "replies": 0,
       "likes": 0,
       "reposts": 0,
-      "bookmarks": null,
-      "note": "Later public profile capture; counts can include operator views. Not a fixed-age recheck; bookmarks not exposed here."
+      "bookmarks": 0,
+      "note": "Actual60-minute public recheck. Operator opens may contribute; independent technical replies are zero at this read. Owner analytics are a separate snapshot."
     },
     {
       "kind": "annotation_temporal_feedback_followup",
@@ -308,6 +324,104 @@
       "reposts": 0,
       "bookmarks": 0,
       "note": "Reopened full reply and actual parent. CVAT official references linked; record fields are suggestions and reduced false positives remain untested."
+    },
+    {
+      "kind": "scoped_review_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108007419154735157",
+      "published_at": "2026-10-08T01:31:48.000Z",
+      "observed_at": "2026-10-08T02:45:41.366Z",
+      "views": 10,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "公开永久链接到期后读取，迟到如actual_age记录；操作者打开可能计入浏览"
+    },
+    {
+      "kind": "harness_feedback_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108011337209270512",
+      "published_at": "2026-10-08T01:47:22.000Z",
+      "observed_at": "2026-10-08T02:47:17.849Z",
+      "views": 9,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "Actual early observation near the planned 60-minute point; retains its real age."
+    },
+    {
+      "kind": "sample_source_request_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108012262770536611",
+      "published_at": "2026-10-08T01:51:03.000Z",
+      "observed_at": "2026-10-08T02:54:42.422Z",
+      "views": 20,
+      "replies": 1,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "Actual due-time recheck at63.657033minutes,3.657033minutes late. One same-author source-link response, not technical adoption or new-follower attribution. Earlier57.35305-minute observation retained in history."
+    },
+    {
+      "kind": "luna_decisions_advice_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108016718492909780",
+      "published_at": "2026-10-08T02:08:45.000Z",
+      "publication_verified_at": "2026-10-08T02:09:45.202Z",
+      "observed_at": null,
+      "views": null,
+      "replies": null,
+      "reposts": null,
+      "likes": null,
+      "bookmarks": null,
+      "api_execution": false,
+      "note": "Published advice with exact publication time verified through DOM time. No Decisions API execution or tested accuracy, throughput or cost savings; counters not collected.",
+      "publication_time_verified_at": "2026-10-08T02:55:48.522Z"
+    },
+    {
+      "kind": "annotated_keyframes_delivery",
+      "url": "https://x.com/LIghtJUNction_x/status/2108022019157873061",
+      "published_at": "2026-10-08T02:29:49.000Z",
+      "publication_verified_at": "2026-10-08T02:31:23.105Z",
+      "observed_at": null,
+      "views": null,
+      "replies": null,
+      "reposts": null,
+      "likes": null,
+      "bookmarks": null,
+      "published_keyframes": 8,
+      "published_images": 4,
+      "note": "Eight manually marked keyframes delivered publicly; exact publication time verified through DOM time. Rough visible and occlusion regions, not object ground truth; destination remains unknown. Counters not collected; later video publication has its own record.",
+      "publication_time_verified_at": "2026-10-08T02:55:48.522Z"
+    },
+    {
+      "kind": "annotated_video_delivery",
+      "url": "https://x.com/LIghtJUNction_x/status/2108025662980358354",
+      "published_at": "2026-10-08T02:44:17.000Z",
+      "publication_verified_at": "2026-10-08T02:45:23.513Z",
+      "observed_at": null,
+      "views": null,
+      "replies": null,
+      "reposts": null,
+      "likes": null,
+      "bookmarks": null,
+      "platform_duration_seconds": 12.053333,
+      "full_playback_review": "pending",
+      "note": "Video publicly reopened after explicit instruction to publish this disclosed sample. First4seconds original speed, next8seconds half speed, silent. Continuous playback review remains pending; not an AI accuracy or growth result."
+    },
+    {
+      "kind": "algorithm_source_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+      "published_at": "2026-10-08T02:57:15.000Z",
+      "publication_verified_at": "2026-10-08T02:59:00.950Z",
+      "observed_at": "2026-10-08T02:59:00.950Z",
+      "views": 2,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "media_alt_verified": true,
+      "skill_source_commit": "caa61f83c5f9b6802c8c1b84ae4fc49156a75d66",
+      "algorithm_source_commit": "78460ca8b65c57ddd3a05f9217c8aaeba214b628",
+      "note": "Initial public verification with image and ALT. Two early views are not a60-minute result; different topic, new graphic and concurrent operations prevent a fair A/B comparison."
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -713,6 +827,82 @@
       "reposts": 0,
       "bookmarks": 0,
       "note": "Reopened full reply and actual parent. CVAT official references linked; record fields are suggestions and reduced false positives remain untested."
+    },
+    {
+      "kind": "git_matrix_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2107994469098508741",
+      "published_at": "2026-10-08T00:40:20.000Z",
+      "observed_at": "2026-10-08T01:15:14.382Z",
+      "views": 6,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": null,
+      "note": "Later public profile capture; counts can include operator views. Not a fixed-age recheck; bookmarks not exposed here."
+    },
+    {
+      "kind": "scoped_review_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108007419154735157",
+      "published_at": "2026-10-08T01:31:48.000Z",
+      "observed_at": "2026-10-08T01:32:34.259Z",
+      "views": 3,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "Full reply and actual developer-workflow parent reopened. Three-state reproduction addresses the visible git diff scope gap; no received response or acquisition claim at this observation."
+    },
+    {
+      "kind": "harness_feedback_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108011337209270512",
+      "published_at": "2026-10-08T01:47:22.000Z",
+      "observed_at": "2026-10-08T01:47:39.470Z",
+      "views": null,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "Initial public verification; unavailable views remain null."
+    },
+    {
+      "kind": "sample_source_request_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108012262770536611",
+      "published_at": "2026-10-08T01:51:03.000Z",
+      "observed_at": "2026-10-08T01:51:38.674Z",
+      "views": null,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "Initial public verification; unavailable views remain null."
+    },
+    {
+      "kind": "sample_source_request_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108012262770536611",
+      "published_at": "2026-10-08T01:51:03.000Z",
+      "observed_at": "2026-10-08T02:48:24.183Z",
+      "views": 19,
+      "replies": 1,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "作者提供下载链接，属于同一交流链，不是新粉丝或采用结果"
+    },
+    {
+      "kind": "algorithm_source_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+      "published_at": "2026-10-08T02:57:15.000Z",
+      "publication_verified_at": "2026-10-08T02:59:00.950Z",
+      "observed_at": "2026-10-08T02:59:00.950Z",
+      "views": 2,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "media_alt_verified": true,
+      "skill_source_commit": "caa61f83c5f9b6802c8c1b84ae4fc49156a75d66",
+      "algorithm_source_commit": "78460ca8b65c57ddd3a05f9217c8aaeba214b628",
+      "note": "Initial public verification with image and ALT. Two early views are not a60-minute result; different topic, new graphic and concurrent operations prevent a fair A/B comparison."
     }
   ],
   "analytics_observations": [
@@ -744,6 +934,38 @@
       "profile_visits": 0,
       "link_clicks": 0,
       "note": "Owner analytics for latest edited version; can include operator opens. Initial-version counters are separate and not added. Original publication age retained for planned checks."
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107994469098508741",
+      "kind": "git_matrix_original",
+      "observed_at": "2026-10-08T01:40:38.646Z",
+      "impressions": 11,
+      "engagements": 3,
+      "detail_expands": 2,
+      "profile_visits": 0,
+      "link_clicks": null,
+      "note": "Owner analytics:11 impressions,3 engagements,2 detail expands,0 profile visits. Link clicks not exposed, retained null. Public12 views were read at a different time; do not merge surfaces."
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108007419154735157",
+      "observed_at": "2026-10-08T02:46:40.117Z",
+      "impressions": 10,
+      "engagements": 1,
+      "detail_expands": 1,
+      "profile_visits": 0,
+      "link_clicks": 0,
+      "note": "所有者分析页单独时点，不是独立访客；操作者操作可能计入",
+      "kind": "scoped_review_reply"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108011337209270512",
+      "observed_at": "2026-10-08T02:48:00.811Z",
+      "impressions": 9,
+      "engagements": 1,
+      "detail_expands": 1,
+      "profile_visits": 0,
+      "link_clicks": 0,
+      "kind": "harness_feedback_reply"
     }
   ],
   "verified_list_observations": [
@@ -835,16 +1057,164 @@
         "likes_on_relevant_originals": 1
       },
       "planned_age_minutes": 60,
-      "next_observation_due_at": "2026-10-08T01:40:20.000Z",
+      "next_observation_due_at": "2026-10-09T00:40:20.000Z",
       "24h_observation_due_at": "2026-10-09T00:40:20.000Z",
+      "first_recheck_observed_at": "2026-10-08T01:40:26.635Z",
+      "views": 12,
+      "external_method_or_question_replies": 0,
+      "profile_visits": 0,
+      "matched_age_control_available": false,
+      "result": "60-minute check:12 public views, zero public replies/reposts/likes/bookmarks and zero owner-reported profile visits. Reach recovery and high-quality acquisition not demonstrated.",
+      "scheduler_configured": false,
+      "note": "Exploratory iteration, not a fair A/B test: resource breadth changed from one state to three; earlier post was edited and concurrent account activity persists. Three separate Git2.55.0 local reproductions validate technical behavior, not AI performance or growth. During the observation window, an additional targeted developer reply, proactive blue follow and blue followback were verified. These distribution and relationship actions are confounders; original confirmed_actions retain the initial publication phase.",
+      "actual_age_minutes": 60.110583,
+      "late_by_minutes": 0.110583,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "external_reply_authors": 0,
+      "analytics_observed_at": "2026-10-08T01:40:38.646Z",
+      "recheck_total_followers": 256,
+      "recheck_total_followers_observed_at": "2026-10-08T01:40:57.634Z",
+      "recheck_net_change_from_baseline": 4,
+      "window_extra_actions": {
+        "substantive_replies": 1,
+        "new_blue_follows": 1,
+        "followbacks": 1
+      }
+    },
+    {
+      "id": "targeted-scope-help-04",
+      "post_url": "https://x.com/LIghtJUNction_x/status/2108007419154735157",
+      "parent_url": "https://x.com/lukasen_xyz/status/2107974160211394801",
+      "published_at": "2026-10-08T01:31:48.000Z",
+      "primary_variable": "Distribution through a relevant developer workflow: tailored reproducible help on the actual visible review command",
+      "hypothesis": "Useful workflow-specific reproduction may lead to substantive author feedback and a later relationship change; unproven.",
+      "confirmed_actions": {
+        "substantive_replies": 1,
+        "new_blue_follows": 1
+      },
+      "first_verified_at": "2026-10-08T01:32:34.259Z",
+      "first_recheck_observed_at": "2026-10-08T02:45:41.366Z",
+      "planned_age_minutes": 60,
+      "next_observation_due_at": "2026-10-09T01:31:48.000Z",
+      "24h_observation_due_at": "2026-10-09T01:31:48.000Z",
+      "external_method_or_question_replies": 0,
+      "confirmed_new_followers": null,
+      "result": "Actual recheck at73.889433minutes:10 views, zero visible interactions and external technical authors; no growth effect demonstrated.",
+      "scheduler_configured": false,
+      "note": "Proactive follow is an operator action, not a followback or acquired follower. No matched-condition control. Do not count this reply as an external matrix-post response.",
+      "actual_age_minutes": 73.88943333333333,
+      "timing_offset_minutes": 13.88943333333333,
+      "late_by_minutes": 13.88943333333333,
+      "early_by_minutes": 0,
+      "views": 10,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "external_reply_authors": 0,
+      "matched_age_control_available": false,
+      "analytics_observed_at": "2026-10-08T02:46:40.117Z",
+      "profile_visits": 0
+    },
+    {
+      "id": "harness-control-help-05",
+      "post_url": "https://x.com/LIghtJUNction_x/status/2108011337209270512",
+      "parent_url": "https://x.com/0xAlphana/status/2107998048966107284",
+      "published_at": "2026-10-08T01:47:22.000Z",
+      "planned_age_minutes": 60,
+      "first_recheck_observed_at": "2026-10-08T02:47:17.849Z",
+      "actual_age_minutes": 59.93081666666667,
+      "timing_offset_minutes": -0.06918333333332782,
+      "late_by_minutes": 0,
+      "early_by_minutes": 0.06918333333332782,
+      "views": 9,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "external_method_or_question_replies": 0,
+      "external_reply_authors": 0,
+      "confirmed_new_followers": null,
+      "matched_age_control_available": false,
+      "scheduler_configured": false,
+      "primary_variable": "Workflow-specific advice on local versus remote harness controls; proposed comparison, not rerun training.",
+      "confirmed_actions": {
+        "substantive_replies": 1,
+        "new_blue_follows": 1
+      },
+      "next_observation_due_at": "2026-10-09T01:47:22.000Z",
+      "24h_observation_due_at": "2026-10-09T01:47:22.000Z",
+      "result": "Public check at59.930817minutes,4.151seconds early:9 views and zero visible interactions. Not a precisely completed60-minute public check.",
+      "note": "Owner analytics at a later time are separate; no training rerun, independent audience attribution or new-follower effect demonstrated.",
+      "analytics_observed_at": "2026-10-08T02:48:00.811Z",
+      "profile_visits": 0
+    },
+    {
+      "id": "sample-source-request-06",
+      "post_url": "https://x.com/LIghtJUNction_x/status/2108012262770536611",
+      "parent_url": "https://x.com/mydream2025/status/2108010856768475191",
+      "published_at": "2026-10-08T01:51:03.000Z",
+      "planned_age_minutes": 60,
+      "first_recheck_observed_at": "2026-10-08T02:54:42.422Z",
+      "actual_age_minutes": 63.65703333333333,
+      "timing_offset_minutes": 3.657033333333331,
+      "late_by_minutes": 3.657033333333331,
+      "early_by_minutes": 0,
+      "views": 20,
+      "replies": 1,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "external_method_or_question_replies": 0,
+      "external_reply_authors": 1,
+      "confirmed_new_followers": null,
+      "matched_age_control_available": false,
+      "scheduler_configured": false,
+      "primary_variable": "Requesting a downloadable source to complete an existing technical-assistance exchange.",
+      "confirmed_actions": {
+        "received_feedback_followups": 1
+      },
+      "next_observation_due_at": "2026-10-09T01:51:03.000Z",
+      "24h_observation_due_at": "2026-10-09T01:51:03.000Z",
+      "result": "Actual due-time recheck at63.657033minutes:20 views and one same-author source-link response; no technical adoption, new author or acquisition effect demonstrated.",
+      "note": "The source response is cooperation within the existing exchange, not technical adoption, another independent technical author or new-follower acquisition.",
+      "early_observation_observed_at": "2026-10-08T02:48:24.183Z",
+      "early_observation_actual_age_minutes": 57.35305
+    },
+    {
+      "id": "algorithm-independent-original-07",
+      "post_url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+      "published_at": "2026-10-08T02:57:15.000Z",
+      "primary_variable": "Independent publication of the current source-reading result for a relevant audience.",
+      "baseline_total_followers": 270,
+      "baseline_observed_at": "2026-10-08T02:49:34.238Z",
+      "confirmed_actions": {
+        "original_posts": 1
+      },
+      "initial_public_observation": {
+        "observed_at": "2026-10-08T02:59:00.950Z",
+        "views": 2,
+        "replies": 0,
+        "reposts": 0,
+        "likes": 0,
+        "bookmarks": 0
+      },
+      "planned_age_minutes": 60,
+      "next_observation_due_at": "2026-10-08T03:57:15.000Z",
+      "24h_observation_due_at": "2026-10-09T02:57:15.000Z",
       "first_recheck_observed_at": null,
       "views": null,
       "external_method_or_question_replies": null,
+      "external_reply_authors": null,
       "profile_visits": null,
+      "confirmed_new_followers": null,
       "matched_age_control_available": false,
-      "result": "Published and verified; fixed-window effects pending",
       "scheduler_configured": false,
-      "note": "Exploratory iteration, not a fair A/B test: resource breadth changed from one state to three; earlier post was edited and concurrent account activity persists. Three separate Git2.55.0 local reproductions validate technical behavior, not AI performance or growth."
+      "result": "Published and publicly reopened;60-minute and24-hour results pending.",
+      "note": "Different topic from the earlier Git case, newly made graphic and parallel video/follow operations prevent a fair A/B comparison. Source conclusions remain conditional; no measured recommendation or follower-growth effect yet."
     }
   ],
   "growth_target": {
@@ -920,6 +1290,29 @@
       "followup_url": "https://x.com/LIghtJUNction_x/status/2108004713065230723",
       "followup_verified_at": "2026-10-08T01:21:42.749Z",
       "note": "Same external labeling author asks for sourced advice; ongoing existing discussion, not another independent author or measured follower acquisition."
+    },
+    {
+      "url": "https://x.com/LXiangchen71169/status/2108006972490649774",
+      "parent_url": "https://x.com/LIghtJUNction_x/status/2107909684816666757",
+      "observed_at": "2026-10-08T01:36:03.875Z",
+      "parent_verified": true,
+      "kind": "brief_acknowledgment",
+      "note": "Reopened thread shows brief OK on an older six-hour follow-request reply. Delayed older-interaction feedback; not technical method feedback or current-post conversion. Current mutual relationship visible; no root follow action this round."
+    },
+    {
+      "url": "https://x.com/mydream2025/status/2108012543721787789",
+      "parent_url": "https://x.com/LIghtJUNction_x/status/2108012262770536611",
+      "parent_verified": true,
+      "observed_at": "2026-10-08T02:48:24.183Z",
+      "kind": "same_author_source_cooperation",
+      "note": "Existing labeling author provided a downloadable-source entry point. Subsequent files were acquired and samples delivered; this reply is not technical adoption, new author acquisition or confirmed new follower."
+    },
+    {
+      "url": "https://x.com/mydream2025/status/2108023219634712716",
+      "published_at": "2026-10-08T02:34:35.000Z",
+      "observed_at": "2026-10-08T02:55:48.522Z",
+      "kind": "same_author_occlusion_counterexample",
+      "note": "Existing labeling author continued with a concrete occlusion discussion. Same independent author; not an additional author, model-adoption outcome or acquired follower. Exact publication time read from actual DOM time."
     }
   ],
   "blue_cohort_history": [
@@ -959,6 +1352,20 @@
       "profile_total": 253,
       "profile_total_observed_at": "2026-10-08T00:56:25.914Z",
       "note": "Captured250 through visible end plus one top recheck. Counts differ, so partial despite reaching end; private identities remain ignored. Two observed additions and no missing captured baseline handles, but unseen identities remain unresolved."
+    },
+    {
+      "collection_started_at": "2026-10-08T01:37:44.770Z",
+      "observed_at": "2026-10-08T01:39:04.536Z",
+      "scope": "all_followers",
+      "complete": false,
+      "reached_visible_end": true,
+      "stable_ids_available": false,
+      "count": 255,
+      "profile_total": 256,
+      "profile_total_observed_at": "2026-10-08T01:40:57.634Z",
+      "observed_handle_additions_vs_249_baseline": 6,
+      "missing_captured_baseline_handles": 0,
+      "note": "New capture retains255 distinct handles; unchanged profile256 before/after leaves one identity unresolved. All249 baseline handles are present; six captured handle additions are not confirmed new followers. No full-window blue count or quality rate inferred. Earlier251/253 partial capture remains unchanged."
     }
   ],
   "milestone_observations": [
@@ -987,6 +1394,21 @@
       "complete_acquisition_cohort": false,
       "confirmed_new_followers": null,
       "note": "Completed the two previously pending blue-event reviews using the fixed AI-tools, independent-development and product-building audience rubric. Both samples have independent substantive views but do not match that audience. This is a separate targeted follow-up, not a complete next-window acquisition cohort or an account-wide quality rate. The completed five-account cohort and earlier twelve-account cohort are unchanged. Private identities and individual judgments remain in ignored runs/."
+    },
+    {
+      "id": "quality-recheck-20261008T012755",
+      "source": "Two targeted recent blue profiles, after earlier partial-list window",
+      "classified_at": "2026-10-08T01:27:55.206Z",
+      "reviewed_events": 2,
+      "high": 0,
+      "not_high": 2,
+      "unknown": 0,
+      "recent_full_nonquote_originals_per_event": 3,
+      "blue_badges_visually_verified": true,
+      "included_in_current_cohort": false,
+      "complete_acquisition_cohort": false,
+      "confirmed_new_followers": null,
+      "note": "Full recent original texts/captions reviewed under the unchanged rubric. This sample does not establish the full-window quality share or alter the completed five-account40% cohort. Media content not independently evaluated. One blue followback persisted after reload; the other relationship was already Following. Private identities and individual judgments remain ignored."
     }
   ],
   "observed_blue_event_batches": [
@@ -1008,6 +1430,19 @@
       "confirmed_new_followers": null,
       "full_window_quality_share": null,
       "note": "Two added captured handles are visually verified blue and have three recent full originals reviewed under the unchanged rubric. No missing captured baseline handles. Other identities remain unresolved because the current list differs from the profile total. Do not promote2/2 as full-window100% quality or merge into the earlier completed five-account cohort. Private names and judgments remain ignored."
+    }
+  ],
+  "followback_action_batches": [
+    {
+      "id": "algorithm-focus-followbacks-20261008T025348",
+      "collection_started_at": "2026-10-08T02:53:23.820Z",
+      "verified_at": "2026-10-08T02:53:48.025Z",
+      "confirmed_followbacks": 2,
+      "blue_badges_visually_verified": true,
+      "following_and_follows_you_reopened": true,
+      "quality_unknown": 2,
+      "confirmed_new_followers": null,
+      "note": "Two persisted reciprocal relationships are operator followback actions, not confirmed new-follower acquisition. Three full recent originals and substantive-discussion evidence have not been reviewed. Private identities stay ignored; the existing five-account40% cohort is unchanged."
     }
   ]
 }

@@ -14,6 +14,18 @@ The X launch post links this repository. This README links that post and display
 
 **This skill is based on X's open-source recommendation algorithm, [xai-org/x-algorithm](https://github.com/xai-org/x-algorithm).** It uses action, observation, feedback and iteration to optimize both new blue-check followers and their high-quality share. Quality means relevant, original, substantive public content—not merely a badge. Growth is an optimization goal requiring validation, not an established or exponential-growth guarantee. This is not an official X or xAI product.
 
+## Five actionable conclusions from the source
+
+<img src="assets/algorithm-route.svg" width="100%" alt="X recommendation path: relevant audience retrieval, filtering, predicted scoring, diversity and actual feedback" />
+
+1. [Find the relevant audience](references/algorithm-field-guide.md#1-先找到相关受众再看互动数字): a one-way follow first changes your own retrieval; it does not establish increased exposure for your posts.
+2. [Keep a professional topic](references/algorithm-field-guide.md#2-内容主线要和目标观看者匹配): discuss AI development, independent products and actual cases. No fixed hashtag boost is established.
+3. [Separate pinned updates and originals](references/algorithm-field-guide.md#3-持续更新置顶同时区分更新与新内容): Home may merge or filter the same conversation. Independent discoveries justify new originals.
+4. [Add information in each post](references/algorithm-field-guide.md#4-保持主题一致让每篇确实增加信息): author diversity operates within a candidate pool; DPP has startup and request gates, with production activation unknown.
+5. [Measure acquisition and quality](references/algorithm-field-guide.md#5-优化真实目标不制造算法得分): weights multiply predictions. Your own action counts are not recommendation scores.
+
+The [30-file manifest](references/upstream.json) binds official commit `78460ca8b65c57ddd3a05f9217c8aaeba214b628`. It is neither a complete source audit nor proof of production settings. [Execution conditions](references/algorithm.md). These strategies remain hypotheses requiring account experiments.
+
 ## Real observations
 
 **Current challenge: exceed 100,000 actual followers.** Review checkpoints are 250, 1,000, 10,000 and 100,001; high-quality blue-check acquisition needs separate evidence. Arrival date is unknown. [Iteration checkpoints](references/road-to-100k.en.md).
@@ -23,12 +35,12 @@ The X launch post links this repository. This README links that post and display
 <!-- RISE:METRICS:START -->
 | Actual observation | Value |
 | --- | --- |
-| Total followers | 175 → 254 (+79) |
+| Total followers | 175 → 270 (+95) |
 | Newly observed blue accounts | 5; confirmed new followers: unknown |
 | Quality classification | 2 high / 3 not matched / 0 unclassified |
 | High-quality share | 40.0% |
 | Current observed-cohort window | 2026-10-07T22:58:02.912Z → 2026-10-08T00:10:06.403Z |
-| Latest profile observation | 2026-10-08T01:15:14.382Z |
+| Latest profile observation | 2026-10-08T02:49:34.238Z |
 | Previous independent cohort | 0 high / 11 not matched / 1 unclassified (n=12) |
 | Observed-cohort quality lower / possible upper bound | 40.0%–40.0% |
 | First profile observation | Timestamp unavailable |
@@ -54,7 +66,11 @@ Reusable material: [three Git states in AI code review](references/ai-code-revie
 
 Actual published examples:
 
+- [Independent algorithm original: follow direction and conversation filters](https://x.com/LIghtJUNction_x/status/2108028923200339985)
+- [Keyframes and sample delivered to the requesting author](https://x.com/LIghtJUNction_x/status/2108025662980358354)
+- [Harness training discussion: local and remote controls](https://x.com/LIghtJUNction_x/status/2108011337209270512)
 - [Three-state Git matrix: an empty diff does not complete review](https://x.com/LIghtJUNction_x/status/2107994469098508741)
+- [Actual multi-model review command: reproducible advice for diff scope gaps](https://x.com/LIghtJUNction_x/status/2108007419154735157)
 - [Answering an occlusion-labeling question with CVAT sources](https://x.com/LIghtJUNction_x/status/2108004713065230723)
 - [Grounding AI copy in supplied facts](https://x.com/LIghtJUNction_x/status/2108000829303378383)
 - [Continuing a discussion after audience feedback](https://x.com/LIghtJUNction_x/status/2107995153403465983)
@@ -70,19 +86,15 @@ The pinned launch post is the stable entry point: edit it when new evidence or i
 
 GitHub stars and forks refresh every six hours through GitHub Actions. X feedback refreshes only after an authorized browser observation. A GitHub refresh never changes the timestamp of old X data. No unattended X scheduler has been configured.
 
-Previous-round recheck: [the technical case at about 60 minutes](public/backtests/2026-10-08-technical-case.en.md). Latest edited version: 15 views, one specific external response, zero profile visits. The account went 246→251 and passed the 250-follower checkpoint; acquisition is not attributable to this post. The [earlier 67-minute review](public/backtests/2026-10-08.en.md) is retained. The new [three-state matrix observation](public/backtests/2026-10-08-matrix.en.md) has started; fixed-window rechecks are pending.
+Latest observations: the [algorithm-focused round](public/backtests/2026-10-08-algorithm.en.md) records **270 followers** at 02:49:34 UTC, net +14 from the earlier 256. Other videos and follow operations continued, preventing per-post attribution. Targeted Git advice had 10 views at 73.89 minutes, harness advice 9 at 59.93 minutes, and the source request 20 at 63.66 minutes. Its one response provided a source entry point from the same author. Neither technical suggestion had a technical response or profile visit; new high-quality acquisition remains unproven.
 
-The previous technical-case round verified one original and three substantive replies; edited versions are not extra originals. A [labeling follow-up](https://x.com/LIghtJUNction_x/status/2107983282281627907) and [Git discussion](https://x.com/LIghtJUNction_x/status/2107987971232375079) were also reopened. A complete verified-list recheck went from 137 to 142 handles: five newly observed blue accounts, two high / three not matched / zero unknown (40% of that observed cohort). Confirmed new-follower acquisition remains unknown. By 00:25 UTC, five blue-follower followbacks persisted after reloading. The roughly 60-minute review is complete; the 24-hour check is due at October 8, 23:26 UTC.
+Completed older windows remain available: [matrix, 12 views at 60.11 minutes](public/backtests/2026-10-08-matrix.en.md); [technical case, 15 views at 60.38 minutes and one specific responding author](public/backtests/2026-10-08-technical-case.en.md); and [method post, 34 views at 67.15 minutes](public/backtests/2026-10-08.en.md). Posting age, versions and concurrent operations differ. Each report retains its original timestamps and captured denominators.
 
-The two later pending blue-event reviews are complete under the fixed audience rubric: 0 high / 2 not matched / 0 unknown. These are separate targeted follow-ups, not a complete new-acquisition cohort. They do not alter the five-account 40% cohort or establish a current new-follower quality rate of 0%.
+[Eight rough keyframes](https://x.com/LIghtJUNction_x/status/2108022019157873061) and a [12-second sample video](https://x.com/LIghtJUNction_x/status/2108025662980358354) were actually delivered to the author who requested help. Object destination remains unknown; continuous playback review remains pending. The [Luna API reply](https://x.com/LIghtJUNction_x/status/2108016718492909780) is untested advice. This is one ongoing relationship, not one new author or follower per message.
 
-**Latest iteration:** a [three-state original image post](https://x.com/LIghtJUNction_x/status/2107994469098508741) was published on October 8 at 00:40:20 UTC. One [audience-feedback follow-up](https://x.com/LIghtJUNction_x/status/2107995153403465983), one [fact-grounding reply](https://x.com/LIghtJUNction_x/status/2108000829303378383), one like on its latest edited parent, and one blue-follower followback were verified. The early 00:56 observation found 253 followers: +1 from the pre-post baseline of 252, +2 from the preceding round's 251. The post had 4 views at only 16.10 minutes of age, **not a 60-minute result**. Concurrent operations prevent attribution to this post.
+The [independent algorithm original](https://x.com/LIghtJUNction_x/status/2108028923200339985) was published at **02:57:15 UTC**, with image, ALT and source link reopened and verified. Initial counters were two views and zero interactions. Its **03:57:15 UTC** 60-minute point and next-day **02:57:15 UTC** 24-hour point remain pending; this is not a fair A/B comparison.
 
-A later 01:15 UTC profile check showed **254 followers**, +3 from the preceding 251 and +2 from the pre-post 252; the graphic had 6 views before its 60-minute checkpoint. This later total does not replace the earlier list window or fill its missing identities.
-
-The all-followers capture retained 251 identities, two fewer than the profile's 253, so it is incomplete. Relative to the earlier 249-identity baseline, two previously unlisted identities were captured. Both currently have blue badges; three full recent originals per account were reviewed, yielding 2 high / 0 not matched / 0 unknown. These are observed events in an incomplete list, not proof that all new blue followers total two or that the full window's quality share is 100%. Exact acquisition and full-window quality share remain unknown; the five-account 40% cohort is unchanged. The [round's observation record](public/backtests/2026-10-08-matrix.en.md) retains the capture gap and timestamps. Its 60-minute check is due at 01:40:20 UTC, still pending; no unattended checks are configured. Table presentation, case expansion and the previous post's edit differ, preventing a fair A/B comparison or a growth promise.
-
-Later feedback included one copywriting-author like and a brief affirmation; neither is treated as a technical method response or new acquisition. A further labeling question was [answered with official CVAT references](https://x.com/LIghtJUNction_x/status/2108004713065230723); it is from the same labeling author. The measurement tool now exposes captured denominators and coverage separately; 118 tests passed.
+The five-account observed cohort's 40% is unchanged. Two high-quality events in an incomplete older list, targeted reviews and this round's two blue followbacks remain separate. The two followback recipients' quality is still unknown; confirmed acquisition is not reported. No unattended X checks are configured. The previous coverage-boundary iteration passed 118 tests; this source-and-parameter review passed **124 tests**.
 
 ## Install and run
 

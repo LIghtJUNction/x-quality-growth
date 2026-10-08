@@ -147,7 +147,7 @@ def _make_plan(metrics, state=None, *, now=None, language="zh", changes=(), min_
         draft = (f"RISE 进展｜数据观察时间（UTC）\n"
                  f"总粉丝 {material['total_followers']}（{at['followers']}）；"
                  f"蓝 V 名单 {blue_display}（{blue_time}）。\n"
-                 f"本轮新观察到蓝 V {n}；确认新增：{q['confirmed_new_followers'] if q['confirmed_new_followers'] is not None else '未确认'}。"
+                 f"当前记录的蓝 V 观察队列 {n}；确认新增：{q['confirmed_new_followers'] if q['confirmed_new_followers'] is not None else '未确认'}。"
                  f"高质量 {share}；未分类 {unknown_share}（{at['quality']}）。"
                  f"{'质量判定尚未完成；这个比例只是已确认高质量的下界。' if q['unknown'] else ''}\n"
                  f"{'技能改进：' + '；'.join(material['changes']) + '。' if material['changes'] else ''}\n"
