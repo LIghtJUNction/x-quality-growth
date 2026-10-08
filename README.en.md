@@ -45,12 +45,12 @@ The additional model target is future 1-hour/24-hour per-post verified Home Time
 <!-- RISE:METRICS:START -->
 | Actual observation | Value |
 | --- | --- |
-| Total followers | 175 → 283 (+108) |
+| Total followers | 175 → 287 (+112) |
 | Newly observed blue accounts | 24; confirmed new followers: unknown |
 | Quality classification | 2 high / 2 not matched / 20 unclassified |
 | High-quality share | Pending classification; unknown is not zero |
 | Current observed-cohort window | 2026-10-08T00:23:58.426Z → 2026-10-08T05:14:58.325Z |
-| Latest profile observation | 2026-10-08T09:18:36.699Z |
+| Latest profile observation | 2026-10-08T10:50:44.506Z |
 | Follower-list coverage at collection | 273/276 captured; list incomplete |
 | Full-window high-quality share | Unknown; incomplete follower list |
 | Previous independent cohort | 2 high / 3 not matched / 0 unclassified (n=5) |
@@ -161,9 +161,30 @@ MAE means mean absolute error; lower is better. The last column compares **the s
 
 The first read at **08:22:44.363 UTC** was still Loading and remains `null`, not zero. The first successful read was **9 public views at 08:24:17.712 UTC**, at post age **62 minutes 10.712 seconds**, **130.712 seconds** after the target. It falls inside the predeclared **300-second** window and serves only as a delayed proxy; the exact 60-minute actual remains `null`. The [evaluation record](public/forecasts/rise-2108095581906428165-60m.evaluation.json) gives single-observation absolute errors of **6** for last value and **2.80016** for recent rate. Targets from two different native posts do not establish independent samples or stable superiority. The old PyTorch model is excluded; no new model was trained, and verified Home impressions are not predicted.
 
-The implementation currently uses publication times, observation times and counts; measured platform support covers X only. A unified contract for text, images, video and comments is designed, but text and media semantics are not training inputs, and other platform adapters are unvalidated. The official popular-pool reference score is not a future-exposure forecast. [Statistical methods](references/growth-statistics.en.md) · [Input contract](references/model-inputs.en.md) · [Official time parameters](references/algorithm-time.md) · [Recommendation formulas and limits](references/recommendation-formulas.md)
+**Newly completed historical-retweet experiment: SEISMIC retweet-v2.** Completed at **2026-10-08 10:29:36.524651 UTC**, it trained two tiny MLPs on one CPU thread, with **241 parameters per cutoff, 482 total**. At post ages **15 minutes / 60 minutes**, the target is **additional retweets after the cutoff through post age 24 hours**, not views, next-hour views or verified Home impressions. The five inputs are the `log1p` of the observed count, first/last retweet time fractions, a zero-at-cutoff indicator and the cutoff time fraction; future events and text are excluded.
 
-**Second target: text origin.** The design supports separate probabilities for human-written, AI-generated and mixed text, with unknown when evidence is insufficient. Earlier out-of-fold predictions may also help heat forecasting. The [input and probability validator](scripts/authorship.py) now checks exact native identity and declared content-group overlap in strict cross-post mode: X uses `x` and canonical numeric post IDs; edits, shared material and the same concrete event must stay in one group. This round's strict declared-group checks are integrated into the skill workflow. These checks do not independently verify the declared grouping or lineage. No origin classifier has been trained, no heat improvement measured and no verified Home model trained. These probabilities measure neither quality nor the fraction of AI-written characters; see [labels and validation](references/model-inputs.en.md). Prefer [existing resources](references/data-reuse.en.md) over producing new posts just to accumulate samples.
+<img src="assets/retweet-benchmark.svg" width="100%" alt="Historical SEISMIC retweet experiment: bucket baseline versus MLP MAE at two cutoffs; all five models appear in the table below. MLP is worse on 15-minute zero-retweet subgroup MAE and 60-minute p90 absolute error." />
+
+The final table contains **165,929 canonical, non-repeated source-post cascades and 331,858 paired cutoff rows**. Each cutoff uses a chronological outer split of **59,565 training / 12,193 label-maturity-overlap purged / 94,171 test cascades**. Both rows from a post stay in the same split and are not two independent samples. Within outer training, a chronological **23,779 fit / 11,964 purge / 23,822 validation** split selected **14 epochs at 15 minutes and 10 at 60 minutes**. Models were then refitted on all outer training data; the test was evaluated **once**.
+
+| Model | 15-minute cutoff MAE, additional retweets | 60-minute cutoff MAE, additional retweets |
+| --- | ---: | ---: |
+| Zero additional: keep cutoff count | 109.18 | 76.34 |
+| Constant training-target median | 77.85 | 59.33 |
+| Continue early constant rate | 7,000.12 | 2,402.23 |
+| Training-count bucket median | 63.18 | 47.08 |
+| Tiny MLP | **60.40** | **45.71** |
+
+Each column is mean absolute error on **94,171 later test cascades at that cutoff**. The MLP's overall MAE is **4.41% / 2.90%** lower than the bucket baseline, a descriptive difference in this test; confidence intervals and statistical superiority are unknown. [Public aggregates](public/retweet-benchmark.json). The older view curves from two posts and 19 correlated observations, including their failed **28.30 versus 9.40** backtest, remain separate; these metrics and models are not pooled.
+
+**The MLP does not win everywhere.** In the 15-minute zero-retweet subgroup, **n=881**, MLP MAE is **61.98825**, worse than bucket **61.72304**. Across the 60-minute test, p90 absolute error is **105.18341 versus 105.00000**, also worse. The source is **2011 English, hashtag-free and selected using future retweet success**; author, duplicate-text and topic groups are unknown, and data licensing remains unresolved. This is not validation of current-account views or follower growth. Text-origin classification and verified Home prediction remain untrained; language transfer and universal superiority are unproven. [Data, splits and limitations](references/data-reuse.en.md).
+
+
+The new model is separately published at [Hugging Face / RISE-retweet-baseline](https://huggingface.co/LIghtJUNction/RISE-retweet-baseline), pinned to `1282fc5e88e64073bf680b0dda21663f19b73c69`. At **2026-10-08 10:55:16.800135 UTC**, anonymous downloads of all seven files matched their SHA values and standard-library synthetic inference ran successfully. Both models' weights and normalizers equal the frozen training state; raw sources and row predictions were not uploaded. [Release verification](public/hf-retweet-release.json) · [Reproduce preparation and training](references/data-reuse.en.md#reproduce-preparation-and-training).
+
+The existing view curves and new retweet models use only times, counts and derived features; measured platform coverage remains X / historical Twitter. A unified contract for text, images, video and comments is designed, but text and media semantics are not training inputs, and other platform adapters are unvalidated. The official popular-pool reference score is not a future-exposure forecast. [Statistical methods](references/growth-statistics.en.md) · [Input contract](references/model-inputs.en.md) · [Official time parameters](references/algorithm-time.md) · [Recommendation formulas and limits](references/recommendation-formulas.md)
+
+**Second target: text origin.** The design supports separate probabilities for human-written, AI-generated and mixed text, with unknown when evidence is insufficient. Earlier out-of-fold predictions may also help heat forecasting. The [input and probability validator](scripts/authorship.py) now checks exact native identity and declared content-group overlap in strict cross-post mode: X uses `x` and canonical numeric post IDs; edits, shared material and the same concrete event must stay in one group. This round's strict declared-group checks are integrated into the skill workflow. These checks do not independently verify the declared grouping or lineage. No origin classifier or verified Home model has been trained, and no heat improvement from origin features has been measured. These probabilities measure neither quality nor the fraction of AI-written characters; see [labels and validation](references/model-inputs.en.md). Prefer [existing resources](references/data-reuse.en.md) over producing new posts just to accumulate samples.
 
 Reproduce the three aggregate outputs. The first two use the Python standard library; curve training additionally requires PyTorch:
 

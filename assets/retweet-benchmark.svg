@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="950" viewBox="0 0 1400 950" role="img" aria-labelledby="title desc">
+<title id="title">SEISMIC 转发预测：总体 MAE 略降，两个局部指标仍输基线</title>
+<desc id="desc">Historical 2011 selected-success SEISMIC retweet benchmark. At each cutoff, 59565 chronological training cascades, 12193 purged, 94171 later evaluation cascades. Five-feature MLP with 241 parameters per cutoff, single CPU thread. Shared zero-to-70 axis compares bucket median and MLP raw additional-retweet MAE:15m63.18489768612418 versus60.398814752957605;60m47.078384003567976 versus45.71171389295395. Descriptive reductions4.409412747657923% and2.9029673374312224%. The15m cold subset of881 has worse MLP MAE61.98824833362246 versus61.72304199772985. The60m test P90 absolute error is also worse105.18340873718262 versus105.0. These are retrospective selected-corpus results, not current views, verified Home, origin labels, stable superiority or causal follower growth. Full five-model aggregate metrics are in public/retweet-benchmark.json.</desc>
+<style>text{font-family:'Noto Sans CJK SC','Noto Sans',sans-serif}.ink{fill:#191b1b}.muted{fill:#636660}.teal{fill:#21796f}.warn{fill:#965b3f}</style>
+<rect width="1400" height="950" fill="#f5f1e9"/>
+<line x1="56" y1="44" x2="91" y2="44" stroke="#21796f" stroke-width="4"/>
+<text x="109" y="52" font-size="18" fill="#636660" font-weight="600" text-anchor="start">RISE / RETWEET BENCHMARK</text>
+<text x="56" y="121" font-size="46" fill="#191b1b" font-weight="800" text-anchor="start">转发预测：总体略好，局部仍输</text>
+<text x="59" y="160" font-size="20" fill="#636660" font-weight="400" text-anchor="start">SEISMIC · Historical additional retweets by 24h · Lower error is better</text>
+<text x="59" y="198" font-size="21" fill="#191b1b" font-weight="400" text-anchor="start">165,929 源帖级联 · 每档 94,171 评估帖 · 241 参数 / 模型 · CPU 单线程</text>
+<rect x="56" y="230" width="624" height="303" rx="14" fill="#eee8de" stroke="#d8d1c6"/>
+<text x="86" y="274" font-size="28" fill="#191b1b" font-weight="700" text-anchor="start">15 分钟 → 24 小时</text>
+<text x="650" y="274" font-size="23" fill="#21796f" font-weight="700" text-anchor="end">MAE −4.41%</text>
+<text x="86" y="312" font-size="18" fill="#636660" font-weight="400" text-anchor="start">相同后续源帖 · 原始计数 MAE</text>
+<text x="86" y="373" font-size="19" fill="#191b1b" font-weight="600" text-anchor="start">分桶中位数</text>
+<rect x="220" y="350" width="333.9773163409421" height="30" rx="0" fill="#909b94"/>
+<text x="565.977316340942" y="374" font-size="22" fill="#191b1b" font-weight="700" text-anchor="start">63.18</text>
+<text x="86" y="428" font-size="19" fill="#191b1b" font-weight="600" text-anchor="start">5 特征 MLP</text>
+<rect x="220" y="405" width="319.2508779799188" height="30" rx="0" fill="#21796f"/>
+<text x="551.2508779799189" y="429" font-size="22" fill="#191b1b" font-weight="700" text-anchor="start">60.40</text>
+<line x1="220.0" y1="449" x2="220.0" y2="455" stroke="#191b1b" stroke-width="1"/>
+<text x="220.0" y="482" font-size="18" fill="#636660" font-weight="400" text-anchor="middle">0</text>
+<line x1="325.7142857142857" y1="449" x2="325.7142857142857" y2="455" stroke="#191b1b" stroke-width="1"/>
+<text x="325.7142857142857" y="482" font-size="18" fill="#636660" font-weight="400" text-anchor="middle">20</text>
+<line x1="431.42857142857144" y1="449" x2="431.42857142857144" y2="455" stroke="#191b1b" stroke-width="1"/>
+<text x="431.42857142857144" y="482" font-size="18" fill="#636660" font-weight="400" text-anchor="middle">40</text>
+<line x1="537.1428571428571" y1="449" x2="537.1428571428571" y2="455" stroke="#191b1b" stroke-width="1"/>
+<text x="537.1428571428571" y="482" font-size="18" fill="#636660" font-weight="400" text-anchor="middle">60</text>
+<line x1="590.0" y1="449" x2="590.0" y2="455" stroke="#191b1b" stroke-width="1"/>
+<text x="590.0" y="482" font-size="18" fill="#636660" font-weight="400" text-anchor="middle">70</text>
+<line x1="220" y1="449" x2="590" y2="449" stroke="#191b1b" stroke-width="1"/>
+<text x="86" y="514" font-size="18" fill="#636660" font-weight="400" text-anchor="start">同一横轴：0–70 次新增转发误差</text>
+<rect x="720" y="230" width="624" height="303" rx="14" fill="#eee8de" stroke="#d8d1c6"/>
+<text x="750" y="274" font-size="28" fill="#191b1b" font-weight="700" text-anchor="start">60 分钟 → 24 小时</text>
+<text x="1314" y="274" font-size="23" fill="#21796f" font-weight="700" text-anchor="end">MAE −2.90%</text>
+<text x="750" y="312" font-size="18" fill="#636660" font-weight="400" text-anchor="start">相同后续源帖 · 原始计数 MAE</text>
+<text x="750" y="373" font-size="19" fill="#191b1b" font-weight="600" text-anchor="start">分桶中位数</text>
+<rect x="884" y="350" width="248.84288687600215" height="30" rx="0" fill="#909b94"/>
+<text x="1144.8428868760022" y="374" font-size="22" fill="#191b1b" font-weight="700" text-anchor="start">47.08</text>
+<text x="750" y="428" font-size="19" fill="#191b1b" font-weight="600" text-anchor="start">5 特征 MLP</text>
+<rect x="884" y="405" width="241.61905914847088" height="30" rx="0" fill="#21796f"/>
+<text x="1137.6190591484708" y="429" font-size="22" fill="#191b1b" font-weight="700" text-anchor="start">45.71</text>
+<line x1="884.0" y1="449" x2="884.0" y2="455" stroke="#191b1b" stroke-width="1"/>
+<text x="884.0" y="482" font-size="18" fill="#636660" font-weight="400" text-anchor="middle">0</text>
+<line x1="989.7142857142857" y1="449" x2="989.7142857142857" y2="455" stroke="#191b1b" stroke-width="1"/>
+<text x="989.7142857142857" y="482" font-size="18" fill="#636660" font-weight="400" text-anchor="middle">20</text>
+<line x1="1095.4285714285713" y1="449" x2="1095.4285714285713" y2="455" stroke="#191b1b" stroke-width="1"/>
+<text x="1095.4285714285713" y="482" font-size="18" fill="#636660" font-weight="400" text-anchor="middle">40</text>
+<line x1="1201.142857142857" y1="449" x2="1201.142857142857" y2="455" stroke="#191b1b" stroke-width="1"/>
+<text x="1201.142857142857" y="482" font-size="18" fill="#636660" font-weight="400" text-anchor="middle">60</text>
+<line x1="1254.0" y1="449" x2="1254.0" y2="455" stroke="#191b1b" stroke-width="1"/>
+<text x="1254.0" y="482" font-size="18" fill="#636660" font-weight="400" text-anchor="middle">70</text>
+<line x1="884" y1="449" x2="1254" y2="449" stroke="#191b1b" stroke-width="1"/>
+<text x="750" y="514" font-size="18" fill="#636660" font-weight="400" text-anchor="start">同一横轴：0–70 次新增转发误差</text>
+<rect x="56" y="562" width="624" height="153" rx="14" fill="#eee3d6" stroke="#c8a58f"/>
+<text x="86" y="604" font-size="25" fill="#965b3f" font-weight="700" text-anchor="start">15 分钟：零转发子集略差</text>
+<text x="86" y="652" font-size="34" fill="#191b1b" font-weight="700" text-anchor="start">61.723 → 61.988</text>
+<text x="86" y="690" font-size="18" fill="#636660" font-weight="400" text-anchor="start">MAE · 分桶基线 → MLP · n = 881</text>
+<rect x="720" y="562" width="624" height="153" rx="14" fill="#eee3d6" stroke="#c8a58f"/>
+<text x="750" y="604" font-size="25" fill="#965b3f" font-weight="700" text-anchor="start">60 分钟：尾部误差略差</text>
+<text x="750" y="652" font-size="34" fill="#191b1b" font-weight="700" text-anchor="start">105.000 → 105.183</text>
+<text x="750" y="690" font-size="18" fill="#636660" font-weight="400" text-anchor="start">P90 绝对误差 · 分桶基线 → MLP · n = 94,171</text>
+<text x="59" y="762" font-size="20" fill="#636660" font-weight="400" text-anchor="start">完整五模型见 README 表与聚合报告；早期速率 MAE：7,000.12 / 2,402.23，未放入主图。</text>
+<text x="59" y="801" font-size="19" fill="#636660" font-weight="400" text-anchor="start">训练报告完成：2026-10-08 10:29:36.524651 UTC · 一次后续评估 / 窗口</text>
+<text x="59" y="840" font-size="20" fill="#191b1b" font-weight="400" text-anchor="start">2011 英文无 hashtag、按未来成功筛选；作者 / 内容独立性与置信区间未知。</text>
+<text x="59" y="879" font-size="20" fill="#191b1b" font-weight="400" text-anchor="start">这不证明当前浏览、认证 Home、文案来源、稳定胜出或因果涨粉。</text>
+<line x1="56" y1="901" x2="1344" y2="901" stroke="#d8d1c6" stroke-width="1"/>
+<text x="59" y="929" font-size="17" fill="#636660" font-weight="400" text-anchor="start">Source: snap.stanford.edu/seismic</text>
+<text x="1341" y="929" font-size="17" fill="#636660" font-weight="400" text-anchor="end">public/retweet-benchmark.json</text>
+</svg>

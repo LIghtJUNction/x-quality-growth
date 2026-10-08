@@ -322,6 +322,28 @@
         "net_delta": 1,
         "net_rate_per_second": 0.000813693484919005,
         "net_rate_per_hour": 2.929296545708418
+      },
+      {
+        "started_at": "2026-10-08T09:18:36.699Z",
+        "ended_at": "2026-10-08T10:12:24.684Z",
+        "interval_seconds": 3227.985,
+        "midpoint_at": "2026-10-08T09:45:30.691500Z",
+        "count_before": 283,
+        "count_after": 286,
+        "net_delta": 3,
+        "net_rate_per_second": 0.0009293723483845185,
+        "net_rate_per_hour": 3.345740454184267
+      },
+      {
+        "started_at": "2026-10-08T10:12:24.684Z",
+        "ended_at": "2026-10-08T10:50:44.506Z",
+        "interval_seconds": 2299.822,
+        "midpoint_at": "2026-10-08T10:31:34.595000Z",
+        "count_before": 286,
+        "count_after": 287,
+        "net_delta": 1,
+        "net_rate_per_second": 0.00043481625969314143,
+        "net_rate_per_hour": 1.565338534895309
       }
     ],
     "accelerations": [
@@ -520,15 +542,29 @@
         "midpoint_interval_seconds": 1303.4065,
         "acceleration_per_second_squared": 6.745750529678309e-08,
         "acceleration_per_hour_squared": 0.8742492686463088
+      },
+      {
+        "from_interval_midpoint_at": "2026-10-08T09:08:22.217000Z",
+        "to_interval_midpoint_at": "2026-10-08T09:45:30.691500Z",
+        "midpoint_interval_seconds": 2228.4745000000003,
+        "acceleration_per_second_squared": 5.190944005215833e-08,
+        "acceleration_per_hour_squared": 0.6727463430759719
+      },
+      {
+        "from_interval_midpoint_at": "2026-10-08T09:45:30.691500Z",
+        "to_interval_midpoint_at": "2026-10-08T10:31:34.595000Z",
+        "midpoint_interval_seconds": 2763.9035000000003,
+        "acceleration_per_second_squared": -1.7893392033816558e-07,
+        "acceleration_per_hour_squared": -2.318983607582626
       }
     ],
     "duration_weighted_average": {
       "started_at": "2026-10-07T21:04:03.227Z",
-      "ended_at": "2026-10-08T09:18:36.699Z",
-      "interval_seconds": 44073.472,
-      "net_delta": 79,
-      "net_rate_per_second": 0.0017924614607172315,
-      "net_rate_per_hour": 6.4528612585820335,
+      "ended_at": "2026-10-08T10:50:44.506Z",
+      "interval_seconds": 49601.279,
+      "net_delta": 83,
+      "net_rate_per_second": 0.0016733439474413553,
+      "net_rate_per_hour": 6.024038210788879,
       "method": "duration_weighted; first-to-last timed count difference / elapsed seconds"
     },
     "skipped_observations": [
@@ -847,6 +883,24 @@
       "following": 276,
       "total_followers": 283,
       "following_to_total_ratio": 0.9752650176678446,
+      "reason": null,
+      "meaning": "same-snapshot following / total followers; not a quality score"
+    },
+    {
+      "index": 31,
+      "observed_at": "2026-10-08T10:12:24.684Z",
+      "following": 276,
+      "total_followers": 286,
+      "following_to_total_ratio": 0.965034965034965,
+      "reason": null,
+      "meaning": "same-snapshot following / total followers; not a quality score"
+    },
+    {
+      "index": 32,
+      "observed_at": "2026-10-08T10:50:44.506Z",
+      "following": 276,
+      "total_followers": 287,
+      "following_to_total_ratio": 0.9616724738675958,
       "reason": null,
       "meaning": "same-snapshot following / total followers; not a quality score"
     }
@@ -1181,6 +1235,32 @@
             "counter_rate_per_hour": 22.922315000999667,
             "status": "observed_counter_change",
             "observed_view_rate_per_second": 0.006367309722499908,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T09:31:41.960Z",
+            "ended_at": "2026-10-08T10:12:24.684Z",
+            "interval_seconds": 2442.724,
+            "views_before": 772,
+            "views_after": 781,
+            "counter_delta": 9,
+            "counter_rate_per_second": 0.0036844113375068157,
+            "counter_rate_per_hour": 13.263880815024537,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.0036844113375068157,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T10:12:24.684Z",
+            "ended_at": "2026-10-08T10:50:44.506Z",
+            "interval_seconds": 2299.822,
+            "views_before": 781,
+            "views_after": 785,
+            "counter_delta": 4,
+            "counter_rate_per_second": 0.0017392650387725657,
+            "counter_rate_per_hour": 6.261354139581236,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.0017392650387725657,
             "meaning": "public counter change; operator views and repeated views may contribute"
           }
         ],
@@ -1766,6 +1846,19 @@
             "status": "observed_counter_change",
             "observed_view_rate_per_second": 0.010783930095483998,
             "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T09:27:46.641Z",
+            "ended_at": "2026-10-08T10:16:56.795Z",
+            "interval_seconds": 2950.154,
+            "views_before": 9,
+            "views_after": 19,
+            "counter_delta": 10,
+            "counter_rate_per_second": 0.003389653557068546,
+            "counter_rate_per_hour": 12.202752805446766,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.003389653557068546,
+            "meaning": "public counter change; operator views and repeated views may contribute"
           }
         ],
         "skipped_observations": []
@@ -1773,6 +1866,12 @@
       {
         "status_id": "2108127946754101756",
         "url": "https://x.com/LIghtJUNction_x/status/2108127946754101756",
+        "intervals": [],
+        "skipped_observations": []
+      },
+      {
+        "status_id": "2108144935522451671",
+        "url": "https://x.com/LIghtJUNction_x/status/2108144935522451671",
         "intervals": [],
         "skipped_observations": []
       }

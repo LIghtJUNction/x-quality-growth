@@ -1,0 +1,66 @@
+{
+  "anonymous_download_verified": true,
+  "anonymous_verified_at": "2026-10-08T10:55:16.800135+00:00",
+  "files": {
+    "LICENSE": {
+      "bytes": 1070,
+      "http_status": 200,
+      "sha256": "97016fcf641f0ebb5c3fb6a0eda2e2bec82aecd443f3acd24a536499d5fa28a4",
+      "staging_matches": true
+    },
+    "README.md": {
+      "bytes": 5836,
+      "http_status": 200,
+      "sha256": "89f7185fcfe5b2ece86137be9a71eee2f0fe00963040d12175a4e06e75de7875",
+      "staging_matches": true
+    },
+    "evaluation.json": {
+      "bytes": 39872,
+      "http_status": 200,
+      "sha256": "a41bb947394173b3ece0d38195af1d14b200e013685d40246b819efdc23f9eeb",
+      "staging_matches": true
+    },
+    "inference.py": {
+      "bytes": 5582,
+      "http_status": 200,
+      "sha256": "d1a62eb976d4bb7f1ecfe916ddfe487ffe85104fa900540ddd58ae6b128cafbc",
+      "staging_matches": true
+    },
+    "model-state.json": {
+      "bytes": 22504,
+      "http_status": 200,
+      "sha256": "14234b05163b23b47e8052a74924dbb50628b9f930d0c00086625a655ced10e1",
+      "staging_matches": true
+    },
+    "prepare.py": {
+      "bytes": 17503,
+      "http_status": 200,
+      "sha256": "53988092e676e4815b79b12e2dc00de852cf90282468955cad0c4f9ed79efcef",
+      "staging_matches": true
+    },
+    "train.py": {
+      "bytes": 37215,
+      "http_status": 200,
+      "sha256": "53c6d05ac5fc01c7d85eabdf7d72321cc8a0212b849cdc1936b51c825b1c1f0f",
+      "staging_matches": true
+    }
+  },
+  "numerical_models_unchanged": true,
+  "original_frozen_state_sha256": "a44f3739fa7e9c40b3ea4aaaca2085d822956a66e5b9e965d5fe6888a07a0c66",
+  "parameter_count_per_cutoff": 241,
+  "raw_data_or_row_predictions_published": false,
+  "repo_id": "LIghtJUNction/RISE-retweet-baseline",
+  "revision": "1282fc5e88e64073bf680b0dda21663f19b73c69",
+  "schema": "rise-hf-retweet-release-v1",
+  "scope": "Selected 2011 historical cascades: additional retweets by post age 24h; no current views, verified Home, text origin or follower-growth validation",
+  "source_input_sha256": "f17d46503f68474ef777d59e4398e6c9faba9eb5ee9ed67238b861ae3768763b",
+  "source_preparation_reproduced_without_network": true,
+  "synthetic_inference": {
+    "additional_retweets_by_24h": 63.279231322986284,
+    "cutoff_seconds": 900,
+    "scope": "2011 retweet-conditioned corpus only",
+    "total_retweets_by_24h": 73.27923132298628
+  },
+  "total_parameter_count": 482,
+  "url": "https://huggingface.co/LIghtJUNction/RISE-retweet-baseline"
+}
