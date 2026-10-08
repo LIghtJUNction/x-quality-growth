@@ -59,7 +59,7 @@
 
 [RISE launch post](https://x.com/LIghtJUNction_x/status/2107943767382847844)
 
-[置顶帖下的最新进展](https://x.com/LIghtJUNction_x/status/2108031214066294941)
+[置顶帖下的最新进展](https://x.com/LIghtJUNction_x/status/2108048876037124291)
 <!-- RISE:METRICS:END -->
 
 完整原始聚合记录：[public/metrics.json](public/metrics.json)。首次总粉丝检查没有保留精确时间；这轮有其他账号活动，且首轮数据早于技能完成。**总粉丝净变化不等于蓝 V 新增，认证名单新增不一定是新关注。当前 5 人观察队列已完成质量复查；较早 12 人队列仍有 1 人未知，二者独立保留。** 我们公开这些限制，而不是把热度包装成保证效果。

@@ -156,15 +156,16 @@
     {
       "kind": "launch",
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
-      "observed_at": "2026-10-08T03:23:30.786Z",
-      "views": 661,
-      "replies": 7,
+      "observed_at": "2026-10-08T04:20:29.155Z",
+      "views": 682,
+      "replies": 8,
       "reposts": 1,
       "likes": 2,
       "bookmarks": null,
-      "note": "Public profile counters; own progress replies and likes may contribute. No independent reach or acquisition claim.",
+      "note": "Actual parent counters read in new progress conversation; our progress replies and like contribute, and operator views may contribute. Counts are not verified Home impressions.",
       "published_at": "2026-10-07T21:18:52.000Z",
-      "published_at_source": "Browser-visible time element, retained from the reopened permanent thread"
+      "published_at_source": "Browser-visible time element, retained from the reopened permanent thread",
+      "self_like_visible": true
     },
     {
       "kind": "voice_reply",
@@ -448,6 +449,19 @@
       "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
       "note": "Own measured progress reply; the quote and own reply are not independent endorsements.",
       "published_at_source": "Browser-visible time element, retained from the reopened permanent thread"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108048876037124291",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "published_at": "2026-10-08T04:16:32.000Z",
+      "views": 7,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "kind": "model_progress_reply",
+      "observed_at": "2026-10-08T04:19:42.700Z",
+      "note": "Reopened complete progress under the fixed launch thread, actual model/repository links and browser-visible publication timestamp verified. Own progress reply; public views may include operator opens. Not a verified Home impression or payout result."
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -539,6 +553,18 @@
         "124 tests passed",
         "270 total at its actual profile timestamp; +14 vs256 is confounded",
         "Two persisted blue followbacks; quality and new acquisition unknown"
+      ]
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108048876037124291",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "kind": "measured-progress",
+      "verified_at": "2026-10-08T04:19:42.700Z",
+      "changes": [
+        "Published tiny PyTorch time-curve model and matched real backtest; model is worse than constant baseline on5 correlated holdouts",
+        "99 distinct owner posts reused; text-origin probability/label interfaces implemented but classifier untrained",
+        "90-day verified Home target recorded534/500000 and backend verified followers167/500 at04:02:12.455Z; excludes replies, forecast unknown",
+        "Bilingual documentation, actual progress visualization and224 passing tests; automation payout limitation stated"
       ]
     }
   ],
@@ -1032,6 +1058,32 @@
       "self_like_visible": true,
       "independent_likes": 0,
       "note": "Actual 60-minute observation, 27.584 seconds late. Like state is Liked for the signed-in account; the one visible like is self-interaction, not an independent endorsement. Public views are separate from owner impressions."
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108048876037124291",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "published_at": "2026-10-08T04:16:32.000Z",
+      "views": 7,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "kind": "model_progress_reply",
+      "observed_at": "2026-10-08T04:19:42.700Z",
+      "note": "Reopened complete progress under the fixed launch thread, actual model/repository links and browser-visible publication timestamp verified. Own progress reply; public views may include operator opens. Not a verified Home impression or payout result."
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "published_at": "2026-10-07T21:18:52.000Z",
+      "observed_at": "2026-10-08T04:20:29.155Z",
+      "views": 682,
+      "replies": 8,
+      "reposts": 1,
+      "likes": 2,
+      "bookmarks": null,
+      "self_like_visible": true,
+      "note": "Actual parent counters read in new progress conversation; our progress replies and like contribute, and operator views may contribute. Counts are not verified Home impressions.",
+      "kind": "launch"
     }
   ],
   "analytics_observations": [
