@@ -26,6 +26,17 @@
       "source_url": "https://x.com/i/jf/creators/original_content_rewards",
       "payout_qualified_impressions": null,
       "note": "Second exact displayed eligibility observation. Rolling net change since prior observation is0 impressions and+4 backend verified followers. Backend refresh timing, gross arrivals, expiry and causal attribution are unknown; not blue-only or high-quality follower counts."
+    },
+    {
+      "observed_at": "2026-10-08T06:16:15.225Z",
+      "observation_started_at": "2026-10-08T06:16:14.960Z",
+      "verified_home_impressions_90d": 534,
+      "verified_followers": 176,
+      "replies_excluded": true,
+      "source": "X Creator Studio / Original Content Rewards",
+      "source_url": "https://x.com/i/jf/creators/original_content_rewards",
+      "payout_qualified_impressions": null,
+      "note": "Third exact displayed eligibility observation; observed_at conservatively uses the capture-completion time. Since the second observation, rolling net impressions are unchanged and backend verified followers increased by 5 over 47.42325 minutes; since the first, verified followers increased by 9. Backend refresh timing, gross arrivals, expiry and causal attribution remain unknown. This does not confirm newly acquired blue or high-quality followers, payout qualification or a forecast."
     }
   ]
 }

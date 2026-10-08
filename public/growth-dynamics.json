@@ -212,6 +212,17 @@
         "net_delta": 1,
         "net_rate_per_second": 0.0009773929021727444,
         "net_rate_per_hour": 3.51861444782188
+      },
+      {
+        "started_at": "2026-10-08T05:33:06.588Z",
+        "ended_at": "2026-10-08T06:31:22.023Z",
+        "interval_seconds": 3495.435,
+        "midpoint_at": "2026-10-08T06:02:14.305500Z",
+        "count_before": 277,
+        "count_after": 281,
+        "net_delta": 4,
+        "net_rate_per_second": 0.0011443497018253808,
+        "net_rate_per_hour": 4.119658926571371
       }
     ],
     "accelerations": [
@@ -340,15 +351,22 @@
         "midpoint_interval_seconds": 933.095,
         "acceleration_per_second_squared": 1.0474741609083151e-06,
         "acceleration_per_hour_squared": 13.575265125371764
+      },
+      {
+        "from_interval_midpoint_at": "2026-10-08T05:24:35.023000Z",
+        "to_interval_midpoint_at": "2026-10-08T06:02:14.305500Z",
+        "midpoint_interval_seconds": 2259.2825,
+        "acceleration_per_second_squared": 7.389815113985809e-08,
+        "acceleration_per_hour_squared": 0.9577200387725608
       }
     ],
     "duration_weighted_average": {
       "started_at": "2026-10-07T21:04:03.227Z",
-      "ended_at": "2026-10-08T05:33:06.588Z",
-      "interval_seconds": 30543.361,
-      "net_delta": 73,
-      "net_rate_per_second": 0.0023900447629191823,
-      "net_rate_per_hour": 8.604161146509057,
+      "ended_at": "2026-10-08T06:31:22.023Z",
+      "interval_seconds": 34038.796,
+      "net_delta": 77,
+      "net_rate_per_second": 0.002262124665043969,
+      "net_rate_per_hour": 8.143648794158288,
       "method": "duration_weighted; first-to-last timed count difference / elapsed seconds"
     },
     "skipped_observations": [
@@ -579,15 +597,24 @@
       "following_to_total_ratio": 0.9711191335740073,
       "reason": null,
       "meaning": "same-snapshot following / total followers; not a quality score"
+    },
+    {
+      "index": 21,
+      "observed_at": "2026-10-08T06:31:22.023Z",
+      "following": 270,
+      "total_followers": 281,
+      "following_to_total_ratio": 0.9608540925266904,
+      "reason": null,
+      "meaning": "same-snapshot following / total followers; not a quality score"
     }
   ],
   "observed_cohort_quality": {
     "status": "classification_incomplete",
     "observed_arrivals": 24,
-    "high": 1,
+    "high": 2,
     "not_high": 2,
-    "unknown": 21,
-    "lower_bound": 0.041666666666666664,
+    "unknown": 20,
+    "lower_bound": 0.08333333333333333,
     "upper_bound": 0.9166666666666666,
     "window_started_at": "2026-10-08T00:23:58.426Z",
     "window_ended_at": "2026-10-08T05:14:58.325Z",
@@ -794,6 +821,19 @@
             "counter_rate_per_hour": 48.54316566164336,
             "status": "observed_counter_change",
             "observed_view_rate_per_second": 0.01348421268378982,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T05:39:17.392Z",
+            "ended_at": "2026-10-08T06:31:22.023Z",
+            "interval_seconds": 3124.631,
+            "views_before": 698,
+            "views_after": 709,
+            "counter_delta": 11,
+            "counter_rate_per_second": 0.003520415690684756,
+            "counter_rate_per_hour": 12.673496486465123,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.003520415690684756,
             "meaning": "public counter change; operator views and repeated views may contribute"
           }
         ],
@@ -1056,6 +1096,19 @@
             "status": "observed_counter_change",
             "observed_view_rate_per_second": 0.025856026655467046,
             "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T05:33:06.588Z",
+            "ended_at": "2026-10-08T06:31:22.023Z",
+            "interval_seconds": 3495.435,
+            "views_before": 181,
+            "views_after": 191,
+            "counter_delta": 10,
+            "counter_rate_per_second": 0.002860874254563452,
+            "counter_rate_per_hour": 10.299147316428428,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.002860874254563452,
+            "meaning": "public counter change; operator views and repeated views may contribute"
           }
         ],
         "skipped_observations": []
@@ -1081,7 +1134,34 @@
       {
         "status_id": "2108064574675247167",
         "url": "https://x.com/LIghtJUNction_x/status/2108064574675247167",
-        "intervals": [],
+        "intervals": [
+          {
+            "started_at": "2026-10-08T05:33:06.364Z",
+            "ended_at": "2026-10-08T05:49:55.484Z",
+            "interval_seconds": 1009.12,
+            "views_before": 6,
+            "views_after": 14,
+            "counter_delta": 8,
+            "counter_rate_per_second": 0.007927699381639447,
+            "counter_rate_per_hour": 28.53971777390201,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.007927699381639447,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          },
+          {
+            "started_at": "2026-10-08T05:49:55.484Z",
+            "ended_at": "2026-10-08T06:19:28.906Z",
+            "interval_seconds": 1773.422,
+            "views_before": 14,
+            "views_after": 26,
+            "counter_delta": 12,
+            "counter_rate_per_second": 0.006766578964284869,
+            "counter_rate_per_hour": 24.359684271425525,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.006766578964284869,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          }
+        ],
         "skipped_observations": [
           {
             "index": 44,
@@ -1093,13 +1173,41 @@
       {
         "status_id": "2108060803639500970",
         "url": "https://x.com/LIghtJUNction_x/status/2108060803639500970",
-        "intervals": [],
+        "intervals": [
+          {
+            "started_at": "2026-10-08T05:07:09.760Z",
+            "ended_at": "2026-10-08T06:06:47.116Z",
+            "interval_seconds": 3577.356,
+            "views_before": 1,
+            "views_after": 3,
+            "counter_delta": 2,
+            "counter_rate_per_second": 0.0005590721191852307,
+            "counter_rate_per_hour": 2.0126596290668304,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.0005590721191852307,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          }
+        ],
         "skipped_observations": []
       },
       {
         "status_id": "2108067265497485702",
         "url": "https://x.com/LIghtJUNction_x/status/2108067265497485702",
-        "intervals": [],
+        "intervals": [
+          {
+            "started_at": "2026-10-08T05:31:07.497Z",
+            "ended_at": "2026-10-08T05:58:54.762Z",
+            "interval_seconds": 1667.265,
+            "views_before": 3,
+            "views_after": 19,
+            "counter_delta": 16,
+            "counter_rate_per_second": 0.009596554836813584,
+            "counter_rate_per_hour": 34.5475974125289,
+            "status": "observed_counter_change",
+            "observed_view_rate_per_second": 0.009596554836813584,
+            "meaning": "public counter change; operator views and repeated views may contribute"
+          }
+        ],
         "skipped_observations": []
       },
       {
@@ -1117,6 +1225,30 @@
       {
         "status_id": "2108069404860887280",
         "url": "https://x.com/LIghtJUNction_x/status/2108069404860887280",
+        "intervals": [],
+        "skipped_observations": []
+      },
+      {
+        "status_id": "2108073044791210344",
+        "url": "https://x.com/LIghtJUNction_x/status/2108073044791210344",
+        "intervals": [],
+        "skipped_observations": []
+      },
+      {
+        "status_id": "2108074351941898535",
+        "url": "https://x.com/LIghtJUNction_x/status/2108074351941898535",
+        "intervals": [],
+        "skipped_observations": []
+      },
+      {
+        "status_id": "2108076180377350189",
+        "url": "https://x.com/LIghtJUNction_x/status/2108076180377350189",
+        "intervals": [],
+        "skipped_observations": []
+      },
+      {
+        "status_id": "2108081894017626333",
+        "url": "https://x.com/LIghtJUNction_x/status/2108081894017626333",
         "intervals": [],
         "skipped_observations": []
       }

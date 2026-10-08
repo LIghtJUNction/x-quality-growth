@@ -114,6 +114,13 @@
       "total": 277,
       "following": 269,
       "note": "Actual public profile after one original, two substantive replies, one like and two persisted blue followbacks. Parallel account activity prevents acquisition attribution; the earlier partial collection denominator remains276."
+    },
+    {
+      "observed_at": "2026-10-08T06:31:22.023Z",
+      "observation_started_at": "2026-10-08T06:31:20.949Z",
+      "total": 281,
+      "following": 270,
+      "note": "Actual profile after four substantive replies, one persisted like and one related blue author follow this phase. Net change+4 from277 at05:33:06.588Z does not identify confirmed new blue acquisitions or isolate action effects; earlier273/276 partial collection keeps its own historical denominator."
     }
   ],
   "blue_observations": [
@@ -227,13 +234,13 @@
     {
       "kind": "launch",
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
-      "observed_at": "2026-10-08T05:39:17.392Z",
-      "views": 698,
+      "observed_at": "2026-10-08T06:31:22.023Z",
+      "views": 709,
       "replies": 9,
       "reposts": 1,
       "likes": 2,
       "bookmarks": null,
-      "note": "Parent counters in the newly reopened progress conversation. The ninth reply includes our own new update; own quote, like and operator opens are not independent audience evidence.",
+      "note": "Actual later profile counters; bookmark count is not visible. Existing self-like and operator opens may contribute; no new pinned update or independent approval inferred.",
       "published_at": "2026-10-07T21:18:52.000Z",
       "published_at_source": "Browser-visible time element, retained from the reopened permanent thread",
       "self_like_visible": true
@@ -496,8 +503,8 @@
       "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
       "published_at": "2026-10-08T02:57:15.000Z",
       "publication_verified_at": "2026-10-08T02:59:00.950Z",
-      "observed_at": "2026-10-08T05:33:06.588Z",
-      "views": 181,
+      "observed_at": "2026-10-08T06:31:22.023Z",
+      "views": 191,
       "replies": 0,
       "reposts": 0,
       "likes": 1,
@@ -505,7 +512,7 @@
       "media_alt_verified": true,
       "skill_source_commit": "caa61f83c5f9b6802c8c1b84ae4fc49156a75d66",
       "algorithm_source_commit": "78460ca8b65c57ddd3a05f9217c8aaeba214b628",
-      "note": "Actual later profile counters; operator opens and own interactions may contribute. Separate from fixed60-minute and verified Home targets.",
+      "note": "Actual later profile counters; bookmark count is not visible. Existing self-like and operator opens may contribute; no new pinned update or independent approval inferred.",
       "self_like_visible": true
     },
     {
@@ -539,14 +546,17 @@
       "kind": "backtest_case_original",
       "url": "https://x.com/LIghtJUNction_x/status/2108064574675247167",
       "published_at": "2026-10-08T05:18:55.000Z",
-      "views": 14,
-      "replies": 0,
+      "views": 26,
+      "replies": 1,
       "reposts": 0,
       "likes": 0,
       "bookmarks": 0,
-      "observed_at": "2026-10-08T05:49:55.484Z",
+      "observed_at": "2026-10-08T06:19:28.906Z",
       "publication_verified_at": "2026-10-08T05:19:44.193Z",
-      "note": "Second numeric public capture before frozen forecast; conservative capture-end time. Forecast was sealed and publicly committed before the target. Owner impressions and verified Home counters remain separate."
+      "note": "First numeric target read at age60m33.906s after Loading-only attempt; declared300s budget. Delayed target-window proxy, exact60m count unknown. One external method suggestion is visibly read; no adoption/acquisition or verified Home outcome. Operator opens may contribute.",
+      "independent_reply_author_count": 1,
+      "actual_age_minutes": 60.5651,
+      "lateness_seconds": 33.906
     },
     {
       "kind": "handoff_feedback_response",
@@ -632,6 +642,20 @@
       "likes": 0,
       "bookmarks": 0,
       "note": "Reopened third substantive reply, citing primary OWASP guidance. Operator may contribute to public views. Quoted experiment and video were not audited or endorsed."
+    },
+    {
+      "kind": "post_grouped_validation_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108081894017626333",
+      "parent": "https://x.com/lijd426/status/2108075716260880681",
+      "published_at": "2026-10-08T06:27:44.000Z",
+      "observed_at": "2026-10-08T06:28:53.569Z",
+      "publication_verified_at": "2026-10-08T06:28:53.569Z",
+      "views": 1,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "Fourth substantive reply answers actual feedback on independent-post validation and reuse of history without invented fixed-window labels. Initial public view may include operator; no adoption, acquisition or original verified Home outcome inferred."
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -1476,6 +1500,62 @@
       "independent_reply_author_count": 1,
       "independent_like_author_count": 1,
       "note": "Saved ancestor counters in reopened own followup:19public views,1reply,1like. The external author and same-author like are identified by saved conversation and notification, not inferred from total counts. One author, no confirmed acquisition/adoption; Bookmark has no visible count on this ancestor surface."
+    },
+    {
+      "kind": "backtest_case_original_delayed_60m",
+      "url": "https://x.com/LIghtJUNction_x/status/2108064574675247167",
+      "published_at": "2026-10-08T05:18:55.000Z",
+      "observed_at": "2026-10-08T06:19:28.906Z",
+      "views": 26,
+      "replies": 1,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "independent_reply_author_count": 1,
+      "actual_age_minutes": 60.5651,
+      "lateness_seconds": 33.906,
+      "note": "First numeric target read at age60m33.906s after Loading-only attempt; declared300s budget. Delayed target-window proxy, exact60m count unknown. One external method suggestion is visibly read; no adoption/acquisition or verified Home outcome. Operator opens may contribute."
+    },
+    {
+      "kind": "post_grouped_validation_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108081894017626333",
+      "parent": "https://x.com/lijd426/status/2108075716260880681",
+      "published_at": "2026-10-08T06:27:44.000Z",
+      "observed_at": "2026-10-08T06:28:53.569Z",
+      "publication_verified_at": "2026-10-08T06:28:53.569Z",
+      "views": 1,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "Fourth substantive reply answers actual feedback on independent-post validation and reuse of history without invented fixed-window labels. Initial public view may include operator; no adoption, acquisition or original verified Home outcome inferred.",
+      "observation_started_at": "2026-10-08T06:28:53.416Z"
+    },
+    {
+      "kind": "launch_later_profile",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "published_at": "2026-10-07T21:18:52.000Z",
+      "observed_at": "2026-10-08T06:31:22.023Z",
+      "views": 709,
+      "replies": 9,
+      "reposts": 1,
+      "likes": 2,
+      "bookmarks": null,
+      "self_like_visible": true,
+      "note": "Actual later profile counters; bookmark count is not visible. Existing self-like and operator opens may contribute; no new pinned update or independent approval inferred."
+    },
+    {
+      "kind": "algorithm_original_later_profile",
+      "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+      "published_at": "2026-10-08T02:57:15.000Z",
+      "observed_at": "2026-10-08T06:31:22.023Z",
+      "views": 191,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 1,
+      "bookmarks": null,
+      "self_like_visible": true,
+      "note": "Actual later profile counters; bookmark count is not visible. Existing self-like and operator opens may contribute; no new pinned update or independent approval inferred."
     }
   ],
   "analytics_observations": [
@@ -1870,15 +1950,26 @@
         "bookmarks": 0
       },
       "initial_verified_at": "2026-10-08T05:19:44.193Z",
-      "first_recheck_observed_at": null,
+      "first_recheck_observed_at": "2026-10-08T06:19:28.906Z",
       "planned_age_minutes": 60,
-      "next_observation_due_at": "2026-10-08T06:18:55Z",
+      "next_observation_due_at": "2026-10-09T05:18:55Z",
       "24h_observation_due_at": "2026-10-09T05:18:55Z",
       "scheduler_configured": false,
       "confirmed_new_followers": null,
       "matched_age_control_available": false,
-      "result": "Published and reopened; early6-view snapshot is not a60-minute result. Reach or verified Home improvement is not demonstrated.",
-      "note": "Uncontrolled topic/time and concurrent operations; fixed Home counter remains a separate account metric. Codex posting does not prove payout eligibility. No model retraining this round."
+      "result": "Actual60-minute check captured33.906s late:26public views,1external methodological reply. Frozen constant error12, recent-rate1.79036 on one delayed proxy. No causal growth, generalization or verified Home improvement established.",
+      "note": "Uncontrolled topic/time and concurrent operations; fixed Home counter remains a separate account metric. Codex posting does not prove payout eligibility. No model retraining this round.",
+      "actual_age_minutes": 60.5651,
+      "lateness_seconds": 33.906,
+      "public_result": {
+        "views": 26,
+        "replies": 1,
+        "reposts": 0,
+        "likes": 0,
+        "bookmarks": 0,
+        "independent_reply_author_count": 1
+      },
+      "prospective_evaluation_url": "public/forecasts/rise-2108064574675247167-60m.evaluation.json"
     }
   ],
   "growth_target": {
@@ -1989,6 +2080,18 @@
       "adoption_confirmed": null,
       "new_follower_confirmed": null,
       "note": "Creator clarified the model stayed fixed, shifting the suggested comparison to prompts and workflow. Notification also identifies this author as liking the earlier reply. This is one author, not two independent acquisitions; no test results or adoption were supplied."
+    },
+    {
+      "kind": "independent_post_validation_feedback",
+      "url": "https://x.com/lijd426/status/2108075716260880681",
+      "parent_own_post_url": "https://x.com/LIghtJUNction_x/status/2108064574675247167",
+      "published_at": "2026-10-08T06:03:11.000Z",
+      "observed_at": "2026-10-08T06:23:02.736Z",
+      "independent_reply_author_count": 1,
+      "substantive_feedback_confirmed": true,
+      "adoption_confirmed": null,
+      "new_follower_confirmed": null,
+      "note": "A real author suggests collecting independent posts rather than treating five points on one post as independent training samples. This is one methodological response, not adoption, follower acquisition or a payout-qualified view."
     }
   ],
   "blue_cohort_history": [

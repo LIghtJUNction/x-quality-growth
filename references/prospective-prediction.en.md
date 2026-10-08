@@ -1,6 +1,6 @@
 # Freeze the forecast before reading the outcome
 
-This is a real prospective baseline experiment. **The target is post age 60 minutes, not one hour after the forecast origin.** At writing, the target outcome is pending. Store outcomes in a separate evaluation artifact; never backfill the sealed forecast.
+This is a real prospective baseline experiment. **The target is post age 60 minutes, not one hour after the forecast origin.** One target-window observation is complete; the exact age-60-minute count remains unknown. Outcomes live in a separate evaluation artifact; never backfill the sealed forecast.
 
 ## Sealed case
 
@@ -24,6 +24,8 @@ Public evidence: [commit e792e377](https://github.com/LIghtJUNction/x-quality-gr
 ```text
 cce55596ad1674e503e5f92f38a163c55b2ef5d6e47a8695669e64a9fe5579ab
 ```
+
+The [separate evaluation](../public/forecasts/rise-2108064574675247167-60m.evaluation.json) and [result chart](../assets/prospective.svg) record **26 public views at 06:19:28.906Z**, the first numeric post-target capture according to the operator declaration. Actual age is **60 minutes 33.906 seconds**, **33.906 seconds late**, within the declared budget. This is a window proxy, with `exact_target_actual=null`. Absolute errors are **12** for the constant baseline and **1.7903599175519282** for recent rate. Recent rate was closer on this one outcome; `n=1` establishes neither stable superiority nor follower-growth causality. The sealed forecast remains unchanged, with its outcome null.
 
 ## Capture and evaluate
 

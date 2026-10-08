@@ -1,0 +1,78 @@
+{
+  "contract_version": "rise-prospective-evaluation-1",
+  "forecast_id": "rise-2108064574675247167-60m",
+  "post_url": "https://x.com/LIghtJUNction_x/status/2108064574675247167",
+  "version": "published_version_no_edit_evidence",
+  "source": "public_views",
+  "metric": "views",
+  "forecast_sha256": "cce55596ad1674e503e5f92f38a163c55b2ef5d6e47a8695669e64a9fe5579ab",
+  "input_snapshot_sha256_verified": true,
+  "status": "delayed_proxy",
+  "target_at": "2026-10-08T06:18:55.000000Z",
+  "selected_observation": {
+    "actual": 26,
+    "observed_at": "2026-10-08T06:19:28.906Z",
+    "observation_started_at": "2026-10-08T06:19:28.813Z",
+    "observation_completed_at": "2026-10-08T06:19:28.906Z",
+    "available_at": null
+  },
+  "observations": [
+    {
+      "actual": null,
+      "observed_at": "2026-10-08T06:19:14.900Z",
+      "observation_started_at": "2026-10-08T06:19:12.056Z",
+      "observation_completed_at": "2026-10-08T06:19:14.900Z",
+      "available_at": null
+    },
+    {
+      "actual": 26,
+      "observed_at": "2026-10-08T06:19:28.906Z",
+      "observation_started_at": "2026-10-08T06:19:28.813Z",
+      "observation_completed_at": "2026-10-08T06:19:28.906Z",
+      "available_at": null
+    }
+  ],
+  "actual_age_seconds": 3633.906,
+  "lateness_seconds": 33.906,
+  "exact_target_actual": null,
+  "target_window_eligible": true,
+  "n_observed_targets": 1,
+  "eligible_primary_comparison": true,
+  "n_primary_observations": 1,
+  "apparent_revision": false,
+  "error_scope": "target_window_descriptive",
+  "models": {
+    "constant": {
+      "point_prediction": 14.0,
+      "errors": {
+        "signed_error": -12.0,
+        "absolute_error": 12.0,
+        "squared_error": 144.0,
+        "smape_percent": 60.0
+      }
+    },
+    "recent_rate": {
+      "point_prediction": 27.79035991755193,
+      "errors": {
+        "signed_error": 1.7903599175519282,
+        "absolute_error": 1.7903599175519282,
+        "squared_error": 3.2053886343765474,
+        "smape_percent": 6.656805867431013
+      }
+    },
+    "torch_saturation": {
+      "point_prediction": null,
+      "errors": null
+    },
+    "verified_home_impressions": {
+      "point_prediction": null,
+      "errors": null
+    }
+  },
+  "future_verification": null,
+  "training_performed": false,
+  "statistical_superiority": null,
+  "confidence_interval": null,
+  "selection_evidence": "First numeric target read among supplied records; completeness is an operator declaration, not independently verified.",
+  "interpretation": "All numeric selected reads retain descriptive errors, including revisions and missed windows. Revisions require reconciliation before clean comparison; no failed prediction is deleted. Delayed counters are proxies; availability/generation metadata does not independently prove timely capture. No statistical or follower attribution."
+}

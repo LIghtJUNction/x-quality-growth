@@ -504,21 +504,44 @@
           },
           "follows_attributed": null,
           "follows_attributed_reason": "not_measured"
+        },
+        {
+          "source": "public_surface",
+          "source_collection": "post_observations",
+          "source_detail": null,
+          "observed_at": "2026-10-08T06:31:22.023Z",
+          "counts": {
+            "views": 709,
+            "replies": 9,
+            "likes": 2,
+            "reposts": 1,
+            "bookmarks": null
+          },
+          "age_seconds": 33150.023,
+          "age_basis": "publication",
+          "age_publication_at": "2026-10-07T21:18:52.000Z",
+          "age_publication_source": {
+            "collection": "posts",
+            "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+            "field": "published_at"
+          },
+          "follows_attributed": null,
+          "follows_attributed_reason": "not_measured"
         }
       ],
       "latest_public_surface": {
         "source": "public_surface",
         "source_collection": "post_observations",
         "source_detail": null,
-        "observed_at": "2026-10-08T05:39:17.392Z",
+        "observed_at": "2026-10-08T06:31:22.023Z",
         "counts": {
-          "views": 698,
+          "views": 709,
           "replies": 9,
           "likes": 2,
           "reposts": 1,
           "bookmarks": null
         },
-        "age_seconds": 30025.392,
+        "age_seconds": 33150.023,
         "age_basis": "publication",
         "age_publication_at": "2026-10-07T21:18:52.000Z",
         "age_publication_source": {
@@ -2473,21 +2496,44 @@
           },
           "follows_attributed": null,
           "follows_attributed_reason": "not_measured"
+        },
+        {
+          "source": "public_surface",
+          "source_collection": "post_observations",
+          "source_detail": null,
+          "observed_at": "2026-10-08T06:31:22.023Z",
+          "counts": {
+            "views": 191,
+            "replies": 0,
+            "likes": 1,
+            "reposts": 0,
+            "bookmarks": null
+          },
+          "age_seconds": 12847.023,
+          "age_basis": "publication",
+          "age_publication_at": "2026-10-08T02:57:15.000Z",
+          "age_publication_source": {
+            "collection": "posts",
+            "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+            "field": "published_at"
+          },
+          "follows_attributed": null,
+          "follows_attributed_reason": "not_measured"
         }
       ],
       "latest_public_surface": {
         "source": "public_surface",
         "source_collection": "post_observations",
         "source_detail": null,
-        "observed_at": "2026-10-08T05:33:06.588Z",
+        "observed_at": "2026-10-08T06:31:22.023Z",
         "counts": {
-          "views": 181,
+          "views": 191,
           "replies": 0,
           "likes": 1,
           "reposts": 0,
           "bookmarks": null
         },
-        "age_seconds": 9351.588,
+        "age_seconds": 12847.023,
         "age_basis": "publication",
         "age_publication_at": "2026-10-08T02:57:15.000Z",
         "age_publication_source": {
@@ -2796,21 +2842,44 @@
           },
           "follows_attributed": null,
           "follows_attributed_reason": "not_measured"
+        },
+        {
+          "source": "public_surface",
+          "source_collection": "post_observations",
+          "source_detail": null,
+          "observed_at": "2026-10-08T06:19:28.906Z",
+          "counts": {
+            "views": 26,
+            "replies": 1,
+            "likes": 0,
+            "reposts": 0,
+            "bookmarks": 0
+          },
+          "age_seconds": 3633.906,
+          "age_basis": "publication",
+          "age_publication_at": "2026-10-08T05:18:55.000Z",
+          "age_publication_source": {
+            "collection": "posts",
+            "url": "https://x.com/LIghtJUNction_x/status/2108064574675247167",
+            "field": "published_at"
+          },
+          "follows_attributed": null,
+          "follows_attributed_reason": "not_measured"
         }
       ],
       "latest_public_surface": {
         "source": "public_surface",
         "source_collection": "post_observations",
         "source_detail": null,
-        "observed_at": "2026-10-08T05:49:55.484Z",
+        "observed_at": "2026-10-08T06:19:28.906Z",
         "counts": {
-          "views": 14,
-          "replies": 0,
+          "views": 26,
+          "replies": 1,
           "likes": 0,
           "reposts": 0,
           "bookmarks": 0
         },
-        "age_seconds": 1860.484,
+        "age_seconds": 3633.906,
         "age_basis": "publication",
         "age_publication_at": "2026-10-08T05:18:55.000Z",
         "age_publication_source": {
@@ -3276,6 +3345,75 @@
         "age_publication_source": {
           "collection": "posts",
           "url": "https://x.com/LIghtJUNction_x/status/2108076180377350189",
+          "field": "published_at"
+        },
+        "follows_attributed": null,
+        "follows_attributed_reason": "not_measured"
+      }
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108081894017626333",
+      "kind": "post_grouped_validation_reply",
+      "published_at": "2026-10-08T06:27:44.000Z",
+      "published_at_source": {
+        "collection": "posts",
+        "url": "https://x.com/LIghtJUNction_x/status/2108081894017626333",
+        "field": "published_at"
+      },
+      "publication_evidence": null,
+      "age_publication_at": "2026-10-08T06:27:44.000Z",
+      "age_publication_source": {
+        "collection": "posts",
+        "url": "https://x.com/LIghtJUNction_x/status/2108081894017626333",
+        "field": "published_at"
+      },
+      "age_basis": "publication",
+      "follows_attributed": null,
+      "owner_analytics": [],
+      "latest_owner_analytics": null,
+      "public_surface": [
+        {
+          "source": "public_surface",
+          "source_collection": "post_observations",
+          "source_detail": null,
+          "observed_at": "2026-10-08T06:28:53.569Z",
+          "counts": {
+            "views": 1,
+            "replies": 0,
+            "likes": 0,
+            "reposts": 0,
+            "bookmarks": 0
+          },
+          "age_seconds": 69.569,
+          "age_basis": "publication",
+          "age_publication_at": "2026-10-08T06:27:44.000Z",
+          "age_publication_source": {
+            "collection": "posts",
+            "url": "https://x.com/LIghtJUNction_x/status/2108081894017626333",
+            "field": "published_at"
+          },
+          "follows_attributed": null,
+          "follows_attributed_reason": "not_measured"
+        }
+      ],
+      "latest_public_surface": {
+        "source": "public_surface",
+        "source_collection": "post_observations",
+        "source_detail": null,
+        "observed_at": "2026-10-08T06:28:53.569Z",
+        "counts": {
+          "views": 1,
+          "replies": 0,
+          "likes": 0,
+          "reposts": 0,
+          "bookmarks": 0
+        },
+        "age_seconds": 69.569,
+        "age_basis": "publication",
+        "age_publication_at": "2026-10-08T06:27:44.000Z",
+        "age_publication_source": {
+          "collection": "posts",
+          "url": "https://x.com/LIghtJUNction_x/status/2108081894017626333",
           "field": "published_at"
         },
         "follows_attributed": null,
@@ -3772,6 +3910,39 @@
       "counts_per_second": {
         "views": 0.01348421268378982,
         "replies": 0.002696842536757964,
+        "likes": 0.0,
+        "reposts": 0.0,
+        "bookmarks": null
+      },
+      "count_rate_unit": "counted events/second; not independent users/second",
+      "follows_attributed": null
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "source": "public_surface",
+      "source_collection": "post_observations",
+      "started_at": "2026-10-08T05:39:17.392Z",
+      "ended_at": "2026-10-08T06:31:22.023Z",
+      "elapsed_seconds": 3124.631,
+      "status": "paired",
+      "revised_counters": [],
+      "delta_counts": {
+        "views": 11,
+        "replies": 0,
+        "likes": 0,
+        "reposts": 0,
+        "bookmarks": null
+      },
+      "delta_reasons": {
+        "views": null,
+        "replies": null,
+        "likes": null,
+        "reposts": null,
+        "bookmarks": "unknown_counter"
+      },
+      "counts_per_second": {
+        "views": 0.003520415690684756,
+        "replies": 0.0,
         "likes": 0.0,
         "reposts": 0.0,
         "bookmarks": null
@@ -4294,6 +4465,39 @@
       "follows_attributed": null
     },
     {
+      "url": "https://x.com/LIghtJUNction_x/status/2108028923200339985",
+      "source": "public_surface",
+      "source_collection": "post_observations",
+      "started_at": "2026-10-08T05:33:06.588Z",
+      "ended_at": "2026-10-08T06:31:22.023Z",
+      "elapsed_seconds": 3495.435,
+      "status": "paired",
+      "revised_counters": [],
+      "delta_counts": {
+        "views": 10,
+        "replies": 0,
+        "likes": 0,
+        "reposts": 0,
+        "bookmarks": null
+      },
+      "delta_reasons": {
+        "views": null,
+        "replies": null,
+        "likes": null,
+        "reposts": null,
+        "bookmarks": "unknown_counter"
+      },
+      "counts_per_second": {
+        "views": 0.002860874254563452,
+        "replies": 0.0,
+        "likes": 0.0,
+        "reposts": 0.0,
+        "bookmarks": null
+      },
+      "count_rate_unit": "counted events/second; not independent users/second",
+      "follows_attributed": null
+    },
+    {
       "url": "https://x.com/LIghtJUNction_x/status/2108064574675247167",
       "source": "public_surface",
       "source_collection": "post_observations",
@@ -4352,6 +4556,39 @@
       "counts_per_second": {
         "views": 0.007927699381639447,
         "replies": 0.0,
+        "likes": 0.0,
+        "reposts": 0.0,
+        "bookmarks": 0.0
+      },
+      "count_rate_unit": "counted events/second; not independent users/second",
+      "follows_attributed": null
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108064574675247167",
+      "source": "public_surface",
+      "source_collection": "post_observations",
+      "started_at": "2026-10-08T05:49:55.484Z",
+      "ended_at": "2026-10-08T06:19:28.906Z",
+      "elapsed_seconds": 1773.422,
+      "status": "paired",
+      "revised_counters": [],
+      "delta_counts": {
+        "views": 12,
+        "replies": 1,
+        "likes": 0,
+        "reposts": 0,
+        "bookmarks": 0
+      },
+      "delta_reasons": {
+        "views": null,
+        "replies": null,
+        "likes": null,
+        "reposts": null,
+        "bookmarks": null
+      },
+      "counts_per_second": {
+        "views": 0.006766578964284869,
+        "replies": 0.0005638815803570723,
         "likes": 0.0,
         "reposts": 0.0,
         "bookmarks": 0.0
