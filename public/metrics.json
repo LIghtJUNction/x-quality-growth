@@ -121,6 +121,34 @@
       "total": 281,
       "following": 270,
       "note": "Actual profile after four substantive replies, one persisted like and one related blue author follow this phase. Net change+4 from277 at05:33:06.588Z does not identify confirmed new blue acquisitions or isolate action effects; earlier273/276 partial collection keeps its own historical denominator."
+    },
+    {
+      "observed_at": "2026-10-08T06:47:49.399Z",
+      "observation_started_at": "2026-10-08T06:47:48.448Z",
+      "total": 282,
+      "following": 270,
+      "note": "Actual public profile before follower-list collection. Total remains282 in this operator interval; the separate frozen279/282 collection retains its06:56 profile denominator and original list clock. Net counts do not identify acquisitions or causal effects."
+    },
+    {
+      "observed_at": "2026-10-08T06:56:00.877Z",
+      "observation_started_at": "2026-10-08T06:56:00.693Z",
+      "total": 282,
+      "following": 270,
+      "note": "Actual public profile after follower-list collection. Total remains282 in this operator interval; the separate frozen279/282 collection retains its06:56 profile denominator and original list clock. Net counts do not identify acquisitions or causal effects."
+    },
+    {
+      "observed_at": "2026-10-08T07:13:00.943Z",
+      "observation_started_at": "2026-10-08T07:13:00.768Z",
+      "total": 282,
+      "following": 271,
+      "note": "Actual public profile after one substantive reply and one persisted blue followback. Total remains282 in this operator interval; the separate frozen279/282 collection retains its06:56 profile denominator and original list clock. Net counts do not identify acquisitions or causal effects."
+    },
+    {
+      "observed_at": "2026-10-08T07:23:11.476Z",
+      "observation_started_at": "2026-10-08T07:23:11.361Z",
+      "total": 282,
+      "following": 271,
+      "note": "Actual public profile after the newly published strict input-validation original:282 followers/271 following. Total is unchanged from the earlier282-profile observations. This separate clock does not replace the frozen279/282 list endpoint; no confirmed acquisition or causal effect is inferred."
     }
   ],
   "blue_observations": [
@@ -670,6 +698,41 @@
       "likes": 0,
       "bookmarks": 0,
       "note": "Real progress reply under the fixed pinned launch after the operator interval, linking released source and actual separate-clock counters. This own update and initial public view are not independent endorsement, verified Home outcome or acquired follower."
+    },
+    {
+      "kind": "voice_segment_blind_comparison_followup",
+      "url": "https://x.com/LIghtJUNction_x/status/2108090442583851205",
+      "ancestor_own_post_url": "https://x.com/LIghtJUNction_x/status/2107947524829127073",
+      "published_at": "2026-10-08T07:01:42.000Z",
+      "observed_at": "2026-10-08T07:03:11.738Z",
+      "observation_started_at": "2026-10-08T07:03:11.209Z",
+      "publication_verified_at": "2026-10-08T07:03:11.738Z",
+      "views": 1,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "One substantive follow-up to an existing author about a planned whole-paragraph versus segment voice comparison. The reply proposes blinded seam listening and recording cost and regeneration counts; no experiment was run or result supplied. Initial public view may include the operator. External identity remains private; this is not a new author or confirmed acquisition."
+    },
+    {
+      "kind": "strict_declared_group_input_validation_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2108095581906428165",
+      "published_at": "2026-10-08T07:22:07.000Z",
+      "observed_at": "2026-10-08T07:24:20.681Z",
+      "observation_started_at": "2026-10-08T07:24:20.569Z",
+      "publication_verified_at": "2026-10-08T07:24:20.681Z",
+      "views": 1,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "skill_source_commit": "84adb04",
+      "source_commit_is_abbreviated": true,
+      "ci_run_id": "37742589450",
+      "ci_status": "success",
+      "ci_url": "https://github.com/LIghtJUNction/x-quality-growth/actions/runs/37742589450",
+      "tests_passed": 255,
+      "note": "Actual independent original about strict acceptance of upstream-declared frozen content/event/edit-chain groups and first-publication holdout inputs. The validator checks declarations, rather than detecting shared material automatically. Published255 passing tests and source84adb04 correspond to independently verified successful CI run37742589450. No source classifier or verified Home forecast model was trained; no payout qualification or causal growth is established. The initial public view may include the operator."
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -1611,6 +1674,86 @@
       "bookmarks": null,
       "self_like_visible": true,
       "note": "Actual ancestor counters in reopened latest progress. The tenth reply includes our new update and self-like persists; own updates and operator views are not independent audience effects."
+    },
+    {
+      "kind": "voice_segment_blind_comparison_followup",
+      "url": "https://x.com/LIghtJUNction_x/status/2108090442583851205",
+      "ancestor_own_post_url": "https://x.com/LIghtJUNction_x/status/2107947524829127073",
+      "published_at": "2026-10-08T07:01:42.000Z",
+      "observed_at": "2026-10-08T07:03:11.738Z",
+      "observation_started_at": "2026-10-08T07:03:11.209Z",
+      "publication_verified_at": "2026-10-08T07:03:11.738Z",
+      "views": 1,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "note": "One substantive follow-up to an existing author about a planned whole-paragraph versus segment voice comparison. The reply proposes blinded seam listening and recording cost and regeneration counts; no experiment was run or result supplied. Initial public view may include the operator. External identity remains private; this is not a new author or confirmed acquisition."
+    },
+    {
+      "kind": "launch_relationship_round_profile",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "published_at": "2026-10-07T21:18:52.000Z",
+      "observed_at": "2026-10-08T07:13:00.943Z",
+      "observation_started_at": "2026-10-08T07:13:00.768Z",
+      "views": 718,
+      "replies": 10,
+      "reposts": 1,
+      "likes": 2,
+      "bookmarks": null,
+      "self_like_visible": true,
+      "note": "Actual latest public-profile counter read. The visible Liked state was already present; existing own replies/self-like and operator opens are not independent audience growth. Bookmarks are unavailable on this profile surface. This later clock does not replace either follower-list collection endpoint."
+    },
+    {
+      "kind": "voice_segment_comparison_early_later_observation",
+      "url": "https://x.com/LIghtJUNction_x/status/2108090442583851205",
+      "published_at": "2026-10-08T07:01:42.000Z",
+      "observed_at": "2026-10-08T07:20:38.398Z",
+      "observation_started_at": "2026-10-08T07:20:38.055Z",
+      "views": 12,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "actual_age_seconds": 1136.398,
+      "actual_age_minutes": 18.939966666666667,
+      "planned_age_minutes": 60,
+      "fixed_window_check_complete": false,
+      "note": "Actual later public counter observation at18minutes56.398seconds of age, not the60-minute result. Initial1view at07:03:11.738 remains unchanged in history. Operator opens may contribute; no new feedback, adoption, verified Home effect or confirmed acquisition is demonstrated."
+    },
+    {
+      "kind": "launch_profile_after_strict_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "published_at": "2026-10-07T21:18:52.000Z",
+      "observed_at": "2026-10-08T07:23:11.476Z",
+      "observation_started_at": "2026-10-08T07:23:11.361Z",
+      "views": 722,
+      "replies": 10,
+      "reposts": 1,
+      "likes": 2,
+      "bookmarks": null,
+      "self_like_visible": true,
+      "note": "Actual later profile counter read after the independent original. Existing self-like and own replies persist; public views may include operator activity and are not independent audience or verified Home outcome. Earlier718-view observation is retained at its own07:13 clock."
+    },
+    {
+      "kind": "strict_declared_group_input_validation_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2108095581906428165",
+      "published_at": "2026-10-08T07:22:07.000Z",
+      "observed_at": "2026-10-08T07:24:20.681Z",
+      "observation_started_at": "2026-10-08T07:24:20.569Z",
+      "publication_verified_at": "2026-10-08T07:24:20.681Z",
+      "views": 1,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "skill_source_commit": "84adb04",
+      "source_commit_is_abbreviated": true,
+      "ci_run_id": "37742589450",
+      "ci_status": "success",
+      "ci_url": "https://github.com/LIghtJUNction/x-quality-growth/actions/runs/37742589450",
+      "tests_passed": 255,
+      "note": "Actual independent original about strict acceptance of upstream-declared frozen content/event/edit-chain groups and first-publication holdout inputs. The validator checks declarations, rather than detecting shared material automatically. Published255 passing tests and source84adb04 correspond to independently verified successful CI run37742589450. No source classifier or verified Home forecast model was trained; no payout qualification or causal growth is established. The initial public view may include the operator."
     }
   ],
   "analytics_observations": [
@@ -2025,6 +2168,83 @@
         "independent_reply_author_count": 1
       },
       "prospective_evaluation_url": "public/forecasts/rise-2108064574675247167-60m.evaluation.json"
+    },
+    {
+      "id": "relationship-voice-comparison-09",
+      "post_url": "https://x.com/LIghtJUNction_x/status/2108090442583851205",
+      "published_at": "2026-10-08T07:01:42.000Z",
+      "primary_variable": "Continue an existing concrete creator-method discussion with a blinded comparison suggestion",
+      "baseline_total_followers": 282,
+      "baseline_observed_at": "2026-10-08T06:47:49.399Z",
+      "confirmed_actions": {
+        "substantive_replies": 1,
+        "original_posts": 0,
+        "likes": 0,
+        "new_follows": 0,
+        "blue_followbacks": 1,
+        "reposts": 0
+      },
+      "initial_public_observation": {
+        "observed_at": "2026-10-08T07:03:11.738Z",
+        "views": 1,
+        "replies": 0,
+        "reposts": 0,
+        "likes": 0,
+        "bookmarks": 0
+      },
+      "planned_age_minutes": 60,
+      "next_observation_due_at": "2026-10-08T08:01:42Z",
+      "24h_observation_due_at": "2026-10-09T07:01:42Z",
+      "first_recheck_observed_at": null,
+      "scheduler_configured": false,
+      "post_action_total_followers": 282,
+      "post_action_profile_observed_at": "2026-10-08T07:13:00.943Z",
+      "operator_interval_profile_net_change": 0,
+      "confirmed_new_followers": null,
+      "matched_age_control_available": false,
+      "causal_attribution": null,
+      "result": "Initial public verification only:1view and zero visible replies/reposts/likes/bookmarks. One existing author reports a future test plan, without execution or results. Profile total282 remains unchanged in the observed operator interval; no high-quality acquisition or verified Home effect is demonstrated.",
+      "note": "The independent6-event partial-list difference has a different window and is not this action's confirmed acquisition. One blue followback is an operator action, not a new follower. No new model, forecast or target is produced."
+    },
+    {
+      "id": "strict-declared-group-input-original-10",
+      "post_url": "https://x.com/LIghtJUNction_x/status/2108095581906428165",
+      "published_at": "2026-10-08T07:22:07.000Z",
+      "primary_variable": "Publish completed strict declared-group input acceptance improvement and verified tests as a new concrete technical result",
+      "baseline_total_followers": 282,
+      "baseline_observed_at": "2026-10-08T07:13:00.943Z",
+      "confirmed_actions": {
+        "original_posts": 1,
+        "substantive_replies": 0,
+        "likes": 0,
+        "new_follows": 0,
+        "blue_followbacks": 0,
+        "reposts": 0
+      },
+      "initial_public_observation": {
+        "observed_at": "2026-10-08T07:24:20.681Z",
+        "views": 1,
+        "replies": 0,
+        "reposts": 0,
+        "likes": 0,
+        "bookmarks": 0
+      },
+      "planned_age_minutes": 60,
+      "next_observation_due_at": "2026-10-08T08:22:07Z",
+      "24h_observation_due_at": "2026-10-09T07:22:07Z",
+      "first_recheck_observed_at": null,
+      "scheduler_configured": false,
+      "post_action_total_followers": 282,
+      "post_action_profile_observed_at": "2026-10-08T07:23:11.476Z",
+      "operator_interval_profile_net_change": 0,
+      "confirmed_new_followers": null,
+      "matched_age_control_available": false,
+      "causal_attribution": null,
+      "skill_source_commit": "84adb04",
+      "ci_run_id": "37742589450",
+      "tests_passed": 255,
+      "result": "Independent original published and publicly reopened with1view and zero replies/reposts/likes/bookmarks.60-minute and24-hour windows are pending. Input validation and passing tests do not establish new training, verified Home improvement, payout qualification or causal acquisition.",
+      "note": "This later publication adds one original to the round total; the earlier relationship phase retains its original0-original/1-reply/1-followback action record. Concurrent publication and operator opens remain confounders; no frozen follower-list clock or cohort denominator changes."
     }
   ],
   "growth_target": {
@@ -2159,6 +2379,25 @@
       "adoption_confirmed": null,
       "new_follower_confirmed": null,
       "note": "Same external author continues with train/test publication-time splits and shared-topic leakage concerns. Retained as one relationship, not a second independent author or confirmed acquisition; no extra reply sent."
+    },
+    {
+      "kind": "existing_author_planned_voice_segment_comparison",
+      "parent_own_post_url": "https://x.com/LIghtJUNction_x/status/2107947524829127073",
+      "followup_own_post_url": "https://x.com/LIghtJUNction_x/status/2108090442583851205",
+      "published_at": "2026-10-08T06:32:28.000Z",
+      "observation_started_at": "2026-10-08T07:00:33.562Z",
+      "observed_at": "2026-10-08T07:00:34.110Z",
+      "source": "Saved public-thread full feedback and capture clock",
+      "external_identity_anonymized": true,
+      "substantive_feedback_confirmed": true,
+      "additional_independent_author_count": 0,
+      "same_existing_author": true,
+      "test_plan_reported": true,
+      "test_execution_confirmed": null,
+      "experiment_result_supplied": false,
+      "adoption_confirmed": null,
+      "new_follower_confirmed": null,
+      "note": "An existing author describes voice discontinuity at segment joins and plans this week to compare repeated whole-paragraph and segmented runs on the same30-second text. This is a reported plan, not completed adoption or a measured result. Repeated feedback from the same author does not add an independent author or establish follower acquisition; no external identity, URL or raw message is published."
     }
   ],
   "blue_cohort_history": [
@@ -2226,6 +2465,24 @@
       "observed_handle_additions_vs_249_baseline": 6,
       "missing_captured_baseline_handles": 0,
       "note": "New capture retains255 distinct handles; unchanged profile256 before/after leaves one identity unresolved. All249 baseline handles are present; six captured handle additions are not confirmed new followers. No full-window blue count or quality rate inferred. Earlier251/253 partial capture remains unchanged."
+    },
+    {
+      "collection_started_at": "2026-10-08T06:49:14.446Z",
+      "collection_ended_at": "2026-10-08T06:55:06.584Z",
+      "observed_at": "2026-10-08T06:56:00.877Z",
+      "scope": "all_followers",
+      "complete": false,
+      "reached_visible_end": true,
+      "stable_ids_available": false,
+      "count": 279,
+      "profile_total": 282,
+      "profile_total_observed_at": "2026-10-08T06:56:00.877Z",
+      "captured_blue_count": 175,
+      "captured_no_badge_count": 104,
+      "uncaptured_identity_gap": 3,
+      "observed_handle_additions_vs_previous_partial": 6,
+      "missing_captured_baseline_handles": 0,
+      "note": "279 distinct handles versus282 in both surrounding profile checks, so the collection is partial despite reaching a stable visible end. Six currently blue captured additions since the earlier273-member partial snapshot are kept in a separate unclassified event batch. No stable-ID acquisition or full-window quality share is established. The later07:13 profile does not replace this collection endpoint."
     }
   ],
   "milestone_observations": [
@@ -2311,6 +2568,32 @@
       "quality_evidence_capture_timestamps_complete": true,
       "cohort_quality_evidence_capture_timestamps_complete": false,
       "note": "One unknown quality label in the unchanged24-event partial capture is resolved under the fixed rubric. The count remains24 and the collection remains273/276, without stable IDs. The lower bound rises from1/24 to2/24 because evidence coverage improved; it is not follower acquisition or a causal growth result. The earlier1 high/2 not matched/21 unknown state was correct at its assessment time. Complete clocks apply only to this follow-up, while the original three reviews retain incomplete evidence timestamps. Individual identity, profile/post URLs and judgment text remain private; the earlier independent cohorts are unchanged."
+    },
+    {
+      "id": "targeted-relationship-quality-20261008T071222",
+      "scope": "targeted_existing_relationship",
+      "source": "Independent review of public original content and existing discussion; current mutual relationship separately observed",
+      "classified_at": "2026-10-08T07:12:22.839288+00:00",
+      "relationship_observed_at": "2026-10-08T07:08:07.479Z",
+      "reviewed_events": 1,
+      "high": 1,
+      "not_high": 0,
+      "unknown": 0,
+      "recent_full_nonquote_originals_per_event": 3,
+      "blue_badges_visually_verified": true,
+      "following_and_follows_you_visible": true,
+      "previously_followed_by_operator": true,
+      "distinct_existing_discussion_author_count": 1,
+      "included_in_current_cohort": false,
+      "included_in_six_event_batch": false,
+      "complete_acquisition_cohort": false,
+      "confirmed_new_followers": null,
+      "confirmed_new_blue_followers": null,
+      "causal_attribution": null,
+      "quality_evidence_window_started_at": "2026-10-08T06:23:01.767Z",
+      "quality_evidence_window_ended_at": "2026-10-08T07:08:07.479Z",
+      "quality_evidence_capture_timestamps_complete": true,
+      "note": "One previously followed blue account has a currently visible mutual relationship and an independent high-quality content review. This targeted assessment is outside both the24-event cohort and the new6-event batch, and changes neither denominator nor quality partition. Multiple methodological responses are from one existing discussion author. Relative/absolute publication-time disagreement is not used to backfill timing. No individual identity, external profile/post URL or judgment text is published; acquisition and causality remain unknown."
     }
   ],
   "observed_blue_event_batches": [
@@ -2332,6 +2615,53 @@
       "confirmed_new_followers": null,
       "full_window_quality_share": null,
       "note": "Two added captured handles are visually verified blue and have three recent full originals reviewed under the unchanged rubric. No missing captured baseline handles. Other identities remain unresolved because the current list differs from the profile total. Do not promote2/2 as full-window100% quality or merge into the earlier completed five-account cohort. Private names and judgments remain ignored."
+    },
+    {
+      "id": "partial-all-followers-20261008T065600",
+      "kind": "independent_partial_capture_blue_handle_difference",
+      "window_started_at": "2026-10-08T05:14:58.325Z",
+      "window_ended_at": "2026-10-08T06:56:00.877Z",
+      "collection_started_at": "2026-10-08T06:49:14.446Z",
+      "collection_ended_at": "2026-10-08T06:55:06.584Z",
+      "observed_at": "2026-10-08T06:56:00.877Z",
+      "scope": "all_followers",
+      "complete": false,
+      "coverage_complete": false,
+      "baseline_complete": false,
+      "identity_basis": "handle",
+      "stable_ids_available": false,
+      "before_captured_count": 273,
+      "before_profile_total": 276,
+      "after_captured_count": 279,
+      "after_profile_total": 282,
+      "after_profile_total_observed_at": "2026-10-08T06:56:00.877Z",
+      "uncaptured_identity_gap": 3,
+      "reached_visible_end": true,
+      "captured_badge_counts": {
+        "blue": 175,
+        "none": 104
+      },
+      "observed_blue_arrivals": 6,
+      "observed_arrivals": 6,
+      "observed_blue_departures": 0,
+      "observed_existing_became_blue": 1,
+      "high": 0,
+      "not_high": 0,
+      "unknown": 6,
+      "quality_reviewed_count": 0,
+      "quality_classification_complete": false,
+      "quality_share_scope": "captured_blue_arrival_events",
+      "quality_share_lower_bound": 0.0,
+      "quality_share_upper_bound": 1.0,
+      "confirmed_new_followers": null,
+      "confirmed_new_blue_followers": null,
+      "confirmed_new_high_quality_blue_followers": null,
+      "full_window_quality_share": null,
+      "general_population_confidence_interval": null,
+      "causal_attribution": "not established",
+      "previous_phase_followbacks_not_recounted": 2,
+      "included_in_current_24_cohort": false,
+      "note": "Six captured identities absent from the prior273-member partial snapshot are currently blue; all six quality labels remain unknown. This05:14:58-to06:56 comparison is independent of the earlier24-event cohort and is not confirmed acquisition since the last action. Current capture279/282 is incomplete, with no stable IDs;0 observed departures does not prove zero churn. One existing captured identity changed from no badge to blue and is excluded from arrivals. Two members had already received followbacks in an earlier phase and those actions are not counted again. Frozen list-end06:55:06.584 and end-profile06:56:00.877 clocks remain separate from the later07:13 profile. Quality bounds are0..1 because no events were graded, not a measured0% quality result. Individual identities and private evidence remain unpublished."
     }
   ],
   "followback_action_batches": [
@@ -2345,6 +2675,20 @@
       "quality_unknown": 2,
       "confirmed_new_followers": null,
       "note": "Two persisted reciprocal relationships are operator followback actions, not confirmed new-follower acquisition. Three full recent originals and substantive-discussion evidence have not been reviewed. Private identities stay ignored; the existing five-account40% cohort is unchanged."
+    },
+    {
+      "id": "relationship-followback-20261008T071143",
+      "collection_started_at": "2026-10-08T07:11:14.359Z",
+      "verified_at": "2026-10-08T07:11:43.790Z",
+      "verification_started_at": "2026-10-08T07:11:43.573Z",
+      "confirmed_followbacks": 1,
+      "blue_badges_visually_verified": true,
+      "following_and_follows_you_reopened": true,
+      "existing_followers_before_action": 1,
+      "quality_unknown": 1,
+      "confirmed_new_followers": null,
+      "causal_attribution": null,
+      "note": "One existing blue follower was followed back and Following/Follows you persisted after reload. This is a confirmed operator action with unknown quality, not new acquisition. Individual identity stays private; it is separate from earlier followback actions and does not alter either observed-cohort denominator."
     }
   ]
 }

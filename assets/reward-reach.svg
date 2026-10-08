@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1344" height="756" viewBox="0 0 1344 756" role="img" aria-labelledby="title desc">
   <title id="title">RISE — 收益门槛实测</title>
-  <desc id="desc">X Creator Studio Original Content Rewards 三次真实观察：2026-10-08T04:02:12.455Z 为534近90天认证用户Home展示、167认证粉丝；2026-10-08T05:28:49.830Z 为534展示、171认证粉丝；2026-10-08T06:16:15.225Z 为534展示、176认证粉丝，回复排除。第三次采集从06:16:14.960Z至06:16:15.225Z，观察时刻保守采用结束时间。最新47.42325分钟窗口滚动展示净变化0，不证明新入展示为0；认证粉丝净变化+5，首末净变化+9，不证明新入蓝V或因果增长。最新展示目标500000、缺口499466、进度0.1068%；认证粉丝目标500、缺口324、进度35.2%。进度条严格按比例，没有最小填充。后台认证粉丝不是蓝V专属，也不是高质量判定。合格收益计数与预测未知；未确认项目准入。</desc>
+  <desc id="desc">X Creator Studio Original Content Rewards 四次真实观察：2026-10-08T04:02:12.455Z 为534近90天认证用户Home展示、167认证粉丝；2026-10-08T05:28:49.830Z 为534展示、171认证粉丝；2026-10-08T06:16:15.225Z 为534展示、176认证粉丝；2026-10-08T07:08:35.839Z 为534展示、177认证粉丝，回复排除。第四次采集从07:08:35.762Z至07:08:35.839Z，观察时刻保守采用结束时间。最新3140.614秒即52.3435666667分钟窗口滚动展示净变化0，认证粉丝净变化+1；首末11183.384秒即186.3897333333分钟滚动展示净变化0，认证粉丝净变化+10。滚动净变化0不证明新入展示为0，也不证明新入蓝V或因果增长。最新展示目标500000、缺口499466、进度0.1068%；认证粉丝目标500、缺口323、进度35.4%。进度条严格按比例，没有最小填充。后台认证粉丝不是蓝V专属，也不是高质量判定。收益资格、合格收益计数与预测未知。</desc>
   <style>
     text{font-family:'Noto Sans CJK SC','Noto Sans',sans-serif}
     .ink{fill:#191b1b}.muted{fill:#636660}.teal{fill:#21796f}
@@ -9,8 +9,8 @@
   <path d="M56 44H91" stroke="#21796f" stroke-width="4" stroke-linecap="round"/>
   <text class="muted" x="109" y="52" font-size="18" font-weight="600" letter-spacing="1.5">RISE / MEASURED ELIGIBILITY</text>
   <text class="ink" x="56" y="120" font-size="48" font-weight="800">收益门槛，先看真实进度</text>
-  <text class="muted" x="59" y="159" font-size="19">最新 · 2026-10-08 06:16:15.225 UTC</text>
-  <text class="muted" x="720" y="159" font-size="19">前次 · 2026-10-08 05:28:49.830 UTC</text>
+  <text class="muted" x="59" y="159" font-size="19">最新 · 2026-10-08 07:08:35.839 UTC</text>
+  <text class="muted" x="720" y="159" font-size="19">前次 · 2026-10-08 06:16:15.225 UTC</text>
 
   <rect x="56" y="198" width="600" height="374" rx="18" fill="#eee8de" stroke="#d8d1c6"/>
   <rect x="688" y="198" width="600" height="374" rx="18" fill="#eee8de" stroke="#d8d1c6"/>
@@ -24,22 +24,22 @@
   </g>
   <g class="ink" font-size="72" font-weight="800">
     <text x="85" y="358">534</text>
-    <text x="717" y="358">176</text>
+    <text x="717" y="358">177</text>
   </g>
   <g class="muted" font-size="27" text-anchor="end">
     <text x="626" y="350">目标 500,000</text>
     <text x="1258" y="350">目标 500</text>
   </g>
 
-  <!-- Length is strictly proportional: 528 × 534/500000 and 528 × 176/500.
+  <!-- Length is strictly proportional: 528 × 534/500000 and 528 × 177/500.
        No minimum fill, dot, rounded cap, or enlarged marker is used. -->
   <rect x="86" y="387" width="528" height="8" fill="#d1d5cb"/>
   <rect id="impression-progress" x="86" y="387" width="0.563904" height="8" fill="#21796f"/>
   <rect x="718" y="387" width="528" height="8" fill="#d1d5cb"/>
-  <rect id="follower-progress" x="718" y="387" width="185.856" height="8" fill="#21796f"/>
+  <rect id="follower-progress" x="718" y="387" width="186.912" height="8" fill="#21796f"/>
   <g class="teal" font-size="31" font-weight="700">
     <text x="87" y="440">0.1068%</text>
-    <text x="719" y="440">35.2%</text>
+    <text x="719" y="440">35.4%</text>
   </g>
   <g class="muted" font-size="22">
     <text x="88" y="496">还差</text>
@@ -47,21 +47,28 @@
   </g>
   <g class="ink" font-size="49" font-weight="800">
     <text x="163" y="503">499,466</text>
-    <text x="795" y="503">324</text>
+    <text x="795" y="503">323</text>
   </g>
   <g class="muted" font-size="18">
-    <text x="88" y="544">534 → 534 · 47.42 分钟后滚动净变化 0</text>
-    <text x="720" y="544">171 → 176 · 同窗口净变化 +5</text>
+    <text x="88" y="544">534 → 534 · 52.34 分钟后滚动净变化 0</text>
+    <text x="720" y="544">176 → 177 · 同窗口净变化 +1</text>
   </g>
 
-  <rect x="56" y="607" width="203" height="40" rx="10" fill="#deebe5" stroke="#bfd5cb"/>
-  <rect x="279" y="607" width="264" height="40" rx="10" fill="#deebe5" stroke="#bfd5cb"/>
-  <g class="teal" font-size="21" font-weight="600">
-    <text x="78" y="635">预测待训练</text>
-    <text x="301" y="635">合格收益计数未知</text>
+  <text class="muted" x="59" y="594" font-size="17">4 次实测（2026-10-08 UTC）· 数据：展示 / 认证粉丝 · 首末 186.39 分钟净变化 0 / +10</text>
+  <g class="muted" font-size="16" text-anchor="middle">
+    <text x="210" y="621">04:02:12.455</text>
+    <text x="518" y="621">05:28:49.830</text>
+    <text x="826" y="621">06:16:15.225</text>
+    <text x="1134" y="621">07:08:35.839</text>
   </g>
-  <text class="muted" x="59" y="676" font-size="19">滚动净变化 0 不证明新入展示为 0；认证粉丝 +5 不证明新增蓝 V 或因果增长。</text>
-  <text class="muted" x="59" y="701" font-size="18">3 次实测 · 首末 167 → 176（+9）；认证不代表高质量，合格收益计数与预测仍未知。</text>
+  <g class="teal" font-size="21" font-weight="600" text-anchor="middle">
+    <text x="210" y="649">534 / 167</text>
+    <text x="518" y="649">534 / 171</text>
+    <text x="826" y="649">534 / 176</text>
+    <text x="1134" y="649">534 / 177</text>
+  </g>
+  <text class="muted" x="59" y="678" font-size="18">滚动净变化 0 不等于新入展示 0；后台认证分类不是蓝 V 专属，也不代表高质量。</text>
+  <text class="muted" x="59" y="703" font-size="18">首末净变化 +10 不证明因果增长；收益资格、合格收益计数与预测仍未知。</text>
   <path d="M56 721H1288" stroke="#d8d1c6"/>
   <text class="muted" x="59" y="746" font-size="17">来源 · X Creator Studio / Original Content Rewards</text>
   <text class="muted" x="1286" y="746" font-size="17" text-anchor="end">public/reward-observations.json</text>
