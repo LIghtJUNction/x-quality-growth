@@ -45,12 +45,12 @@ The additional model target is future 1-hour/24-hour per-post verified Home Time
 <!-- RISE:METRICS:START -->
 | Actual observation | Value |
 | --- | --- |
-| Total followers | 175 → 287 (+112) |
+| Total followers | 175 → 288 (+113) |
 | Newly observed blue accounts | 24; confirmed new followers: unknown |
 | Quality classification | 2 high / 2 not matched / 20 unclassified |
 | High-quality share | Pending classification; unknown is not zero |
 | Current observed-cohort window | 2026-10-08T00:23:58.426Z → 2026-10-08T05:14:58.325Z |
-| Latest profile observation | 2026-10-08T10:50:44.506Z |
+| Latest profile observation | 2026-10-08T11:51:16.673Z |
 | Follower-list coverage at collection | 273/276 captured; list incomplete |
 | Full-window high-quality share | Unknown; incomplete follower list |
 | Previous independent cohort | 2 high / 3 not matched / 0 unclassified (n=5) |
