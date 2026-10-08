@@ -1,0 +1,133 @@
+{
+  "contract_version": "rise-prospective-exposure-1",
+  "forecast_id": "rise-2108095581906428165-60m",
+  "status": "frozen_before_target",
+  "method_version": "constant_and_recent_same_source_rate_v1",
+  "post_url": "https://x.com/LIghtJUNction_x/status/2108095581906428165",
+  "post_id": "2108095581906428165",
+  "version": "published_version_no_edit_evidence",
+  "metric": "views",
+  "source": "public_views",
+  "exposure_unit": "platform_display_events_not_unique_people",
+  "aggregation": "cumulative_counter_as_reported",
+  "published_at": "2026-10-08T07:22:07.000Z",
+  "origin_at": "2026-10-08T07:46:33.922Z",
+  "input_cutoff_at": "2026-10-08T07:46:33.922Z",
+  "generated_at": "2026-10-08T07:51:59.057339Z",
+  "frozen_at": "2026-10-08T07:51:59.057345Z",
+  "freeze_time_basis": "Actual execution time when these forecast contents were sealed before exclusive write.",
+  "target_at": "2026-10-08T08:22:07.000000Z",
+  "target_age_seconds": 3600,
+  "origin_age_seconds": 1466.922,
+  "forecast_horizon_seconds": 2133.078,
+  "n_numeric_points": 2,
+  "input_snapshot": {
+    "post_url": "https://x.com/LIghtJUNction_x/status/2108095581906428165",
+    "published_at": "2026-10-08T07:22:07.000Z",
+    "metric": "views",
+    "source": "public_views",
+    "numeric_observations": [
+      {
+        "observed_at": "2026-10-08T07:24:20.681Z",
+        "source": "public_views",
+        "views": 1,
+        "observation_started_at": "2026-10-08T07:24:20.569Z",
+        "observation_completed_at": "2026-10-08T07:24:20.681Z",
+        "available_at": "2026-10-08T07:24:20.681Z",
+        "time_basis": "completed_capture_is_conservative_availability_anchor; count_read_within_capture_interval",
+        "public_counter_evidence_sha256": "7b1f1c9245a0cd42052bca2c4844fb1d7409d998810db3b3b07d48507719defa",
+        "capture_metadata_sha256": "f46b25ca66cbd44afbb437487fe4e90334f1e9ba9ab7a73a4323b4c69d918c7a"
+      },
+      {
+        "observed_at": "2026-10-08T07:46:33.922Z",
+        "source": "public_views",
+        "views": 3,
+        "observation_started_at": "2026-10-08T07:46:33.783Z",
+        "observation_completed_at": "2026-10-08T07:46:33.922Z",
+        "available_at": "2026-10-08T07:46:33.922Z",
+        "time_basis": "completed_capture_is_conservative_availability_anchor; count_read_within_capture_interval",
+        "public_counter_evidence_sha256": "623a71e5c21861438841f880656ab0f6f157cbed7c7fdfc7efaac9fe0d6bcf31",
+        "capture_metadata_sha256": "4537d5f6397406bde99d2392b8201fe659d513f4d0cea771ec198476e153a5a1"
+      }
+    ]
+  },
+  "input_snapshot_sha256": "1a9972fc17ad4e147aa31c7a786a5c6e0f3ec3a01cf219b8c52a4fcffbdff1e6",
+  "source_code_sha256": "24f4fb69d72dbc23d30bd39a1c45dc768cc1e5ae6c45bb0391ea16d44f80cb5d",
+  "capture_metadata_sha256": "51b9d5daa9558265ceb03b1a6d49e4dfdc73c0f3bb9a4180d0cd45d68d3b3e89",
+  "public_counter_evidence_sha256": "13fcd263fa943bf8ada74c3afb6a8b03cfeb7cdc8d4953c056881f3aa50f48f7",
+  "predictions": {
+    "constant": {
+      "point_prediction": 3.0,
+      "rule": "Keep the last observed cumulative count.",
+      "model_fitted": false,
+      "prediction_interval": null
+    },
+    "recent_rate": {
+      "point_prediction": 6.199838588822276,
+      "rule": "last_count + (last_count-first_count)/(last_time-first_time)*(target_at-last_time)",
+      "observed_delta": 2,
+      "observed_interval_seconds": 1333.241,
+      "views_per_second": 0.0015001038821938419,
+      "model_fitted": false,
+      "prediction_interval": null
+    },
+    "torch_saturation": {
+      "point_prediction": null,
+      "status": "not_applicable_no_target_post_fit_or_validated_transfer"
+    },
+    "verified_home_impressions": {
+      "point_prediction": null,
+      "status": "not_a_target_or_available_model_input"
+    }
+  },
+  "observation_policy": {
+    "early_tolerance_seconds": 0,
+    "late_tolerance_seconds": 300,
+    "accepted_observed_at_start": "2026-10-08T08:22:07.000000Z",
+    "accepted_observed_at_end": "2026-10-08T08:27:07.000000Z",
+    "selection_rule": "First successful same-source numeric read at/after target within the late budget; retain failed/missing reads.",
+    "interpretation": "Record real observed_at/age/lateness. A delayed read is a target-window proxy, not exact age-3600 truth.",
+    "missed_window": "Keep late observation separate; exclude from primary60-minute matched-window errors. Do not interpolate or rewrite predictions.",
+    "budget_is_x_algorithm_parameter": false
+  },
+  "outcome": {
+    "observed_at": null,
+    "actual": null,
+    "exact_target_actual": null,
+    "lateness_seconds": null,
+    "errors": null
+  },
+  "error_contract": {
+    "signed_error": "point_prediction - actual",
+    "absolute_error": "abs(point_prediction - actual)",
+    "squared_error": "(point_prediction - actual)^2",
+    "smape_percent": "200*abs(point_prediction-actual)/(abs(point_prediction)+abs(actual)); both zero =>0",
+    "missing_actual": "All errors remain null.",
+    "scope": "Descriptive errors against captured target-window counter; exact60-minute truth remains null for a delayed read.",
+    "counter_revision": "Flag a later counter below the origin; retain raw counts, reconcile before rate conclusions; never clamp to zero."
+  },
+  "limitations": [
+    "Only two reviewed same-post public counter points; no trained, calibrated or generalized content model.",
+    "Origin is the real capture end at age1466.922 seconds, not a fabricated15-minute observation; target age remains3600 seconds.",
+    "Counters may include operator opens and update asynchronously. Other posts, conversations and account operations run concurrently; follower attribution and exposure origin are unknown.",
+    "Two different native posts do not establish independent random samples: the same account and related topics can create dependence.",
+    "No torch training/transfer, authorship probabilities or verified Home model/labels are used; prediction intervals and future outcomes are unknown.",
+    "Recorded capture completeness and first-read selection are operator declarations, not independent proof that omitted observations do not exist.",
+    "Preserve this file unchanged. Record the first successful same-source target-window read and its real age in a separate evaluation; delayed values are proxies, not exact60-minute truth."
+  ],
+  "input_capture_hashes": [
+    {
+      "observed_at": "2026-10-08T07:24:20.681Z",
+      "public_counter_evidence_sha256": "7b1f1c9245a0cd42052bca2c4844fb1d7409d998810db3b3b07d48507719defa",
+      "capture_metadata_sha256": "f46b25ca66cbd44afbb437487fe4e90334f1e9ba9ab7a73a4323b4c69d918c7a"
+    },
+    {
+      "observed_at": "2026-10-08T07:46:33.922Z",
+      "public_counter_evidence_sha256": "623a71e5c21861438841f880656ab0f6f157cbed7c7fdfc7efaac9fe0d6bcf31",
+      "capture_metadata_sha256": "4537d5f6397406bde99d2392b8201fe659d513f4d0cea771ec198476e153a5a1"
+    }
+  ],
+  "capture_hash_basis": "Per-capture hashes bind exact raw bytes; top-level aggregate hashes bind the chronological JSON lists of those hashes.",
+  "input_selection_rule": "Latest two successful same-source numeric captures available by input_cutoff_at; this reviewed history contains exactly these two records. Do not select points after viewing target outcomes.",
+  "future_verification": null
+}
