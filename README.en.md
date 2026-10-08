@@ -57,7 +57,7 @@ The additional model target is future 1-hour/24-hour per-post verified Home Time
 | Observed-cohort quality lower / possible upper bound | 8.3%–91.7% |
 | First profile observation | Timestamp unavailable |
 | Earlier blue-count observation (separate window) | 2026-10-07T21:04:50.311Z |
-| GitHub stars / forks | 1 / 0 · 2026-10-08T13:26:50.943894+00:00 |
+| GitHub stars / forks | 1 / 0 · 2026-10-08T23:19:56.003741+00:00 |
 
 Bounds describe the observed blue cohort, not confirmed new followers. Badge upgrades and handle changes remain possible. Public post counters may include self-interactions.
 
