@@ -23,6 +23,45 @@ class PublicEvidenceTests(unittest.TestCase):
         self.assertIn('50.0%', render_public.block(self.data, True))
         self.assertIn('50.0%', render_public.block(self.data))
 
+    def test_partial_follower_capture_discloses_its_collection_gap_in_both_languages(self):
+        self.data['blue_cohort'].update(
+            observed_arrivals=24, high=1, not_high=2, unknown=21,
+            scope='all_followers', complete=False, coverage_complete=False,
+            captured_list_count=273, end_profile_total=276,
+            full_window_quality_share=None)
+        # A later profile observation belongs to another clock and cannot replace
+        # the denominator retained from the list's own collection.
+        self.data['follower_observations'][-1]['total'] = 277
+        en = render_public.block(self.data, True)
+        zh = render_public.block(self.data)
+        art = render_public.metric_art(self.data)
+        self.assertIn('273/276 captured; list incomplete', en)
+        self.assertIn('Full-window high-quality share | Unknown', en)
+        self.assertIn('已采集 273/276；名单不完整', zh)
+        self.assertIn('全窗口高质量占比 | 未知', zh)
+        self.assertIn('Partial follower list: 273/276 captured; full-window quality share unknown.', art)
+        for output in (en, zh, art):
+            self.assertNotIn('273/277', output)
+
+    def test_full_or_other_scope_cohort_keeps_the_existing_output(self):
+        self.data['blue_cohort'].update(
+            observed_arrivals=2, high=1, not_high=1, unknown=0,
+            scope='all_followers', complete=True, coverage_complete=True,
+            captured_list_count=273, end_profile_total=276)
+        complete_en = render_public.block(self.data, True)
+        complete_zh = render_public.block(self.data)
+        complete_art = render_public.metric_art(self.data)
+        self.assertIn('50.0%', complete_en)
+        self.assertIn('50.0%', complete_zh)
+        self.assertIn('Blue badges may be upgrades or renamed accounts; profile and cohort dates differ.', complete_art)
+        self.assertNotIn('Full-window high-quality share', complete_en)
+        self.assertNotIn('全窗口高质量占比', complete_zh)
+        self.assertNotIn('273/276', complete_art)
+        self.data['blue_cohort'].update(scope='verified_followers', complete=False)
+        self.assertEqual(render_public.block(self.data, True), complete_en)
+        self.assertEqual(render_public.block(self.data), complete_zh)
+        self.assertEqual(render_public.metric_art(self.data), complete_art)
+
     def test_empty_cohort_does_not_claim_zero_quality(self):
         self.data['blue_cohort'].update(observed_arrivals=0, high=0, not_high=0, unknown=0)
         self.assertIn('N/A', render_public.metric_art(self.data))
@@ -81,7 +120,7 @@ class PublicEvidenceTests(unittest.TestCase):
             lambda d: d['blue_cohort'].update(high=True),
             lambda d: d['blue_observations'][0].update(count=-1),
             lambda d: d['blue_observations'][0].update(count='88'),
-            lambda d: d['blue_cohort'].update(confirmed_new_followers=13),
+            lambda d: d['blue_cohort'].update(confirmed_new_followers=d['blue_cohort']['observed_arrivals'] + 1),
             lambda d: d['posts'][0].update(url='https://x.com/someone_else/status/123'),
             lambda d: d['posts'][0].update(url='https://x.com/LIghtJUNction_x/status/123?x=1'),
             lambda d: d['posts'][0].update(observed_at='2026-10-08T00:00:00'),

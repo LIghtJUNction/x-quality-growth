@@ -16,6 +16,16 @@
       "source_url": "https://x.com/i/jf/creators/original_content_rewards",
       "payout_qualified_impressions": null,
       "note": "Exact displayed eligibility counters. Verified followers are the backend category, not a blue-only or high-quality count. No per-post qualified data, daily expiry history, forecast or program admission is established."
+    },
+    {
+      "observed_at": "2026-10-08T05:28:49.830Z",
+      "verified_home_impressions_90d": 534,
+      "verified_followers": 171,
+      "replies_excluded": true,
+      "source": "X Creator Studio / Original Content Rewards",
+      "source_url": "https://x.com/i/jf/creators/original_content_rewards",
+      "payout_qualified_impressions": null,
+      "note": "Second exact displayed eligibility observation. Rolling net change since prior observation is0 impressions and+4 backend verified followers. Backend refresh timing, gross arrivals, expiry and causal attribution are unknown; not blue-only or high-quality follower counts."
     }
   ]
 }

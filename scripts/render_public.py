@@ -170,6 +170,15 @@ def quality_bounds(cohort):
     return (cohort['high'] / n, (cohort['high'] + cohort['unknown']) / n) if n else (None, None)
 
 
+def partial_follower_coverage(cohort):
+    """Keep a partial all-followers capture's own denominator, not a later profile."""
+    if cohort.get('complete') is False and cohort.get('scope') == 'all_followers':
+        captured = cohort.get('captured_list_count')
+        total = cohort.get('end_profile_total')
+        return f'{captured if captured is not None else "unknown"}/{total if total is not None else "unknown"}'
+    return None
+
+
 def observed_date(row):
     return (row or {}).get('observed_at') or 'Timestamp unavailable'
 
@@ -208,7 +217,11 @@ def metric_art(data):
     low, high = quality_bounds(c)
     bound_label = f'Observed cohort quality: confirmed lower bound {low:.1%}; possible upper bound {high:.1%}.' if low is not None else 'Observed cohort quality: N/A — no observed arrivals.'
     body += text(38, 516, bound_label, 15, '#8b5520')
-    body += text(38, 550, 'Blue badges may be upgrades or renamed accounts; profile and cohort dates differ.', 14, '#8b5520')
+    coverage = partial_follower_coverage(c)
+    coverage_label = (f'Partial follower list: {coverage} captured; full-window quality share unknown.'
+                      if coverage is not None else
+                      'Blue badges may be upgrades or renamed accounts; profile and cohort dates differ.')
+    body += text(38, 550, coverage_label, 14, '#8b5520')
     body += text(38, 579, 'Observed changes include concurrent activity; no causal growth claim.', 15)
     body += text(38, 610, f'Latest profile observation: {date}', 13, '#636660')
     return svg(body, height=642)
@@ -337,6 +350,14 @@ def block(data, en=False):
                  f'| 高质量占比 | {quality_zh} |',
                  f'| 当前观察队列窗口 | {cohort_window} |',
                  f'| 最新账号采集 | {observed_date(b)} |']
+    coverage = partial_follower_coverage(c)
+    if coverage is not None:
+        if en:
+            lines += [f'| Follower-list coverage at collection | {coverage} captured; list incomplete |',
+                      '| Full-window high-quality share | Unknown; incomplete follower list |']
+        else:
+            lines += [f'| 粉丝名单采集覆盖 | 已采集 {coverage}；名单不完整 |',
+                      '| 全窗口高质量占比 | 未知；粉丝名单不完整 |']
     history = data.get('blue_cohort_history', [])
     if history:
         prior = history[-1]

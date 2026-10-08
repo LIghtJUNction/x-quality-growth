@@ -32,9 +32,11 @@ The [30-file manifest](references/upstream.json) binds official commit `78460ca8
 
 **Additional operating target: increase original-content verified Home Timeline impressions toward 500,000 in 90 days.** New blue-check followers and their high-quality share remain targets. Reply impressions are excluded; eligibility counters and payout-qualified impressions remain separate. [Current X policy](https://help.x.com/en/using-x/original-content-rewards).
 
-<img src="assets/reward-reach.svg" width="100%" alt="Actual backend baseline at 04:02 UTC on October 8: 534/500000 verified Home Timeline impressions and 167/500 verified followers. The new forecast is untrained; payout-qualified impressions are unknown." />
+<img src="assets/reward-reach.svg" width="100%" alt="Two real backend captures on October 8, from 04:02 to 05:28 UTC: rolling 90-day verified Home impressions remain 534, while verified followers change from 167 to 171. Rolling net change is not new impression inflow or causal growth; forecasts and payout-qualified counts remain unknown." />
 
-Actual capture **2026-10-08 04:02:12.455 UTC**: **534 / 500,000 impressions (0.1068%)**, a gap of **499,466**; **167 / 500 verified followers**, a gap of **333**. The backend verified category is neither a verified blue-only count nor a high-quality count. [Observed eligibility counters](public/reward-observations.json).
+Latest actual capture **2026-10-08 05:28:49.830 UTC**: rolling 90-day verified Home Timeline impressions, excluding replies, remain **534 / 500,000 (0.1068%)**, a gap of **499,466**; **171 / 500 verified followers (34.2%)**, a gap of **329**. The backend verified category is neither a verified blue-only count nor a high-quality count. [Observed eligibility counters](public/reward-observations.json).
+
+The earlier **04:02:12.455 UTC** capture showed 534 impressions and 167 verified followers. Over **86.62 minutes**, rolling impressions have a **0 net change** and verified followers a **+4 net change**. A flat rolling counter does not prove zero new impression inflow; these captures establish neither growth caused by operating actions nor reward eligibility. Forecasts and payout-qualified counts remain unknown.
 
 The additional model target is future 1-hour/24-hour per-post verified Home Timeline impression increments. Per-post labels are missing, so predictions remain unknown rather than total views multiplied by a verified ratio. Rolling 90-day progress must also subtract expiring impressions. X excludes automatically created or posted content from payout eligibility; Codex-posted experiments are not payout evidence. Human original creation, manual publication and automated research/statistics remain separately recorded. [Target and strategy limits](references/reward-reach.en.md).
 
@@ -43,14 +45,16 @@ The additional model target is future 1-hour/24-hour per-post verified Home Time
 <!-- RISE:METRICS:START -->
 | Actual observation | Value |
 | --- | --- |
-| Total followers | 175 → 270 (+95) |
-| Newly observed blue accounts | 5; confirmed new followers: unknown |
-| Quality classification | 2 high / 3 not matched / 0 unclassified |
-| High-quality share | 40.0% |
-| Current observed-cohort window | 2026-10-07T22:58:02.912Z → 2026-10-08T00:10:06.403Z |
-| Latest profile observation | 2026-10-08T03:23:30.786Z |
-| Previous independent cohort | 0 high / 11 not matched / 1 unclassified (n=12) |
-| Observed-cohort quality lower / possible upper bound | 40.0%–40.0% |
+| Total followers | 175 → 277 (+102) |
+| Newly observed blue accounts | 24; confirmed new followers: unknown |
+| Quality classification | 1 high / 2 not matched / 21 unclassified |
+| High-quality share | Pending classification; unknown is not zero |
+| Current observed-cohort window | 2026-10-08T00:23:58.426Z → 2026-10-08T05:14:58.325Z |
+| Latest profile observation | 2026-10-08T05:33:06.588Z |
+| Follower-list coverage at collection | 273/276 captured; list incomplete |
+| Full-window high-quality share | Unknown; incomplete follower list |
+| Previous independent cohort | 2 high / 3 not matched / 0 unclassified (n=5) |
+| Observed-cohort quality lower / possible upper bound | 4.2%–91.7% |
 | First profile observation | Timestamp unavailable |
 | Earlier blue-count observation (separate window) | 2026-10-07T21:04:50.311Z |
 | GitHub stars / forks | 1 / 0 · 2026-10-07T21:22:27.159136+00:00 |
@@ -59,10 +63,10 @@ Bounds describe the observed blue cohort, not confirmed new followers. Badge upg
 
 [RISE launch post](https://x.com/LIghtJUNction_x/status/2107943767382847844)
 
-[Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2108048876037124291)
+[Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2108069404860887280)
 <!-- RISE:METRICS:END -->
 
-Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. The current five-account observed cohort is fully classified; the earlier twelve-account cohort still has one unknown and is retained separately. We keep those limitations visible.
+Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. The current partial observed cohort has 24 identities: 1 high, 2 not matched and 21 unknown. The historical five-account cohort is fully classified; the earlier twelve-account cohort still has one unknown. All three remain independent. We keep those limitations visible.
 
 Reusable material: [three Git states in AI code review](references/ai-code-review-case.md), with bilingual explanations and reproduced command output.
 
@@ -74,6 +78,9 @@ Reusable material: [three Git states in AI code review](references/ai-code-revie
 
 Actual published examples:
 
+- [Real failed backtest: the small model has not beaten matched-window simple baselines](https://x.com/LIghtJUNction_x/status/2108064574675247167)
+- [Developer feedback: reproduction entry, exclusion evidence and reasons for changes](https://x.com/LIghtJUNction_x/status/2108060803639500970)
+- [Short-video experiment: repeat tasks and retain failures, time and costs](https://x.com/LIghtJUNction_x/status/2108067265497485702)
 - [Independent algorithm original: follow direction and conversation filters](https://x.com/LIghtJUNction_x/status/2108028923200339985)
 - [Keyframes and sample delivered to the requesting author](https://x.com/LIghtJUNction_x/status/2108025662980358354)
 - [Harness training discussion: local and remote controls](https://x.com/LIghtJUNction_x/status/2108011337209270512)
@@ -100,15 +107,15 @@ Completed older windows remain available: [matrix, 12 views at 60.11 minutes](pu
 
 [Eight rough keyframes](https://x.com/LIghtJUNction_x/status/2108022019157873061) and a [12-second sample video](https://x.com/LIghtJUNction_x/status/2108025662980358354) were actually delivered to the author who requested help. Object destination remains unknown; continuous playback review remains pending. The [Luna API reply](https://x.com/LIghtJUNction_x/status/2108016718492909780) is untested advice. This is one ongoing relationship, not one new author or follower per message.
 
-The [independent algorithm original](https://x.com/LIghtJUNction_x/status/2108028923200339985) was published at **02:57:15 UTC**, with image, ALT and source link reopened and verified. Initial counters were two views and zero interactions. Its **03:57:15 UTC** 60-minute point and next-day **02:57:15 UTC** 24-hour point remain pending; this is not a fair A/B comparison.
+The [independent algorithm original](https://x.com/LIghtJUNction_x/status/2108028923200339985) was published at **02:57:15 UTC**, with image, ALT and source link reopened and verified. Initial counters were two views and zero interactions. Its actual 60-minute observation at **03:57:42.584 UTC** was 27.584 seconds late: 33 public views, zero external replies and one visible self-like, with zero independent likes. The next-day **02:57:15 UTC** 24-hour observation remains pending; this is not a fair A/B comparison.
 
-The five-account observed cohort's 40% is unchanged. Two high-quality events in an incomplete older list, targeted reviews and this round's two blue followbacks remain separate. The two followback recipients' quality is still unknown; confirmed acquisition is not reported. No unattended X checks are configured. The previous coverage-boundary iteration passed 118 tests; this source-and-parameter review passed **124 tests**.
+The five-account observed cohort's 40% is unchanged. Two high-quality events in an incomplete older list, targeted reviews and this round's two blue followbacks remain separate. The two followback recipients' quality is still unknown; confirmed acquisition is not reported. No unattended X checks are configured. The previous coverage-boundary iteration passed 118 tests; the historical source-and-parameter review passed **124 tests**. This partial-list disclosure, real-feedback and separate verified Home target update passed **226 tests** and skill validation.
 
 ## Statistics and prediction: test against actual error
 
 <img src="assets/statistics.svg" width="100%" alt="Follower net rates and midpoint-based acceleration from actual timestamps, retaining missing data and unequal windows" />
 
-The latest profile reading is **270 followers / 264 following** at **2026-10-08 03:23:30.786 UTC**. From the first precisely timed count of 204 to 270, the average net rate is **10.44 followers/hour** (0.002899/second); the latest 33.94-minute interval has zero net change. The initial 175 count has no exact timestamp and is excluded from rates. The five-account cohort's **40%** remains that observed cohort's quality share, not account-wide quality or confirmed acquisition.
+The latest profile reading is **277 followers / 269 following** at **2026-10-08 05:33:06.588 UTC**. From the first precisely timed count of 204 to 277, the average net rate is **8.60 followers/hour** (0.002390/second); the latest 17.05-minute interval has net change +1. The initial 175 count has no exact timestamp and is excluded from rates. The five-account cohort's **40%** remains that observed cohort's quality share, not account-wide quality or confirmed acquisition.
 
 Rate is `follower change / elapsed time`. Acceleration divides the change between two interval rates by the gap between their **window midpoints**, in followers/hour². These describe net changes; they cannot separate arrivals and departures or establish a growth mechanism. Post impressions, engagements, detail expands, profile visits and clicks retain their own sources and collection times. Public views and owner impressions stay separate; unattributed per-post acquisition remains null.
 
