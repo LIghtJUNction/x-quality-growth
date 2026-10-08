@@ -18,6 +18,8 @@ Change one content variable per round and compare original posts at matching age
 
 ## Record and predict the actual target
 
+**Label-access check, October 8, 2026:** The official [X API Metrics documentation](https://docs.x.com/x-api/fundamentals/metrics) lists public, private and organic `impression_count` fields, but this review found no per-post field jointly restricting verified viewers and Home placement. The [official export-discrepancy explanation](https://help.x.com/en/business-and-advertising/common-analytics-discrepancies) does not define that label either. This covers the public documentation reviewed, not every internal field or account interface. First obtain and verify the actual matching dashboard detail or export before creating training labels. Ordinary impressions, Premium impressions from any placement and changes in an account's rolling 90-day total cannot be assigned directly to individual posts as verified Home labels.
+
 **Per post:** build future one-hour and 24-hour labels only when official detail provides a verifiable cumulative original verified Home count `I(t)`: `Y_h = I(t+h) - I(t)`. Preserve the permalink, publication time, actual collection times, post ages, dashboard source, and counter definition. Exclude replies and retain the real window when late. Public views, ordinary impressions, and counters without Home/verified breakdowns cannot replace this label. Investigate counter revisions or definition changes before calculating a delta.
 
 **Account level:** use the same backend definition for the rolling 90-day count:

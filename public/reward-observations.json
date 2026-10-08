@@ -48,6 +48,17 @@
       "source_url": "https://x.com/i/jf/creators/original_content_rewards",
       "payout_qualified_impressions": null,
       "note": "Fourth exact eligibility-counter observation. Since the previous06:16:15.225Z capture, rolling verified Home impressions have net change0 and backend verified followers net change+1. Backend category and refresh timing, gross arrivals, expiry, payout qualification and causal attribution remain unknown. This does not establish new blue or high-quality acquisitions; no per-post verified Home label or forecast is inferred."
+    },
+    {
+      "observed_at": "2026-10-08T07:58:18.986Z",
+      "observation_started_at": "2026-10-08T07:58:18.865Z",
+      "verified_home_impressions_90d": 534,
+      "verified_followers": 177,
+      "replies_excluded": true,
+      "source": "X Creator Studio / Original Content Rewards",
+      "source_url": "https://x.com/i/jf/creators/original_content_rewards",
+      "payout_qualified_impressions": null,
+      "note": "Fifth exact eligibility-counter observation; observed_at conservatively uses the capture-completion time. Since the previous 07:08:35.839Z capture, rolling verified Home impressions and backend verified followers both have net change 0. Backend refresh timing, gross arrivals, expiry, payout qualification and causal attribution remain unknown. The unchanged rolling counter does not establish zero incoming impressions; no new blue or high-quality acquisition, per-post verified Home label or forecast is inferred."
     }
   ]
 }

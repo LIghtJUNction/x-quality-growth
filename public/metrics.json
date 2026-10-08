@@ -149,6 +149,20 @@
       "total": 282,
       "following": 271,
       "note": "Actual public profile after the newly published strict input-validation original:282 followers/271 following. Total is unchanged from the earlier282-profile observations. This separate clock does not replace the frozen279/282 list endpoint; no confirmed acquisition or causal effect is inferred."
+    },
+    {
+      "observed_at": "2026-10-08T07:59:32.891Z",
+      "observation_started_at": "2026-10-08T07:59:32.747Z",
+      "total": 282,
+      "following": 271,
+      "note": "Actual public profile:282 followers/271 following. This later clock preserves the frozen279/282 list denominator and original collection endpoint. No new acquisition, quality change or causal growth is inferred."
+    },
+    {
+      "observed_at": "2026-10-08T08:09:38.594Z",
+      "observation_started_at": "2026-10-08T08:09:38.239Z",
+      "total": 282,
+      "following": 272,
+      "note": "Actual public profile after one persisted blue followback of an existing follower. Total is unchanged from the latest282 observation; following rose from271 to272. This operator action does not establish acquisition or quality improvement; frozen list coverage and historical cohorts retain their own clocks."
     }
   ],
   "blue_observations": [
@@ -733,6 +747,21 @@
       "ci_url": "https://github.com/LIghtJUNction/x-quality-growth/actions/runs/37742589450",
       "tests_passed": 255,
       "note": "Actual independent original about strict acceptance of upstream-declared frozen content/event/edit-chain groups and first-publication holdout inputs. The validator checks declarations, rather than detecting shared material automatically. Published255 passing tests and source84adb04 correspond to independently verified successful CI run37742589450. No source classifier or verified Home forecast model was trained; no payout qualification or causal growth is established. The initial public view may include the operator."
+    },
+    {
+      "kind": "verified_home_target_progress_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108108345542590472",
+      "published_at": "2026-10-08T08:12:50.000Z",
+      "observed_at": "2026-10-08T08:15:28.999Z",
+      "observation_started_at": "2026-10-08T08:15:27.933Z",
+      "publication_verified_at": "2026-10-08T08:15:28.999Z",
+      "views": 1,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "parent_url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "note": "Actual new reply under the fixed pinned entrance reports unchanged282 followers and534/177 eligibility counters at their separate real clocks. Second public-view forecast remains pending and is explicitly not a verified Home model. Full text, source link, Codex disclosure and counters reopened; operator reply and initial view are not independent audience or eligible payout evidence."
     }
   ],
   "launch_post": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -862,6 +891,19 @@
         "Same partial24observedbluecohort:2high/2not_high/20unknown after review; not follower growth",
         "176 backend verifiedfollowers and534verifiedHome@06:16:15.225Z;Home unchanged",
         "Real frozen prospective target:26publicviews33.906seconds late, absolute errors12/1.79036,n1,oldPyTorchnotparticipating;242tests passed"
+      ]
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108108345542590472",
+      "parent": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "kind": "measured-progress",
+      "verified_at": "2026-10-08T08:15:28.999Z",
+      "reported_profile_observation": "2026-10-08T08:09:38.594Z",
+      "reported_reward_observation": "2026-10-08T07:58:18.986Z",
+      "changes": [
+        "282 actual followers; current phase total unchanged",
+        "Fifth official backend read534 verified Home impressions and177 verified followers, both rolling net changes0; gross/expiry/qualification unknown",
+        "Second public-view forecast frozen and published before08:22:07 target;3/6.1998386 predictions remain pending and do not predict verified Home"
       ]
     }
   ],
@@ -1754,6 +1796,110 @@
       "ci_url": "https://github.com/LIghtJUNction/x-quality-growth/actions/runs/37742589450",
       "tests_passed": 255,
       "note": "Actual independent original about strict acceptance of upstream-declared frozen content/event/edit-chain groups and first-publication holdout inputs. The validator checks declarations, rather than detecting shared material automatically. Published255 passing tests and source84adb04 correspond to independently verified successful CI run37742589450. No source classifier or verified Home forecast model was trained; no payout qualification or causal growth is established. The initial public view may include the operator."
+    },
+    {
+      "kind": "learning_transfer_method_reply_later_external_appreciation",
+      "url": "https://x.com/LIghtJUNction_x/status/2108073044791210344",
+      "published_at": "2026-10-08T05:52:34.000Z",
+      "observation_started_at": "2026-10-08T07:44:08.165Z",
+      "observed_at": "2026-10-08T07:44:08.342Z",
+      "views": 18,
+      "replies": 1,
+      "reposts": 0,
+      "likes": 1,
+      "bookmarks": null,
+      "actual_age_seconds": 6694.342,
+      "actual_age_minutes": 111.57236666666667,
+      "source": "Reopened public thread counters",
+      "fixed_window_check_complete": false,
+      "note": "Later public read at111minutes34.342seconds of post age, not an exact60-minute endpoint. The reply and separate notification provide real acknowledgement from the same existing mutual author. Public counts are not independent audience, experiment adoption, verified Home impressions or confirmed acquisition; earlier1-view publication observation remains unchanged."
+    },
+    {
+      "kind": "launch_profile_later_observation",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "published_at": "2026-10-07T21:18:52.000Z",
+      "observation_started_at": "2026-10-08T07:59:32.747Z",
+      "observed_at": "2026-10-08T07:59:32.891Z",
+      "views": 729,
+      "replies": 10,
+      "reposts": 1,
+      "likes": 2,
+      "bookmarks": null,
+      "self_like_visible": true,
+      "independent_like_count": null,
+      "source": "Public profile counter surface",
+      "note": "Actual later profile count. Existing self-like is visible, so independent-like count remains unknown. Public views and replies may include operator activity; no verified Home or follower effect is inferred."
+    },
+    {
+      "kind": "strict_declared_group_input_original_profile_later_observation",
+      "url": "https://x.com/LIghtJUNction_x/status/2108095581906428165",
+      "published_at": "2026-10-08T07:22:07.000Z",
+      "observation_started_at": "2026-10-08T07:59:32.747Z",
+      "observed_at": "2026-10-08T07:59:32.891Z",
+      "views": 6,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": null,
+      "source": "Public profile counter surface",
+      "full_body_read_in_this_observation": false,
+      "fixed_window_check_complete": false,
+      "note": "Profile-surface counters only:Show more remains present and this capture does not establish a new full-body read. Bookmark count is unavailable. This is an early later observation, not the planned60-minute endpoint; publication proof and initial1-view observation retain their own clocks."
+    },
+    {
+      "kind": "voice_segment_comparison_delayed_60m_observation",
+      "url": "https://x.com/LIghtJUNction_x/status/2108090442583851205",
+      "published_at": "2026-10-08T07:01:42.000Z",
+      "observation_started_at": "2026-10-08T08:02:52.716Z",
+      "observed_at": "2026-10-08T08:02:53.338Z",
+      "views": 15,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "planned_age_minutes": 60,
+      "target_at": "2026-10-08T08:01:42.000Z",
+      "actual_age_seconds": 3671.338,
+      "actual_age_minutes": 61.18896666666667,
+      "lateness_seconds": 71.338,
+      "observation_kind": "delayed_60m_proxy",
+      "fixed_window_check_complete": false,
+      "delayed_proxy_check_complete": true,
+      "exact_target_actual": null,
+      "full_body_read_in_this_observation": true,
+      "codex_disclosure_visible": true,
+      "note": "Actual public read61minutes11.338seconds after publication,71.338seconds later than the fixed60-minute target. Exact-target counters remain unknown;15views are the delayed proxy only. Full reply and Codex disclosure are visible, with no new methodological feedback or completed experiment result. Operator opens may contribute; no verified Home improvement, confirmed acquisition or causal effect is established."
+    },
+    {
+      "kind": "launch_profile_after_followback_observation",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "published_at": "2026-10-07T21:18:52.000Z",
+      "observation_started_at": "2026-10-08T08:09:38.239Z",
+      "observed_at": "2026-10-08T08:09:38.594Z",
+      "views": 732,
+      "replies": 10,
+      "reposts": 1,
+      "likes": 2,
+      "bookmarks": null,
+      "self_like_visible": true,
+      "independent_like_count": null,
+      "source": "Public profile counter surface",
+      "note": "Actual later public counter observation. Existing self-like is visible; independent likes remain unknown. This read predates any new pinned-thread progress reply. Operator opens and parallel activity remain confounders, not certified Home or causal follower evidence."
+    },
+    {
+      "kind": "verified_home_target_progress_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2108108345542590472",
+      "published_at": "2026-10-08T08:12:50.000Z",
+      "observed_at": "2026-10-08T08:15:28.999Z",
+      "observation_started_at": "2026-10-08T08:15:27.933Z",
+      "publication_verified_at": "2026-10-08T08:15:28.999Z",
+      "views": 1,
+      "replies": 0,
+      "reposts": 0,
+      "likes": 0,
+      "bookmarks": 0,
+      "parent_url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "note": "Actual new reply under the fixed pinned entrance reports unchanged282 followers and534/177 eligibility counters at their separate real clocks. Second public-view forecast remains pending and is explicitly not a verified Home model. Full text, source link, Codex disclosure and counters reopened; operator reply and initial view are not independent audience or eligible payout evidence."
     }
   ],
   "analytics_observations": [
@@ -2193,9 +2339,9 @@
         "bookmarks": 0
       },
       "planned_age_minutes": 60,
-      "next_observation_due_at": "2026-10-08T08:01:42Z",
+      "next_observation_due_at": "2026-10-09T07:01:42Z",
       "24h_observation_due_at": "2026-10-09T07:01:42Z",
-      "first_recheck_observed_at": null,
+      "first_recheck_observed_at": "2026-10-08T08:02:53.338Z",
       "scheduler_configured": false,
       "post_action_total_followers": 282,
       "post_action_profile_observed_at": "2026-10-08T07:13:00.943Z",
@@ -2203,8 +2349,23 @@
       "confirmed_new_followers": null,
       "matched_age_control_available": false,
       "causal_attribution": null,
-      "result": "Initial public verification only:1view and zero visible replies/reposts/likes/bookmarks. One existing author reports a future test plan, without execution or results. Profile total282 remains unchanged in the observed operator interval; no high-quality acquisition or verified Home effect is demonstrated.",
-      "note": "The independent6-event partial-list difference has a different window and is not this action's confirmed acquisition. One blue followback is an operator action, not a new follower. No new model, forecast or target is produced."
+      "result": "Planned60-minute check was read71.338seconds late:15public views and zero visible replies/reposts/likes/bookmarks at61minutes11.338seconds of age. These are delayed-proxy counters; exact-target counters remain unknown. No new method feedback, completed experiment result, verified Home effect or confirmed acquisition is demonstrated.24-hour check remains pending.",
+      "note": "The independent6-event partial-list difference has a different window and is not this action's confirmed acquisition. One blue followback is an operator action, not a new follower. No new model, forecast or target is produced.",
+      "planned_target_at": "2026-10-08T08:01:42.000Z",
+      "actual_age_seconds": 3671.338,
+      "actual_age_minutes": 61.18896666666667,
+      "lateness_seconds": 71.338,
+      "observation_kind": "delayed_60m_proxy",
+      "exact_target_actual": null,
+      "fixed_window_check_complete": false,
+      "delayed_proxy_check_complete": true,
+      "public_result": {
+        "views": 15,
+        "replies": 0,
+        "reposts": 0,
+        "likes": 0,
+        "bookmarks": 0
+      }
     },
     {
       "id": "strict-declared-group-input-original-10",
@@ -2260,6 +2421,14 @@
     "meaning": "Aspirational actual-follower target; quality acquisition measured separately, not a growth guarantee",
     "latest_checkpoint_reached": 250,
     "next_checkpoint": 1000
+  },
+  "verified_home_target": {
+    "name": "verified_home_timeline_impressions_excluding_replies",
+    "window_days": 90,
+    "target": 500000,
+    "reference": "public/reward-observations.json",
+    "comments_excluded": true,
+    "forecast_status": "untrained_no_per_post_labels"
   },
   "external_feedback_observations": [
     {
@@ -2398,6 +2567,63 @@
       "adoption_confirmed": null,
       "new_follower_confirmed": null,
       "note": "An existing author describes voice discontinuity at segment joins and plans this week to compare repeated whole-paragraph and segmented runs on the same30-second text. This is a reported plan, not completed adoption or a measured result. Repeated feedback from the same author does not add an independent author or establish follower acquisition; no external identity, URL or raw message is published."
+    },
+    {
+      "kind": "existing_author_like_notification_on_grouped_validation_reply",
+      "parent_own_post_url": "https://x.com/LIghtJUNction_x/status/2108081894017626333",
+      "observation_started_at": "2026-10-08T07:40:26.118Z",
+      "observed_at": "2026-10-08T07:40:26.301Z",
+      "source": "Notifications visible liked-your-reply card",
+      "target_association_basis": "Visible full reply text matched to the already verified own reply; notification card contains no target permalink",
+      "external_identity_anonymized": true,
+      "notification_like_observed": true,
+      "event_at": null,
+      "current_public_like_count": null,
+      "like_count_delta": null,
+      "same_existing_author": true,
+      "additional_independent_author_count": 0,
+      "new_follower_confirmed": null,
+      "causal_attribution": null,
+      "note": "A real notification acknowledgement from the existing methodological discussion author. Relative notification age is not converted to an exact event clock. No current post counter or like increment is inferred, and repeated activity is not a new independent author or acquisition."
+    },
+    {
+      "kind": "existing_mutual_author_like_notification_on_learning_transfer_reply",
+      "parent_own_post_url": "https://x.com/LIghtJUNction_x/status/2108073044791210344",
+      "observation_started_at": "2026-10-08T07:40:26.118Z",
+      "observed_at": "2026-10-08T07:40:26.301Z",
+      "source": "Notifications visible liked-your-reply card",
+      "target_association_basis": "Visible full reply text matched to the already verified own reply; notification card contains no target permalink",
+      "external_identity_anonymized": true,
+      "notification_like_observed": true,
+      "event_at": null,
+      "current_public_like_count": null,
+      "like_count_delta": null,
+      "same_existing_author": true,
+      "additional_independent_author_count": 0,
+      "new_follower_confirmed": null,
+      "causal_attribution": null,
+      "note": "Known external appreciation is supported by a notification, independently from the later public counter read. No exact like time, fresh counter increment or new author is inferred."
+    },
+    {
+      "kind": "existing_mutual_author_appreciation_of_learning_transfer_method",
+      "parent_own_post_url": "https://x.com/LIghtJUNction_x/status/2108073044791210344",
+      "published_at": "2026-10-08T07:05:07.000Z",
+      "observation_started_at": "2026-10-08T07:44:08.165Z",
+      "observed_at": "2026-10-08T07:44:08.342Z",
+      "source": "Saved reopened public-thread full appreciation and capture clock",
+      "external_identity_anonymized": true,
+      "appreciation_confirmed": true,
+      "substantive_feedback_confirmed": false,
+      "new_method_or_experiment_result_supplied": false,
+      "same_existing_author": true,
+      "additional_independent_author_count": 0,
+      "existing_mutual_relation_observed_at": "2026-10-08T07:49:40.574Z",
+      "existing_mutual_relation_visible": true,
+      "test_execution_confirmed": null,
+      "adoption_confirmed": null,
+      "new_follower_confirmed": null,
+      "causal_attribution": null,
+      "note": "The same existing mutual author positively acknowledges the suggested transfer-to-another-situation test. This is real appreciation, without a new method, completed test, adoption evidence or measured result. Following and Follows you are already visible; no new follow, follower or quality assessment is counted. Identity, external URL and raw message remain private."
     }
   ],
   "blue_cohort_history": [
@@ -2689,6 +2915,43 @@
       "confirmed_new_followers": null,
       "causal_attribution": null,
       "note": "One existing blue follower was followed back and Following/Follows you persisted after reload. This is a confirmed operator action with unknown quality, not new acquisition. Individual identity stays private; it is separate from earlier followback actions and does not alter either observed-cohort denominator."
+    }
+  ],
+  "operator_action_observations": [
+    {
+      "kind": "like_received_appreciation",
+      "action": "like",
+      "count": 1,
+      "parent_own_post_url": "https://x.com/LIghtJUNction_x/status/2108073044791210344",
+      "external_target_anonymized": true,
+      "attempted_at": "2026-10-08T07:44:34.003Z",
+      "verification_started_at": "2026-10-08T07:45:52.337Z",
+      "verified_at": "2026-10-08T07:45:52.783Z",
+      "confirmed": true,
+      "own_action": true,
+      "verification_basis": "Reopened public appreciation still shows Liked",
+      "independent_audience_effect": null,
+      "confirmed_new_followers": null,
+      "causal_attribution": null,
+      "note": "One operator like on the existing author appreciation, persisted after reopening. This later action is recorded separately from earlier frozen phase action totals; it is not an audience like, acquisition or quality improvement."
+    },
+    {
+      "kind": "existing_blue_follower_followback",
+      "action": "blue_followback",
+      "count": 1,
+      "external_target_anonymized": true,
+      "attempted_at": "2026-10-08T08:04:32.287Z",
+      "verification_started_at": "2026-10-08T08:05:22.254Z",
+      "verified_at": "2026-10-08T08:05:22.475Z",
+      "confirmed": true,
+      "own_action": true,
+      "existing_follower": true,
+      "quality": "unknown",
+      "verification_basis": "Before action, blue badge, Follows you and Follow back were visible. After click and an independent reload, Following and Follows you persisted.",
+      "independent_audience_effect": null,
+      "confirmed_new_followers": null,
+      "causal_attribution": null,
+      "note": "One confirmed followback of an already observed blue follower. This is an operator relationship action, not acquisition or a quality upgrade; no frozen list, historical cohort or phase action total is rewritten."
     }
   ]
 }
