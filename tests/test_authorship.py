@@ -41,6 +41,14 @@ def label_example():
                           'available_at': '2026-10-08T00:59:00Z'}]}
 
 
+def grouped_example():
+    """Predeclared synthetic concrete groups, not inferred or real-post evidence."""
+    record = example()
+    record['post']['content_group_id'] = 'synthetic/reproduction-A'
+    record['external_prediction']['provenance']['training_groups'][0]['content_group_id'] = 'synthetic/reproduction-B'
+    return record
+
+
 class AuthorshipTests(unittest.TestCase):
     def test_missing_model_returns_unknown_not_fake_probability(self):
         record = example()
@@ -164,6 +172,121 @@ class AuthorshipTests(unittest.TestCase):
         record['external_prediction']['provenance']['training_groups'][0]['post_id'] = '123'
         with self.assertRaises(ValueError):
             authorship.auxiliary_features(record)
+
+    def test_legacy_records_remain_compatible_without_strict_group_claim(self):
+        output = authorship.auxiliary_features(example())
+        self.assertTrue(output['provenance']['auxiliary_eligible'])
+        self.assertFalse(output['provenance']['strict_cross_post_eligible'])
+        self.assertFalse(output['provenance']['declared_content_groups_complete'])
+        self.assertIsNone(output['provenance']['target_declared_content_group_excluded'])
+
+    def test_platform_aliases_cannot_bypass_native_identity_in_target_or_training(self):
+        for location in ('target', 'training'):
+            for platform in ('X', 'x ', ' x', 'twitter', 'x.com'):
+                record = grouped_example()
+                row = record['post'] if location == 'target' else record['external_prediction']['provenance']['training_groups'][0]
+                row.update(platform=platform, post_id='123')
+                # Different declared groups must not disguise the same native target.
+                with self.subTest(location=location, platform=platform):
+                    with self.assertRaisesRegex(ValueError, 'canonical label'):
+                        authorship.auxiliary_features(record, strict_cross_post=True)
+
+    def test_whitespace_ids_cannot_bypass_native_identity_in_target_or_training(self):
+        for location in ('target', 'training'):
+            for post_id in ('123 ', ' 123', '123\t', '\n123'):
+                record = grouped_example()
+                row = record['post'] if location == 'target' else record['external_prediction']['provenance']['training_groups'][0]
+                row['post_id'] = post_id
+                with self.subTest(location=location, post_id=post_id):
+                    with self.assertRaisesRegex(ValueError, 'no leading/trailing whitespace'):
+                        authorship.auxiliary_features(record, strict_cross_post=True)
+
+    def test_x_id_alternative_spellings_cannot_bypass_native_identity(self):
+        for location in ('target', 'training'):
+            for post_id in ('00123', '１２３', '123\u200b'):
+                record = grouped_example()
+                row = record['post'] if location == 'target' else record['external_prediction']['provenance']['training_groups'][0]
+                row['post_id'] = post_id
+                with self.subTest(location=location, post_id=post_id):
+                    with self.assertRaisesRegex(ValueError, 'canonical positive ASCII decimal'):
+                        authorship.auxiliary_features(record, strict_cross_post=True)
+
+    def test_other_canonical_platform_retains_exact_opaque_native_id(self):
+        record = grouped_example()
+        record['post'].update(platform='mastodon', post_id='CaseSensitive:00123')
+        record['post'].pop('post_url')
+        output = authorship.auxiliary_features(record, strict_cross_post=True)
+        self.assertTrue(output['provenance']['strict_cross_post_eligible'])
+        self.assertEqual(output['post']['post_id'], 'CaseSensitive:00123')
+
+    def test_strict_cross_post_checks_declared_groups_without_verifying_assignments(self):
+        record = grouped_example()
+        record['external_prediction']['provenance'].update(strategy='out_of_fold', fold_id='synthetic-fold')
+        output = authorship.auxiliary_features(record, strict_cross_post=True)
+        self.assertTrue(output['provenance']['strict_cross_post_eligible'])
+        self.assertTrue(output['provenance']['target_declared_content_group_excluded'])
+        self.assertFalse(output['provenance']['canonical_lineage_verified'])
+        self.assertFalse(output['provenance']['duplicate_text_grouping_verified'])
+        self.assertNotIn('content_group_id', output['post'])
+
+    def test_different_native_ids_same_event_or_material_cannot_cross_split(self):
+        for platform in ('x', 'mastodon'):
+            record = grouped_example()
+            row = record['external_prediction']['provenance']['training_groups'][0]
+            row.update(platform=platform, content_group_id=record['post']['content_group_id'])
+            self.assertNotEqual(row['post_id'], record['post']['post_id'])
+            with self.subTest(platform=platform):
+                with self.assertRaisesRegex(ValueError, 'exclude.*content group'):
+                    authorship.auxiliary_features(record, strict_cross_post=True)
+                # Supplied overlap cannot be bypassed by disabling the strict option.
+                with self.assertRaises(ValueError):
+                    authorship.auxiliary_features(record)
+
+    def test_strict_cross_post_rejects_unknown_target_or_training_group(self):
+        for location in ('target', 'training'):
+            for missing in (True, False):
+                record = grouped_example()
+                row = record['post'] if location == 'target' else record['external_prediction']['provenance']['training_groups'][0]
+                if missing:
+                    row.pop('content_group_id')
+                else:
+                    row['content_group_id'] = None
+                with self.subTest(location=location, missing=missing):
+                    with self.assertRaisesRegex(ValueError, 'known content_group_id'):
+                        authorship.auxiliary_features(record, strict_cross_post=True)
+
+    def test_unknown_or_ambiguous_group_tokens_cannot_claim_strict_isolation(self):
+        for value in ('', ' ', 'unknown', ' group-A ', True):
+            record = grouped_example()
+            record['post']['content_group_id'] = value
+            with self.subTest(value=value):
+                with self.assertRaises(ValueError):
+                    authorship.auxiliary_features(record, strict_cross_post=True)
+
+    def test_strict_cross_post_requires_actual_first_publication(self):
+        for missing in (True, False):
+            record = grouped_example()
+            if missing:
+                record['post'].pop('published_at')
+            else:
+                record['post']['published_at'] = None
+            # Legacy path does not fabricate a publication time or gain strict eligibility.
+            self.assertFalse(authorship.auxiliary_features(record)['provenance']['strict_cross_post_eligible'])
+            with self.assertRaisesRegex(ValueError, 'actual first published_at'):
+                authorship.auxiliary_features(record, strict_cross_post=True)
+
+    def test_strict_groups_do_not_override_training_label_time_guard(self):
+        record = grouped_example()
+        record['external_prediction']['provenance']['training_groups'][0]['label_available_at'] = '2026-10-08T00:00:00Z'
+        with self.assertRaisesRegex(ValueError, 'future training'):
+            authorship.auxiliary_features(record, strict_cross_post=True)
+
+    def test_missing_model_cannot_pass_strict_cross_post_validation(self):
+        record = grouped_example()
+        record.pop('external_prediction')
+        self.assertTrue(authorship.auxiliary_features(record)['features']['authorship_missing'])
+        with self.assertRaisesRegex(ValueError, 'external-model provenance'):
+            authorship.auxiliary_features(record, strict_cross_post=True)
 
     def test_in_sample_probabilities_cannot_be_auxiliary_features(self):
         record = example()
@@ -303,6 +426,22 @@ class AuthorshipTests(unittest.TestCase):
             with contextlib.redirect_stderr(io.StringIO()):
                 self.assertEqual(authorship.main([str(source), '--output', str(source)]), 2)
             self.assertEqual(source.read_text(), original)
+
+    def test_cli_strict_cross_post_option_is_enforced_and_does_not_export_group_ids(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / 'input.json'
+            output = Path(directory) / 'features.json'
+            source.write_text(json.dumps(example()))
+            with contextlib.redirect_stderr(io.StringIO()):
+                self.assertEqual(authorship.main([str(source), '--strict-cross-post']), 2)
+                self.assertEqual(authorship.main([str(source), '--auxiliary', '--strict-cross-post',
+                                                  '--output', str(output)]), 2)
+            self.assertFalse(output.exists())
+            source.write_text(json.dumps(grouped_example()))
+            self.assertEqual(authorship.main([str(source), '--auxiliary', '--strict-cross-post',
+                                              '--output', str(output)]), 0)
+            self.assertTrue(json.loads(output.read_text())['provenance']['strict_cross_post_eligible'])
+            self.assertNotIn('synthetic/reproduction-', output.read_text())
 
 
 if __name__ == '__main__':

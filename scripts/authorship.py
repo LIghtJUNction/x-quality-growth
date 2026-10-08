@@ -28,7 +28,7 @@ LIMITATIONS = [
     'Human-written, AI-generated and mixed refer only to this content version, not account identity.',
     'Style, punctuation, blue badges and automated publication do not establish text origin.',
     'Labels with evidence remain separate from prediction inputs and soft auxiliary features.',
-    'Checks cover declared post IDs only. Canonical edit lineage, duplicate-text grouping and comment lineage must be verified upstream and remain unverified here.',
+    'Checks cover declared post IDs, timestamps and supplied content-group IDs. Group assignments, canonical edit lineage, duplicate-text grouping and comment lineage are not independently verified.',
     'Prediction and parameter uncertainty intervals are unknown, not zero.']
 
 
@@ -65,9 +65,11 @@ def iso(value):
 
 
 def identity(value):
-    obj(value, ('platform', 'post_id', 'version', 'post_url', 'published_at', 'captured_at'),
+    obj(value, ('platform', 'post_id', 'version', 'post_url', 'published_at', 'captured_at', 'content_group_id'),
         ('platform', 'post_id', 'version'), 'post')
-    result = {key: text(value[key], key) for key in ('platform', 'post_id', 'version')}
+    content_group(value)
+    platform, post_id = group_key(value)
+    result = {'platform': platform, 'post_id': post_id, 'version': text(value['version'], 'version')}
     if value.get('post_url') is not None:
         url = text(value['post_url'], 'post_url')
         parsed = urlparse(url)
@@ -82,8 +84,26 @@ def identity(value):
 
 
 def group_key(post):
-    """Only declared native IDs; linked edit IDs/duplicate text need upstream grouping."""
-    return post['platform'], post['post_id']
+    """Validate canonical native identity consistently for targets and training rows."""
+    platform, post_id = text(post['platform'], 'platform'), text(post['post_id'], 'post_id')
+    if re.fullmatch(r'[a-z][a-z0-9_-]*', platform) is None or platform == 'twitter':
+        raise ValueError('platform must be an exact lowercase canonical label; use x, not X/twitter/aliases')
+    if post_id != post_id.strip():
+        raise ValueError('post_id must be exact with no leading/trailing whitespace')
+    if platform == 'x' and re.fullmatch(r'[1-9][0-9]*', post_id) is None:
+        raise ValueError('X post_id must be canonical positive ASCII decimal without leading zeros')
+    return platform, post_id
+
+
+def content_group(post):
+    """Declared concrete event/material/edit group; never infer one from topic or ID."""
+    value = post.get('content_group_id')
+    if value is None:
+        return None
+    text(value, 'content_group_id')
+    if value != value.strip() or value.lower() == 'unknown':
+        raise ValueError('content_group_id must be a known exact group ID or null')
+    return value
 
 
 def probabilities(value):
@@ -124,10 +144,10 @@ def feature_availability(features, cutoff, post):
     return len(features)
 
 
-def provenance(value, post, cutoff, generated_at, required=False):
+def provenance(value, post, cutoff, generated_at, required=False, strict_cross_post=False):
     """Check declared training rows; this cannot inspect the actual external model."""
     if value is None:
-        if required:
+        if required or strict_cross_post:
             raise ValueError('auxiliary features require auditable training provenance')
         return None
     fields = ('strategy', 'training_cutoff', 'trained_at', 'training_groups', 'fold_id')
@@ -144,12 +164,22 @@ def provenance(value, post, cutoff, generated_at, required=False):
     groups = value['training_groups']
     if not isinstance(groups, list) or not groups:
         raise ValueError('training_groups must contain declared training records')
-    seen, target_seen = set(), False
+    seen, target_seen, target_group_seen = set(), False, False
     target_publication = time(post['published_at'], 'published_at') if post.get('published_at') else None
+    target_group = content_group(post)
+    groups_complete = target_group is not None
+    if strict_cross_post and (target_publication is None or target_group is None):
+        raise ValueError('strict cross-post validation requires actual first published_at and a known content_group_id')
     for row in groups:
-        obj(row, ('platform', 'post_id', 'published_at', 'latest_input_available_at', 'label_available_at'),
+        obj(row, ('platform', 'post_id', 'published_at', 'latest_input_available_at', 'label_available_at', 'content_group_id'),
             ('platform', 'post_id', 'published_at', 'latest_input_available_at', 'label_available_at'), 'training group')
-        key = text(row['platform'], 'training platform'), text(row['post_id'], 'training post_id')
+        declared_group = content_group(row)
+        groups_complete = groups_complete and declared_group is not None
+        if strict_cross_post and declared_group is None:
+            raise ValueError('strict cross-post validation requires a known content_group_id for every training post')
+        if target_group is not None and declared_group == target_group:
+            target_group_seen = True
+        key = group_key(row)
         if key in seen:
             raise ValueError('training_groups must be unique native-post groups')
         seen.add(key)
@@ -162,20 +192,26 @@ def provenance(value, post, cutoff, generated_at, required=False):
             target_seen = True
         elif target_publication and publication >= target_publication:
             raise ValueError('future/same-time posts cannot train a historical authorship feature')
-    checks_passed = strategy in ('chronological', 'out_of_fold') and not target_seen
-    if required and not checks_passed:
-        raise ValueError('auxiliary predictions must be chronological/OOF and exclude the declared target post ID')
+    checks_passed = strategy in ('chronological', 'out_of_fold') and not target_seen and not target_group_seen
+    if (required or strict_cross_post) and not checks_passed:
+        raise ValueError('auxiliary predictions must be chronological/OOF and exclude the declared target post ID and content group')
     return {'strategy': strategy, 'training_cutoff': iso(training_cutoff),
             'trained_at': iso(trained_at), 'training_group_count': len(groups),
             'target_declared_post_id_excluded': not target_seen,
+            'declared_content_groups_complete': groups_complete,
+            'target_declared_content_group_excluded': False if target_group_seen else True if groups_complete else None,
+            'strict_cross_post_eligible': checks_passed and groups_complete and target_publication is not None,
             'auxiliary_eligible': checks_passed,
-            'eligibility_scope': 'declared_post_ids_and_timestamps_only; not a proof of leakage-free training',
+            'eligibility_scope': ('declared_post_ids_content_groups_and_timestamps_only' if groups_complete
+                                  else 'declared_post_ids_and_timestamps_only') + '; not a proof of leakage-free training',
             'canonical_lineage_verified': False, 'duplicate_text_grouping_verified': False,
             'comment_lineage_verified': False,
             'fold_id': value.get('fold_id'), 'verification': 'checked_declared_provenance_only'}
 
 
-def validate_prediction(record, require_auxiliary=False):
+def validate_prediction(record, require_auxiliary=False, strict_cross_post=False):
+    if type(strict_cross_post) is not bool:
+        raise ValueError('strict_cross_post must be a bool')
     obj(record, ('contract_version', 'post', 'prediction_at', 'external_prediction'),
         ('contract_version', 'post', 'prediction_at'), 'prediction record')
     if record['contract_version'] != CONTRACT:
@@ -193,6 +229,8 @@ def validate_prediction(record, require_auxiliary=False):
             raise ValueError('captured_at cannot precede actual publication')
     external = record.get('external_prediction')
     if external is None:
+        if strict_cross_post:
+            raise ValueError('strict cross-post validation requires auditable external-model provenance')
         return {'post': native, 'prediction_at': iso(cutoff), 'probabilities': None,
                 'model': None, 'provenance': None, 'input_feature_count': 0}
     fields = ('model_id', 'model_version', 'weights_sha256', 'generated_at', 'available_at',
@@ -210,7 +248,7 @@ def validate_prediction(record, require_auxiliary=False):
     input_count = feature_availability(external['input_features'], generated, post)
     if require_auxiliary and not input_count:
         raise ValueError('auxiliary predictions require recorded input availability')
-    prov = provenance(external.get('provenance'), post, cutoff, generated, require_auxiliary)
+    prov = provenance(external.get('provenance'), post, cutoff, generated, require_auxiliary, strict_cross_post)
     return {'post': native, 'prediction_at': iso(cutoff), 'probabilities': probabilities(external['probabilities']),
             'model': {'id': model_id, 'version': model_version, 'weights_sha256': digest,
                       'generated_at': iso(generated), 'available_at': iso(available)},
@@ -238,15 +276,16 @@ def predict(record):
             'limitations': list(LIMITATIONS)}
 
 
-def auxiliary_features(record, downstream_at=None):
+def auxiliary_features(record, downstream_at=None, strict_cross_post=False):
     """Generate probabilities, masks and entropy, never a hard/true origin label.
 
     Both OOF and chronological predictions must have been available at the
     downstream cutoff. OOF alone is insufficient if it trains on later posts.
-    Only declared post IDs are checked here; canonical edit/duplicate/comment
-    grouping must be verified upstream. These checks do not prove no leakage.
+    strict_cross_post requires known concrete content/event groups and actual
+    first publication times. Group assignments still need upstream review;
+    checking declared IDs does not prove leakage-free external model training.
     """
-    result = validate_prediction(record, require_auxiliary=True)
+    result = validate_prediction(record, require_auxiliary=True, strict_cross_post=strict_cross_post)
     cutoff = time(result['prediction_at'], 'prediction_at')
     downstream = time(downstream_at, 'downstream_at') if downstream_at else cutoff
     if cutoff > downstream or (result['model'] and time(result['model']['available_at'], 'available_at') > downstream):
@@ -259,7 +298,7 @@ def auxiliary_features(record, downstream_at=None):
             'downstream_at': iso(downstream), 'features': numeric,
             'provenance': result['provenance'], 'calibration': 'not_verified',
             'verified_label_included': False, 'probability_interval': None,
-            'warning': 'Soft unverified model outputs only. Declared IDs/times are checked; canonical edit, duplicate-text and comment grouping must be verified upstream and are unverified here.'}
+            'warning': 'Soft unverified model outputs only. Declared IDs/times and supplied content groups are checked; actual group assignments, canonical edit, duplicate-text and comment relationships remain unverified.'}
 
 
 def validate_label(label):
@@ -287,9 +326,9 @@ def validate_label(label):
             'evidence_count': len(evidence), 'evidence_status': 'declared_evidence_not_independently_verified'}
 
 
-def evaluate(record, label, evaluation_at):
+def evaluate(record, label, evaluation_at, strict_cross_post=False):
     """Evaluate separate evidence labels after availability; never export them as features."""
-    result = validate_prediction(record, require_auxiliary=True)
+    result = validate_prediction(record, require_auxiliary=True, strict_cross_post=strict_cross_post)
     truth = validate_label(label)
     if any(result['post'][key] != truth['post'][key] for key in ('platform', 'post_id', 'version')):
         raise ValueError('prediction and label must identify the same native post/content version')
@@ -315,13 +354,17 @@ def main(argv=None):
     parser.add_argument('record', type=Path)
     parser.add_argument('--output', type=Path)
     parser.add_argument('--auxiliary', action='store_true')
+    parser.add_argument('--strict-cross-post', action='store_true',
+                        help='with --auxiliary, require known concrete content/event groups and first publication times')
     parser.add_argument('--downstream-at')
     args = parser.parse_args(argv)
     try:
         if args.output and args.output.resolve() == args.record.resolve():
             raise ValueError('output must not overwrite the input record')
+        if args.strict_cross_post and not args.auxiliary:
+            raise ValueError('--strict-cross-post requires --auxiliary')
         record = json.loads(args.record.read_text())
-        result = auxiliary_features(record, args.downstream_at) if args.auxiliary else predict(record)
+        result = auxiliary_features(record, args.downstream_at, args.strict_cross_post) if args.auxiliary else predict(record)
         encoded = json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False) + '\n'
         if args.output:
             args.output.parent.mkdir(parents=True, exist_ok=True)
