@@ -79,7 +79,86 @@ class PublicEvidenceTests(unittest.TestCase):
     def test_optional_histories_remain_backwards_compatible(self):
         self.data.pop('post_observations', None)
         self.data.pop('analytics_observations', None)
+        self.data.pop('blue_cohort_history', None)
         render_public.validate(self.data)
+
+    def test_prior_blue_cohort_is_validated_without_merging_into_current(self):
+        prior = {
+            'observed_arrivals': 12, 'confirmed_new_followers': None,
+            'high': 0, 'not_high': 11, 'unknown': 1,
+            'window_ended_at': '2026-10-07T21:04:50Z',
+            'classified_at': '2026-10-07T23:35:15.108Z',
+        }
+        self.data['blue_cohort_history'] = [prior]
+        self.data['blue_cohort'].update(
+            id='current-independent-cohort', observed_arrivals=5,
+            confirmed_new_followers=None, high=2, not_high=3, unknown=0,
+            window_started_at='2026-10-07T22:58:02.912Z',
+            window_ended_at='2026-10-08T00:20:00Z',
+            scope='verified_followers', identity_basis='handle')
+        before = copy.deepcopy(self.data)
+        render_public.validate(self.data)
+        self.assertEqual(self.data, before)
+        self.assertIn('40.0%', render_public.block(self.data, True))
+        self.assertIn('| Newly observed blue accounts | 5;', render_public.block(self.data, True))
+        for en, current_label, prior_label, blue_label in (
+                (True, 'Current observed-cohort window', 'Previous independent cohort',
+                 'Earlier blue-count observation (separate window)'),
+                (False, '当前观察队列窗口', '上一独立观察队列', '较早蓝 V 计数采集（独立窗口）')):
+            with self.subTest(en=en):
+                block = render_public.block(self.data, en)
+                self.assertIn(current_label, block)
+                self.assertIn('2026-10-07T22:58:02.912Z → 2026-10-08T00:20:00Z', block)
+                self.assertIn(prior_label, block)
+                self.assertIn('n=12', block)
+                self.assertIn(blue_label, block)
+
+    def test_blue_cohort_history_shapes_are_validated(self):
+        for history in (None, {}, 'history', [None], [123]):
+            with self.subTest(history=history):
+                data = copy.deepcopy(self.data)
+                data['blue_cohort_history'] = history
+                with self.assertRaises(ValueError):
+                    render_public.validate(data)
+        self.data['blue_cohort_history'] = []
+        render_public.validate(self.data)
+
+    def test_blue_cohort_history_rejects_invalid_counts(self):
+        for key in ('high', 'not_high', 'unknown', 'observed_arrivals', 'confirmed_new_followers'):
+            for value in (True, False, -1, 1.5, '1'):
+                with self.subTest(key=key, value=value):
+                    data = copy.deepcopy(self.data)
+                    prior = copy.deepcopy(data['blue_cohort'])
+                    prior[key] = value
+                    data['blue_cohort_history'] = [prior]
+                    with self.assertRaises(ValueError):
+                        render_public.validate(data)
+
+    def test_blue_cohort_history_rejects_inconsistent_partition_and_confirmed_count(self):
+        for patch in ({'high': 1, 'not_high': 11, 'unknown': 1, 'observed_arrivals': 12},
+                      {'high': 0, 'not_high': 11, 'unknown': 1, 'observed_arrivals': 12,
+                       'confirmed_new_followers': 13}):
+            with self.subTest(patch=patch):
+                data = copy.deepcopy(self.data)
+                prior = copy.deepcopy(data['blue_cohort'])
+                prior.update(patch)
+                data['blue_cohort_history'] = [prior]
+                with self.assertRaises(ValueError):
+                    render_public.validate(data)
+
+    def test_cohort_windows_reject_invalid_start_and_reversed_order(self):
+        for historical in (False, True):
+            for started in ('2026-10-08T01:00:00', 'not-a-date', '2026-10-08T01:00:00Z'):
+                with self.subTest(historical=historical, started=started):
+                    data = copy.deepcopy(self.data)
+                    cohort = copy.deepcopy(data['blue_cohort'])
+                    cohort.update(window_started_at=started, window_ended_at='2026-10-08T00:00:00Z')
+                    if historical:
+                        data['blue_cohort_history'] = [cohort]
+                    else:
+                        data['blue_cohort'] = cohort
+                    with self.assertRaises(ValueError):
+                        render_public.validate(data)
 
     def test_history_collections_and_rows_have_valid_shapes(self):
         for collection in ('post_observations', 'analytics_observations'):

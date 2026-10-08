@@ -44,6 +44,11 @@
       "total": 246,
       "observed_at": "2026-10-07T23:39:44.338Z",
       "note": "After one original and two substantive replies; no total-follower change from pre-action baseline yet. Concurrent operations persist."
+    },
+    {
+      "total": 247,
+      "observed_at": "2026-10-08T00:07:55.062Z",
+      "note": "Public profile observation after a substantive feedback follow-up and one followback. Another original video was visible on the account during the same window, so no per-action acquisition attribution."
     }
   ],
   "blue_observations": [
@@ -57,14 +62,18 @@
     }
   ],
   "blue_cohort": {
-    "observed_arrivals": 12,
+    "id": "verified-handle-cohort-20261008T001006",
+    "observed_arrivals": 5,
     "confirmed_new_followers": null,
-    "high": 0,
-    "not_high": 11,
-    "unknown": 1,
-    "note": "Early verified-only, handle-based observed cohort, not this round's confirmed new followers. Badge upgrades and handle renames remain possible. One account has fewer than three recent independent originals and remains unknown.",
-    "window_ended_at": "2026-10-07T21:04:50Z",
-    "classified_at": "2026-10-07T23:35:15.108Z"
+    "high": 2,
+    "not_high": 3,
+    "unknown": 0,
+    "window_started_at": "2026-10-07T22:58:02.912Z",
+    "window_ended_at": "2026-10-08T00:10:06.403Z",
+    "classified_at": "2026-10-08T00:15:47.567557+00:00",
+    "scope": "verified_followers",
+    "identity_basis": "handle",
+    "note": "Independent handle-based difference between two complete visible verified-list captures (137 to 142); all five added handles currently have visually verified blue badges and each has at least three recent nonquote originals reviewed. This is an observed identity cohort, not confirmed newly acquired followers. Existing-follower badge upgrades, handle renames and non-atomic collection remain possible. No claim of causal improvement over the earlier cohort."
   },
   "posts": [
     {
@@ -100,12 +109,12 @@
     {
       "kind": "launch",
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
-      "views": 544,
+      "views": 551,
       "replies": 4,
       "likes": 1,
       "reposts": 1,
       "bookmarks": null,
-      "observed_at": "2026-10-07T23:39:44.338Z"
+      "observed_at": "2026-10-08T00:07:55.062Z"
     },
     {
       "kind": "voice_reply",
@@ -120,8 +129,8 @@
     {
       "kind": "reach_recovery_original",
       "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
-      "observed_at": "2026-10-07T23:39:44.338Z",
-      "views": 42,
+      "observed_at": "2026-10-08T00:07:55.062Z",
+      "views": 46,
       "replies": 1,
       "likes": 0,
       "reposts": 0,
@@ -144,11 +153,11 @@
     {
       "kind": "annotation_method_reply",
       "url": "https://x.com/LIghtJUNction_x/status/2107976452662817134",
-      "observed_at": "2026-10-07T23:29:38.361Z",
-      "views": 1,
-      "replies": null,
-      "likes": null,
-      "reposts": null,
+      "observed_at": "2026-10-07T23:55:54.637Z",
+      "views": 9,
+      "replies": 1,
+      "likes": 0,
+      "reposts": 0,
       "bookmarks": null
     },
     {
@@ -164,12 +173,12 @@
     {
       "kind": "technical_original_edited_version",
       "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
-      "observed_at": "2026-10-07T23:42:00.225Z",
-      "views": null,
+      "observed_at": "2026-10-08T00:07:55.062Z",
+      "views": 13,
       "replies": 0,
       "likes": 0,
       "reposts": 0,
-      "bookmarks": 0,
+      "bookmarks": null,
       "original_version_url": "https://x.com/LIghtJUNction_x/status/2107975802449203435",
       "original_published_at": "2026-10-07T23:26:10.000Z",
       "edit_verified_at": "2026-10-07T23:42:00.225Z",
@@ -181,6 +190,26 @@
       "url": "https://x.com/LIghtJUNction_x/status/2107980634279096332",
       "observed_at": "2026-10-07T23:45:44.536Z",
       "views": null,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0
+    },
+    {
+      "kind": "labeling_feedback_followup",
+      "url": "https://x.com/LIghtJUNction_x/status/2107983282281627907",
+      "observed_at": "2026-10-07T23:56:35.887Z",
+      "views": 1,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0
+    },
+    {
+      "kind": "git_feedback_followup",
+      "url": "https://x.com/LIghtJUNction_x/status/2107987971232375079",
+      "observed_at": "2026-10-08T00:14:49.655Z",
+      "views": 1,
       "replies": 0,
       "likes": 0,
       "reposts": 0,
@@ -332,6 +361,52 @@
       "reposts": 0,
       "bookmarks": 0,
       "published_at": "2026-10-07T21:47:02.000Z"
+    },
+    {
+      "kind": "annotation_method_reply",
+      "url": "https://x.com/LIghtJUNction_x/status/2107976452662817134",
+      "observed_at": "2026-10-07T23:29:38.361Z",
+      "views": 1,
+      "replies": null,
+      "likes": null,
+      "reposts": null,
+      "bookmarks": null
+    },
+    {
+      "kind": "launch",
+      "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
+      "views": 544,
+      "replies": 4,
+      "likes": 1,
+      "reposts": 1,
+      "bookmarks": null,
+      "observed_at": "2026-10-07T23:39:44.338Z"
+    },
+    {
+      "kind": "reach_recovery_original",
+      "url": "https://x.com/LIghtJUNction_x/status/2107950854414516296",
+      "observed_at": "2026-10-07T23:39:44.338Z",
+      "views": 42,
+      "replies": 1,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": null,
+      "published_at": "2026-10-07T21:47:02.000Z"
+    },
+    {
+      "kind": "technical_original_edited_version",
+      "url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "observed_at": "2026-10-07T23:42:00.225Z",
+      "views": null,
+      "replies": 0,
+      "likes": 0,
+      "reposts": 0,
+      "bookmarks": 0,
+      "original_version_url": "https://x.com/LIghtJUNction_x/status/2107975802449203435",
+      "original_published_at": "2026-10-07T23:26:10.000Z",
+      "edit_verified_at": "2026-10-07T23:42:00.225Z",
+      "edit_display_time": "7:41 AM · Oct 8, 2026 (Asia/Taipei)",
+      "note": "Latest version reopened and full body verified. Exact edit timestamp not retained. View count unavailable on this initial AX capture. Versions are one original action."
     }
   ],
   "analytics_observations": [
@@ -363,6 +438,17 @@
       "source": "X Verified Followers tab",
       "reached_visible_end": true,
       "note": "Handle-based verified-list count, not a count of confirmed newly acquired blue followers. Per-row badge color not retained; historical completeness and identity matching differ."
+    },
+    {
+      "count": 142,
+      "collection_started_at": "2026-10-08T00:08:17.206Z",
+      "observed_at": "2026-10-08T00:10:06.403Z",
+      "source": "X Verified Followers tab",
+      "reached_visible_end": true,
+      "added_handles_since_previous": 5,
+      "absent_handles_since_previous": 0,
+      "added_handles_currently_blue": 5,
+      "note": "Visible end and four stable-count scroll checks. Per-row badges of the five added handles subsequently verified as blue on individual profiles; 142 is a verified-list count, not total blue followers. Handle-based and non-atomic collection; new follow notifications after this capture are left for the next cohort."
     }
   ],
   "reach_experiments": [
@@ -392,7 +478,10 @@
       "baseline_observed_at": "2026-10-07T23:23:55.529Z",
       "confirmed_actions": {
         "original_posts": 1,
-        "substantive_replies": 3
+        "substantive_replies": 3,
+        "received_feedback_followups": 2,
+        "followbacks": 3,
+        "likes_on_received_feedback": 1
       },
       "planned_age_minutes": 60,
       "next_observation_due_at": "2026-10-08T00:26:10.000Z",
@@ -401,7 +490,7 @@
       "scheduler_configured": false,
       "original_version_url": "https://x.com/LIghtJUNction_x/status/2107975802449203435",
       "edit_verified_at": "2026-10-07T23:42:00.225Z",
-      "note": "Edited to remove an unintended auto-link to a local filename; platform exposed a new latest-version URL. Preserve original publication-age windows and record version-specific counters separately; do not reset the clock to improve results."
+      "note": "Edited to remove an unintended auto-link to a local filename; platform exposed a new latest-version URL. Preserve original publication-age windows and record version-specific counters separately; do not reset the clock to improve results. One topic-specific external reply to this original was verified before the 60-minute check. Concurrent video publication is an additional confounder."
     }
   ],
   "growth_target": {
@@ -421,11 +510,36 @@
       "url": "https://x.com/mydream2025/status/2107977259516858663",
       "kind": "substantive_topic_reply",
       "source": "X notification visibly replying to measured account",
-      "observed_at": null,
+      "observed_at": "2026-10-07T23:55:54.637Z",
       "recorded_at": "2026-10-07T23:52:33.644469+00:00",
       "observed_before": "2026-10-07T23:48:15Z",
-      "parent_url": null,
-      "note": "The author described a specific video-labeling issue. Exact collection timestamp and parent chain were not retained. Parent verification and follow-up remain pending after browser attachment failures; not evidence of new follower acquisition."
+      "parent_url": "https://x.com/LIghtJUNction_x/status/2107976452662817134",
+      "note": "Full public conversation reopened: the external author responded to the dataset-validation question with a specific labeling issue. Follow-up method reply also reopened. This is substantive external feedback, not new follower acquisition.",
+      "parent_verified": true,
+      "parent_verified_at": "2026-10-07T23:56:35.887Z"
+    },
+    {
+      "url": "https://x.com/taiyanghere/status/2107987106974806281",
+      "kind": "substantive_topic_reply",
+      "source": "Reopened public conversation showing technical original, external reply and authorized follow-up",
+      "observed_at": "2026-10-08T00:14:49.655Z",
+      "parent_url": "https://x.com/LIghtJUNction_x/status/2107979675960299994",
+      "parent_verified": true,
+      "followup_url": "https://x.com/LIghtJUNction_x/status/2107987971232375079",
+      "followup_verified_at": "2026-10-08T00:14:49.655Z",
+      "note": "External author reported a similar git-status pitfall. Parent verified before our like/reply; our subsequent like on that external response is not independent audience endorsement."
+    }
+  ],
+  "blue_cohort_history": [
+    {
+      "observed_arrivals": 12,
+      "confirmed_new_followers": null,
+      "high": 0,
+      "not_high": 11,
+      "unknown": 1,
+      "note": "Early verified-only, handle-based observed cohort, not this round's confirmed new followers. Badge upgrades and handle renames remain possible. One account has fewer than three recent independent originals and remains unknown.",
+      "window_ended_at": "2026-10-07T21:04:50Z",
+      "classified_at": "2026-10-07T23:35:15.108Z"
     }
   ]
 }

@@ -23,14 +23,16 @@ The X launch post links this repository. This README links that post and display
 <!-- RISE:METRICS:START -->
 | Actual observation | Value |
 | --- | --- |
-| Total followers | 175 → 246 (+71) |
-| Newly observed blue accounts | 12; confirmed new followers: unknown |
-| Quality classification | 0 high / 11 not matched / 1 unclassified |
-| High-quality share | Pending classification; unknown is not zero |
-| Latest profile observation | 2026-10-07T23:39:44.338Z |
-| Observed-cohort quality lower / possible upper bound | 0.0%–8.3% |
+| Total followers | 175 → 247 (+72) |
+| Newly observed blue accounts | 5; confirmed new followers: unknown |
+| Quality classification | 2 high / 3 not matched / 0 unclassified |
+| High-quality share | 40.0% |
+| Current observed-cohort window | 2026-10-07T22:58:02.912Z → 2026-10-08T00:10:06.403Z |
+| Latest profile observation | 2026-10-08T00:07:55.062Z |
+| Previous independent cohort | 0 high / 11 not matched / 1 unclassified (n=12) |
+| Observed-cohort quality lower / possible upper bound | 40.0%–40.0% |
 | First profile observation | Timestamp unavailable |
-| Latest blue-list observation (separate window) | 2026-10-07T21:04:50.311Z |
+| Earlier blue-count observation (separate window) | 2026-10-07T21:04:50.311Z |
 | GitHub stars / forks | 1 / 0 · 2026-10-07T21:22:27.159136+00:00 |
 
 Bounds describe the observed blue cohort, not confirmed new followers. Badge upgrades and handle changes remain possible. Public post counters may include self-interactions.
@@ -40,7 +42,7 @@ Bounds describe the observed blue cohort, not confirmed new followers. Badge upg
 [Latest progress in the pinned thread](https://x.com/LIghtJUNction_x/status/2107969836794171834)
 <!-- RISE:METRICS:END -->
 
-Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. Quality classification remains incomplete. We keep those limitations visible.
+Source: [public aggregate records](public/metrics.json). The exact time of the first total-follower check was not retained. Concurrent account activity was visible, and the first measurements predate the completed skill. Total follower change is not blue-follower growth. Verified-list arrivals may include existing followers receiving a badge. The current five-account observed cohort is fully classified; the earlier twelve-account cohort still has one unknown and is retained separately. We keep those limitations visible.
 
 ## X × GitHub feedback
 
@@ -62,7 +64,7 @@ GitHub stars and forks refresh every six hours through GitHub Actions. X feedbac
 
 Latest recheck: [the first observation at an actual age of 67 minutes](public/backtests/2026-10-08.en.md). The methods post had 34 views, one external response and zero profile visits. The account gained 16 net followers concurrently; acquisition is not attributable to that post. Earlier low-view conclusions were revised.
 
-This 100k-goal round verified one original technical post and three substantive replies; edited versions are not extra originals. Notifications showed [one external labeling-problem reply](https://x.com/mydream2025/status/2107977259516858663); its exact parent still needs verification. New-blue and high-quality acquisition remain unconfirmed. Reviews measured from first publication are due at 2026-10-08 00:26 UTC and 2026-10-08 23:26 UTC. No unattended checks have been configured.
+This 100k-goal round verified one original technical post and three substantive replies; edited versions are not extra originals. Notifications showed [one external labeling-problem reply](https://x.com/mydream2025/status/2107977259516858663); its parent was verified and [a labeling and grouped-validation follow-up](https://x.com/LIghtJUNction_x/status/2107983282281627907) was published and reopened. A complete verified-list recheck went from 137 to 142 handles: five newly observed blue accounts, two high / three not matched / zero unknown (40% of that observed cohort). Confirmed new-follower acquisition remains unknown. Three blue-follower followbacks persisted after reloading. A [topic-specific Git response](https://x.com/taiyanghere/status/2107987106974806281) was verified and a [follow-up discussion](https://x.com/LIghtJUNction_x/status/2107987971232375079) reopened. Reviews measured from first publication are due at 2026-10-08 00:26 UTC and 2026-10-08 23:26 UTC. No unattended checks have been configured.
 
 ## Install and run
 

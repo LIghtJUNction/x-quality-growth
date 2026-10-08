@@ -86,23 +86,35 @@ def validate_history(data, collection, counters, account):
         previous_by_url[url] = (observed, signature)
 
 
+def validate_cohort(c, label='blue_cohort'):
+    """Apply the same count rules to current and independently retained cohorts."""
+    if not isinstance(c, dict):
+        raise ValueError(label + ' must be an object')
+    for key in ('high', 'not_high', 'unknown', 'observed_arrivals'):
+        count(c.get(key), label + ' ' + key)
+    if c['high'] + c['not_high'] + c['unknown'] != c['observed_arrivals']:
+        raise ValueError(label + ' quality partition must match observed arrivals')
+    count(c.get('confirmed_new_followers'), label + ' confirmed new followers', nullable=True)
+    if c.get('confirmed_new_followers') is not None and c['confirmed_new_followers'] > c['observed_arrivals']:
+        raise ValueError(label + ' confirmed new followers exceed observed arrivals')
+    started = timestamp(c.get('window_started_at'), label + ' start')
+    ended = timestamp(c.get('window_ended_at'), label + ' observation')
+    if started and ended and started > ended:
+        raise ValueError(label + ' start must not follow its end')
+
+
 def validate(data):
     if not isinstance(data, dict):
         raise ValueError('public metrics must be an object')
     account = data.get('account')
     if not isinstance(account, str) or not re.fullmatch(r'[A-Za-z0-9_]{1,15}', account):
         raise ValueError('invalid measured X account')
-    c = data.get('blue_cohort')
-    if not isinstance(c, dict):
-        raise ValueError('blue_cohort must be an object')
-    for key in ('high', 'not_high', 'unknown', 'observed_arrivals'):
-        count(c.get(key), 'quality ' + key)
-    if c['high'] + c['not_high'] + c['unknown'] != c['observed_arrivals']:
-        raise ValueError('quality partition must match observed arrivals')
-    count(c.get('confirmed_new_followers'), 'confirmed new followers', nullable=True)
-    if c.get('confirmed_new_followers') is not None and c['confirmed_new_followers'] > c['observed_arrivals']:
-        raise ValueError('confirmed new followers exceed observed arrivals')
-    timestamp(c.get('window_ended_at'), 'cohort observation')
+    validate_cohort(data.get('blue_cohort'))
+    cohorts = data.get('blue_cohort_history', [])
+    if not isinstance(cohorts, list):
+        raise ValueError('blue_cohort_history must be a list')
+    for index, cohort in enumerate(cohorts):
+        validate_cohort(cohort, f'blue_cohort_history[{index}]')
     for collection, field in (('follower_observations', 'total'), ('blue_observations', 'count')):
         rows = data.get(collection)
         if not isinstance(rows, list):
@@ -239,12 +251,15 @@ def block(data, en=False):
     confirmed = c.get('confirmed_new_followers')
     confirmed_en = str(confirmed) if confirmed is not None else 'unknown'
     confirmed_zh = f'已确认新增粉丝 {confirmed}' if confirmed is not None else '精确新增粉丝未确认'
+    cohort_window = (f'{c.get("window_started_at") or "Timestamp unavailable"} '
+                     f'→ {c.get("window_ended_at") or "Timestamp unavailable"}')
     if en:
         lines = ['| Actual observation | Value |', '| --- | --- |',
                  (f'| Total followers | {a["total"]} → {b["total"]} ({b["total"]-a["total"]:+d}) |' if a else '| Total followers | N/A; no observations |'),
                  f'| Newly observed blue accounts | {c["observed_arrivals"]}; confirmed new followers: {confirmed_en} |',
                  f'| Quality classification | {c["high"]} high / {c["not_high"]} not matched / {c["unknown"]} unclassified |',
                  f'| High-quality share | {quality_en} |',
+                 f'| Current observed-cohort window | {cohort_window} |',
                  f'| Latest profile observation | {observed_date(b)} |']
     else:
         lines = ['| 真实观察 | 当前结果 |', '| --- | --- |',
@@ -252,14 +267,27 @@ def block(data, en=False):
                  f'| 新观察到的蓝 V | **{c["observed_arrivals"]}** 个；{confirmed_zh} |',
                  f'| 质量分类 | {c["high"]} 确认高质 / {c["not_high"]} 未匹配主题 / {c["unknown"]} 待判定 |',
                  f'| 高质量占比 | {quality_zh} |',
+                 f'| 当前观察队列窗口 | {cohort_window} |',
                  f'| 最新账号采集 | {observed_date(b)} |']
+    history = data.get('blue_cohort_history', [])
+    if history:
+        prior = history[-1]
+        if en:
+            lines += [f'| Previous independent cohort | {prior["high"]} high / {prior["not_high"]} not matched / {prior["unknown"]} unclassified (n={prior["observed_arrivals"]}) |']
+        else:
+            lines += [f'| 上一独立观察队列 | {prior["high"]} 高质 / {prior["not_high"]} 未匹配 / {prior["unknown"]} 待判定（n={prior["observed_arrivals"]}） |']
     blues = data['blue_observations']
     blue_date = observed_date(blues[-1] if blues else None)
+    blue_time = timestamp(blues[-1].get('observed_at'), 'blue observation') if blues else None
+    cohort_end = timestamp(c.get('window_ended_at'), 'cohort observation')
+    earlier_blue_count = blue_time is not None and cohort_end is not None and blue_time < cohort_end
+    blue_label_en = 'Earlier blue-count observation (separate window)' if earlier_blue_count else 'Blue-count observation (separate window)'
+    blue_label_zh = '较早蓝 V 计数采集（独立窗口）' if earlier_blue_count else '蓝 V 计数采集（独立窗口）'
     first_date = observed_date(a)
     if en:
-        lines += [f'| Observed-cohort quality lower / possible upper bound | {bounds} |', f'| First profile observation | {first_date} |', f'| Latest blue-list observation (separate window) | {blue_date} |']
+        lines += [f'| Observed-cohort quality lower / possible upper bound | {bounds} |', f'| First profile observation | {first_date} |', f'| {blue_label_en} | {blue_date} |']
     else:
-        lines += [f'| 观察队列质量：已确认下界 / 可能上界 | {bounds} |', f'| 首次账号采集 | {first_date} |', f'| 最新蓝 V 名单采集（独立窗口） | {blue_date} |']
+        lines += [f'| 观察队列质量：已确认下界 / 可能上界 | {bounds} |', f'| 首次账号采集 | {first_date} |', f'| {blue_label_zh} | {blue_date} |']
     caveat = ('Bounds describe the observed blue cohort, not confirmed new followers. Badge upgrades and handle changes remain possible. Public post counters may include self-interactions.' if en else '上下界描述观察到的蓝 V 队列，并非已确认新增粉丝；无法排除认证升级及改名。公开互动计数可能包含账号自身操作。')
     stats = data['github']
     if stats['observed_at']:
