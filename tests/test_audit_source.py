@@ -14,8 +14,80 @@ import audit_source as source
 
 class ExtractionTests(unittest.TestCase):
     def fixture(self, path):
-        return '\n'.join(f'param!({name}, f64, "switch_{name}", 1.0);'
-                         for name in sorted(source.REQUIRED[path]))
+        dpp_defaults = {'DppEnabled': ('bool', 'true'), 'DppTheta': ('f64', '0.65'),
+                        'DppMaxSelectedRank': ('u32', '150')}
+        records = []
+        for name in sorted(source.REQUIRED[path]):
+            kind, literal = dpp_defaults.get(name, ('f64', '1.0'))
+            records.append(f'param!({name}, {kind}, "switch_{name}", {literal});')
+        return '\n'.join(records)
+
+    def test_dpp_parameters_are_required_only_in_vm_and_parse_their_source_types(self):
+        names = {'DppEnabled', 'DppTheta', 'DppMaxSelectedRank'}
+        self.assertTrue(names <= source.REQUIRED['vm-ranker/params.rs'])
+        self.assertTrue(names.isdisjoint(source.REQUIRED['home-mixer/params/param.rs']))
+        values = source.extract_parameters(self.fixture('vm-ranker/params.rs'), 'vm-ranker/params.rs')
+        self.assertIs(values['DppEnabled']['default'], True)
+        self.assertEqual(values['DppTheta']['default'], .65)
+        self.assertEqual(values['DppMaxSelectedRank']['default'], 150)
+
+    def test_each_dpp_parameter_must_be_present_exactly_once(self):
+        path = 'vm-ranker/params.rs'
+        content = self.fixture(path)
+        for name in ('DppEnabled', 'DppTheta', 'DppMaxSelectedRank'):
+            declaration = next(line for line in content.splitlines() if line.startswith(f'param!({name},'))
+            with self.subTest(name=name, invalid='missing'):
+                with self.assertRaisesRegex(ValueError, name):
+                    source.extract_parameters(content.replace(declaration, ''), path)
+            with self.subTest(name=name, invalid='duplicate'):
+                with self.assertRaisesRegex(ValueError, 'duplicate parameter ' + name):
+                    source.extract_parameters(content + '\n' + declaration, path)
+
+    def test_dpp_max_selected_rank_rejects_invalid_unsigned_defaults(self):
+        path = 'vm-ranker/params.rs'
+        for literal in ('-1', '4294967296'):
+            with self.subTest(literal=literal):
+                content = self.fixture(path).replace('"switch_DppMaxSelectedRank", 150',
+                                                    f'"switch_DppMaxSelectedRank", {literal}')
+                with self.assertRaisesRegex(ValueError, 'u32 default'):
+                    source.extract_parameters(content, path)
+
+    def test_startup_dpp_gate_is_extracted_separately_with_source_line(self):
+        content = '/* header\ncomment */\n#[arg(long, default_value_t = false)]\npub dpp_enabled: bool,\n'
+        record = source.extract_dpp_startup_default(content)
+        self.assertIs(record['default'], False)
+        self.assertEqual(record['argument'], '--dpp-enabled')
+        self.assertEqual(record['line'], 3)
+
+    def test_startup_dpp_gate_requires_one_uncommented_literal_default(self):
+        declaration = '#[arg(long, default_value_t = false)]\npub dpp_enabled: bool,\n'
+        for invalid in ('// ' + declaration.replace('\n', '\n// '),
+                        declaration.replace('false', 'runtime_default()'),
+                        declaration.replace('default_value_t', 'default_value')):
+            with self.subTest(invalid=invalid):
+                with self.assertRaisesRegex(ValueError, 'missing or unsupported'):
+                    source.extract_dpp_startup_default(invalid)
+        with self.assertRaisesRegex(ValueError, 'duplicate startup argument'):
+            source.extract_dpp_startup_default(declaration + declaration)
+
+    def test_startup_dpp_gate_ignores_string_examples_and_keeps_real_field_position(self):
+        declaration = '#[arg(long, default_value_t = false)]\npub dpp_enabled: bool,\n'
+        examples = [
+            'const EXAMPLE: &str = "' + declaration + '";\n',
+            'const EXAMPLE: &str = r#"\n' + declaration + '"#;\n',
+            'const EXAMPLE: &str = r##"an inner " quote and /* marker\n' + declaration + '"##;\n',
+            'const EXAMPLE: &[u8] = br#"\n' + declaration + '"#;\n',
+        ]
+        real = declaration.replace('false', 'true')
+        for example in examples:
+            with self.subTest(example=example):
+                with self.assertRaisesRegex(ValueError, 'missing or unsupported'):
+                    source.extract_dpp_startup_default(example)
+                record = source.extract_dpp_startup_default(example + real)
+                self.assertIs(record['default'], True)
+                self.assertEqual(record['line'], example.count('\n') + 1)
+                with self.assertRaisesRegex(ValueError, 'duplicate startup argument'):
+                    source.extract_dpp_startup_default(example + real + real)
 
     def test_commented_macros_cannot_supply_missing_evidence(self):
         path = 'vm-ranker/params.rs'
@@ -77,6 +149,8 @@ class CheckoutTests(unittest.TestCase):
         for name in source.REQUIRED:
             (self.root / name).write_text(helper.fixture(name))
         (self.root / 'home-mixer/params/config.rs').write_text('pub const MAX_POST_AGE: u64 = 48 * 60 * 60;\n')
+        (self.root / 'vm-ranker/args.rs').write_text(
+            '#[arg(long, default_value_t = false)]\npub dpp_enabled: bool,\n')
         self.git('add', '.')
         self.git('commit', '-qm', 'Synthetic fixture')
 
@@ -88,6 +162,14 @@ class CheckoutTests(unittest.TestCase):
         self.assertEqual(result['commit'], self.git('rev-parse', 'HEAD'))
         self.assertEqual(result['files'][0]['sha256'], hashlib.sha256(b'synthetic audit fixture\n').hexdigest())
         self.assertEqual(result['constants']['home-mixer/params/config.rs']['MAX_POST_AGE']['value'], 172800)
+        self.assertIs(result['parameters']['vm-ranker/params.rs']['DppEnabled']['default'], True)
+        self.assertIs(result['startup_arguments']['vm-ranker/args.rs']['dpp_enabled']['default'], False)
+        self.assertIn('effective production settings are unknown', result['interpretation'])
+        bound_paths = {record['path'] for record in result['files']}
+        self.assertEqual(bound_paths, set(source.FILES))
+        self.assertIn('home-mixer/sources/thunder_source.rs', bound_paths)
+        self.assertIn('home-mixer/selectors/top_k_score_selector.rs', bound_paths)
+        self.assertIn('vm-ranker/scoring/dpp_model.rs', bound_paths)
 
     def test_dirty_and_unofficial_checkout_fail(self):
         (self.root / 'README.md').write_text('modified')

@@ -2,7 +2,7 @@
   "repository": "https://github.com/xai-org/x-algorithm",
   "commit": "78460ca8b65c57ddd3a05f9217c8aaeba214b628",
   "upstream_commit_time": "2026-10-07T03:05:56Z",
-  "interpretation": "Public defaults, not per-request production guarantees. Weights multiply predictions, not raw counts.",
+  "interpretation": "Public defaults, not per-request production guarantees. Weights multiply predictions, not raw counts. Startup CLI defaults and request feature-switch defaults are distinct gates; effective production settings are unknown.",
   "files": [
     {
       "path": "README.md",
@@ -88,6 +88,71 @@
       "path": "docs/BIDIRECTIONAL_BOOST_CHANGE.md",
       "sha256": "b7e0a74cb4c3149c4c9b5bea9bc4435abb8faec5bf2a63d5be965f63bc65c131",
       "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/docs/BIDIRECTIONAL_BOOST_CHANGE.md"
+    },
+    {
+      "path": "home-mixer/sources/thunder_source.rs",
+      "sha256": "82d7d8ef176a796e6ce87df26121685de75943c1641d4803cb07109a9f5bc015",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/sources/thunder_source.rs"
+    },
+    {
+      "path": "home-mixer/query_hydrators/retrieval_sequence_query_hydrator.rs",
+      "sha256": "9f2f29426e16117521d15907aba7b30c6215b7998bd133806e8ca23ff369ad04",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/query_hydrators/retrieval_sequence_query_hydrator.rs"
+    },
+    {
+      "path": "home-mixer/query_hydrators/scoring_sequence_query_hydrator.rs",
+      "sha256": "7d0fe99c74ec76694040b1c2966288fe35edae3234c25cdd5419c97d68414c8e",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/query_hydrators/scoring_sequence_query_hydrator.rs"
+    },
+    {
+      "path": "home-mixer/sources/phoenix_source.rs",
+      "sha256": "3e0a10738af20f4b930c06c4fefdf70d1ffdb4bf5ebf9419001b7c277cf342b7",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/sources/phoenix_source.rs"
+    },
+    {
+      "path": "home-mixer/util/phoenix_request.rs",
+      "sha256": "45a839ca21fb0e856ea3dd71b9b9d7b104cb7ca69dd9bc5a3ffcd7af4cd24676",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/phoenix_request.rs"
+    },
+    {
+      "path": "home-mixer/filters/previously_seen_posts_filter.rs",
+      "sha256": "f1f44a6ee8bf2cc412db8965b4f05abb1dff58efa2776f04921417d82a33db57",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/filters/previously_seen_posts_filter.rs"
+    },
+    {
+      "path": "home-mixer/util/candidates_util.rs",
+      "sha256": "0ae414cf1769998001deff962be99001095c4941ad6671d4757a80eb0af14792",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/candidates_util.rs"
+    },
+    {
+      "path": "home-mixer/filters/dedup_conversation_filter.rs",
+      "sha256": "cadf2a57f9e88b842179184641221672344582089f62afcc7c9f1f28e6fb3d30",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/filters/dedup_conversation_filter.rs"
+    },
+    {
+      "path": "vm-ranker/args.rs",
+      "sha256": "ff1e3d57ae2a6edee9a664e6261c3b5b85d8389c1aa1d54de5ffdb89f15de751",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/args.rs"
+    },
+    {
+      "path": "vm-ranker/main.rs",
+      "sha256": "b9fbee78d3f74181027a12322fcfd1b5b5b579354702d1138cc67e0ebd0dba74",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/main.rs"
+    },
+    {
+      "path": "vm-ranker/dpp.rs",
+      "sha256": "a91d5d977d195391543b67e3a7cda2b4925a4cf05d2d3a555878fa903bf933a9",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/dpp.rs"
+    },
+    {
+      "path": "vm-ranker/scoring/dpp_model.rs",
+      "sha256": "d7899f6bf0f09b8eab3524b7ab46b3cbe0f30f42ad7c781f147c5ef557e46766",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/scoring/dpp_model.rs"
+    },
+    {
+      "path": "home-mixer/selectors/top_k_score_selector.rs",
+      "sha256": "f263471272ea8ab27cf75825c9c62360b746a3eb7f8956cdf1977cf665d9ab2d",
+      "url": "https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/selectors/top_k_score_selector.rs"
     }
   ],
   "parameters": {
@@ -338,6 +403,30 @@
         "default": false,
         "feature_switch": "rust_home_mixer_vm_ranker_compute_value_model",
         "line": 223
+      },
+      "DppEnabled": {
+        "default": true,
+        "feature_switch": "rust_home_mixer_vm_ranker_dpp_enabled",
+        "line": 229
+      },
+      "DppTheta": {
+        "default": 0.65,
+        "feature_switch": "rust_home_mixer_vm_ranker_dpp_theta",
+        "line": 235
+      },
+      "DppMaxSelectedRank": {
+        "default": 150,
+        "feature_switch": "rust_home_mixer_vm_ranker_dpp_max_selected_rank",
+        "line": 236
+      }
+    }
+  },
+  "startup_arguments": {
+    "vm-ranker/args.rs": {
+      "dpp_enabled": {
+        "default": false,
+        "argument": "--dpp-enabled",
+        "line": 15
       }
     }
   },

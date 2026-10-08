@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">关注有方向，推荐还要过筛</title>
+  <desc id="desc">依据 X 官方开源推荐算法提交 78460ca8b65c57ddd3a05f9217c8aaeba214b628 的简化示意。Thunder 使用观看者的关注列表：我关注他改变我的关注圈候选；他关注我，我的内容才可能进入他的这一路候选。候选经过已看过滤、预测与评分、选择，并在选择后做同会话去重。已看过滤检查回复父帖，同会话仅保留最高分候选，因此重复回复置顶不保证每次获得新展示。线上配置与增长效果未知。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#21796f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="small-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M1 1L6 3.5L1 6" fill="none" stroke="#898b84" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <style>
+    text{font-family:'Noto Sans CJK SC','Noto Sans',sans-serif}
+    .ink{fill:#191b1b}.muted{fill:#636660}.teal{fill:#21796f}
+    .card{fill:#eee8de;stroke:#d8d1c6;stroke-width:1.3}
+  </style>
+  <rect width="1600" height="1000" fill="#f5f1e9"/>
+  <path d="M68 57H105" stroke="#21796f" stroke-width="5" stroke-linecap="round"/>
+  <text class="muted" x="124" y="66" font-size="20" font-weight="600" letter-spacing="2">RISE / X OPEN SOURCE</text>
+  <text class="ink" x="68" y="153" font-size="70" font-weight="800">关注有方向，推荐还要过筛</text>
+  <text class="muted" x="71" y="202" font-size="28">关注关系改变候选来源，不等于获得展示。</text>
+
+  <rect class="card" x="68" y="239" width="700" height="228" rx="18"/>
+  <rect class="card" x="832" y="239" width="700" height="228" rx="18"/>
+  <g font-size="35" font-weight="800" class="ink">
+    <text x="109" y="292">我关注他</text>
+    <text x="873" y="292">他关注我</text>
+  </g>
+  <g font-size="26" class="muted">
+    <text x="111" y="335">改变我的关注圈候选</text>
+    <text x="875" y="335">我的内容可能进入他的关注圈候选</text>
+  </g>
+  <g fill="#f5f1e9" stroke="#d8d1c6" stroke-width="1.3">
+    <rect x="111" y="365" width="196" height="63" rx="10"/>
+    <rect x="875" y="365" width="196" height="63" rx="10"/>
+  </g>
+  <g fill="#deebe5" stroke="#bfd5cb" stroke-width="1.3">
+    <rect x="451" y="365" width="275" height="63" rx="10"/>
+    <rect x="1215" y="365" width="275" height="63" rx="10"/>
+  </g>
+  <g class="ink" font-size="28" text-anchor="middle" font-weight="600">
+    <text x="209" y="407">他的内容</text>
+    <text x="973" y="407">我的内容</text>
+  </g>
+  <g class="teal" font-size="28" text-anchor="middle" font-weight="700">
+    <text x="588.5" y="407">我的关注圈候选</text>
+    <text x="1352.5" y="407">他的关注圈候选</text>
+  </g>
+  <g fill="none" stroke="#21796f" stroke-width="3.2" marker-end="url(#arrow)">
+    <path d="M327 397H426"/>
+    <path d="M1091 397H1190"/>
+  </g>
+  <text class="muted" x="72" y="503" font-size="22">Thunder 使用观看者的关注列表；这是召回路线之一，不是完整推荐规则。</text>
+
+  <text class="ink" x="68" y="565" font-size="37" font-weight="800">进入候选，只是第一步。</text>
+  <text class="muted" x="1531" y="563" font-size="24" text-anchor="end">Home 关键环节 · 简化示意</text>
+  <g class="card">
+    <rect x="68" y="592" width="256" height="126" rx="14"/>
+    <rect x="370" y="592" width="256" height="126" rx="14"/>
+    <rect x="672" y="592" width="256" height="126" rx="14"/>
+    <rect x="974" y="592" width="256" height="126" rx="14"/>
+    <rect x="1276" y="592" width="256" height="126" rx="14"/>
+  </g>
+  <g class="teal" font-size="18" font-weight="700">
+    <text x="88" y="621">01</text><text x="390" y="621">02</text><text x="692" y="621">03</text><text x="994" y="621">04</text><text x="1296" y="621">05</text>
+  </g>
+  <g class="ink" font-size="31" font-weight="800" text-anchor="middle">
+    <text x="196" y="660">候选</text>
+    <text x="498" y="660">已看过滤</text>
+    <text x="800" y="660">预测＋评分</text>
+    <text x="1102" y="660">选择</text>
+    <text x="1404" y="660">同会话去重</text>
+  </g>
+  <g class="muted" font-size="20" text-anchor="middle">
+    <text x="196" y="694">从多路召回</text>
+    <text x="498" y="694">含回复父帖</text>
+    <text x="800" y="694">针对观看者</text>
+    <text x="1102" y="694">按候选分数</text>
+    <text x="1404" y="694">保留最高分候选</text>
+  </g>
+  <g fill="none" stroke="#898b84" stroke-width="2.2" marker-end="url(#small-arrow)">
+    <path d="M337 655H355"/>
+    <path d="M639 655H657"/>
+    <path d="M941 655H959"/>
+    <path d="M1243 655H1261"/>
+  </g>
+  <text class="muted" x="72" y="758" font-size="23">是否最终展示仍有条件；公开源码不能还原每次线上请求的路径和配置。</text>
+
+  <rect x="68" y="794" width="1464" height="98" rx="14" fill="#deebe5"/>
+  <path d="M96 819V866" stroke="#21796f" stroke-width="4" stroke-linecap="round"/>
+  <text class="ink" x="122" y="837" font-size="31" font-weight="800">反复回复置顶 ≠ 每次都获得新展示</text>
+  <text class="muted" x="124" y="873" font-size="23">会话仍可直接打开阅读；这不是每日发帖次数处罚。</text>
+  <path d="M68 923H1532" stroke="#d8d1c6" stroke-width="1.3"/>
+  <text class="ink" x="69" y="959" font-size="25" font-weight="600">官方源码 78460ca · 线上配置 / 增长效果未知</text>
+  <g class="muted" font-size="18" text-anchor="end">
+    <a xlink:href="https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/sources/thunder_source.rs#L29"><text x="1071" y="959">Thunder L29</text></a>
+    <a xlink:href="https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/filters/previously_seen_posts_filter.rs#L24"><text x="1275" y="959">已看过滤 L24</text></a>
+    <a xlink:href="https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/filters/dedup_conversation_filter.rs#L19"><text x="1531" y="959">同会话去重 L19</text></a>
+  </g>
+</svg>

@@ -19,8 +19,17 @@
 ## 调用链复核，避免只看参数猜线上行为
 
 - [VM 参数 ComputeValueModel](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/params.rs#L223) 默认 `false`，但 [Home 的 VM 请求](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/scorers/vm_ranker_request.rs#L38) 明确设置 `compute_value_model: true`；[服务端入口](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/scoring/mod.rs#L33) 用“请求标志或配置开关”决定计算。不能仅据默认 `false` 宣称 Home 加权模型关闭；同样，实际是否调用该服务还需看请求路径和开关。
-- 作者多样性看的是同一候选池按分数排序后的同作者数量，不是发帖时间顺序。默认第二个同作者候选乘 .625，而不是 .5；这仍不等于曝光量减少 37.5%。
+- 作者多样性看的是同一候选池按分数排序后的同作者数量，不是发帖时间顺序。默认第二个同作者候选乘 .625，而不是 .5；这仍不等于曝光量减少 37.5%。默认路径先执行评分调整，再计算作者乘数（[scoring.rs L314](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/xai-value-model/scoring.rs#L314)）；服务成功返回后会更新 `candidate.score`，最终选择读取该值（[VM L125](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/scorers/vm_ranker.rs#L125)、[TopK L9](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/selectors/top_k_score_selector.rs#L9)），不能直接由裸权重还原最终排名。
 - 新用户外圈分支以**观看者**账号年龄和关注数量判断，不是创作者账号年龄。它不能支持“注册新号发帖获得某种额外曝光”的运营建议。
+
+## 本轮行动需要补充的条件
+
+- **召回有方向。** [Thunder L29](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/sources/thunder_source.rs#L29) 使用观看者关注的人。单向关注对方会改变自己的这一路召回，不能直接证明自己进入对方的内圈；对方自愿关注自己才改变相反方向。多路召回还各有开关，管道列出的来源不等于每次全部启用（[sources L352](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/candidate_pipeline/phoenix_candidate_pipeline.rs#L352)）。
+- **上下文属于观看者。** 检索与评分分别读取观看者行为序列（[检索 L45](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/query_hydrators/retrieval_sequence_query_hydrator.rs#L45)、[评分 L47](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/query_hydrators/scoring_sequence_query_hydrator.rs#L47)）。自己的操作有助于发现相关人群，不等于这些人已被推荐自己的帖子；字段传入模型不证明其具体影响大小。
+- **置顶更新可能在 Home 中合并或过滤。** 已看过滤检查候选及关联原帖、回复父帖（[filter L24](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/filters/previously_seen_posts_filter.rs#L24)、[关联 ID L13](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/util/candidates_util.rs#L13)）；选择后同会话保留最高分候选（[filter L19](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/filters/dedup_conversation_filter.rs#L19)、[装配 L479](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/home-mixer/candidate_pipeline/phoenix_candidate_pipeline.rs#L479)）。这是观看者请求内的处理，不能说每天追加几条就固定受罚，也不限制用户直接打开置顶会话阅读。
+- **内容多样性还有 DPP 双门。** DPP 按内容向量相似度和评分选择候选（[kernel L119](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/dpp.rs#L119)）。公开 feature switch `DppEnabled` 默认 `true`（[params L229](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/params.rs#L229)），但服务启动参数 `dpp_enabled` 默认 `false`（[args L15](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/args.rs#L15)）。启动需构造 DPP 上下文，且请求开关允许，才走该路径（[main L29](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/main.rs#L29)、[入口 L35](https://github.com/xai-org/x-algorithm/blob/78460ca8b65c57ddd3a05f9217c8aaeba214b628/vm-ranker/scoring/mod.rs#L35)）。线上启动与配置未知，不能宣称所有请求已启用。
+
+这些条件对应的行动假设和观察办法见 [本轮算法行动指南](algorithm-field-guide.md)。它们没有证明本技能已实现涨粉。
 
 ## 不能从代码推出的结论
 
@@ -33,7 +42,7 @@
 
 ## 版本刷新
 
-把上游独立检出到临时目录，读取新提交、实际参数、执行路径和过滤条件。运行 `python3 scripts/audit_source.py --source /path/to/x-algorithm --output references/upstream.json`，审查差异后同步本文件与策略。不要只修改提交号而保留过期结论。脚本只提取证据，不自动确认文档推断仍成立。当前清单覆盖 17 个文件哈希、两处参数表和 `MAX_POST_AGE` 的秒数；参数删除、重复或不支持的默认值语法会停止审计，避免静默遗漏。
+把上游独立检出到临时目录，读取新提交、实际参数、执行路径和过滤条件。运行 `python3 scripts/audit_source.py --source /path/to/x-algorithm --output references/upstream.json`，审查差异后同步本文件与策略。不要只修改提交号而保留过期结论。脚本只提取证据，不自动确认文档推断仍成立。当前清单绑定 30 个文件哈希，提取两处公开参数表和 `MAX_POST_AGE` 的秒数；独立的 `startup_arguments` 区域记录进程启动参数，明确区分 DPP 启动门与 feature-switch 门。这是这些文件的版本绑定和参数提取，不是完整源码审计，更不是线上运行状态证明。参数删除、重复或不支持的默认值语法会停止审计，避免静默遗漏。
 
 复核已有证据而不覆盖它：
 
