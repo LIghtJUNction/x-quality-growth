@@ -58,6 +58,8 @@ scope 可为 `all_followers` 或 `verified_followers`。complete=true 必须有�
 - observed_blue_departures：前轮 blue 后轮名单没出现；部分列表不证明实际取关。
 - quality_share：新增/观察到的新 blue 中 high/N；unknown 留分母，另输出可能区间 high/N 至 (high+unknown)/N。N=0 为 null。未知者不能伪装成“已确认低质”。
 - quality_share_status 为 lower_bound 表示仍有未知者，quality_share 只是已知高质占总数的下界；全部判定后为 complete，没有新增时为 undefined。quality_classification_complete 单独记录是否已判定完毕，不用一个 0% 隐藏待判定情况。
+- quality_share_scope 固定为 captured_blue_arrival_events，quality_share_denominator_count 是实际捕获差集中的蓝 V 人数。quality_share_status=complete 只代表这些人的分类已完成，不代表名单覆盖完整；例如部分名单捕获到两个高质，样本比例可为 100%，全窗口比例仍未知。
+- coverage_complete 描述两次所选 scope 名单完整且未发现采集重叠，不代替稳定身份核验。full_window_quality_share 只有完整全粉丝、全稳定 ID、两次采集起止时间齐备且不重叠、徽章全已知、新蓝 V 质量全判定并且人数大于 0 时才给出；否则为 null。它描述快照之间新增并仍在后快照中的蓝 V 身份差集，不包括窗口内关注后又离开的所有瞬时事件；完整 handle 或认证名单也不能取得确认新增比例。
 - quality_share_wilson95：对已确认新增、且全部已完成质量判定的样本给 Wilson 区间，反映小样本不确定性；不是因果置信度。
 - 同一帖子两次公开计数相减；计数不可见、之前没采集、计数下降或帖子缺失时增量为 null，保留原因。新帖从发布时确认的 0 计数开始测，不假造之前的基线。
 - post_feedback 中的 observation_window 保留该帖子计数的实际起止时间。后次计数采集时间没有推进时，即使数值变大也不输出增量，需要先核对记录；各帖子窗口可能不同，不能直接说所有增量来自同一轮行动。
@@ -74,3 +76,5 @@ scope 可为 `all_followers` 或 `verified_followers`。complete=true 必须有�
 ## 编辑版本
 
 本轮浏览器实测中，编辑技术帖后 X 展示了不同的最新版本永久链接。保留首次发布链接、原始发布时刻、最新版本链接、编辑核验时刻与各版本独立计数；同一帖子编辑不算第二条原创行动。固定观察窗口仍按最初发布时间记录，同时注明编辑这一干扰因素，不为提高数字重新起算。未测得精确编辑时间就保留页面时间显示及核验时间，不补造秒数。发布含代码或文件名的内容时，重新打开检查平台是否将本地文件名误识别成站外链接；必要时编辑说明并复核。
+
+互动对象也可能在读取后编辑：旧页面明确出现 “There’s a new version of this post.” 和 “See the latest post” 时，保留旧链接，打开 UI 给出的最新版本永久链接并重读正文，再执行和核验互动。旧版点赞或回复点击没有保存、没有出现回复框时只记录 attempted，不记成功或仅据此判平台限制；没有版本提示也不臆测发生了编辑。旧/新版本仍是同一原帖，保留首次发布观察窗口及各版本独立计数，不把版本计数合并或将编辑算作新增原创。

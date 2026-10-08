@@ -153,14 +153,25 @@ def compare(before, after):
     high = sum(new[k].get('quality', {}).get('status', 'unknown') == 'high' for k in arrivals)
     unknown = sum(new[k].get('quality', {}).get('status', 'unknown') == 'unknown' for k in arrivals)
     overlapping = timestamp(after.get('collection_started_at', after['observed_at'])) < timestamp(before['observed_at'])
-    exact = (before['complete'] and after['complete'] and not overlapping
+    # Coverage describes the selected list scope, not stable identity or badge certainty.
+    coverage_complete = before['complete'] and after['complete'] and not overlapping
+    exact = (coverage_complete
              and before['scope'] == 'all_followers' and modes <= {'id'})
     known_badges = all(r['badge'] != 'unknown' for r in before['followers'] + after['followers'])
+    collection_times_available = all('collection_started_at' in s for s in (before, after))
+    # A captured-event ratio can be 100% even when the full denominator is unknown.
+    # Expose a full-window ratio only with stricter identity, timing and classification evidence.
+    full_window_share = (high / n if n and exact and known_badges and unknown == 0
+                         and collection_times_available else None)
     warnings = []
     if not before['complete'] or not after['complete']:
         warnings.append('partial lists: absence does not establish a new follower or churn')
+    if not coverage_complete:
+        warnings.append('incomplete coverage: quality_share covers captured blue arrival events only; full-window quality share is unavailable')
     if overlapping:
         warnings.append('collection windows overlap: snapshot changes cannot establish distinct follower arrivals')
+    if n and not collection_times_available:
+        warnings.append('collection start times missing: full-window quality share cannot be established')
     if before['scope'] == 'verified_followers':
         warnings.append('verified-only lists: old followers gaining a badge may look new')
     if 'handle' in modes:
@@ -206,6 +217,11 @@ def compare(before, after):
         'quality_share_status': 'undefined' if not n else 'lower_bound' if unknown else 'complete',
         'quality_share': high / n if n else None,
         'quality_share_kind': 'confirmed_new_blue' if exact else 'observed_arrivals_only',
+        'quality_share_scope': 'captured_blue_arrival_events',
+        'quality_share_denominator_count': n,
+        'coverage_complete': coverage_complete,
+        'full_window_quality_share': full_window_share,
+        'full_window_quality_share_kind': 'confirmed_new_blue' if full_window_share is not None else None,
         'quality_possible_range': [high / n, (high + unknown) / n] if n else None,
         'quality_share_wilson95': wilson(high, n) if exact and unknown == 0 else None,
         'post_feedback': posts, 'causal_attribution': 'not established', 'warnings': warnings,

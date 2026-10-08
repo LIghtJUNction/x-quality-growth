@@ -35,9 +35,14 @@ class MeasurementTests(unittest.TestCase):
         self.assertIsNone(r['quality_share_wilson95'])
 
     def test_zero_growth_not_zero_quality(self):
-        r = compare(snap([]), snap([], 1))
+        a, b = snap([]), snap([], 1)
+        a['collection_started_at'] = a['observed_at']
+        b['collection_started_at'] = b['observed_at']
+        r = compare(a, b)
         self.assertEqual(r['confirmed_new_blue'], 0)
         self.assertIsNone(r['quality_share'])
+        self.assertIsNone(r['full_window_quality_share'])
+        self.assertEqual(r['quality_share_denominator_count'], 0)
 
     def test_partial_list_never_claims_exact_growth(self):
         a, b = snap([]), snap([row('1', 'new')], 1)
@@ -45,6 +50,80 @@ class MeasurementTests(unittest.TestCase):
         r = compare(a, b)
         self.assertIsNone(r['confirmed_new_blue'])
         self.assertEqual(r['observed_blue_arrivals'], 1)
+
+    def test_two_captured_high_events_in_partial_lists_are_not_full_window_100_percent(self):
+        for partial_side in ('before', 'after'):
+            with self.subTest(partial_side=partial_side):
+                a, b = snap([]), snap([row('1', 'one', quality='high'),
+                                      row('2', 'two', quality='high')], 1)
+                a['collection_started_at'] = a['observed_at']
+                b['collection_started_at'] = b['observed_at']
+                partial = a if partial_side == 'before' else b
+                partial.update(complete=False, total_followers=len(partial['followers']) + 2)
+                r = compare(a, b)
+                self.assertEqual(r['quality_share'], 1)
+                self.assertEqual(r['quality_share_scope'], 'captured_blue_arrival_events')
+                self.assertEqual(r['quality_share_denominator_count'], 2)
+                self.assertEqual(r['quality_share_status'], 'complete')
+                self.assertTrue(r['quality_classification_complete'])
+                self.assertFalse(r['coverage_complete'])
+                self.assertIsNone(r['confirmed_new_blue'])
+                self.assertIsNone(r['full_window_quality_share'])
+                self.assertIsNone(r['full_window_quality_share_kind'])
+                self.assertTrue(any('captured blue arrival events only' in w for w in r['warnings']))
+
+    def test_complete_all_followers_with_known_ids_times_and_quality_has_full_window_share(self):
+        a = snap([row('1', 'existing', badge='none')])
+        b = snap([row('1', 'existing'), row('2', 'new_high', quality='high'),
+                  row('3', 'new_unmatched', quality='not_high')], 1)
+        a['collection_started_at'] = a['observed_at']
+        b['collection_started_at'] = b['observed_at']
+        r = compare(a, b)
+        self.assertTrue(r['coverage_complete'])
+        self.assertEqual(r['existing_became_blue'], 1)
+        self.assertEqual(r['confirmed_new_blue'], 2)
+        self.assertEqual(r['quality_share_denominator_count'], 2)
+        self.assertEqual(r['quality_share'], .5)
+        self.assertEqual(r['full_window_quality_share'], .5)
+        self.assertEqual(r['full_window_quality_share_kind'], 'confirmed_new_blue')
+
+    def test_complete_selected_lists_with_handle_or_verified_scope_have_no_full_window_share(self):
+        for mode in ('handle', 'verified'):
+            with self.subTest(mode=mode):
+                a, b = snap([]), snap([row('1', 'new', quality='high')], 1)
+                a['collection_started_at'] = a['observed_at']
+                b['collection_started_at'] = b['observed_at']
+                if mode == 'handle':
+                    del b['followers'][0]['id']
+                else:
+                    a['scope'] = b['scope'] = 'verified_followers'
+                r = compare(a, b)
+                self.assertTrue(r['coverage_complete'])
+                self.assertEqual(r['quality_share'], 1)
+                self.assertEqual(r['quality_share_kind'], 'observed_arrivals_only')
+                self.assertIsNone(r['confirmed_new_blue'])
+                self.assertIsNone(r['full_window_quality_share'])
+
+    def test_full_window_share_requires_complete_badge_quality_and_collection_times(self):
+        for missing_evidence in ('badge', 'quality', 'before_start', 'after_start'):
+            with self.subTest(missing_evidence=missing_evidence):
+                a, b = snap([]), snap([row('1', 'high', quality='high'),
+                                      row('2', 'other', quality='high')], 1)
+                a['collection_started_at'] = a['observed_at']
+                b['collection_started_at'] = b['observed_at']
+                if missing_evidence == 'badge':
+                    b['followers'][1]['badge'] = 'unknown'
+                elif missing_evidence == 'quality':
+                    b['followers'][1]['quality'] = {'status': 'unknown'}
+                elif missing_evidence == 'before_start':
+                    del a['collection_started_at']
+                else:
+                    del b['collection_started_at']
+                r = compare(a, b)
+                self.assertTrue(r['coverage_complete'])
+                self.assertTrue(r['exact_follower_comparison'])
+                self.assertIsNone(r['full_window_quality_share'])
+                self.assertIsNone(r['full_window_quality_share_kind'])
 
     def test_verified_only_upgrade_ambiguity(self):
         a, b = snap([]), snap([row('1', 'new')], 1)
@@ -166,12 +245,15 @@ class MeasurementTests(unittest.TestCase):
             compare(a, b)
 
     def test_overlapping_collection_windows_are_unconfirmed(self):
-        a, b = snap([]), snap([row('1', 'new')], 2)
+        a, b = snap([]), snap([row('1', 'new', quality='high')], 2)
         a['observed_at'] = '2026-10-08T01:00:00+08:00'
+        a['collection_started_at'] = a['observed_at']
         b['collection_started_at'] = '2026-10-08T00:30:00+08:00'
         r = compare(a, b)
         self.assertIsNone(r['confirmed_new_blue'])
         self.assertEqual(r['observed_blue_arrivals'], 1)
+        self.assertFalse(r['coverage_complete'])
+        self.assertIsNone(r['full_window_quality_share'])
         self.assertTrue(any('windows overlap' in warning for warning in r['warnings']))
         b['collection_started_at'] = '2026-10-08T03:00:00+08:00'
         with self.assertRaisesRegex(ValueError, 'collection_started_at'):

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">git diff 为空 ≠ 代码审完</title>
+  <desc id="desc">Three locally reproduced Git states. An untracked new file appears as ?? in short status and in neither diff. An unstaged tracked change appears as space M and in plain diff. A staged tracked change appears as M space and in cached diff. The space symbol explicitly marks a blank status character. Reproduced with Git 2.55.0; this is a technical state table, not an AI or growth result.</desc>
+  <style>
+    .sans{font-family:'Noto Sans CJK SC','Noto Sans',sans-serif}
+    .mono{font-family:'DejaVu Sans Mono','Noto Sans CJK SC',monospace}
+    .ink{fill:#191b1b}.muted{fill:#636660}.accent{fill:#b73825}
+  </style>
+  <rect width="1200" height="675" rx="24" fill="#f5f1e9"/>
+  <rect x="52" y="39" width="32" height="4" rx="2" fill="#b73825"/>
+  <text class="sans muted" x="96" y="47" font-size="16" font-weight="600" letter-spacing="1.6">RISE / CODE REVIEW</text>
+  <text class="sans ink" x="52" y="112" font-size="49" font-weight="800">git diff 为空 ≠ 代码审完</text>
+  <text class="sans muted" x="54" y="151" font-size="21">An empty diff does not mean every file has been reviewed.</text>
+
+  <rect x="52" y="184" width="1096" height="320" rx="16" fill="#eee8de"/>
+  <path d="M52 239H1148M52 327H1148M52 415H1148" stroke="#d8d1c6" stroke-width="1"/>
+  <path d="M341 184V504M677 184V504M904 184V504" stroke="#d8d1c6" stroke-width="1"/>
+  <g class="sans muted" font-size="17" font-weight="600">
+    <text x="76" y="218">文件状态 / State</text>
+  </g>
+  <g class="mono ink" font-size="18">
+    <text x="366" y="218" font-size="17">git status --short -uall</text>
+    <text x="790" y="218" text-anchor="middle">git diff</text>
+    <text x="1026" y="218" text-anchor="middle">git diff --cached</text>
+  </g>
+
+  <g class="sans ink" font-size="26" font-weight="700">
+    <text x="76" y="278">未跟踪新文件</text>
+    <text x="76" y="366">已跟踪 · 未暂存</text>
+    <text x="76" y="454">已跟踪 · 已暂存</text>
+  </g>
+  <g class="sans muted" font-size="16">
+    <text x="77" y="306">Untracked new file</text>
+    <text x="77" y="394">Tracked, unstaged change</text>
+    <text x="77" y="482">Tracked, staged change</text>
+  </g>
+
+  <g fill="#f5f1e9" stroke="#d8d1c6">
+    <rect x="366" y="257" width="85" height="51" rx="8"/>
+    <rect x="366" y="345" width="85" height="51" rx="8"/>
+    <rect x="366" y="433" width="85" height="51" rx="8"/>
+  </g>
+  <g class="mono ink" font-size="30" font-weight="700" text-anchor="middle">
+    <text x="408.5" y="293">??</text>
+    <text x="408.5" y="381">␣M</text>
+    <text x="408.5" y="469">M␣</text>
+  </g>
+  <g class="mono muted" font-size="21">
+    <text x="470" y="289">new.py</text>
+    <text x="470" y="377">tracked.py</text>
+    <text x="470" y="465">tracked.py</text>
+  </g>
+
+  <g class="sans" text-anchor="middle">
+    <g class="muted" font-size="29" font-weight="600">
+      <text x="790" y="280">空</text>
+      <text x="1026" y="280">空</text>
+      <text x="1026" y="368">空</text>
+      <text x="790" y="456">空</text>
+    </g>
+    <g class="accent" font-size="29" font-weight="800">
+      <text x="790" y="368">有修改</text>
+      <text x="1026" y="456">有修改</text>
+    </g>
+    <g class="muted" font-size="16">
+      <text x="790" y="306">Empty</text>
+      <text x="1026" y="306">Empty</text>
+      <text x="790" y="394">Patch</text>
+      <text x="1026" y="394">Empty</text>
+      <text x="790" y="482">Empty</text>
+      <text x="1026" y="482">Patch</text>
+    </g>
+  </g>
+
+  <text class="sans ink" x="54" y="545" font-size="23" font-weight="700">先看 status，再看两种 diff；新文件逐个打开。</text>
+  <text class="sans muted" x="54" y="576" font-size="17">Git 2.55.0 本地复现 · 三个独立仓库 / Three separate local reproductions</text>
+  <text class="sans muted" x="1146" y="576" font-size="16" text-anchor="end">␣ = 一个空格 / a space</text>
+  <path d="M52 604H1148" stroke="#d8d1c6"/>
+  <text class="sans ink" x="54" y="649" font-size="29" font-weight="800">RISE</text>
+  <g class="sans muted" font-size="16">
+    <text x="161" y="630">Official Git documentation</text>
+    <text x="161" y="653">git-scm.com/docs/git-status · /git-diff</text>
+    <text x="705" y="630">github.com/LIghtJUNction/x-quality-growth</text>
+    <text x="705" y="653">references/ai-code-review-case.md</text>
+  </g>
+</svg>
