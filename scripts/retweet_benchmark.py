@@ -69,6 +69,18 @@ def file_sha(path):
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
+def deterministic_torch():
+    os.environ["OMP_NUM_THREADS"] = "1"
+    os.environ["MKL_NUM_THREADS"] = "1"
+    import torch
+    torch.set_num_threads(1)
+    torch.set_num_interop_threads(1)
+    torch.use_deterministic_algorithms(True)
+    if torch.get_num_threads() != 1 or torch.get_num_interop_threads() != 1:
+        raise ValueError("CPU thread setting failed")
+    return torch
+
+
 def write_new(path, value):
     """Exclusive private JSON creation: never overwrite an existing artifact."""
     fd = os.open(Path(path), os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
@@ -580,14 +592,7 @@ def run_plan(plan_path):
         raise ValueError("data or source provenance changed since frozen plan")
     write_new(output / "training-started.json", {"started_at": clock(), "plan_sha256": file_sha(plan_path), "code_sha256": file_sha(__file__)})
     try:
-        os.environ["OMP_NUM_THREADS"] = "1"
-        os.environ["MKL_NUM_THREADS"] = "1"
-        import torch
-        torch.set_num_threads(1)
-        torch.set_num_interop_threads(1)
-        torch.use_deterministic_algorithms(True)
-        if torch.get_num_threads() != 1 or torch.get_num_interop_threads() != 1:
-            raise ValueError("CPU thread setting failed")
+        torch = deterministic_torch()
         models, baselines, training, exported = {}, {}, {}, {}
         for cutoff in CONFIG["cutoffs_seconds"]:
             train = [row for row in rows[cutoff] if row.split == "train_candidate"]

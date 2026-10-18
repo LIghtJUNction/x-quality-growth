@@ -373,14 +373,7 @@ def run_plan(plan_path):
     old.write_new(output / "training-started.json", {"started_at": old.clock(), "plan_sha256": old.file_sha(plan_path),
                                                     "evaluation_scope": "inner_validation", "selection_used": True})
     try:
-        os.environ["OMP_NUM_THREADS"] = "1"
-        os.environ["MKL_NUM_THREADS"] = "1"
-        import torch
-        torch.set_num_threads(1)
-        torch.set_num_interop_threads(1)
-        torch.use_deterministic_algorithms(True)
-        if torch.get_num_threads() != 1 or torch.get_num_interop_threads() != 1:
-            raise ValueError("CPU thread setting failed")
+        torch = old.deterministic_torch()
         states, logs, cutoffs = execute_validation(torch, rows, output)
         old.write_new(output / "model-state.private.json", {"schema": "rise-retweet-validation-state-v1", "models": states,
                                                            "input_sha256": data["input_sha256"], "code": plan["code"],
