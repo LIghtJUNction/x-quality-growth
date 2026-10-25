@@ -26,6 +26,8 @@
 
 [30 个文件的来源绑定](references/upstream.json) 固定到官方提交 `78460ca8b65c57ddd3a05f9217c8aaeba214b628`；这不是完整源码审计或线上配置证明。[具体执行条件](references/algorithm.md)。以上策略仍需账号实验验证。
 
+新增 [2026-10-24 版本局部复核](references/upstream-20261024-review.md)，检查 Home 与 VM 默认权重及其生效条件，来源固定到官方提交 `6258a1549ef808be88fba83d3b2d58364b587ee0`。对应 [X 研究帖](https://x.com/LIghtJUNction_x/status/2114415451539423521)已发布，增长效果仍待验证。
+
 ## 真实实验记录
 
 **当前挑战：真实总粉丝破 10 万。** 250 → 1,000 → 10,000 → 100,001 是复盘检查点；高质量蓝 V 仍需独立核验。到达日期未知。[阶段迭代方法](references/road-to-100k.md)。

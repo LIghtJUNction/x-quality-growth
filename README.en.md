@@ -26,6 +26,8 @@ The X launch post links this repository. This README links that post and display
 
 The [30-file manifest](references/upstream.json) binds official commit `78460ca8b65c57ddd3a05f9217c8aaeba214b628`. It is neither a complete source audit nor proof of production settings. [Execution conditions](references/algorithm.md). These strategies remain hypotheses requiring account experiments.
 
+The new [scoped review of the 2026-10-24 revision](references/upstream-20261024-review.md) checks Home and VM default weights and their execution conditions, pinned to official commit `6258a1549ef808be88fba83d3b2d58364b587ee0`. The corresponding [X research post](https://x.com/LIghtJUNction_x/status/2114415451539423521) is published; its growth effect remains unverified.
+
 ## Real observations
 
 **Current challenge: exceed 100,000 actual followers.** Review checkpoints are 250, 1,000, 10,000 and 100,001; high-quality blue-check acquisition needs separate evidence. Arrival date is unknown. [Iteration checkpoints](references/road-to-100k.en.md).
