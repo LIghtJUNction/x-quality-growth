@@ -1,7 +1,7 @@
 {
   "schema": "rise-public-post-availability-v1",
-  "captured_at": "2026-10-08T18:20:04.434Z",
-  "scope": "28 unique original README post permalinks checked in the authenticated browser, followed by visible permalink verification of five newly published posts; individual verification clocks are preserved",
+  "captured_at": "2026-10-08T19:06:20.723Z",
+  "scope": "28 unique original README post permalinks checked in the authenticated browser, followed by eight additional visible permalink verifications; each original verification clock is preserved. Availability is known only at each recorded time.",
   "checks": [
     {
       "url": "https://x.com/LIghtJUNction_x/status/2107943767382847844",
@@ -166,6 +166,21 @@
     {
       "url": "https://x.com/LIghtJUNction_x/status/2108260868630950040",
       "verified_at": "2026-10-08T18:20:04.434Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108266189285945584",
+      "verified_at": "2026-10-08T18:41:42.933Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108240596846395836",
+      "verified_at": "2026-10-08T18:41:14.152Z",
+      "status": "available_confirmed"
+    },
+    {
+      "url": "https://x.com/LIghtJUNction_x/status/2108272421145026951",
+      "verified_at": "2026-10-08T19:06:20.723Z",
       "status": "available_confirmed"
     }
   ],
